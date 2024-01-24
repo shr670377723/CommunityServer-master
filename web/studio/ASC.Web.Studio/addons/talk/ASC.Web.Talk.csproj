@@ -1,0 +1,470 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{07AD1522-D100-4CE6-94FA-95CBE5822363}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ASC.Web.Talk</RootNamespace>
+    <AssemblyName>ASC.Web.Talk</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <OutputPath>..\..\..\..\..\web\studio\ASC.Web.Studio\bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>..\..\bin\ASC.Web.Talk.xml</DocumentationFile>
+    <NoWarn>CS1591</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Web" />
+    <Content Include="App_Themes\default\images\talk128.svg" />
+    <Content Include="App_Themes\default\images\talk16.svg" />
+    <Content Include="App_Themes\default\images\talk32.svg" />
+    <Content Include="App_Themes\default\images\talk48.svg" />
+    <Content Include="css\dark\params.less" />
+    <Content Include="css\dark\dark-talk.style.less" />
+    <Content Include="css\default\params.less" />
+    <Content Include="css\default\talk.style.less" />
+    <Content Include="css\default\talk.overview.less" />
+    <Content Include="css\default\talk.messagearea.less" />
+    <Content Include="css\default\talk.text-overflow.less" />
+    <Content Include="css\default\talk.text-overflow.xml" />
+    <Content Include="js\talk.default.js" />
+    <Content Include="js\jlib\flxhr\checkplayer.js" />
+    <Content Include="js\jlib\flxhr\flensed.js" />
+    <Content Include="js\jlib\flxhr\flxhr.js" />
+    <Content Include="js\jlib\flxhr\flxhr.swf" />
+    <Content Include="js\jlib\flxhr\flxhr.vbs" />
+    <Content Include="js\jlib\flxhr\swfobject.js" />
+    <Content Include="js\jlib\flxhr\updateplayer.swf" />
+    <Content Include="js\jlib\plugins\strophe.flxhr.js" />
+    <Content Include="js\jlib\strophe\base64.js" />
+    <Content Include="js\jlib\strophe\core.js" />
+    <Content Include="js\jlib\strophe\md5.js" />
+    <Content Include="js\talk.init.js" />
+    <Content Include="swf\expressinstall.swf" />
+    <Content Include="swf\sounds.swf" />
+    <Content Include="swf\uploader.swf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Addon\TalkAddon.cs" />
+    <Compile Include="Addon\TalkSpaceUsageStatManager.cs" />
+    <Compile Include="ClientScript\TalkClientScript.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HttpHandlers\HttpPollHandler.cs" />
+    <Compile Include="HttpHandlers\OpenContactHandler.cs" />
+    <Compile Include="HttpHandlers\UploadFileHandler.cs" />
+    <Compile Include="HttpHandlers\UserPhotoHandler.cs" />
+    <Compile Include="JabberClient.aspx.cs">
+      <DependentUpon>JabberClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JabberClient.aspx.designer.cs">
+      <DependentUpon>JabberClient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JabberWrapper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\TalkOverviewResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\TalkResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TalkConfiguration.cs" />
+    <Compile Include="UserControls\ContactsContainer.ascx.cs">
+      <DependentUpon>ContactsContainer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ContactsContainer.ascx.designer.cs">
+      <DependentUpon>ContactsContainer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TabsContainerPart.ascx.cs">
+      <DependentUpon>TabsContainerPart.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\TabsContainerPart.ascx.designer.cs">
+      <DependentUpon>TabsContainerPart.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MeseditorContainer.ascx.cs">
+      <DependentUpon>MeseditorContainer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\MeseditorContainer.ascx.designer.cs">
+      <DependentUpon>MeseditorContainer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RoomsContainer.ascx.cs">
+      <DependentUpon>RoomsContainer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RoomsContainer.ascx.designer.cs">
+      <DependentUpon>RoomsContainer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TalkNavigationItem.ascx.cs">
+      <DependentUpon>TalkNavigationItem.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\TalkNavigationItem.ascx.designer.cs">
+      <DependentUpon>TalkNavigationItem.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\default\talk.style.de-de.less" />
+    <Content Include="css\default\talk.style.en-gb.less" />
+    <Content Include="css\default\talk.style.en-us.less" />
+    <Content Include="css\default\talk.style.es-es.less" />
+    <Content Include="css\default\talk.style.fr-fr.less" />
+    <Content Include="css\default\talk.style.it-it.less" />
+    <Content Include="css\default\talk.style.lv-lv.less" />
+    <Content Include="css\default\talk.style.pt-br.less" />
+    <Content Include="css\default\talk.style.ru-ru.less" />
+    <Content Include="Default.aspx" />
+    <Content Include="JabberClient.aspx" />
+    <Content Include="js\gears.init.js" />
+    <Content Include="js\iscroll.js" />
+    <Content Include="js\talk.common.js" />
+    <Content Include="js\talk.contactsmanager.js" />
+    <Content Include="js\talk.customevents.js" />
+    <Content Include="js\talk.meseditorcontainer.js" />
+    <Content Include="js\talk.messagesmanager.js" />
+    <Content Include="js\talk.msmanager.js" />
+    <Content Include="js\talk.mucmanager.js" />
+    <Content Include="js\talk.navigationitem.js" />
+    <Content Include="js\talk.tabscontainer.js" />
+    <Content Include="js\talk.roomscontainer.js" />
+    <Content Include="js\talk.roomsmanager.js" />
+    <Content Include="js\talk.connectiomanager.js" />
+    <Content Include="js\talk.contactscontainer.js" />
+    <Content Include="notification.html" />
+    <Content Include="UserControls\ContactsContainer.ascx" />
+    <Content Include="UserControls\TabsContainerPart.ascx" />
+    <Content Include="UserControls\MeseditorContainer.ascx" />
+    <Content Include="UserControls\RoomsContainer.ascx" />
+    <Content Include="UserControls\TalkNavigationItem.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.az-Latn-AZ.resx" Condition="$(Cultures.Contains('az-Latn-AZ'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.bg.resx" Condition="$(Cultures.Contains('bg'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.cs.resx" Condition="$(Cultures.Contains('cs'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.de.resx" Condition="$(Cultures.Contains('de'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.el.resx" Condition="$(Cultures.Contains('el'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.es.resx" Condition="$(Cultures.Contains('es'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.fi.resx" Condition="$(Cultures.Contains('fi'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.fr.resx" Condition="$(Cultures.Contains('fr'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.it.resx" Condition="$(Cultures.Contains('it'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.ja.resx" Condition="$(Cultures.Contains('ja'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.ko.resx" Condition="$(Cultures.Contains('ko'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.lv.resx" Condition="$(Cultures.Contains('lv'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.nl.resx" Condition="$(Cultures.Contains('nl'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.pl.resx" Condition="$(Cultures.Contains('pl'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.pt-BR.resx" Condition="$(Cultures.Contains('pt-BR'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.pt.resx" Condition="$(Cultures.Contains('pt'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TalkOverviewResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.ru.resx" Condition="$(Cultures.Contains('ru'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.sk.resx" Condition="$(Cultures.Contains('sk'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.sl.resx" Condition="$(Cultures.Contains('sl'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.tr.resx" Condition="$(Cultures.Contains('tr'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.uk.resx" Condition="$(Cultures.Contains('uk'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.vi.resx" Condition="$(Cultures.Contains('vi'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.zh-CN.resx" Condition="$(Cultures.Contains('zh-CN'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.az-Latn-AZ.resx" Condition="$(Cultures.Contains('az-Latn-AZ'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.bg.resx" Condition="$(Cultures.Contains('bg'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.cs.resx" Condition="$(Cultures.Contains('cs'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.de.resx" Condition="$(Cultures.Contains('de'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.el.resx" Condition="$(Cultures.Contains('el'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.es.resx" Condition="$(Cultures.Contains('es'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.fi.resx" Condition="$(Cultures.Contains('fi'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.fr.resx" Condition="$(Cultures.Contains('fr'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.it.resx" Condition="$(Cultures.Contains('it'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.ja.resx" Condition="$(Cultures.Contains('ja'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.ko.resx" Condition="$(Cultures.Contains('ko'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.lv.resx" Condition="$(Cultures.Contains('lv'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.nl.resx" Condition="$(Cultures.Contains('nl'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.pl.resx" Condition="$(Cultures.Contains('pl'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.pt-BR.resx" Condition="$(Cultures.Contains('pt-BR'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.pt.resx" Condition="$(Cultures.Contains('pt'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TalkResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.ru.resx" Condition="$(Cultures.Contains('ru'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.sk.resx" Condition="$(Cultures.Contains('sk'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.sl.resx" Condition="$(Cultures.Contains('sl'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.tr.resx" Condition="$(Cultures.Contains('tr'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.uk.resx" Condition="$(Cultures.Contains('uk'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.vi.resx" Condition="$(Cultures.Contains('vi'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.zh-CN.resx" Condition="$(Cultures.Contains('zh-CN'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.bs-BA.resx" Condition="$(Cultures.Contains('bs-BA'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.ca.resx" Condition="$(Cultures.Contains('ca'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.et.resx" Condition="$(Cultures.Contains('et'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.ga.resx" Condition="$(Cultures.Contains('ga'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.he.resx" Condition="$(Cultures.Contains('he'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.id.resx" Condition="$(Cultures.Contains('id'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.ro.resx" Condition="$(Cultures.Contains('ro'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.sv.resx" Condition="$(Cultures.Contains('sv'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkOverviewResource.zh-TW.resx" Condition="$(Cultures.Contains('zh-TW'))">
+      <DependentUpon>TalkOverviewResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.ar-AE.resx" Condition="$(Cultures.Contains('ar-AE'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.bs-BA.resx" Condition="$(Cultures.Contains('bs-BA'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.ca.resx" Condition="$(Cultures.Contains('ca'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.da.resx" Condition="$(Cultures.Contains('da'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.et.resx" Condition="$(Cultures.Contains('et'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.fa.resx" Condition="$(Cultures.Contains('fa'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.ga.resx" Condition="$(Cultures.Contains('ga'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.he.resx" Condition="$(Cultures.Contains('he'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.hi.resx" Condition="$(Cultures.Contains('hi'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.hu.resx" Condition="$(Cultures.Contains('hu'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.hy.resx" Condition="$(Cultures.Contains('hy'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.id.resx" Condition="$(Cultures.Contains('id'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.lt.resx" Condition="$(Cultures.Contains('lt'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.nb-NO.resx" Condition="$(Cultures.Contains('nb-NO'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.ro.resx" Condition="$(Cultures.Contains('ro'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.sv.resx" Condition="$(Cultures.Contains('sv'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TalkResource.zh-TW.resx" Condition="$(Cultures.Contains('zh-TW'))">
+      <DependentUpon>TalkResource.resx</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\default\images\product_logo.png" />
+    <Content Include="App_Themes\default\images\product_logo_disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="css\default\imagescss\" />
+    <Folder Include="Data\upload\" />
+    <Folder Include="http-poll\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\common\ASC.Common\ASC.Common.csproj">
+      <Project>{76de7717-3d4b-4a5b-b740-15b8913df0cb}</Project>
+      <Name>ASC.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\common\ASC.Core.Common\ASC.Core.Common.csproj">
+      <Project>{a51d0454-4afa-46de-89d4-b03d37e1816c}</Project>
+      <Name>ASC.Core.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\common\ASC.Data.Storage\ASC.Data.Storage.csproj">
+      <Project>{3f6b420f-abd3-4b5a-9f4c-5d61ffbb01de}</Project>
+      <Name>ASC.Data.Storage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\module\ASC.ElasticSearch\ASC.ElasticSearch.csproj">
+      <Project>{ae1a0e06-6cd4-4e1d-8209-22bbbd6d5652}</Project>
+      <Name>ASC.ElasticSearch</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\core\ASC.Web.Core\ASC.Web.Core.csproj">
+      <Project>{02c40a64-fe22-41d0-9037-69f0d6f787a9}</Project>
+      <Name>ASC.Web.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ASC.Web.Studio.csproj">
+      <Project>{e7be6ce8-f6b0-4b9b-831b-ba0c85c8d130}</Project>
+      <Name>ASC.Web.Studio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="talk.notification.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="web.config" />
+    <Content Include="css\dark\dark-talk.messagearea.less" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AjaxPro.2">
+      <Version>21.12.22.2</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+</Project>

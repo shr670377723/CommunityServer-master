@@ -1,0 +1,25 @@
+﻿<%@ Assembly Name="ASC.Web.Files" %>
+
+<%@ Master Language="C#" AutoEventWireup="true" MasterPageFile="~/Masters/BaseTemplate.master" CodeBehind="BasicTemplate.master.cs" Inherits="ASC.Web.Files.Masters.BasicTemplate" %>
+
+<%@ MasterType TypeName="ASC.Web.Studio.Masters.BaseTemplate" %>
+
+<asp:Content runat="server" ContentPlaceHolderID="HeaderContent">
+    <asp:ContentPlaceHolder ID="BTHeaderContent" runat="server"/>
+</asp:Content>
+
+<asp:Content runat="server" ContentPlaceHolderID="CreateButtonContent">
+    <asp:ContentPlaceHolder ID="CreateButtonContent" runat="server"/>
+</asp:Content>
+
+<asp:Content runat="server" ContentPlaceHolderID="SidePanel">
+    <asp:ContentPlaceHolder ID="BTSidePanel" runat="server"/>
+</asp:Content>
+
+<asp:Content runat="server" ContentPlaceHolderID="FilterContent">
+    <asp:ContentPlaceHolder ID="FilterContent" runat="server" />
+</asp:Content>
+
+<asp:Content runat="server" ContentPlaceHolderID="PageContent">
+    <asp:ContentPlaceHolder ID="BTPageContent" runat="server"/>
+</asp:Content>

@@ -1,0 +1,532 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7BCED72B-1DDE-4732-8EB3-2CF7002D7305}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ASC.Web.Calendar</RootNamespace>
+    <AssemblyName>ASC.Web.Calendar</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <OutputPath>..\..\..\..\..\web\studio\ASC.Web.Studio\bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>..\..\bin\ASC.Web.Calendar.xml</DocumentationFile>
+    <NoWarn>CS1591</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NLog">
+      <Version>5.1.2</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Addon\CalendarAddon.cs" />
+    <Compile Include="Configuration\CalendarSpaceUsageStatManager.cs" />
+    <Compile Include="Controls\DocumentsPopup\DocumentsPopup.ascx.cs">
+      <DependentUpon>DocumentsPopup.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\DocumentsPopup\DocumentsPopup.ascx.designer.cs">
+      <DependentUpon>DocumentsPopup.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\FilesUploader.cs" />
+    <Compile Include="Notification\CalendarSubscriptionManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\CalendarControl.ascx.cs">
+      <DependentUpon>CalendarControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\CalendarControl.ascx.designer.cs">
+      <DependentUpon>CalendarControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CalendarResources.ascx.cs">
+      <DependentUpon>CalendarResources.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\CalendarResources.ascx.designer.cs">
+      <DependentUpon>CalendarResources.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ButtonSidePanel.ascx.cs">
+      <DependentUpon>ButtonSidePanel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ButtonSidePanel.ascx.designer.cs">
+      <DependentUpon>ButtonSidePanel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CalendarSidePanel.ascx.cs">
+      <DependentUpon>CalendarSidePanel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\CalendarSidePanel.ascx.designer.cs">
+      <DependentUpon>CalendarSidePanel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SidePanel.ascx.cs">
+      <DependentUpon>SidePanel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\SidePanel.ascx.designer.cs">
+      <DependentUpon>SidePanel.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\CalendarJSResource.az-Latn-AZ.resx" Condition="$(Cultures.Contains('az-Latn-AZ'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.bg.resx" Condition="$(Cultures.Contains('bg'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.cs.resx" Condition="$(Cultures.Contains('cs'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.de.resx" Condition="$(Cultures.Contains('de'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.el.resx" Condition="$(Cultures.Contains('el'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.es.resx" Condition="$(Cultures.Contains('es'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.fi.resx" Condition="$(Cultures.Contains('fi'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.fr.resx" Condition="$(Cultures.Contains('fr'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.it.resx" Condition="$(Cultures.Contains('it'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.ja.resx" Condition="$(Cultures.Contains('ja'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.ko.resx" Condition="$(Cultures.Contains('ko'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.lv.resx" Condition="$(Cultures.Contains('lv'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.nl.resx" Condition="$(Cultures.Contains('nl'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.pl.resx" Condition="$(Cultures.Contains('pl'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.pt-BR.resx" Condition="$(Cultures.Contains('pt-BR'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.pt.resx" Condition="$(Cultures.Contains('pt'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CalendarJSResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.ru.resx" Condition="$(Cultures.Contains('ru'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.sk.resx" Condition="$(Cultures.Contains('sk'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.sl.resx" Condition="$(Cultures.Contains('sl'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.tr.resx" Condition="$(Cultures.Contains('tr'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.uk.resx" Condition="$(Cultures.Contains('uk'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.vi.resx" Condition="$(Cultures.Contains('vi'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.zh-CN.resx" Condition="$(Cultures.Contains('zh-CN'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Resources\CalendarJSResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.az-Latn-AZ.resx" Condition="$(Cultures.Contains('az-Latn-AZ'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.bg.resx" Condition="$(Cultures.Contains('bg'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.cs.resx" Condition="$(Cultures.Contains('cs'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.de.resx" Condition="$(Cultures.Contains('de'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.el.resx" Condition="$(Cultures.Contains('el'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.es.resx" Condition="$(Cultures.Contains('es'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.fi.resx" Condition="$(Cultures.Contains('fi'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.fr.resx" Condition="$(Cultures.Contains('fr'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.it.resx" Condition="$(Cultures.Contains('it'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.ja.resx" Condition="$(Cultures.Contains('ja'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.ko.resx" Condition="$(Cultures.Contains('ko'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.lv.resx" Condition="$(Cultures.Contains('lv'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.nl.resx" Condition="$(Cultures.Contains('nl'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.pl.resx" Condition="$(Cultures.Contains('pl'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.pt-BR.resx" Condition="$(Cultures.Contains('pt-BR'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.pt.resx" Condition="$(Cultures.Contains('pt'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CalendarAddonResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.ru.resx" Condition="$(Cultures.Contains('ru'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.sk.resx" Condition="$(Cultures.Contains('sk'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.sl.resx" Condition="$(Cultures.Contains('sl'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.tr.resx" Condition="$(Cultures.Contains('tr'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.uk.resx" Condition="$(Cultures.Contains('uk'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.vi.resx" Condition="$(Cultures.Contains('vi'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.zh-CN.resx" Condition="$(Cultures.Contains('zh-CN'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Resources\CalendarAddonResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Resources\CalendarJSResource.ar-AE.resx" Condition="$(Cultures.Contains('ar-AE'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.ca.resx" Condition="$(Cultures.Contains('ca'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.da.resx" Condition="$(Cultures.Contains('da'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.et.resx" Condition="$(Cultures.Contains('et'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.fa.resx" Condition="$(Cultures.Contains('fa'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.ga.resx" Condition="$(Cultures.Contains('ga'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.hu.resx" Condition="$(Cultures.Contains('hu'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.id.resx" Condition="$(Cultures.Contains('id'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.nb-NO.resx" Condition="$(Cultures.Contains('nb-NO'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.ro.resx" Condition="$(Cultures.Contains('ro'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.sv.resx" Condition="$(Cultures.Contains('sv'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarJSResource.zh-TW.resx" Condition="$(Cultures.Contains('zh-TW'))">
+      <DependentUpon>CalendarJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.ar-AE.resx" Condition="$(Cultures.Contains('ar-AE'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.ca.resx" Condition="$(Cultures.Contains('ca'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.da.resx" Condition="$(Cultures.Contains('da'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.et.resx" Condition="$(Cultures.Contains('et'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.fa.resx" Condition="$(Cultures.Contains('fa'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.ga.resx" Condition="$(Cultures.Contains('ga'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.hu.resx" Condition="$(Cultures.Contains('hu'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.id.resx" Condition="$(Cultures.Contains('id'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.ro.resx" Condition="$(Cultures.Contains('ro'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.sv.resx" Condition="$(Cultures.Contains('sv'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CalendarAddonResource.zh-TW.resx" Condition="$(Cultures.Contains('zh-TW'))">
+      <DependentUpon>CalendarAddonResource.resx</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\default\images\logo.png" />
+    <Content Include="App_Themes\default\images\disabledlogo.png" />
+    <Content Include="App_Themes\default\images\minilogo.png" />
+    <Content Include="App_Themes\default\images\product_logolarge.png" />
+    <Content Include="Controls\DocumentsPopup\css\images\warning.svg" />
+    <Content Include="Controls\DocumentsPopup\DocumentsPopup.ascx" />
+    <Content Include="Controls\DocumentsPopup\js\documentspopup.js" />
+    <Content Include="Default.aspx" />
+    <Content Include="UserControls\CalendarTemplates.ascx" />
+    <Content Include="UserControls\CalendarControl.ascx" />
+    <Content Include="UserControls\CalendarResources.ascx" />
+    <Content Include="UserControls\ButtonSidePanel.ascx" />
+    <Content Include="UserControls\CalendarSidePanel.ascx" />
+    <Content Include="UserControls\css\jquery.jscrollpane.css" />
+    <Content Include="UserControls\fullcalendar\css\asc-datepicker\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="UserControls\fullcalendar\css\asc-datepicker\images\ui-bg_flat_100_ffffff_40x100.png" />
+    <Content Include="UserControls\fullcalendar\css\asc-datepicker\images\ui-bg_flat_75_d5ebf6_40x100.png" />
+    <Content Include="UserControls\fullcalendar\css\asc-datepicker\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="UserControls\fullcalendar\css\asc-datepicker\images\ui-bg_glass_55_fefde9_1x400.png" />
+    <Content Include="UserControls\fullcalendar\css\asc-datepicker\images\ui-bg_highlight-soft_65_62b5df_1x100.png" />
+    <Content Include="UserControls\fullcalendar\css\asc-datepicker\images\ui-bg_inset-soft_95_fef1ec_1x100.png" />
+    <Content Include="UserControls\fullcalendar\css\asc-datepicker\images\ui-icons_222222_256x240.png" />
+    <Content Include="UserControls\fullcalendar\css\asc-datepicker\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="UserControls\fullcalendar\css\asc-datepicker\images\ui-icons_454545_256x240.png" />
+    <Content Include="UserControls\fullcalendar\css\asc-datepicker\images\ui-icons_888888_256x240.png" />
+    <Content Include="UserControls\fullcalendar\css\asc-datepicker\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="App_Themes\bright-blue\params.less" />
+    <Content Include="App_Themes\dark-bright-blue\params.less" />
+    <Content Include="App_Themes\dark-dark-green\params.less" />
+    <Content Include="App_Themes\dark-deep-blue\params.less" />
+    <Content Include="App_Themes\dark-default\params.less" />
+    <Content Include="App_Themes\dark-green\params.less" />
+    <Content Include="App_Themes\dark-pure-orange\params.less" />
+    <Content Include="App_Themes\dark-wild-pink\params.less" />
+    <Content Include="App_Themes\deep-blue\params.less" />
+    <Content Include="App_Themes\default\params.less" />
+    <Content Include="App_Themes\pure-orange\params.less" />
+    <Content Include="App_Themes\wild-pink\params.less" />
+    <Content Include="UserControls\fullcalendar\css\asc-datepicker\jquery-ui-1.8.14.custom.css" />
+    <Content Include="UserControls\fullcalendar\css\asc-dialog\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="UserControls\fullcalendar\css\asc-dialog\images\ui-bg_flat_100_2f3438_40x100.png" />
+    <Content Include="UserControls\fullcalendar\css\asc-dialog\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="UserControls\fullcalendar\css\asc-dialog\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="UserControls\fullcalendar\css\asc-dialog\images\ui-bg_highlight-soft_65_62b5df_1x100.png" />
+    <Content Include="UserControls\fullcalendar\css\asc-dialog\images\ui-bg_highlight-soft_75_dadada_1x100.png" />
+    <Content Include="UserControls\fullcalendar\css\asc-dialog\images\ui-bg_highlight-soft_75_e6e6e6_1x100.png" />
+    <Content Include="UserControls\fullcalendar\css\asc-dialog\images\ui-bg_inset-soft_95_fef1ec_1x100.png" />
+    <Content Include="UserControls\fullcalendar\css\asc-dialog\images\ui-icons_222222_256x240.png" />
+    <Content Include="UserControls\fullcalendar\css\asc-dialog\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="UserControls\fullcalendar\css\asc-dialog\images\ui-icons_454545_256x240.png" />
+    <Content Include="UserControls\fullcalendar\css\asc-dialog\images\ui-icons_888888_256x240.png" />
+    <Content Include="UserControls\fullcalendar\css\asc-dialog\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="UserControls\fullcalendar\css\asc-dialog\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="UserControls\fullcalendar\css\asc-dialog\jquery-ui-1.8.14.custom.css" />
+    <Content Include="App_Themes\default\calendar.less" />
+    <Content Include="App_Themes\bright-blue\calendar.less" />
+    <Content Include="App_Themes\dark-green\calendar.less" />
+    <Content Include="App_Themes\deep-blue\calendar.less" />
+    <Content Include="App_Themes\pure-orange\calendar.less" />
+    <Content Include="App_Themes\wild-pink\calendar.less" />
+    <Content Include="UserControls\fullcalendar\css\attachments.less" />
+    <Content Include="Controls\DocumentsPopup\css\documentspopup.less" />
+    <Content Include="App_Themes\dark-pure-orange\calendar.less" />
+    <Content Include="App_Themes\dark-bright-blue\calendar.less" />
+    <Content Include="App_Themes\dark-dark-green\calendar.less" />
+    <Content Include="App_Themes\dark-deep-blue\calendar.less" />
+    <Content Include="App_Themes\dark-default\calendar.less" />
+    <Content Include="App_Themes\dark-wild-pink\calendar.less" />
+    <Content Include="UserControls\fullcalendar\css\dark-attachments.less" />
+    <Content Include="UserControls\fullcalendar\css\fullcalendar.less" />
+    <Content Include="UserControls\fullcalendar\css\fullcalendar.print.css" />
+    <Content Include="UserControls\fullcalendar\dark-img\base_sprite.png" />
+    <Content Include="UserControls\fullcalendar\dark-img\circle-close.png" />
+    <Content Include="UserControls\fullcalendar\dark-img\event-alert.png" />
+    <Content Include="UserControls\fullcalendar\dark-img\event-repeat.png" />
+    <Content Include="UserControls\fullcalendar\dark-img\guest_statements.png" />
+    <Content Include="UserControls\fullcalendar\dark-img\ical.png" />
+    <Content Include="UserControls\fullcalendar\dark-img\list-header-add.png" />
+    <Content Include="UserControls\fullcalendar\dark-img\list-item-shared.png" />
+    <Content Include="UserControls\fullcalendar\dark-img\profile.png" />
+    <Content Include="UserControls\fullcalendar\dark-img\resizer.png" />
+    <Content Include="UserControls\fullcalendar\dark-img\settings_16.png" />
+    <Content Include="UserControls\fullcalendar\dark-img\trash.png" />
+    <Content Include="UserControls\fullcalendar\fullcalendar.js" />
+    <Content Include="UserControls\fullcalendar\img\base_sprite.png" />
+    <Content Include="UserControls\fullcalendar\img\circle-close.png" />
+    <Content Include="UserControls\fullcalendar\img\event-alert.png" />
+    <Content Include="UserControls\fullcalendar\img\event-repeat.png" />
+    <Content Include="UserControls\fullcalendar\img\guest_statements.png" />
+    <Content Include="UserControls\fullcalendar\img\ical.png" />
+    <Content Include="UserControls\fullcalendar\img\list-header-add.png" />
+    <Content Include="UserControls\fullcalendar\img\list-item-shared.png" />
+    <Content Include="UserControls\fullcalendar\img\profile.png" />
+    <Content Include="UserControls\fullcalendar\img\resizer.png" />
+    <Content Include="UserControls\fullcalendar\img\settings_16.png" />
+    <Content Include="UserControls\fullcalendar\img\trash.png" />
+    <Content Include="UserControls\js\calendar.attachments.js" />
+    <Content Include="UserControls\js\calendar_controller.js" />
+    <Content Include="UserControls\js\calendar_event_page.js" />
+    <Content Include="UserControls\js\calendar.popupqueue.js" />
+    <Content Include="UserControls\js\recurrence_rule.js" />
+    <Content Include="UserControls\js\jquery.cookie.js" />
+    <Content Include="UserControls\js\jquery.jscrollpane.min.js" />
+    <Content Include="UserControls\js\jquery.mousewheel.js" />
+    <Content Include="UserControls\SidePanel.ascx" />
+    <Content Include="UserControls\popup\css\dark-popup.less" />
+    <Content Include="UserControls\popup\css\popup.less" />
+    <Content Include="UserControls\popup\img\popup-arrow-big.png" />
+    <Content Include="UserControls\popup\img\popup-arrow.png" />
+    <Content Include="UserControls\popup\popup.js" />
+    <Content Include="web.config" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UserControls\fullcalendar\tmpl\todo.editor.tmpl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\common\ASC.Common\ASC.Common.csproj">
+      <Project>{76de7717-3d4b-4a5b-b740-15b8913df0cb}</Project>
+      <Name>ASC.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\common\ASC.Core.Common\ASC.Core.Common.csproj">
+      <Project>{a51d0454-4afa-46de-89d4-b03d37e1816c}</Project>
+      <Name>ASC.Core.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\common\ASC.Data.Storage\ASC.Data.Storage.csproj">
+      <Project>{3f6b420f-abd3-4b5a-9f4c-5d61ffbb01de}</Project>
+      <Name>ASC.Data.Storage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\module\ASC.Api\ASC.Api.Calendar\ASC.Api.Calendar.csproj">
+      <Project>{5f7dc7bd-d831-449a-908d-5a419e4dfe71}</Project>
+      <Name>ASC.Api.Calendar</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\core\ASC.Web.Core\ASC.Web.Core.csproj">
+      <Project>{02c40a64-fe22-41d0-9037-69f0d6f787a9}</Project>
+      <Name>ASC.Web.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ASC.Web.Studio.csproj">
+      <Project>{e7be6ce8-f6b0-4b9b-831b-ba0c85c8d130}</Project>
+      <Name>ASC.Web.Studio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Products\Files\ASC.Web.Files.csproj">
+      <Project>{8c534af7-5696-4e68-9ff4-ffc311893c10}</Project>
+      <Name>ASC.Web.Files</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54560</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+</Project>

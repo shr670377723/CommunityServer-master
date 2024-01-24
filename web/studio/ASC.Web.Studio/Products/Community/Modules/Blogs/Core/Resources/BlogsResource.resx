@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddonDescriptionResourceKey" xml:space="preserve">
+    <value>The corporate blog</value>
+  </data>
+  <data name="AddonName" xml:space="preserve">
+    <value>Blogs</value>
+  </data>
+  <data name="AllRecordsOfTheAutor" xml:space="preserve">
+    <value>All posts by the author</value>
+  </data>
+  <data name="Blogs" xml:space="preserve">
+    <value>Blogs</value>
+  </data>
+  <data name="BlogTitleEmptyMessage" xml:space="preserve">
+    <value>The post topic field cannot be empty</value>
+  </data>
+  <data name="BlogTitleLabel" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="CancelButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CommentsAddButtonTitle" xml:space="preserve">
+    <value>Add comment</value>
+  </data>
+  <data name="CommentsTitle" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="ConfirmRemovePostMessage" xml:space="preserve">
+    <value>Are you sure you want to delete the post?</value>
+  </data>
+  <data name="ContentTitle" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="DeleteBlogLink" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="EditBlogLink" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="EditPostTitle" xml:space="preserve">
+    <value>Edit Post</value>
+  </data>
+  <data name="EmptyScreenBlogCaption" xml:space="preserve">
+    <value>No blogs have been created yet</value>
+  </data>
+  <data name="EmptyScreenBlogLink" xml:space="preserve">
+    <value>Create the first blog</value>
+  </data>
+  <data name="EmptyScreenBlogText" xml:space="preserve">
+    <value>Create your own page to share the interesting information, thoughts and experiences with others, express your opinions, get feedback from the users' comments.</value>
+  </data>
+  <data name="EmptyScreenBlogTextVisitor" xml:space="preserve">
+    <value>View pages with the interesting information, other users' thoughts and experiences, express your opinions, get feedback from the users' comments.</value>
+  </data>
+  <data name="EnterTagsMessage" xml:space="preserve">
+    <value>Enter the needed tags separating them with commas</value>
+  </data>
+  <data name="HideButton" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="NewPost" xml:space="preserve">
+    <value>Create new post</value>
+  </data>
+  <data name="PostButton" xml:space="preserve">
+    <value>Publish</value>
+  </data>
+  <data name="PostedTitle" xml:space="preserve">
+    <value>Author</value>
+  </data>
+  <data name="PreviewButton" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="ReadMoreLink" xml:space="preserve">
+    <value>Read more</value>
+  </data>
+  <data name="SearchDefaultString" xml:space="preserve">
+    <value>Search in blogs</value>
+  </data>
+  <data name="ShowOnPage" xml:space="preserve">
+    <value>Show on page</value>
+  </data>
+  <data name="SubscribeOnAuthorAction" xml:space="preserve">
+    <value>Subscribe to all user's posts </value>
+  </data>
+  <data name="SubscribeOnAuthorDescription" xml:space="preserve">
+    <value>The subscription allows you to track new user posts in blogs</value>
+  </data>
+  <data name="SubscribeOnAuthorTitle" xml:space="preserve">
+    <value>New user posts</value>
+  </data>
+  <data name="SubscribeOnNewCommentsAction" xml:space="preserve">
+    <value>Subscribe to post comments</value>
+  </data>
+  <data name="SubscribeOnNewCommentsDescription" xml:space="preserve">
+    <value>The subscription allows you to track new post comments</value>
+  </data>
+  <data name="SubscribeOnNewCommentsTitle" xml:space="preserve">
+    <value>Post comments</value>
+  </data>
+  <data name="SubscribeOnNewPostAction" xml:space="preserve">
+    <value>Subscribe to all posts</value>
+  </data>
+  <data name="SubscribeOnNewPostDescription" xml:space="preserve">
+    <value>The subscription allows you to track new posts in blogs</value>
+  </data>
+  <data name="SubscribeOnNewPostTitle" xml:space="preserve">
+    <value>New blog posts</value>
+  </data>
+  <data name="TagsTitle" xml:space="preserve">
+    <value>Tags</value>
+  </data>
+  <data name="TeamlabCutText" xml:space="preserve">
+    <value>Select the text you want to be hidden from the feed pages and the blog list page and click the "Text Cut" button.</value>
+  </data>
+  <data name="TeamlabCutTitle" xml:space="preserve">
+    <value>Text Cut</value>
+  </data>
+  <data name="TotalPages" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="UnSubscribeOnAuthorAction" xml:space="preserve">
+    <value>Unsubscribe from user's posts</value>
+  </data>
+  <data name="UnSubscribeOnNewCommentsAction" xml:space="preserve">
+    <value>Unsubscribe from post comments</value>
+  </data>
+  <data name="UnSubscribeOnNewPostAction" xml:space="preserve">
+    <value>Unsubscribe from all posts</value>
+  </data>
+</root>

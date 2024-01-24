@@ -1,0 +1,94 @@
+/*
+ *
+ * (c) Copyright Ascensio System Limited 2010-2023
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+*/
+
+
+.usrLang {
+    line-height:24px;
+    white-space:nowrap;
+    position:relative;
+    cursor:pointer;
+    background:transparent none 2px center no-repeat;
+    margin-top: -4px;
+    padding-left:29px;
+    padding-right: 15px;
+    position: relative;
+    &:after {
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 4px solid #83888d;
+        content: "";
+        height: 0;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        width: 0;
+        margin-top: -1px;
+    }
+}
+.usrLang .val {
+    border-bottom:1px dotted #83888d;
+}
+
+.languageMenu .top_language {
+    background-image:url('img/menu/arrow.png');
+    background-repeat:no-repeat;
+    z-index:100;
+    position:relative;
+    height:9px;
+    margin-left:40px;
+    margin-top:-39px;
+    margin-bottom:10px;
+}
+.languageMenu.open {z-index:1000;}
+
+.languageMenu ul.options li.option a {
+    background:none 0 center no-repeat;
+    padding-left:30px;
+}
+
+
+.usrLang.cs-CZ, .languageMenu ul.options li.option.cs-CZ a{background-image:url("images/flags.png"); background-position: left 5px;}
+.usrLang.de-DE, .languageMenu ul.options li.option.de-DE a{background-image:url("images/flags.png"); background-position: left -17px;}
+.usrLang.el-GR, .languageMenu ul.options li.option.el-GR a{background-image:url("images/flags.png"); background-position: left -39px;}
+.usrLang.en-GB, .languageMenu ul.options li.option.en-GB a{background-image:url("images/flags.png"); background-position: left -83px;}
+.usrLang.en-US, .languageMenu ul.options li.option.en-US a{background-image:url("images/flags.png"); background-position: left -105px;}
+.usrLang.es-ES, .languageMenu ul.options li.option.es-ES a{background-image:url("images/flags.png"); background-position: left -127px;}
+.usrLang.fi-FI, .languageMenu ul.options li.option.fi-FI a{background-image:url("images/flags.png"); background-position: left -149px;}
+.usrLang.fr-FR, .languageMenu ul.options li.option.fr-FR a{background-image:url("images/flags.png"); background-position: left -171px;}
+.usrLang.it-IT, .languageMenu ul.options li.option.it-IT a{background-image:url("images/flags.png"); background-position: left -193px;}
+.usrLang.lv-LV, .languageMenu ul.options li.option.lv-LV a{background-image:url("images/flags.png"); background-position: left -215px;}
+
+.usrLang.pl-PL, .languageMenu ul.options li.option.pl-PL a{background-image:url("images/flags.png"); background-position: left -237px;}
+.usrLang.pt-BR, .languageMenu ul.options li.option.pt-BR a{background-image:url("images/flags.png"); background-position: left -259px;}
+.usrLang.ru-RU, .languageMenu ul.options li.option.ru-RU a{background-image:url("images/flags.png"); background-position: left -281px;}
+.usrLang.tr-TR, .languageMenu ul.options li.option.tr-TR a{background-image:url("images/flags.png"); background-position: left -303px;}
+.usrLang.uk-UA, .languageMenu ul.options li.option.uk-UA a{background-image:url("images/flags.png"); background-position: left -325px;}
+.usrLang.vi-VN, .languageMenu ul.options li.option.vi-VN a{background-image:url("images/flags.png"); background-position: left -347px;}
+.usrLang.zh-CN, .languageMenu ul.options li.option.zh-CN a{background-image:url("images/flags.png"); background-position: left -369px;}
+.usrLang.pt-PT, .languageMenu ul.options li.option.pt-PT a{background-image:url("images/flags.png"); background-position: left -391px;}
+.usrLang.az-Latn-AZ, .languageMenu ul.options li.option.az-Latn-AZ a{background-image:url("images/flags.png"); background-position: left -413px;}
+.usrLang.ko-KR, .languageMenu ul.options li.option.ko-KR a{background-image:url("images/flags.png"); background-position: left -435px;}
+.usrLang.ja-JP, .languageMenu ul.options li.option.ja-JP a{background-image:url("images/flags.png"); background-position: left -457px;}
+.usrLang.sl-SI, .languageMenu ul.options li.option.sl-SI a{background-image:url("images/flags.png"); background-position: left -479px;}
+.usrLang.sk-SK, .languageMenu ul.options li.option.sk-SK a{background-image:url("images/flags.png"); background-position: left -501px;}
+.usrLang.nl-NL, .languageMenu ul.options li.option.nl-NL a{background-image:url("images/flags.png"); background-position: left -523px;}
+.usrLang.es-MX, .languageMenu ul.options li.option.es-MX a{background-image:url("images/flags.png"); background-position: left -545px;}
+.usrLang.de-CH, .languageMenu ul.options li.option.de-CH a{background-image:url("images/flags.png"); background-position: left -567px;}
+.usrLang.bg-BG, .languageMenu ul.options li.option.bg-BG a{background-image:url("images/flags.png"); background-position: left -589px;}
+
+.languageMenu ul.options li.option.more-langs a{background-image:none; background-position: initial;}
+
+.languageMenu ul.options li.option.selected a{color:#116d9d;}

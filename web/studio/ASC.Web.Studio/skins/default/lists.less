@@ -1,0 +1,308 @@
+/*
+ *
+ * (c) Copyright Ascensio System Limited 2010-2023
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+*/
+
+
+/*******************************************************************************
+				Lists
+*******************************************************************************/
+
+/**** Big List with content *****/
+.container-list {
+    border-top: 1px solid @borderColor;
+    
+    &:last-child {
+        border-bottom: 1px solid @borderColor;
+    }
+    
+    &:hover {
+        .header-list .describe-list .title-list a,
+        .content-list .comment-list a,
+        .header-list .describe-list .info-list a.gray-text
+        {
+            text-decoration: underline;
+        }
+        
+        .header-list .describe-list .info-list .name-list {
+            border-bottom: 1px dotted @textColor;
+
+            &.not-action {
+                border-bottom: 1px solid transparent;
+                cursor: default;
+            }
+        }
+        .read-more {
+            background-image: url('@{imagesBaseUrl}arrow-right-blue.png');
+            
+            font { 
+                border-bottom: 1px solid @linkColor;  
+                color: @linkColor;
+            }
+        }
+    }
+  
+    .header-list {
+        border-bottom: 1px dotted @borderColor;
+        padding: @tablePadding @tablePadding @tablePadding*2;
+        
+        .avatar-list {
+             float: left;
+             
+             img {
+                 height: 82px;
+                 width: 82px;
+             }
+        }
+        
+        .describe-list {       
+            margin-left: 98px;
+            overflow: hidden;
+            word-wrap: break-word;
+            
+            .title-list {
+                 margin: 0 0 @tablePadding;
+                 
+                 a {
+                    .text-overflow();
+                    color: @textColor;
+                    display: inline-block;
+                    font-size: 16px;
+                    .bold;
+                    max-width: 95%;
+                    text-decoration: none;
+                   
+                 }
+            }
+            
+            .info-list {
+                overflow: auto;
+                
+                .caption-list {
+                    .text-overflow();
+                    color: @textColorGrayDark;
+                    float: left;
+                    margin-right: 3px;
+                    max-width: 55px;                    
+                    width: 55px;
+                }
+                .name-list {
+                    border-bottom: 1px solid transparent;
+                    cursor:pointer;
+                    float: left;
+                    margin-right: 5px;
+                    max-width: 800px;
+                    overflow: hidden;
+
+                    a:hover {
+                        text-decoration: none;
+                    }
+                                        
+                }
+            }
+            .date-list {
+                color: @textColorGrayDark;
+                margin-top: @tablePadding;
+                
+                .time-list {
+                     padding-left: @tablePadding*2;
+                }
+            }
+        }
+    }
+   
+   .content-list {
+        overflow: hidden;
+        padding: @tablePadding @tablePadding @tablePadding*2;
+        word-wrap: break-word;
+        
+        .comment-list {            
+            margin-top: @tablePadding*2;
+            
+            a {
+                color: @textColorGrayDark;
+                display: inline-block;
+                margin-right: 32px;
+                text-decoration: none;
+            }
+        }
+        
+        .asccut {
+            display: none;
+        }
+    }
+    
+    .read-more {
+        background: url('@{imagesBaseUrl}arrow-right.png') no-repeat right 4px transparent;
+        display: inline-block;  
+        margin: 10px 0;   
+        padding-right: 14px;
+        text-decoration: none; 
+        
+        font {
+            color: @textColorGrayDark;
+            cursor: pointer;
+            .bold;
+            text-decoration: none;
+        }
+    }
+}
+
+table.table-list {
+    border-collapse: collapse;
+    width: 100%;
+
+
+    &.height48 tr {
+        height: 48px;
+    }
+
+    &.height40 tr {
+        height: 40px;
+    }
+
+    &.height32 tr {
+        height: 32px;
+    }
+
+    tbody tr {
+        border: 1px solid @borderColor;
+        border-left: none;
+        border-right: none;
+
+        &:hover {
+            background-color: @hoverTable;
+
+            a {
+                text-decoration: underline;
+            }
+
+            .link.dotted {
+                border-bottom: 1px dotted;
+            }
+        }
+
+        &.selected {
+            background-color: @activeTable;
+        }
+
+        td {
+            text-align: left;
+            vertical-align: middle;
+
+            &.check-list {
+                min-width: 23px;
+                width: 23px;
+                padding: 0 0 0 5px;
+            }
+
+            &.menu-action-list {
+                width: 40px;
+            }
+
+            &.icon-list {
+                width: 32px;
+            }
+        }
+    }
+
+    &.padding4 td {
+        padding: 4px;
+    }
+
+    &.padding10 td {
+        padding: 10px;
+    }
+}
+
+body.media-width-0-1300 {
+    table.table-list tr td.menu-list {
+        width: 30px;
+    }
+}
+
+/**** Simple list with marker *****/
+
+.simple-marker-list {
+    padding: 4px 0 4px 16px;
+    position: relative;
+
+    &:after {
+        background: #83888D;
+        content: "";
+        height: 5px;
+        width: 5px;
+        .borderRadius(5px);
+
+        position: absolute;
+        top: 50%;
+        margin-top: -3px;
+        left: 3px;
+    }
+}
+
+/**** List of the items with reset icon *****/
+
+.items-display-list {
+    min-height: 70px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    .items-display-list_i {
+        border-top: 1px solid @borderColor;
+        border-bottom: 1px solid @borderColor;
+        display: inline-block;
+        width: 300px;
+        line-height: 14px;
+        margin-right: 20px;
+        position: relative;
+        padding: 8px;
+        margin-top: -1px;
+
+        .item-name {
+            display:inline-block;
+            cursor: default;
+            max-width:285px;
+            .text-overflow();
+        }
+
+        &:hover {
+            background-color: @hoverTable;
+
+            .item-name {
+                text-decoration: underline;
+            }
+
+            .reset-action {
+                display: block;
+
+                &.hidden {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .reset-action {
+        background: url("@{imagesBaseUrl}remove_16.png") no-repeat scroll bottom center transparent;
+        cursor: pointer;
+        display: none;
+        height: 16px;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        width: 16px;
+    }
+}

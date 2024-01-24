@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AutoupdateContactListDescription" xml:space="preserve">
+    <value>The contact list is updated automatically as people are added/removed from the list of employees, so you don't have to check it out manually.  </value>
+  </data>
+  <data name="BrowsersNotification" xml:space="preserve">
+    <value>Notification in a browser</value>
+  </data>
+  <data name="ChatRoom" xml:space="preserve">
+    <value>Chat room</value>
+  </data>
+  <data name="ChatTabs" xml:space="preserve">
+    <value>Chat Tabs</value>
+  </data>
+  <data name="ContactListWithSettings" xml:space="preserve">
+    <value>Contact List with settings</value>
+  </data>
+  <data name="DefaultNotificationText" xml:space="preserve">
+    <value>By default all the notifications will be sent both to your email address and into Talk. You can configure them at the</value>
+  </data>
+  <data name="DeleteSentFiles" xml:space="preserve">
+    <value>Delete sent files</value>
+  </data>
+  <data name="GroupListOfContact" xml:space="preserve">
+    <value>List of contacts joining in groups</value>
+  </data>
+  <data name="Here" xml:space="preserve">
+    <value>here</value>
+  </data>
+  <data name="HideOfflineContacts" xml:space="preserve">
+    <value>Hide offline contacts</value>
+  </data>
+  <data name="Mailing" xml:space="preserve">
+    <value>Mailing</value>
+  </data>
+  <data name="MoreInformation" xml:space="preserve">
+    <value>More information about notification is avaliable {0}</value>
+  </data>
+  <data name="NotificationSetup" xml:space="preserve">
+    <value>Notification Setup</value>
+  </data>
+  <data name="OverviewContent" xml:space="preserve">
+    <value>Talk is a corporate IM system for exchanging instant text messages among the employees in real time.</value>
+  </data>
+  <data name="OverviewContentDescription" xml:space="preserve">
+    <value>Talk offers all the traditional features you expect from a messenger - choice of status, history archiving, file transfer, multi-user chat support, and more.</value>
+  </data>
+  <data name="OverviewSectionTitle" xml:space="preserve">
+    <value>Talk Overview</value>
+  </data>
+  <data name="OverviewWebClientDescription" xml:space="preserve">
+    <value>Launch our web client to start using Talk right now with no prior settings. </value>
+  </data>
+  <data name="ProfilePage" xml:space="preserve">
+    <value>Profile page</value>
+  </data>
+  <data name="SendMessageHotButton" xml:space="preserve">
+    <value>Send messages by Ctrl+Enter</value>
+  </data>
+  <data name="SettingsOfInputField" xml:space="preserve">
+    <value>The settings of input field</value>
+  </data>
+  <data name="StartWebClientLink" xml:space="preserve">
+    <value>Launch Web Client</value>
+  </data>
+  <data name="StartWebClientLinkDescription" xml:space="preserve">
+    <value>No extra settings! Click to launch web client and start talking right now</value>
+  </data>
+  <data name="SubscriptionSectionText" xml:space="preserve">
+    <value>Subscription section of the {0}</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type:</value>
+  </data>
+  <data name="VoicesOfEvents" xml:space="preserve">
+    <value>Voices of events</value>
+  </data>
+</root>

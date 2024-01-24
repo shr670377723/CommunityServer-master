@@ -1,0 +1,59 @@
+﻿<script id="dropFeedTmpl" type="text/x-jquery-tmpl">
+    <div class="item">
+        <div class="avatar">
+            {{if !isGuest}}
+            <a href="${author.profileUrl}" title="${author.displayName}" target="_blank"><img src="${author.avatarBig}"/></a>
+            {{else}}
+            <img src="${ASC.Resources.Master.UserDefaultBigPhotoURL}"/>
+            {{/if}}
+        </div>
+        <div class="content-box">
+            <div class="description">
+                <span class="menu-item-icon ${itemClass}">
+                    <svg class="menu-item-svg">
+                        <use href="/skins/default/images/svg/feed-icons.svg#feedIcons${itemClass}"></use>
+                    </svg>
+                </span>
+                <span class="product">${productText}.</span>
+                {{if location}}
+                <span class="location">${location}.</span>
+                {{/if}}
+                {{if actionText}}
+                <span class="action">${actionText}</span>
+                {{/if}}
+                {{if groupedFeeds.length}}
+                <span class="grouped-feeds-count">
+                    ${ASC.Resources.Master.FeedResource.OtherFeedsCountMsg.format(groupedFeeds.length)}
+                </span>
+                {{/if}}
+            </div>
+            <div class="header">
+                {{if isAllDayEvent}}
+                <span class="title-all-day-event" onclick="${linkOnClickAttr}">
+                    ${linkInnerText}
+                </span>
+                {{else}}
+                <a class="title" href="${itemUrl}" title="${title}" target="_blank">${title}</a>
+                {{/if}}
+            </div>
+            <div class="date">
+                {{if comments && comments.length}}
+                <span>${comments[comments.length - 1].formattedDate}</span>
+                {{else}}
+                {{if isTomorrow}}
+                <span>${tomorrow} ${displayCreatedTime}</span>
+                {{else isToday}}
+                <span>${today} ${displayCreatedTime}</span>
+                {{else isYesterday}}
+                <span>${yesterday} ${displayCreatedTime}</span>
+                {{else}}
+                <span>${displayCreatedDate}</span>
+                {{if displayCreatedTime}}
+                <span class="time">${displayCreatedTime}</span>
+                {{/if}}
+                {{/if}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</script>

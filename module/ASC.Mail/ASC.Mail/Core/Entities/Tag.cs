@@ -1,0 +1,61 @@
+/*
+ *
+ * (c) Copyright Ascensio System Limited 2010-2023
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+*/
+
+
+using System;
+
+namespace ASC.Mail.Core.Entities
+{
+    public class Tag : IEquatable<Tag>
+    {
+        public int Id { get; set; }
+        public int Tenant { get; set; }
+        public string User { get; set; }
+        public string TagName { get; set; }
+        public string Style { get; set; }
+        public string Addresses { get; set; }
+        public int Count { get; set; }
+        public int CrmId { get; set; }
+
+        public bool Equals(Tag other)
+        {
+            if (other == null) return false;
+            return Id == other.Id &&
+                   string.Equals(User, other.User, StringComparison.InvariantCultureIgnoreCase)
+                   && Tenant == other.Tenant
+                   && string.Equals(Style, other.Style, StringComparison.InvariantCultureIgnoreCase)
+                   && string.Equals(TagName, other.TagName, StringComparison.InvariantCultureIgnoreCase)
+                   && string.Equals(Addresses, other.Addresses, StringComparison.InvariantCultureIgnoreCase)
+                   && Count == other.Count
+                   && CrmId == other.CrmId;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != GetType()) return false;
+            return Equals(obj as Tag);
+        }
+
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode() ^ User.GetHashCode() ^ Tenant.GetHashCode() ^ TagName.GetHashCode() ^
+                   Style.GetHashCode() ^
+                   Addresses.GetHashCode() ^ Count.GetHashCode() ^ CrmId.GetHashCode();
+        }
+    }
+}

@@ -1,0 +1,494 @@
+/*
+ *
+ * (c) Copyright Ascensio System Limited 2010-2023
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+*/
+
+
+@import "../../../../skins/default/params.less";
+
+@orangeMain: #FF6F3D;
+
+.box-shadow-for-autofill(@type: inset, @byX: 0, @byY: 0, @blurRadius: 0, @radius: 56px, @color: #f9f9f9) {
+    -webkit-box-shadow: @type @byX @byY @blurRadius @radius @color;
+    -moz-box-shadow: @type @byX @byY @blurRadius @radius @color;
+    box-shadow: @type @byX @byY @blurRadius @radius @color;
+}
+
+.border-radius(@value) {
+    border-radius: @value;
+    -moz-border-radius: @value;
+    -webkit-border-radius: @value;
+}
+
+.transition-duration(@time: 0.3s) {
+    -webkit-transition-duration: @time;
+    -o-transition-duration: @time;
+    transition-duration: @time;
+}
+
+.box-sizing {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.h2-mixin {
+    font-weight: bold;
+    line-height: 133%;
+    letter-spacing: -0.02em;
+    font-size: 32px;
+    margin: 0 auto;
+    text-align: center;
+
+    @media screen and (max-width: 1023px) {
+        font-size: 30px; letter-spacing: -0.01em;
+    }
+
+    @media screen and (max-width: 592px) {
+        font-size: 20px;
+    }
+}
+
+.confirmBlock {
+    display: block;
+    width: 960px;
+    margin: 0 auto;
+}
+
+.confirm-block-title .subTitle {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.confirmBlock .leftPart {
+    margin-right: 330px;
+    padding-top: 20px;
+
+    .portalInfo {
+        padding: 20px;
+        min-height: 150px;
+
+        .user {
+            border-left: none;
+            border-right: none;
+            border-bottom: none;
+            padding-top: 15px;
+            margin-top: 15px;
+            overflow: auto;
+        }
+
+        .avatar {
+            float: left;
+        }
+
+        .name {
+            float: left;
+            margin-left: 10px;
+
+            .header-base-small {
+                font-size: 16px;
+                font-weight: normal;
+                margin-bottom: 5px;
+            }
+        }
+    }
+
+    .description {
+        font-size: 14px;
+        margin-top: 30px;
+        padding-left: 20px;
+        line-height: 18px;
+    }
+}
+
+.confirmBlock .rightPart {
+    width: 260px;
+    float: right;
+    text-align: left;
+    padding-top: 2px;
+
+    .property {
+        margin-bottom: 10px;
+        font-size: 11px;
+
+        .value {
+            position: relative;
+
+            .eye-label {
+                position: absolute;
+                top: 5px;
+                right: 6px;
+                width: 16px;
+                height: 16px;
+                cursor: pointer;
+            }
+
+            .eye-label.hide-label {
+                background: url("../../../Users/UserProfile/css/images/access-deny.svg");
+            }
+
+            .eye-label.show-label {
+                background: url("../../../Users/UserProfile/css/images/read-only.svg");
+            }
+        }
+
+        .name {
+            height: 17px;
+            margin-bottom: 3px;
+            font-weight: bolder;
+        }
+
+        .textEdit {
+            width: 251px;
+            padding: 4px 3px;
+        }
+
+        #studio_confirm_pwd, #studio_confirm_pwd_match {
+            width: 230px;
+            padding-right: 24px;
+        }
+
+    }
+
+    .name #password-do-not-match-text {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 11px;
+        line-height: 9px;
+        color: #CC0000;
+        margin-bottom: 7px;
+        margin-top: 0px;
+        display: none;
+    }
+
+    .errorText {
+        line-height: 12px;
+        position: absolute;
+        top: -37px;
+    }
+
+    .big-button-container {
+        margin-top: 36px;
+    }
+
+    .button.huge {
+        width: 198px;
+    }
+}
+
+.body-personal-confirm {
+    background-color: transparent;
+    background-image: url(images/first_screen_bg.svg);
+    background-position: center -508px;
+    background-repeat: no-repeat;
+    overflow-y: auto;
+
+    main {
+        height: auto;
+        padding: 0;
+    }
+
+    .paging-content {
+        padding: 0;
+    }
+
+    #studioPageContent {
+        min-width: auto;
+    }
+}
+
+.confirm-personal {
+    margin: 0 auto;
+    padding: 48px 0;
+    text-align: center;
+    width: 544px;
+
+    .big-button-container {
+        margin-top: 0;
+    }
+
+    #buttonConfirmInvite {
+        background-color: @orangeMain;
+        border: none;
+        .border-radius(3px);
+        .box-sizing();
+        color: @body-color;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 16px;
+        margin: 0 auto;
+        padding: 20px;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        .transition-duration();
+        top: 0;
+        width: 100%;
+
+        &:hover, &:active {
+            background-color: #ff7a4b;
+        }
+
+        &.disabled {
+            background-color: #FFD4C5;
+            cursor: default;
+            pointer-events: none;
+        }
+    }
+
+    .confirm-block-title {
+        margin: 0;
+    }
+
+    .default-personal-popup_h {
+        .h2-mixin();
+    }
+
+    .default-personal-popup_line, .HelpCenterSwitcher {
+        display: none;
+    }
+
+    .default-personal-popup_text {
+        font-size: 18px;
+        line-height: 160%;
+        margin: 32px 0 48px;
+    }
+
+    .rightPart {
+        float: none;
+        width: auto;
+
+        .property {
+            background: @body-color;
+            border: 1px solid #AAAAAA;
+            border-radius: 3px;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            height: 56px;
+            margin-bottom: 32px;
+            position: relative;
+            width: 100%;
+
+            .value {
+                position: relative;
+
+                .eye-label {
+                    top: 20px;
+                    right: 22px;
+                }
+            }
+
+
+            &.focus, &.error, &.valid {
+                &.input-hint-top {
+                    .name {
+                        font-size: 12px;
+                    }
+                }
+            }
+
+            &.error {
+                background: #fff7f7;
+                border-color: #CB0000;
+
+                input:-webkit-autofill {
+                    .box-shadow-for-autofill(inset, 0, 0, 0, 28px, #fff7f7);
+                }
+
+                .name {
+                    color: #D87373;
+                }
+            }
+
+            &.focus {
+                background: @body-color;
+                border-color: @textColorBlackDark;
+
+                input:-webkit-autofill {
+                    .box-shadow-for-autofill(inset, 0, 0, 0, 28px, @body-color);
+                }
+
+                .name {
+                    color: @textColor;
+                }
+            }
+
+            &.input-hint-top .name {
+                transform: translateX(2px) translateY(-12px);
+            }
+
+            &.valid {
+                background: #F9FEEF;
+                border-color: #8BB825;
+
+                input:-webkit-autofill {
+                    .box-shadow-for-autofill(inset, 0, 0, 0, 28px, #F9FEEF);
+                }
+
+                .name {
+                    color: @textColorBlackDark;
+                    transform: translateX(2px) translateY(-12px);
+                }
+            }
+
+            .name {
+                color: #CCCCCC;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: normal;
+                line-height: 12px;
+                left: 14px;
+                padding: 0;
+                pointer-events: none;
+                top: 20px;
+                transition: transform 100ms ease;
+                transform: translateY(0);
+                position: absolute;
+            }
+
+            .textEdit {
+                background-color: @back-ground-text;
+                border: none;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                color: @textColor;
+                font-size: 16px;
+                height: auto;
+                line-height: 20px;
+                margin-top: 22px;
+                outline: none;
+                padding: 0 16px;
+                width: 100%;
+
+                &:-webkit-autofill {
+                    .box-shadow-for-autofill(inset, 0, 0, 0, 28px, @body-color);
+                    color: @textColor;
+                    font-size: 16px;
+
+                    & ~ .name {
+                        font-size: 12px;
+                        transform: translateX(2px) translateY(-12px);
+                    }
+                }
+
+                &::-ms-input-placeholder {
+                    color: transparent;
+                }
+
+                &::placeholder {
+                    color: transparent;
+                }
+
+                &::-webkit-input-placeholder {
+                    color: transparent;
+                }
+
+                &:-moz-placeholder {
+                    color: transparent;
+                }
+                /* FF 4-18 */
+                &::-moz-placeholder {
+                    color: transparent;
+                }
+                /* FF 19+ */
+                &:-ms-input-placeholder {
+                    color: transparent;
+                }
+
+                &:focus {
+                    border-color: #2d86ab;
+                }
+
+                &.with-error {
+                    border-color: #c44747;
+                }
+            }
+
+            #studio_confirm_pwd, #studio_confirm_pwd_match {
+                width: 100%;
+                padding-right: 40px;
+            }
+        }
+    }
+}
+
+.borderRadius (@value: 3px) {
+    border-radius: @value;
+    -moz-border-radius: @value;
+    -webkit-border-radius: @value;
+}
+
+@media screen and (max-width: 900px) {
+    #studioPageContent {
+        min-width: auto;
+
+        .mainPageLayout {
+            min-width: auto;
+            padding: 24px 0 0;
+
+            .confirmBlock {
+                width: auto;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 592px) {
+    .confirm-personal {
+        padding: 96px 0;
+        width: 90vw;
+
+        #buttonConfirmInvite {
+            font-size: 13px;
+            padding: 16px;
+        }
+
+        .default-personal-popup_text {
+            font-size: 14px;
+            margin: 24px 0;
+        }
+
+        .rightPart .property {
+            height: 48px;
+            margin-bottom: 24px;
+
+            .value .eye-label {
+                top: 16px;
+            }
+
+            &.focus, &.error, &.valid {
+                &.input-hint-top {
+                    .name {
+                        font-size: 11px;
+                    }
+                }
+            }
+
+            .name {
+                font-size: 15px;
+                top: 16px;
+            }
+
+            .textEdit {
+                font-size: 13px;
+                margin-top: 20px;
+
+                &:-webkit-autofill {
+                    font-size: 13px;
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+}

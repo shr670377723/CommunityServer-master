@@ -1,0 +1,72 @@
+<patterns>
+  <formatter type="ASC.Notify.Patterns.NVelocityPatternFormatter, ASC.Common" />
+
+  <pattern id="new post" sender="email.sender">
+    <subject resource="|subject_new_post|ASC.Web.Community.Modules.Blogs.Core.Service.BlogPatternResource,ASC.Web.Community" />
+    <body styler="ASC.Notify.Textile.TextileStyler,ASC.Notify.Textile" resource="|pattern_new_post|ASC.Web.Community.Modules.Blogs.Core.Service.BlogPatternResource,ASC.Web.Community" />
+  </pattern>
+  <pattern id="new post" sender="messanger.sender">
+    <subject resource="|subject_new_post|ASC.Web.Community.Modules.Blogs.Core.Service.BlogPatternResource,ASC.Web.Community" />
+    <body styler="ASC.Notify.Textile.JabberStyler,ASC.Notify.Textile">$UserName
+
+$PostPreview
+
+$URL
+    </body>
+  </pattern>
+  <pattern id="new post" sender="telegram.sender">
+    <subject resource="|subject_new_post_tg|ASC.Web.Community.Modules.Blogs.Core.Service.BlogPatternResource,ASC.Web.Community" />
+    <body styler="ASC.Notify.Textile.MarkDownStyler,ASC.Notify.Textile">$UserName
+
+$PostPreview
+    </body>
+  </pattern>
+
+  <pattern id="new personal post" sender="email.sender" reference="new post"/>
+  <pattern id="new personal post" sender="messanger.sender" reference="new post"/>
+  <pattern id="new personal post" sender="telegram.sender" reference="new post"/>
+
+  <pattern id="new comment" sender="email.sender">
+    <subject resource="|subject_new_comment|ASC.Web.Community.Modules.Blogs.Core.Service.BlogPatternResource,ASC.Web.Community" />
+    <body styler="ASC.Notify.Textile.TextileStyler,ASC.Notify.Textile" resource="|pattern_new_comment|ASC.Web.Community.Modules.Blogs.Core.Service.BlogPatternResource,ASC.Web.Community" />
+  </pattern>
+  <pattern id="new comment" sender="messanger.sender">
+    <subject resource="|subject_new_comment|ASC.Web.Community.Modules.Blogs.Core.Service.BlogPatternResource,ASC.Web.Community" />
+    <body styler="ASC.Notify.Textile.JabberStyler,ASC.Notify.Textile">$UserName
+
+$CommentBody
+
+$CommentURL
+    </body>
+  </pattern>
+  <pattern id="new comment" sender="telegram.sender">
+    <subject resource="|subject_new_comment_tg|ASC.Web.Community.Modules.Blogs.Core.Service.BlogPatternResource,ASC.Web.Community" />
+    <body styler="ASC.Notify.Textile.MarkDownStyler,ASC.Notify.Textile">$UserName
+
+$CommentBody
+    </body>
+  </pattern>
+  <!--Mention For Blog Post Comment-->
+  <pattern id="mention for post comment" sender="email.sender">
+    <subject resource="|subject_mention_for_blog_comment|ASC.Web.Community.Modules.Blogs.Core.Service.BlogPatternResource,ASC.Web.Community" />
+    <body styler="ASC.Notify.Textile.TextileStyler,ASC.Notify.Textile" resource="|pattern_mention_for_blog_comment|ASC.Web.Community.Modules.Blogs.Core.Service.BlogPatternResource,ASC.Web.Community" />
+  </pattern>
+  <pattern id="mention for post comment" sender="messanger.sender">
+    <subject resource="|subject_mention_for_blog_comment|ASC.Web.Community.Modules.Blogs.Core.Service.BlogPatternResource,ASC.Web.Community" />
+    <body styler="ASC.Notify.Textile.JabberStyler,ASC.Notify.Textile">
+      $UserName
+
+      $PostPreview
+
+      $URL
+    </body>
+  </pattern>
+  <pattern id="mention for post comment" sender="telegram.sender">
+    <subject resource="|subject_mention_for_blog_comment_tg|ASC.Web.Community.Modules.Blogs.Core.Service.BlogPatternResource,ASC.Web.Community" />
+    <body styler="ASC.Notify.Textile.MarkDownStyler,ASC.Notify.Textile">
+      $UserName
+
+      $PostPreview
+    </body>
+  </pattern>
+</patterns>

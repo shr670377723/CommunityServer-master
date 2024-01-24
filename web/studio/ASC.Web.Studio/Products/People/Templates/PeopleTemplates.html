@@ -1,0 +1,319 @@
+﻿<script id="userActionMenuTemplate" type="text/x-jquery-tmpl">
+    <ul class="dropdown-content">
+        {{if ($data.canEdit === "true") && ($data.isAdmin === true || $data.isMe === true ) && (user.status !== "blocked")}}
+        <li><a class="edit-profile dropdown-item with-icon edit">${ASC.People.Resources.PeopleResource.LblEdit}</a></li>
+        {{/if}}
+        {{if ($data.canDel === "true") && ($data.isAdmin === true) && (user.status === "blocked")}}
+        <li><a class="enable-profile dropdown-item with-icon enable-item">${ASC.People.Resources.PeopleResource.EnableUserButton}</a></li>
+        {{/if}}
+        {{if ($data.canEdit === "true") && ($data.isAdmin === true || $data.isMe === true) && (user.status !== "blocked") && (user.status !== "waited") && (user.isLDAP === "false") && (user.isSSO === "false")}}
+        <li><a class="change-password dropdown-item with-icon block">${ASC.People.Resources.PeopleResource.LblChangePassword}</a></li>
+        {{/if}}
+        {{if ($data.isAdmin === true || $data.isMe === true) && (user.status !== "blocked") && (user.status !== "waited") && (user.isLDAP === "false") && (user.isSSO === "false")}}
+        <li><a class="change-email dropdown-item with-icon add-email">${ASC.People.Resources.PeopleResource.LblChangeEmail}</a></li>
+        {{/if}}
+        {{if ($data.isAdmin === true || $data.isMe === true) && (user.status === "waited")}}
+        <li><a class="email-activation dropdown-item with-icon email">${ASC.People.Resources.PeopleResource.LblSendActivation}</a></li>
+        {{/if}}
+        {{if (user.status !== "blocked") && user.canImpersonateUser}}
+        <li><a class="impersonate-user dropdown-item with-icon impersonate-item">${ASC.Resources.Master.ResourceJS.ImpersonateUser}</a></li>
+        {{/if}}
+        {{if ($data.canDel === "true") && ($data.isAdmin === true) && ($data.isMe !== true) && (user.status !== "blocked") && (user.isLDAP === "false")}}
+        <li><a class="block-profile dropdown-item with-icon disable-item">${ASC.People.Resources.PeopleResource.DisableUserButton}</a></li>
+        {{/if}}
+        {{if (user.isOwner !== "true") && ($data.canDel === "true") && ($data.isAdmin === true) && (user.status === "blocked") && (user.isLDAP === "false")}}
+        <li class="dropdown-item-seporator"></li>
+        <li><a class="reassign-data dropdown-item with-icon reassign-data">${ASC.People.Resources.PeopleResource.LblReassignData}</a></li>
+        <li><a class="remove-data dropdown-item with-icon delete">${ASC.People.Resources.PeopleResource.LblRemoveData}</a></li>
+        {{/if}}
+        {{if (user.isOwner !== "true") && ((($data.canDel === "true") && ($data.isAdmin === true) && (user.status === "blocked") && (user.isLDAP === "false")) || ($data.isMe === true) && (user.isLDAP === "false"))}}
+        <li class="dropdown-item-seporator"></li>
+        <li><a class="delete-profile dropdown-item with-icon delete">${ASC.People.Resources.PeopleResource.LblDeleteProfile}</a></li>
+        {{/if}}
+    </ul>
+</script>
+
+<script id="userListTemplate" type="text/x-jquery-tmpl">
+    {{each(i, user) users}}
+    <tr id="user_${user.id}" class="item profile {{if ($data.isAdmin === true || user.isMe === true) && (user.isMe === true || user.isPortalOwner !== true)}} with-entity-menu {{/if}} {{if user.isTerminated}} blocked{{else user.isPending === true}} waited{{/if}} {{if user.isChecked == true}} selected{{/if}}"
+        data-id="${user.id}"
+        data-username="${user.userName}"
+        data-email="${user.email}"
+        data-displayname="${user.displayName}"
+        data-status="{{if user.isTerminated}}blocked{{else user.isActivated === false}}waited{{/if}}"
+        data-isAdmin="${user.isAdmin}"
+        data-isOwner="${user.isPortalOwner}"
+        data-isVisitor="${user.isVisitor}"
+        data-isLDAP="${user.isLDAP}"
+        data-isSSO="${user.isSSO}">
+
+        {{if ($data.isAdmin === true)}}
+        <td class="check-list" id="checkRow_${user.id}">
+            <input type="checkbox" id="checkUser_${user.id}" class="checkbox-user"
+                   {{if user.isChecked== true}}checked="checked"{{/if}}/>
+        </td>
+        {{/if}}
+        <td class="icon-list">
+            <a class="ava" href="${user.link}">
+                <img src="{{if $data.isRetina}}${user.avatar}{{else}}${user.avatarSmall}{{/if}}" title="${user.displayName}" alt=""/>
+
+                {{if (user.isVisitor)}}<span class="role collaborator" title="${ASC.Resources.Master.Guest}"></span>{{/if}}
+                {{if (user.isAdmin || listAdminModules.length) && (!user.isPortalOwner)}}<span class="role admin" title="${ASC.Resources.Master.TemplateResource.Administrator}"></span>{{/if}}
+                {{if (user.isPortalOwner)}}<span class="role owner" title="${ASC.Resources.Master.TemplateResource.Owner}"></span>{{/if}}
+
+                {{if (user.isTerminated || user.isActivated === false)}}<span class="status"></span> {{/if}}
+            </a>
+        </td>
+        <td class="name">
+            <a class="link bold" href="${user.link}">${user.displayName}</a>
+            {{if ($data.isAdmin === true || $data.isPortalOwner === true)}}
+                {{if (user.isLDAP === true)}}
+                    <span class="ldap-lock" title="${ASC.Resources.Master.LdapUsersListLockTitle}"></span>
+                {{/if}}
+                {{if (user.isSSO === true)}}
+                    <span class="sso-lock" title="${ASC.Resources.Master.SsoUsersListLockTitle}"></span>
+                {{/if}}
+                
+            {{/if}}
+
+            {{if user.bithdayDaysLeft != null}}
+        <div class="birthday">
+            {{if user.bithdayDaysLeft == 0}}${ASC.Resources.Master.TemplateResource.DrnToday}
+            {{else user.bithdayDaysLeft==1}}${ASC.Resources.Master.TemplateResource.DrnTomorrow}
+            {{else user.bithdayDaysLeft==2}}${ASC.Resources.Master.TemplateResource.In} ${ASC.Resources.Master.TemplateResource.Yet2}
+            {{else user.bithdayDaysLeft==3}}${ASC.Resources.Master.TemplateResource.In} ${ASC.Resources.Master.TemplateResource.Yet3}
+            {{/if}}
+        </div>
+      {{/if}}
+        <div class="title">
+            {{if user.isGroupManager && user.title.length}}
+            <span class="inner-text manager">${Encoder.htmlEncode(user.title, true)}</span>
+            {{else}}
+            <span class="inner-text">${Encoder.htmlEncode(user.title, true)}</span>
+            {{/if}}
+        </div>
+    </td>
+    <td class="group">
+        {{if user.groups.length === 1}}
+        <a class="link dotted text-overflow" title="${user.groups[0].name}" href="#group=${user.groups[0].id}">
+            ${user.groups[0].name}
+        </a>
+        {{else user.groups.length > 1}}
+            <span id="peopleGroupsSwitcher_${user.id}" class="withHoverArrowDown">
+                <span class="link dotted">${user.groups.length} ${ASC.Resources.Master.Departments}</span>
+            </span>
+            <div id="peopleGroups_${user.id}" class="studio-action-panel">
+                <ul class="dropdown-content">
+                    {{each(i, gr) user.groups}}
+                    <li><a class="dropdown-item" href="#group=${gr.id}">${gr.name}</a></li>
+                    {{/each}}
+                </ul>
+            </div>
+        {{/if}}
+    </td>
+    <td class="location">
+        <span class="inner-text">${Encoder.htmlEncode(user.location, true)}</span>
+    </td>
+    <td class="info">
+    {{if user.isTerminated}}
+        <span class="red-text">
+            ${ASC.People.Resources.PeopleResource.BlockedMessage}
+        </span>
+     {{else}}
+          {{if user.isPending === true && user.email}}
+            <span class="email gray-text">${ASC.People.Resources.PeopleResource.WaitingForConfirmation}</span>
+          {{/if}}
+       {{/if}}
+      {{if user.isActivated && !user.isTerminated && user.email}}
+        <div id="peopleEmail_${id}" class="btn email">
+            <span class="link dotted">${user.email}</span>
+        </div>
+        <div id="peopleEmailSwitcher_${id}" class="studio-action-panel">
+            <ul class="dropdown-content">
+                <li>
+                    <a class="send-email dropdown-item" data-module="mail">${ASC.People.Resources.PeopleResource.LblSendEmail}</a>
+                </li>
+                {{if $data.talkModuleEnabled && !user.isMe && !user.isTerminated}}
+                <li>
+                    <a class="open-dialog dropdown-item" data-module="talk">${ASC.People.Resources.PeopleResource.LblSendMessage}</a>
+                </li>
+                {{/if}}
+            </ul>
+        </div>
+
+      {{else}}
+        &nbsp;
+      {{/if}}
+    </td>
+    <td class="menu-action-list">
+        {{if ($data.isAdmin === true || user.isMe === true) && (user.isMe === true || user.isPortalOwner !== true)}}
+        <div id="peopleMenu_${id}" class="entity-menu" title="${ASC.People.Resources.PeopleResource.Actions}"></div>
+        {{/if}}
+    </td>
+  </tr>
+{{/each}}
+</script>
+
+
+<script id="depAddPopupBodyTemplate" type="text/x-jquery-tmpl">
+     <div class="clearFix block-cnt-splitter requiredField" >
+        <span class="requiredErrorText">${ASC.People.Resources.PeopleResource.ErrorEmptyName}</span>
+        <div class="headerPanelSmall header-base-small">
+            ${ASC.People.Resources.PeopleResource.Title}:
+        </div>
+        <input type="text" id="studio_newDepName" class="textEdit" style="width: 99%;" maxlength="100" />
+    </div>
+    <div class="clearFix block-cnt-splitter">
+        <div class="headerPanelSmall header-base-small">
+            ${ASC.People.Resources.DepartmentMaster}:
+        </div>
+        <span id="headAdvancedSelector" class="link dotline plus">
+            ${ASC.Resources.Master.ChooseUser}
+        </span>
+        <div id="departmentManager" class="advanced-selector-select-result display-none">
+            <span class="result-name" data-id=""></span>
+            <span class="reset-icon"></span>
+        </div>
+
+    </div>
+    <div class="clearFix">
+        <div class="headerPanelSmall header-base-small" >
+            ${ASC.People.Resources.PeopleResource.Members}:
+        </div>
+        <span id="membersAdvancedSelector" class="link dotline plus"> ${ASC.People.Resources.PeopleResource.AddMembers}
+        </span>
+        <div class="members-dep-list">
+            <ul id="membersDepartmentList" class="advanced-selector-list-results"></ul>
+        </div>
+    </div>
+    <div id="depActionBtn" class="middle-button-container">
+        <a class="button blue middle">${ASC.People.Resources.PeopleResource.AddButton}</a>
+        <span class="splitter-buttons"></span>
+        <a class="button gray middle">${ASC.People.Resources.PeopleResource.CancelButton}</a>
+    </div>
+</script>
+
+<script id="reassignStatus" type="text/x-jquery-tmpl">
+    <div class="${statusClass}">${statusMessage}</div>
+    {{if errorMessage}}
+    <div class="red-text">${ASC.People.Resources.PeopleResource.ReassignStatusError}:&nbsp;${errorMessage}</div>
+    {{/if}}
+</script>
+
+<script id="groupListTemplate" type="text/x-jquery-tmpl">
+    {{each(i, group) groups}}
+    <li class="menu-sub-item" data-id="${group.id}">
+        <a class="menu-item-label outer-text text-overflow" title="${group.name}">${group.name}</a>
+    </li>
+    {{/each}}
+</script>
+
+<script id="userRecord" type="text/x-jquery-tmpl">
+    <tr id="hoverItem" class="userItem clearFix">
+        <td class="check">
+            <input class="check" type="checkbox"/>
+        </td>
+        <td class="name">
+            <div class="clearFix">
+                <div class="firstname">
+                    <input type="text" class="studioEditableInput firstName last" value="${FirstName}" maxlength="64" />
+                </div>
+                <div class="lastname">
+                    <input type="text" class="studioEditableInput lastName last" value="${LastName}" maxlength="64" />
+                </div>
+            </div>
+        </td>
+        <td class="email">
+            <input type="text" class="studioEditableInput email last" value="${Email}" maxlength="64" />
+        </td>
+        <td class="status">
+            <span class="link dotline statusValue">
+                
+            </span>
+        </td>
+    </tr>
+</script>
+
+<script id="userWizard" type="text/x-jquery-tmpl">
+    <tr class="userItem clearFix">
+        <td class="fileHeader">
+            <div class="clearFix">
+                <div class="headerContainer">
+                    {{tmpl 'headItems'}}
+                </div>
+                <div class="userContainer">
+                    {{tmpl 'userItems'}}
+                </div>
+            </div>
+        </td>
+        <td class="optionsContainer">
+            {{each headItem}}
+            {{tmpl($value, {cols: columns}) 'selectContainer'}}
+            {{/each}}
+        </td>
+    </tr>
+</script>
+
+<script id="headItems" type="text/x-jquery-tmpl">
+    {{each headItem}}
+    <input type="text" class="studioEditableInputWizard example" value="${$value}" maxlength="64" readonly="readonly"/><br/>
+    {{/each}}
+</script>
+
+<script id="userItems" type="text/x-jquery-tmpl">
+    {{each userItem}}
+    <input type="text" class="studioEditableInputWizard example" value="${$value}" maxlength="64" readonly="readonly"/><br/>
+    {{/each}}
+</script>
+
+<script id="selectContainer" type="text/x-jquery-tmpl">
+    {{if $item.cols === $data }}
+    <select class="optionMenu" data-prev="${$data}">
+    {{else}}
+    <select class="optionMenu" data-prev="emptyOption">
+    {{/if}}
+        <option value="emptyOption">${ASC.People.Resources.PeopleResource.NotImport}</option>
+        {{each $item.cols}}
+        {{if $value.Key != "status" }}
+            {{if $value.Value === $data }}
+            <option value="${$value.Key}" selected>${$value.Value}</option>
+            {{else}}
+            <option value="${$value.Key}">${$value.Value}</option>
+            {{/if}}
+        {{/if}}
+    {{/each}}
+    </select>
+</script>
+
+<script id="wizardStepsTmpl" type="text/x-jquery-tmpl">
+    <div id="${id}" class="wizard"><span class="importStepName">${name}</span><span class="importCounter"></span></div>
+</script>
+
+<script id="compliancetTableHeader" type="text/x-jquery-tmpl">
+    <tr>
+        <td  class="innerTab first">
+            ${ASC.People.Resources.PeopleResource.FieldsInFile}
+        </td>
+        <td  class="innerTab">
+            ${ASC.People.Resources.PeopleResource.ExampleValues}
+            <span class="newRandomUser"></span>
+        </td>
+        <td  class="innerTab last">    
+            ${ASC.People.Resources.PeopleResource.FieldsOnPortal}
+        </td>
+    </tr>
+</script>
+
+<script id="selectionTableHeader" type="text/x-jquery-tmpl">
+    <tr>
+        <td  class="selectionInnerTab first">
+            ${ASC.People.Resources.PeopleResource.FirstName}
+        </td>
+        <td  class="selectionInnerTab">
+            ${ASC.People.Resources.PeopleResource.LastName}
+        </td>
+        <td  class="selectionInnerTab last">    
+            ${ASC.People.Resources.PeopleResource.Email}
+        </td>
+    </tr>
+</script>

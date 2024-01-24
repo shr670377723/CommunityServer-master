@@ -1,0 +1,533 @@
+#!/bin/bash
+# postinst script for {{package_sysname}}
+#
+# see: dh_installdeb(1)
+
+set -e
+
+# summary of how this script can be called:
+#        * <postinst> `configure' <most-recently-configured-version>
+#        * <old-postinst> `abort-upgrade' <new version>
+#        * <conflictor's-postinst> `abort-remove' `in-favour' <package>
+#          <new-version>
+#        * <postinst> `abort-remove'
+#        * <deconfigured's-postinst> `abort-deconfigure' `in-favour'
+#          <failed-install-package> <version> `removing'
+#          <conflicting-package> <version>
+# for details, see http://www.debian.org/doc/debian-policy/ or
+# the debian-policy package
+
+. /usr/share/debconf/confmodule
+
+DIR="/var/www/{{package_sysname}}"
+LOG_DIR="/var/log/{{package_sysname}}"
+APP_DATA_DIR="${DIR}/Data"
+ELASTIC_SEARCH_VERSION=$(dpkg -l elasticsearch | tail -n1 | awk '{print $3}');
+APP_INDEX_DIR="${APP_DATA_DIR}/Index/v${ELASTIC_SEARCH_VERSION}"
+APP_SERVICES_DIR="$DIR/Services";
+OLD_VERSION="$2"
+NGINX_ROOT_DIR="/etc/nginx"
+
+DB_HOST=""
+DB_USER=""
+DB_PWD=""
+DB_NAME=""
+
+apply_connection_string(){
+	binDirs=("WebStudio" "ApiSystem" "Services/TeamLabSvc")
+
+	if [ "$DB_HOST" != "localhost" ] || [ "$DB_NAME" != "{{package_sysname}}" ] || [ "$DB_USER" != "root" ] || [ "$DB_PWD" != "" ]; then
+		if [ -d /var/www/{{package_sysname}}/ ]; then
+			for i in "${!binDirs[@]}";
+			do
+				find "/var/www/{{package_sysname}}/${binDirs[$i]}" -type f -name "*.[cC]onfig" -exec sed -i "s/connectionString=.*/connectionString=\"Server=$DB_HOST;Database=$DB_NAME;User ID=$DB_USER;Password=$DB_PWD;Pooling=true;Character Set=utf8;AutoEnlist=false;SSL Mode=none;AllowPublicKeyRetrieval=true;Connection Timeout=30;Maximum Pool Size=300;\" providerName=\"MySql.Data.MySqlClient\"\/>/" {} \;						
+			done
+		fi
+		
+		find "${APP_SERVICES_DIR}/ASC.UrlShortener/config" -type f -name "*.json" -exec sed -i \
+		-e "s!\(\"host\":\).*,!\1 \"${DB_HOST}\",!" \
+		-e "s!\(\"user\":\).*,!\1 \"${DB_USER}\",!" \
+		-e "s!\(\"password\":\).*,!\1 \"${DB_PWD//!/\\!}\",!" \
+		-e "s!\(\"database\":\).*!\1 \"${DB_NAME}\"!" {} \;
+
+	fi
+	sed -i "s/Server=.*/Server=$DB_HOST;Port=3306;Database=$DB_NAME;User ID=$DB_USER;Password=$DB_PWD;Pooling=true;Character Set=utf8;AutoEnlist=false;SSL Mode=none;AllowPublicKeyRetrieval=True;ConnectionReset=false\",/g" /etc/{{package_sysname}}/communityserver/appsettings.production.json
+}
+
+apply_core_machinekey(){
+	db_get {{package_sysname}}-communityserver/machinekey || true
+	CORE_MACHINEKEY="${RET:-$(sed -n '/"core.machinekey"/s!.*value\s*=\s*"\([^"]*\)".*!\1!p' ${DIR}/WebStudio/web.appsettings.config)}";
+	[ -z "$RET" ] && db_set {{package_sysname}}-communityserver/machinekey "${CORE_MACHINEKEY}" || true
+
+	sed "s^\(machine_key\)\s*=.*^\1 = ${CORE_MACHINEKEY}^g" -i ${APP_SERVICES_DIR}/TeamLabSvc/radicale.config
+
+	binDirs=("$DIR/ApiSystem/" "$DIR/WebStudio" "$DIR/controlpanel/www/config" "$APP_SERVICES_DIR" "/etc/{{package_sysname}}/communityserver")
+
+	for i in "${!binDirs[@]}"; do
+		if [ -d "${binDirs[$i]}" ]; then
+			find "${binDirs[$i]}" -type f -name "*.[cC]onfig" -exec sed -i "/core.\machinekey/s_\(value\s*=\s*\"\)[^\"]*\"_\1${CORE_MACHINEKEY}\"_" {} \;
+			find "${binDirs[$i]}" -type f -name "*.json" -exec sed -i "s_\(\"core.machinekey\":\|\"machinekey\":\).*,_\1 \"${CORE_MACHINEKEY}\",_" {} \;
+		fi
+	done	
+}
+
+install_db(){
+	db_get {{package_sysname}}-communityserver/db-host || true
+	DB_HOST="$RET"
+	db_get {{package_sysname}}-communityserver/db-user || true
+	DB_USER="$RET"
+	db_get {{package_sysname}}-communityserver/db-pwd || true
+	DB_PWD="$RET"
+	db_get {{package_sysname}}-communityserver/db-name || true
+	DB_NAME="$RET"
+
+	MYSQL="mysql -h$DB_HOST -u$DB_USER"
+	
+	if [ -n "$DB_PWD" ]; then
+		MYSQL="$MYSQL -p$DB_PWD"
+	fi
+
+	sed "s/#max_connections.*/max_connections = 1000/" -i /etc/mysql/my.cnf || true # ignore errors
+
+	CNF_PATH="/etc/mysql/mysql.conf.d/mysqld.cnf";
+	CNF_SERVICE_PATH="/lib/systemd/system/mysql.service";
+
+	if mysql -V | grep -q "MariaDB"; then
+		CNF_PATH="/etc/mysql/mariadb.conf.d/50-server.cnf";
+		CNF_SERVICE_PATH="/lib/systemd/system/mariadb.service";
+	fi
+
+	if [ -e ${CNF_PATH} ]; then
+	    if ! grep -q "^sql_mode" ${CNF_PATH}; then
+        	sed "/\[mysqld\]/a sql_mode = 'NO_ENGINE_SUBSTITUTION'" -i ${CNF_PATH} # disable new STRICT mode in mysql 5.7
+	    else
+			sed "s/sql_mode.*/sql_mode = 'NO_ENGINE_SUBSTITUTION'/" -i ${CNF_PATH} || true # ignore errors
+        fi
+
+	    if ! grep -q "^max_connections"  ${CNF_PATH}; then
+        	sed '/\[mysqld\]/a max_connections = 1000' -i ${CNF_PATH}
+	    else
+			sed "s/max_connections.*/max_connections = 1000/" -i ${CNF_PATH} || true # ignore errors
+	    fi
+
+	    if ! grep -q "^group_concat_max_len"  ${CNF_PATH}; then
+        	sed '/\[mysqld\]/a group_concat_max_len = 2048' -i ${CNF_PATH}
+	    else
+			sed "s/group_concat_max_len.*/group_concat_max_len = 2048/" -i ${CNF_PATH} || true # ignore errors
+	    fi
+
+	    if ! grep -q "^max_allowed_packet"  ${CNF_PATH}; then
+        	sed '/\[mysqld\]/a max_allowed_packet = 1048576000' -i ${CNF_PATH}
+	    else
+			sed "s/max_allowed_packet.*/max_allowed_packet = 1048576000/" -i ${CNF_PATH} || true # ignore errors
+	    fi
+		
+		if ! grep -q "^character_set_server"  ${CNF_PATH}; then
+			sed '/\[mysqld\]/a character_set_server = utf8' -i ${CNF_PATH}
+		else
+			sed "s/character_set_server.*/character_set_server = utf8/" -i ${CNF_PATH} || true # ignore errors
+		fi
+		
+		if ! grep -q "^collation_server"  ${CNF_PATH}; then
+			sed '/\[mysqld\]/a collation_server = utf8_general_ci' -i ${CNF_PATH}
+		else
+			sed "s/collation_server.*/collation_server = utf8_general_ci/" -i ${CNF_PATH} || true # ignore errors
+		fi
+
+		if ! grep -q "^default-authentication-plugin"  ${CNF_PATH}; then
+        	sed '/\[mysqld\]/a default-authentication-plugin = mysql_native_password' -i ${CNF_PATH}
+	    else
+			sed "s/default-authentication-plugin.*/default-authentication-plugin = mysql_native_password/" -i ${CNF_PATH} || true # ignore errors
+	    fi
+	
+		if ! grep -q "^interactive_timeout"  ${CNF_PATH}; then
+			sed '/\[mysqld\]/a interactive_timeout = 900' -i ${CNF_PATH}
+		else
+			sed "s/interactive_timeout.*/interactive_timeout = 900/" -i ${CNF_PATH} || true # ignore errors
+		fi
+		
+		if ! grep -q "^wait_timeout"  ${CNF_PATH}; then
+			sed '/\[mysqld\]/a wait_timeout = 900' -i ${CNF_PATH}
+		else
+			sed "s/wait_timeout.*/wait_timeout = 900/" -i ${CNF_PATH} || true # ignore errors
+		fi
+
+	    if [ -e ${CNF_SERVICE_PATH} ]; then
+                if ! grep -q "^LimitNOFILE"  ${CNF_SERVICE_PATH}; then
+                        sed '/\[Service\]/a LimitNOFILE = infinity' -i ${CNF_SERVICE_PATH}
+                else
+                        sed "s/LimitNOFILE.*/LimitNOFILE = infinity/" -i ${CNF_SERVICE_PATH} || true # ignore errors
+                fi
+
+                if ! grep -q "^LimitMEMLOCK"  ${CNF_SERVICE_PATH}; then
+                        sed '/\[Service\]/a LimitMEMLOCK = infinity' -i ${CNF_SERVICE_PATH}
+                else
+                        sed "s/LimitMEMLOCK.*/LimitMEMLOCK = infinity/" -i ${CNF_SERVICE_PATH} || true # ignore errors
+                fi
+
+                systemctl daemon-reload || true
+            
+	    fi
+	fi
+
+	$MYSQL -e ";" >/dev/null 2>&1 || ( service mysql start >/dev/null 2>&1 && $MYSQL -e ";" >/dev/null )
+		
+    if [ "${DB_USER}" = "root" ]; then
+       # allow MySql.Data.dll connect via mysql_native_password with root and empty password
+	   $MYSQL -D "mysql" -e "ALTER USER '${DB_USER}'@'localhost' IDENTIFIED WITH mysql_native_password BY '${DB_PWD}'" >/dev/null 2>&1 \
+	   || $MYSQL -D "mysql" -e "UPDATE user SET plugin='mysql_native_password', Password = PASSWORD('${DB_PWD}') WHERE user='${DB_USER}' and host='localhost';"
+	fi
+
+	service mysql restart
+
+	$MYSQL -e 'CREATE DATABASE IF NOT EXISTS `'$DB_NAME'` CHARACTER SET utf8 COLLATE `utf8_general_ci`;'
+
+	DB_TABLES_COUNT=$($MYSQL --silent --skip-column-names -e "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema='${DB_NAME}'");
+
+	if [ "${DB_TABLES_COUNT}" -eq "0" ]; then
+	
+		$MYSQL "$DB_NAME" < $DIR/Sql/{{package_sysname}}.sql
+		$MYSQL "$DB_NAME" < $DIR/Sql/{{package_sysname}}.data.sql
+	else
+		for i in $(ls $DIR/Sql/{{package_sysname}}.upgrade*); do
+				$MYSQL "$DB_NAME" < ${i};
+		done	
+	fi
+	
+	if ! grep -q "client_max_body_size" /etc/nginx/nginx.conf; then
+		sed -i '/http {/a\    client_max_body_size 100m;' /etc/nginx/nginx.conf
+	else
+		sed -i "s/\(client_max_body_size\).*\?\;/\1 100m;/" /etc/nginx/nginx.conf
+	fi
+		
+	if [ ! -f /proc/net/if_inet6 ]; then
+        sed '/listen\s*\[::\]:80/d' -i ${NGINX_ROOT_DIR}/includes/onlyoffice-communityserver-common-ssl.conf.template
+        sed '/listen\s*\[::\]:443/d' -i ${NGINX_ROOT_DIR}/includes/onlyoffice-communityserver-common-ssl.conf.template
+	fi
+	
+}
+
+case "$1" in
+	configure)
+	
+		if ! cat /etc/passwd | grep -q "{{package_sysname}}:"; then
+			adduser --quiet --home $DIR --system --group {{package_sysname}}
+		fi
+		
+		if ! cat /etc/group | grep -q "nginx:"; then
+			addgroup --quiet --system nginx
+		fi
+		
+		if ! cat /etc/passwd | grep -q "nginx:"; then
+			adduser --quiet --system nginx
+			usermod -aG nginx nginx
+		fi
+
+		usermod -aG {{package_sysname}},nginx {{package_sysname}}
+
+		install_db
+		apply_connection_string
+		apply_core_machinekey
+
+		mkdir -p /etc/mono/registry/LocalMachine
+		mkdir -p /usr/share/.mono/keypairs
+		mkdir -p "$LOG_DIR"
+		mkdir -p "$DIR/Data"
+		mkdir -p "$DIR/DocumentServerData"
+		mkdir -p /var/cache/nginx/{{package_sysname}}
+		mkdir -p /var/run/{{package_sysname}}
+
+		# clear cache
+		rm -dfr /tmp/{{package_sysname}}*
+		rm -dfr /var/run/{{package_sysname}}/*
+		rm -dfr /var/cache/nginx/{{package_sysname}}/*
+
+		# needed for signalr service
+        mkdir -p -m 700 "$DIR/.config/.mono/keypairs"
+	
+		chown {{package_sysname}}:{{package_sysname}} $DIR
+		chown {{package_sysname}}:{{package_sysname}} $APP_DATA_DIR
+		chown {{package_sysname}}:{{package_sysname}} -R $DIR/Services/
+		chown {{package_sysname}}:{{package_sysname}} -R $DIR/WebStudio/
+		chown {{package_sysname}}:{{package_sysname}} -R $DIR/Sql/
+		chown {{package_sysname}}:{{package_sysname}} -R $DIR/Tools/
+		chown {{package_sysname}}:{{package_sysname}} -R $DIR/ApiSystem/
+		chown {{package_sysname}}:{{package_sysname}} -R $DIR/.config/
+		chown {{package_sysname}}:{{package_sysname}} $LOG_DIR
+		
+		chown nginx:nginx -R /var/cache/nginx/{{package_sysname}}
+		chown {{package_sysname}}:nginx -R /var/run/{{package_sysname}}
+		chmod g+s+w /var/run/{{package_sysname}}
+
+		# configure ngninx for {{package_sysname}}
+		rm -f /etc/nginx/sites-enabled/default
+		rm -f /etc/nginx/sites-enabled/{{package_sysname}}-apisystem
+
+		# disable apparmor mysql. need for best perfomance mysql
+		if which apparmor_parser && [ ! -f /etc/apparmor.d/disable/usr.sbin.mysqld ]; then
+			ln -sf /etc/apparmor.d/usr.sbin.mysqld /etc/apparmor.d/disable/
+			apparmor_parser -R /etc/apparmor.d/usr.sbin.mysqld || true
+		fi
+
+		if [ -d /etc/apport/blacklist.d ] && [ ! -f /etc/apport/blacklist.d/{{package_sysname}} ]; then
+cat > /etc/apport/blacklist.d/{{package_sysname}} <<END
+/usr/bin/hyperfastcgi4
+/usr/bin/mono
+/usr/bin/mono-service
+END
+
+			if service --status-all | grep -Fq 'apport'; then    
+				service apport restart || true
+			fi
+		fi
+		
+		[ -f /usr/lib/python3.$(python3 -c 'import sys; print(sys.version_info.minor)')/EXTERNALLY-MANAGED ] && \
+		rm /usr/lib/python3.$(python3 -c 'import sys; print(sys.version_info.minor)')/EXTERNALLY-MANAGED
+		
+		python3 -m pip install --upgrade pip
+		python3 -m pip install --upgrade requests
+		python3 -m pip install --upgrade setuptools 
+		python3 -m pip install --upgrade radicale==3.0.5
+		python3 -m pip install --upgrade $DIR/Tools/radicale/plugins/app_auth_plugin/.
+		python3 -m pip install --upgrade $DIR/Tools/radicale/plugins/app_store_plugin/.
+		python3 -m pip install --upgrade $DIR/Tools/radicale/plugins/app_rights_plugin/.
+		
+        #configure elasticsearch
+        service elasticsearch stop
+	
+       	if /usr/share/elasticsearch/bin/elasticsearch-plugin list | grep -q "ingest-attachment"; then
+			/usr/share/elasticsearch/bin/elasticsearch-plugin remove ingest-attachment
+		fi
+
+		/usr/share/elasticsearch/bin/elasticsearch-plugin install -s -b ingest-attachment
+
+		if [ ! -d "$APP_INDEX_DIR" ]; then
+			$MYSQL "$DB_NAME" -e "TRUNCATE webstudio_index";
+		fi
+        
+		mkdir -p "$LOG_DIR/Index"
+       	mkdir -p "$APP_INDEX_DIR"
+       	chown -R elasticsearch:elasticsearch "$APP_INDEX_DIR"
+       	chown -R elasticsearch:elasticsearch "$LOG_DIR/Index"
+
+		sed "/path\.data/s!path\.data.*!path\.data: $APP_INDEX_DIR!" -i /etc/elasticsearch/elasticsearch.yml
+		sed "/path\.logs/s!path\.logs.*!path\.logs: ${LOG_DIR}/Index/!" -i /etc/elasticsearch/elasticsearch.yml
+	
+		if ! grep -q "indices.fielddata.cache.size" /etc/elasticsearch/elasticsearch.yml; then
+			echo "indices.fielddata.cache.size: 30%" >> /etc/elasticsearch/elasticsearch.yml
+		else
+			sed -i "s/indices.fielddata.cache.size.*/indices.fielddata.cache.size: 30%/" /etc/elasticsearch/elasticsearch.yml 
+		fi
+		
+		if ! grep -q "indices.memory.index_buffer_size" /etc/elasticsearch/elasticsearch.yml; then
+			echo "indices.memory.index_buffer_size: 30%" >> /etc/elasticsearch/elasticsearch.yml
+		else
+			sed -i "s/indices.memory.index_buffer_size.*/indices.memory.index_buffer_size: 30%/" /etc/elasticsearch/elasticsearch.yml 
+		fi
+		
+		if grep -q "HeapDumpOnOutOfMemoryError" /etc/elasticsearch/jvm.options; then
+			sed "/-XX:+HeapDumpOnOutOfMemoryError/d" -i /etc/elasticsearch/jvm.options
+		fi
+		
+		if ! grep -q "Dlog4j2.formatMsgNoLookups" /etc/elasticsearch/jvm.options; then
+			echo "-Dlog4j2.formatMsgNoLookups=true" >> /etc/elasticsearch/jvm.options
+		else
+			sed -i "s/Dlog4j2.formatMsgNoLookups.*/Dlog4j2.formatMsgNoLookups=true/" /etc/elasticsearch/jvm.options
+		fi
+
+		if ! grep -q "ingest.geoip.downloader.enabled" /etc/elasticsearch/elasticsearch.yml; then
+			echo "ingest.geoip.downloader.enabled: false" >> /etc/elasticsearch/elasticsearch.yml
+		else
+			sed -i "s/ingest.geoip.downloader.enabled.*/ingest.geoip.downloader.enabled: false/" /etc/elasticsearch/elasticsearch.yml 
+		fi
+
+		TOTAL_MEMORY=$(free -m | grep -oP '\d+' | head -n 1);
+		MEMORY_REQUIREMENTS=12228; #RAM ~4*3Gb
+
+		if [ ${TOTAL_MEMORY} -gt ${MEMORY_REQUIREMENTS} ]; then
+			if ! grep -q "[-]Xms1g" /etc/elasticsearch/jvm.options; then
+				echo "-Xms4g" >> /etc/elasticsearch/jvm.options
+			else
+				sed -i "s/-Xms1g/-Xms4g/" /etc/elasticsearch/jvm.options 
+			fi
+
+			if ! grep -q "[-]Xmx1g" /etc/elasticsearch/jvm.options; then
+				echo "-Xmx4g" >> /etc/elasticsearch/jvm.options
+			else
+				sed -i "s/-Xmx1g/-Xmx4g/" /etc/elasticsearch/jvm.options 
+			fi
+		fi
+
+		if [ -d /etc/elasticsearch/ ]; then 
+			chmod g+ws /etc/elasticsearch/
+		fi
+		
+        service elasticsearch start
+	
+
+		sed -i '1d' /etc/logrotate.d/nginx
+		sed '1 i\/var/log/nginx/*.log /var/log/{{package_sysname}}/nginx.*.log {' -i /etc/logrotate.d/nginx
+
+
+		NGINX_ROOT_DIR="/etc/nginx";
+		DOCUMENT_SERVER_PROTOCOL="http";
+		DOCUMENT_SERVER_HOST="localhost:8083";
+		DOCUMENT_SERVER_HOST_PROXY="localhost\/ds-vpath";
+		DOCUMENT_SERVER_API_URL="\/ds-vpath\/";
+		DOCUMENT_SERVER_JWT_ENABLED=${DOCUMENT_SERVER_JWT_ENABLED:-false};
+		DOCUMENT_SERVER_JWT_SECRET=${DOCUMENT_SERVER_JWT_SECRET:-""};
+		DOCUMENT_SERVER_JWT_HEADER=${DOCUMENT_SERVER_JWT_HEADER:-""};
+		LICENSE_FILE_PATH="/var/www/{{package_sysname}}/Data/license.lic";
+		APP_ROOT_DIR="$DIR/WebStudio";
+		CONTROL_PANEL_PORT_80_TCP_ADDR="localhost:8082";
+		SERVICE_SSO_AUTH_HOST_ADDR="localhost";
+		SERVER_HOST="localhost";
+
+		db_get {{package_sysname}}-communityserver/ds-jwt-enabled || true
+
+		DOCUMENT_SERVER_JWT_ENABLED="$RET";
+
+		db_get {{package_sysname}}-communityserver/ds-jwt-secret || true
+	
+		DOCUMENT_SERVER_JWT_SECRET="$RET";
+
+		db_get {{package_sysname}}-communityserver/ds-jwt-secret-header || true
+		
+		DOCUMENT_SERVER_JWT_HEADER="$RET";
+
+		# setup enterprise
+
+		# setup document server
+		if dpkg -l | grep -q "{{package_sysname}}-documentserver"; then
+    			cp ${NGINX_ROOT_DIR}/includes/{{package_sysname}}-communityserver-proxy-to-documentserver.conf.template ${NGINX_ROOT_DIR}/includes/{{package_sysname}}-communityserver-proxy-to-documentserver.conf;
+    			sed 's,{{DOCUMENT_SERVER_HOST_ADDR}},'"${DOCUMENT_SERVER_PROTOCOL}:\/\/${DOCUMENT_SERVER_HOST}"',' -i ${NGINX_ROOT_DIR}/includes/{{package_sysname}}-communityserver-proxy-to-documentserver.conf;
+
+    			# change web.appsettings link to editor
+    			sed '/files\.docservice\.url\.internal/s!\(value\s*=\s*\"\)[^\"]*\"!\1'${DOCUMENT_SERVER_PROTOCOL}':\/\/'${DOCUMENT_SERVER_HOST}'\"!' -i  ${APP_ROOT_DIR}/web.appsettings.config
+    			sed '/files\.docservice\.url\.public/s!\(value\s*=\s*\"\)[^\"]*\"!\1'${DOCUMENT_SERVER_API_URL}'\"!' -i ${APP_ROOT_DIR}/web.appsettings.config
+    			sed '/files\.docservice\.url\.portal/s!\(value\s*=\s*\"\)[^\"]*\"!\1http:\/\/'${SERVER_HOST}'\"!' -i ${APP_ROOT_DIR}/web.appsettings.config
+				
+				sed '/files\.docservice\.url\.internal/s!\(value\s*=\s*\"\)[^\"]*\"!\1'${DOCUMENT_SERVER_PROTOCOL}':\/\/'${DOCUMENT_SERVER_HOST}'\"!' -i  ${APP_SERVICES_DIR}/TeamLabSvc/TeamLabSvc.exe.config
+    			sed '/files\.docservice\.url\.public/s!\(value\s*=\s*\"\)[^\"]*\"!\1'${DOCUMENT_SERVER_API_URL}'\"!' -i ${APP_SERVICES_DIR}/TeamLabSvc/TeamLabSvc.exe.config
+    			sed '/files\.docservice\.url\.portal/s!\(value\s*=\s*\"\)[^\"]*\"!\1http:\/\/'${SERVER_HOST}'\"!' -i ${APP_SERVICES_DIR}/TeamLabSvc/TeamLabSvc.exe.config
+
+				if dpkg -l "{{package_sysname}}-documentserver-ee" &> /dev/null; then
+					sed '/license\.file\.path/s!\(value\s*=\s*\"\)[^\"]*\"!\1'${LICENSE_FILE_PATH}'\"!' -i ${APP_ROOT_DIR}/web.appsettings.config
+					sed '/license\.file\.path/s!\(value\s*=\s*\"\)[^\"]*\"!\1'${LICENSE_FILE_PATH}'\"!' -i ${APP_SERVICES_DIR}/TeamLabSvc/TeamLabSvc.exe.config		
+					
+					if [ ! -f ${LICENSE_FILE_PATH} ]; then
+		
+					$MYSQL "$DB_NAME" <<EOF || true
+INSERT IGNORE INTO tenants_quota (tenant, name, max_file_size, max_total_size, active_users, features) \
+SELECT -1000, 'start_trial', max_file_size, max_total_size, active_users, CONCAT(features, ',trial')
+FROM tenants_quota
+WHERE tenant = -1;
+INSERT IGNORE INTO tenants_tariff (id, tenant, tariff, stamp) VALUES ('1000','-1', '-1000', NOW() + INTERVAL 30 DAY);
+EOF
+		
+					fi
+				
+				fi
+
+				if [ "${DOCUMENT_SERVER_JWT_ENABLED}" = "true" ]; then
+	    			sed '/files\.docservice\.secret/s!\(value\s*=\s*\"\)[^\"]*\"!\1'${DOCUMENT_SERVER_JWT_SECRET}'\"!' -i ${APP_ROOT_DIR}/web.appsettings.config
+	    			sed '/files\.docservice\.secret.header/s!\(value\s*=\s*\"\)[^\"]*\"!\1'${DOCUMENT_SERVER_JWT_HEADER}'\"!' -i ${APP_ROOT_DIR}/web.appsettings.config
+					sed '/files\.docservice\.secret/s!\(value\s*=\s*\"\)[^\"]*\"!\1'${DOCUMENT_SERVER_JWT_SECRET}'\"!' -i ${APP_SERVICES_DIR}/TeamLabSvc/TeamLabSvc.exe.config
+	    			sed '/files\.docservice\.secret.header/s!\(value\s*=\s*\"\)[^\"]*\"!\1'${DOCUMENT_SERVER_JWT_HEADER}'\"!' -i ${APP_SERVICES_DIR}/TeamLabSvc/TeamLabSvc.exe.config
+				fi
+		fi
+
+		# setup controlpanel
+		if dpkg -l | grep -q "{{package_sysname}}-controlpanel"; then
+        	cp ${NGINX_ROOT_DIR}/includes/{{package_sysname}}-communityserver-proxy-to-controlpanel.conf.template ${NGINX_ROOT_DIR}/includes/{{package_sysname}}-communityserver-proxy-to-controlpanel.conf;
+			sed 's,{{CONTROL_PANEL_HOST_ADDR}},'"${CONTROL_PANEL_PORT_80_TCP_ADDR}"',' -i ${NGINX_ROOT_DIR}/includes/{{package_sysname}}-communityserver-proxy-to-controlpanel.conf;
+			sed 's,{{SERVICE_SSO_AUTH_HOST_ADDR}},'"${SERVICE_SSO_AUTH_HOST_ADDR}"',' -i ${NGINX_ROOT_DIR}/includes/{{package_sysname}}-communityserver-proxy-to-controlpanel.conf;
+			sed '/web\.controlpanel\.url/s/\(value\s*=\s*\"\)[^\"]*\"/\1\/controlpanel\/\"/' -i  ${APP_ROOT_DIR}/web.appsettings.config;
+			sed '/web\.controlpanel\.url/s/\(value\s*=\s*\"\)[^\"]*\"/\1\/controlpanel\/\"/' -i ${APP_SERVICES_DIR}/TeamLabSvc/TeamLabSvc.exe.config;
+		fi
+		# end
+
+		# setup mail services
+		db_get {{package_sysname}}-communityserver/imapsync-start-date || true
+		MAIL_IMAPSYNC_START_DATE="${RET:-$(date +"%Y-%m-%dT%H:%M:%S")}";
+		[ -z "$RET" ] && db_set {{package_sysname}}-communityserver/imapsync-start-date ${MAIL_IMAPSYNC_START_DATE} || true
+		sed 's_\(\"ImapSyncStartDate":\).*,_\1 "'${MAIL_IMAPSYNC_START_DATE}'",_' -i /etc/{{package_sysname}}/communityserver/mail.production.json
+		sed "/mail\.imap-sync-start-date/s/value=\"\S*\"/value=\"${MAIL_IMAPSYNC_START_DATE}\"/g" -i ${APP_ROOT_DIR}/web.appsettings.config
+
+		sed "s!\"value\":.*!\"value\":\ \"${APP_DATA_DIR}\"!" -i /etc/{{package_sysname}}/communityserver/storage.production.json
+		sed "s!\"folder\":.*,!\"folder\":\ \"${APP_SERVICES_DIR}\",!" -i /etc/{{package_sysname}}/communityserver/appsettings.production.json
+		
+		OPENSSL_CONF="/etc/{{package_sysname}}/communityserver/openssl.cnf"
+		if [ ! -f $OPENSSL_CONF ]; then
+			cp /etc/ssl/openssl.cnf $OPENSSL_CONF;
+			sed '/new_oids$/a openssl_conf = default_conf' -i $OPENSSL_CONF
+    		
+			if ! grep -q "\[default_conf\]" $OPENSSL_CONF; then
+				echo -e "[default_conf]\nssl_conf = ssl_sect\n" >> $OPENSSL_CONF
+			else
+				sed -i "s/^ssl_conf =.*/ssl_conf = ssl_sect/" $OPENSSL_CONF
+			fi
+
+			if ! grep -q "\[ssl_sect\]" $OPENSSL_CONF; then
+				echo -e "[ssl_sect]\nsystem_default = system_default_sect\n" >> $OPENSSL_CONF
+			else
+				sed -i "s/^system_default =.*/system_default = system_default_sect/" $OPENSSL_CONF
+			fi
+
+			CIPHERSTRING="DEFAULT@SECLEVEL=1"
+			if ! grep -q "\[system_default_sect\]" $OPENSSL_CONF; then
+				echo -e "[system_default_sect] \n\
+MinProtocol = TLSv1.2 \n\
+CipherString = $CIPHERSTRING \n" >> $OPENSSL_CONF
+			else
+				if ! grep -q "MinProtocol =" $OPENSSL_CONF; then
+					sed "/\[system_default_sect\]/a MinProtocol = TLSv1.2" -i $OPENSSL_CONF
+				else
+					sed -i "s/^MinProtocol =.*/MinProtocol = TLSv1.2/" $OPENSSL_CONF
+				fi
+
+				if ! grep -q "CipherString =" $OPENSSL_CONF; then
+					sed "/\[system_default_sect\]/a CipherString = $CIPHERSTRING" -i $OPENSSL_CONF
+				else
+					sed -i "s/^CipherString =.*/CipherString = $CIPHERSTRING/" $OPENSSL_CONF
+				fi
+			fi
+		fi
+
+		# setup xmppserver
+		if dpkg -l | grep -q "{{package_sysname}}-xmppserver"; then
+			sed '/web\.talk/s/value=\"\S*\"/value=\"true\"/g' -i  ${APP_ROOT_DIR}/web.appsettings.config			
+		fi
+
+		if [ -f /etc/god/conf.d/{{package_sysname}}.god ]; then
+			rm -rf /etc/god/conf.d/{{package_sysname}}.god
+			service god restart >/dev/null 2>&1
+		fi
+		# end
+
+		# call db_stop to prevent installation hang
+		db_stop
+
+		service nginx restart >/dev/null 2>&1
+		service mysql restart >/dev/null 2>&1 || true # ignore errors
+		
+		if systemctl is-active monoserve | grep -q "active"; then
+			curl --silent --output /dev/null http://127.0.0.1/api/2.0/warmup/restart.json || true
+		fi		
+	;;
+
+	abort-upgrade|abort-remove|abort-deconfigure)
+	;;
+
+	*)
+		echo "postinst called with unknown argument \`$1'" >&2
+		exit 1
+	;;
+esac
+
+# dh_installdeb will replace this with shell code automatically
+# generated by other debhelper scripts.
+
+#DEBHELPER#
+
+exit 0

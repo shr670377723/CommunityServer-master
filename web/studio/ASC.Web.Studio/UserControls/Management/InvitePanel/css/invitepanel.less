@@ -1,0 +1,101 @@
+/*
+ *
+ * (c) Copyright Ascensio System Limited 2010-2023
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+*/
+
+
+@import "../../../../skins/default/params.less";
+
+#shareInviteUserLinkPanel {
+    margin-top: 24px;
+    position: relative;
+
+    textarea {
+        resize: none;
+    }
+
+    #shareInviteUserLinkCopy {
+        float: left;
+        margin-top: 2px;
+        margin-right: 14px;
+    }
+
+    #getShortenInviteLink {
+        display: inline-block;
+        margin-top: 2px;
+    }
+}
+
+#shareInviteUserLink {
+    background-color: @back-ground-text;
+    border-color: @invite-border;
+    float: left;
+    height: 55px;
+    margin: 10px 0;
+    max-height: 55px;
+    min-height: 32px;
+    padding: 5px;
+    width: 98%;
+    resize: none;
+}
+
+#chkVisitor {
+    float: left;
+    margin:3px 6px 3px 0;
+}
+
+#chkVisitorContainer {
+    float: right;
+}
+
+#shareInviteLinkViaSocPanel {
+    height: 16px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    > li {
+        float: left;
+    }
+
+    a {
+        background: url("img/social_icons.png") no-repeat 0 0 transparent;
+        cursor: pointer;
+        display: block;
+        height: 16px;
+        margin-right: 4px;
+        width: 16px;
+    }
+
+    .facebook {
+        background: url('../../../../skins/default/images/svg/people/facebookgray.svg');
+    }
+
+    .twitter {
+        background: url('../../../../skins/default/images/svg/people/twittergray.svg');
+    }
+}
+.disable-help-block-right {
+    background: url('img/exclamation.png') no-repeat right top;
+    line-height: 20px;
+    padding-right: 28px;
+    display: inline-block;
+    color: #83888d;
+
+    p {
+        font-size: 12px;
+        margin: 0;
+        color: @textColor;
+    }
+}

@@ -1,0 +1,343 @@
+/*
+ *
+ * (c) Copyright Ascensio System Limited 2010-2023
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+*/
+
+
+@import "params.less";
+
+.backdrop
+{
+    background-color: @backdrop-bg;
+    bottom: 0;
+    filter: alpha(opacity=80);
+    left: 0;
+    opacity: 0.5;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1040;
+}
+
+.dashboard-center-box {
+    padding: 40px;
+    background-color: @bg-dashboard;
+    left: 50%;
+    position: absolute;
+    top: 10%;
+    z-index: 1050;
+    width: 660px;
+    margin-left: -330px;
+}
+
+.dashboard-center-box .close {
+    color: @border-button-default;
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    font-size: 32px;
+    height: 16px;
+    line-height: 16px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    vertical-align: middle;
+    width: 16px;
+    text-decoration: none;
+}
+
+.dashboard-center-box .content {
+    overflow: hidden;
+    padding: 0 30px;
+}
+
+.dashboard-center-box .module-block {
+    .img {
+        background-position: 0 20px;
+        background-repeat: no-repeat;
+        display: block;
+        padding: 20px 0 0;
+        width: 165px;
+        height: 260px;
+        float: left;
+    }
+
+    .text {
+        float: left;
+        width: 435px;
+        height: 260px;
+
+        p {
+            font-size: 13px;
+            margin: 18px 0;
+        }
+    }
+
+    .title {
+        font-size: 27px;
+        font-weight: 600;
+        margin: 18px 0;
+        color: @bg-dashboard-title;
+    }
+
+    a.link {
+        font-size: 16px;
+    }
+}
+
+
+.dashboard-center-box .dashboard-buttons {
+    margin-bottom: 54px;
+    text-align: center;
+
+    .create-button {
+        display: inline-block;
+        font-size: 18px;
+    }
+}
+
+.dashboard-center-box.community {
+    .content .module-block {
+        .img.share-news-and-knowledge {
+            background-image: url("images/dashboard/share-news-and-knowledge.svg");
+        }
+        .img.discuss-with-team {
+            background-image: url("images/dashboard/discuss-with-team.svg");
+        }
+        .img.keep-your-team-posted {
+            background-image: url("images/dashboard/keep-your-team-posted.svg");
+        }
+    }
+}
+
+.dashboard-center-box.crm {
+    .content .module-block {
+        .img.create-clients-database {
+            background-image: url("images/dashboard/create-clients-database.svg");
+        }
+        .img.track-sales {
+            background-image: url("images/dashboard/track-sales.svg");
+        }
+        .img.communicate-with-clients {
+            background-image: url("images/dashboard/communicate-with-clients.svg");
+        }
+        .img.customize-your-crm {
+            background-image: url("images/dashboard/customize-your-crm.svg");
+        }
+    }
+}
+
+.dashboard-center-box.files {
+    .content .module-block {
+        .img.work-with-office-docs {
+            background-image: url("images/dashboard/work-with-office-docs.svg");
+        }
+        .img.share-files {
+            background-image: url("images/dashboard/share-files.svg");
+        }
+        .img.make-co-editing-comfy {
+            background-image: url("images/dashboard/make-co-editing-comfy.svg");
+        }
+        .img.use-more-collaboration-tools {
+            background-image: url("images/dashboard/use-more-collaboration-tools.svg");
+        }
+    }
+}
+
+.dashboard-center-box.welcome {
+    .module-block h1 {
+        text-align: center;
+        font-size: 28px;
+        line-height: 32px;
+        font-weight: 600;
+        margin: 0 0 32px 0;
+    }
+
+    .content {
+        height: 362px;
+    }
+
+    .module-block .img {
+        background-position: 10px 0;
+        padding: 0;
+        width: 180px;
+    }
+
+    .module-block .text {
+        width: 420px;
+    }
+
+    .module-block .text b {
+        font-weight: 600;
+    }
+
+    .module-block .title {
+        font-size: 22px;
+        font-weight: 600;
+        margin: 0 0 18px 0;
+    }
+
+    .content .module-block {
+        .img.tailored-cloud {
+            background-image: url("images/dashboard/tailored-cloud.svg");
+        }
+
+        .img.ultimate-security {
+            background-image: url("images/dashboard/ultimate-security.svg");
+        }
+
+        .img.integration-with-infrastructure {
+            background-image: url("images/dashboard/integration-with-infrastructure.svg");
+        }
+
+        .img.apps-you-need {
+            background-image: url("images/dashboard/apps-you-need.svg");
+        }
+
+        .img.creating-business-cloud {
+            background-image: url("images/dashboard/creating-business-cloud.svg");
+        }
+    }
+}
+
+.dashboard-center-box .slick-carousel {
+    display: none;
+    width: 600px;
+    height: 260px;
+
+    &.slick-initialized {
+        display: block;
+    }
+
+    .slick-prev {
+        position: absolute;
+        top: 40%;
+        z-index: 1;
+        left: 20px;
+        cursor: pointer;
+        background: transparent;
+        color: transparent;
+        outline: none;
+        border: none;
+        width: 50px;
+        height: 50px;
+
+        &:after {
+            content: '';
+            position: absolute;
+            border: 2px solid #E3E3E3;
+            border-right: none;
+            border-top: none;
+            width: 21px;
+            height: 21px;
+            top: 15px;
+            left: 20px;
+            -moz-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        &:hover {
+            &:after {
+                border: 2px solid #2DA7DB;
+                border-right: none;
+                border-top: none;
+            }
+        }
+    }
+
+    .slick-next {
+        position: absolute;
+        top: 40%;
+        z-index: 1;
+        right: 20px;
+        cursor: pointer;
+        background: transparent;
+        color: transparent;
+        outline: none;
+        border: none;
+        width: 50px;
+        height: 50px;
+
+        &:after {
+            content: '';
+            position: absolute;
+            border: 2px solid #E3E3E3;
+            border-right: none;
+            border-top: none;
+            width: 21px;
+            height: 21px;
+            top: 15px;
+            left: 10px;
+            -moz-transform: rotate(-135deg);
+            -ms-transform: rotate(-135deg);
+            -webkit-transform: rotate(-135deg);
+            -o-transform: rotate(-135deg);
+            transform: rotate(-135deg);
+        }
+
+        &:hover {
+            &:after {
+                border: 2px solid #2DA7DB;
+                border-right: none;
+                border-top: none;
+            }
+        }
+    }
+
+    .slick-dots {
+        position: absolute;
+        bottom: 30px;
+        left: 45%;
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+
+        li {
+            display: inline-block;
+            margin-right: 16px;
+
+            &.slick-active {
+                button {
+                    background: #2DA7DB;
+                }
+            }
+
+            button {
+                color: transparent;
+                background: #E9E9E9;
+                display: inline-block;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                border: none;
+                cursor: pointer;
+                outline: none;
+                padding: 0;
+            }
+        }
+    }
+
+    .slick-carousel-item {
+        float: left;
+        height: 260px;
+        position: relative;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}

@@ -1,0 +1,1018 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ActivateMobilePhoneEmptyCode" xml:space="preserve">
+    <value>Validation code field cannot be empty</value>
+  </data>
+  <data name="ActivateMobilePhoneEmptyPhoneNumber" xml:space="preserve">
+    <value>Enter mobile phone number</value>
+  </data>
+  <data name="ActivateTfaAppEmptyCode" xml:space="preserve">
+    <value>Validation code field cannot be empty</value>
+  </data>
+  <data name="ActiveConnectionWasLoggedOut" xml:space="preserve">
+    <value>The active connection was logged out: {0}, {1}</value>
+  </data>
+  <data name="ActiveConnectionsWasLoggedOut" xml:space="preserve">
+    <value>Active connections was logged out</value>
+  </data>
+  <data name="AddButton" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="AddFilter" xml:space="preserve">
+    <value>Add filter</value>
+  </data>
+  <data name="AdvansedFilterInfoText" xml:space="preserve">
+    <value>Use the {0}?{1} and {0}*{1} symbols to perform a single/multiple-character search. For example, to search for all the words beginning with {0}O{1}, use the  {0}O*{1} query. To search for the exact phrase use the quotation marks.{2}Learn more...{3}</value>
+  </data>
+  <data name="AscOrDesc" xml:space="preserve">
+    <value>Ascending/descending</value>
+  </data>
+  <data name="BackupMakeCopySuccess" xml:space="preserve">
+    <value>The backup copy has been successfully created.</value>
+  </data>
+  <data name="BusyStatus" xml:space="preserve">
+    <value>Busy</value>
+  </data>
+  <data name="BuyNumberSuccessMsg" xml:space="preserve">
+    <value>Successful purchase of number</value>
+  </data>
+  <data name="CallIncoming" xml:space="preserve">
+    <value>Incoming call</value>
+  </data>
+  <data name="CallMissed" xml:space="preserve">
+    <value>Missed call</value>
+  </data>
+  <data name="CancelButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CannotGenerateCertificate" xml:space="preserve">
+    <value>Cannot generate certificate</value>
+  </data>
+  <data name="ChangesApplied" xml:space="preserve">
+    <value>Changes are applied</value>
+  </data>
+  <data name="ChangesSuccessfullyAppliedMsg" xml:space="preserve">
+    <value>Changes are successfully applied.</value>
+  </data>
+  <data name="CloseButton" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="CommonJSErrorMsg" xml:space="preserve">
+    <value>An error has been encountered. Please contact your administrator.</value>
+  </data>
+  <data name="Complete" xml:space="preserve">
+    <value>Complete</value>
+  </data>
+  <data name="ConfirmLogoutFrom" xml:space="preserve">
+    <value>Log out from {0}, {1}</value>
+  </data>
+  <data name="ConfirmMessage" xml:space="preserve">
+    <value>Do you want to continue?</value>
+  </data>
+  <data name="ContactSelectorAddText" xml:space="preserve">
+    <value>Create new contact</value>
+  </data>
+  <data name="ContactSelectorEmptyList" xml:space="preserve">
+    <value>No contacts in this list</value>
+  </data>
+  <data name="ContactSelectorEmptyNameError" xml:space="preserve">
+    <value>Enter the company title</value>
+  </data>
+  <data name="ContactSelectorNoItems" xml:space="preserve">
+    <value>There are no contacts</value>
+  </data>
+  <data name="ContactSelectorNoResult" xml:space="preserve">
+    <value>No such contact</value>
+  </data>
+  <data name="ContactSelectorNotFoundError" xml:space="preserve">
+    <value>There is no such company</value>
+  </data>
+  <data name="ContinueButton" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="CreateButton" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="CreateReportError" xml:space="preserve">
+    <value>Error while generating report</value>
+  </data>
+  <data name="CronApril" xml:space="preserve">
+    <value>april</value>
+  </data>
+  <data name="CronAugust" xml:space="preserve">
+    <value>august</value>
+  </data>
+  <data name="CronDecember" xml:space="preserve">
+    <value>december</value>
+  </data>
+  <data name="CronEmpty" xml:space="preserve">
+    <value>every</value>
+  </data>
+  <data name="CronEmptyDayOfMonth" xml:space="preserve">
+    <value>every day of the month</value>
+  </data>
+  <data name="CronEmptyDayOfWeek" xml:space="preserve">
+    <value>every day of the week</value>
+  </data>
+  <data name="CronEmptyMinutes" xml:space="preserve">
+    <value>every</value>
+  </data>
+  <data name="CronEmptyMonth" xml:space="preserve">
+    <value>every month</value>
+  </data>
+  <data name="CronEmptyTimeHours" xml:space="preserve">
+    <value>every hour</value>
+  </data>
+  <data name="CronEmptyTimeMinutes" xml:space="preserve">
+    <value>every minute</value>
+  </data>
+  <data name="CronError1" xml:space="preserve">
+    <value>The tag %s is not supported !</value>
+  </data>
+  <data name="CronError2" xml:space="preserve">
+    <value>Bad number of elements</value>
+  </data>
+  <data name="CronError3" xml:space="preserve">
+    <value>The jqueryelement should be set into jqCron settings</value>
+  </data>
+  <data name="CronError4" xml:space="preserve">
+    <value>Unrecognized expression</value>
+  </data>
+  <data name="CronFebruary" xml:space="preserve">
+    <value>february</value>
+  </data>
+  <data name="CronFirst" xml:space="preserve">
+    <value>first</value>
+  </data>
+  <data name="CronFriday" xml:space="preserve">
+    <value>friday</value>
+  </data>
+  <data name="CronJanuary" xml:space="preserve">
+    <value>january</value>
+  </data>
+  <data name="CronJuly" xml:space="preserve">
+    <value>july</value>
+  </data>
+  <data name="CronJune" xml:space="preserve">
+    <value>june</value>
+  </data>
+  <data name="CronLast" xml:space="preserve">
+    <value>last</value>
+  </data>
+  <data name="CronMarch" xml:space="preserve">
+    <value>march</value>
+  </data>
+  <data name="CronMay" xml:space="preserve">
+    <value>may</value>
+  </data>
+  <data name="CronMonday" xml:space="preserve">
+    <value>monday</value>
+  </data>
+  <data name="CronNameDay" xml:space="preserve">
+    <value>day</value>
+  </data>
+  <data name="CronNameHour" xml:space="preserve">
+    <value>hour</value>
+  </data>
+  <data name="CronNameMinute" xml:space="preserve">
+    <value>minute</value>
+  </data>
+  <data name="CronNameMonth" xml:space="preserve">
+    <value>month</value>
+  </data>
+  <data name="CronNameWeek" xml:space="preserve">
+    <value>week</value>
+  </data>
+  <data name="CronNameYear" xml:space="preserve">
+    <value>year</value>
+  </data>
+  <data name="CronNovember" xml:space="preserve">
+    <value>november</value>
+  </data>
+  <data name="CronOctober" xml:space="preserve">
+    <value>october</value>
+  </data>
+  <data name="CronSaturday" xml:space="preserve">
+    <value>saturday</value>
+  </data>
+  <data name="CronSeptember" xml:space="preserve">
+    <value>september</value>
+  </data>
+  <data name="CronSunday" xml:space="preserve">
+    <value>sunday</value>
+  </data>
+  <data name="CronTextDom" xml:space="preserve">
+    <value>on &lt;b /&gt;</value>
+  </data>
+  <data name="CronTextDow" xml:space="preserve">
+    <value>on &lt;b /&gt;</value>
+  </data>
+  <data name="CronTextMins" xml:space="preserve">
+    <value>at &lt;b /&gt; minute(s) past the hour UTC</value>
+  </data>
+  <data name="CronTextMonth" xml:space="preserve">
+    <value>of &lt;b /&gt;</value>
+  </data>
+  <data name="CronTextPeriod" xml:space="preserve">
+    <value>Every &lt;b /&gt;</value>
+  </data>
+  <data name="CronTextTime" xml:space="preserve">
+    <value>at &lt;b /&gt;:&lt;b /&gt; UTC</value>
+  </data>
+  <data name="CronThursday" xml:space="preserve">
+    <value>thursday</value>
+  </data>
+  <data name="CronTuesday" xml:space="preserve">
+    <value>tuesday</value>
+  </data>
+  <data name="CronWednesday" xml:space="preserve">
+    <value>wednesday</value>
+  </data>
+  <data name="EditButton" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="EmptyCommentErrorMessage" xml:space="preserve">
+    <value>Comment cannot be empty</value>
+  </data>
+  <data name="EmptySelectedArea" xml:space="preserve">
+    <value>Select an area for avatar</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ErrorEmptyEmail" xml:space="preserve">
+    <value>Enter the email</value>
+  </data>
+  <data name="ErrorEmptyField" xml:space="preserve">
+    <value>Please fill in this field</value>
+  </data>
+  <data name="ErrorEmptyGroupTitle" xml:space="preserve">
+    <value>Enter the group title</value>
+  </data>
+  <data name="ErrorEmptyUserFirstName" xml:space="preserve">
+    <value>Enter the first name</value>
+  </data>
+  <data name="ErrorEmptyUserLastName" xml:space="preserve">
+    <value>Enter the last name</value>
+  </data>
+  <data name="ErrorGroupNotExist" xml:space="preserve">
+    <value>There is no such group</value>
+  </data>
+  <data name="ErrorHeadNotExist" xml:space="preserve">
+    <value>There is not such person</value>
+  </data>
+  <data name="ErrorInvalidUserFirstName" xml:space="preserve">
+    <value>Invalid first name</value>
+  </data>
+  <data name="ErrorInvalidUserLastName" xml:space="preserve">
+    <value>Invalid last name</value>
+  </data>
+  <data name="ErrorMesLongField64" xml:space="preserve">
+    <value>64 chars maximum</value>
+  </data>
+  <data name="ErrorMessage_InvalidDate" xml:space="preserve">
+    <value>Registration date must be later than birth date</value>
+  </data>
+  <data name="ErrorMessageContactsDuplicated" xml:space="preserve">
+    <value>Cannot add the same account and contact twice.</value>
+  </data>
+  <data name="ErrorMessageLongField64" xml:space="preserve">
+    <value>You can only enter up to 64 characters for this field.</value>
+  </data>
+  <data name="ErrorNotCorrectEmail" xml:space="preserve">
+    <value>Incorrect email</value>
+  </data>
+  <data name="ErrorPortalNameExist" xml:space="preserve">
+    <value>Portal name is already taken</value>
+  </data>
+  <data name="ErrorPortalNameIncorrect" xml:space="preserve">
+    <value>Not allowed characters in portal name</value>
+  </data>
+  <data name="ErrorPortalNameTooShort" xml:space="preserve">
+    <value>Portal name is too short</value>
+  </data>
+  <data name="ErrorPortalNameWasNotChanged" xml:space="preserve">
+    <value>Portal name has not been changed</value>
+  </data>
+  <data name="FinishImportUserTitle" xml:space="preserve">
+    <value>The users have been successfully added.</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="GroupSelectorAddSuccess" xml:space="preserve">
+    <value>Group {0} was created successfully.</value>
+  </data>
+  <data name="GroupSelectorAddText" xml:space="preserve">
+    <value>Create new group</value>
+  </data>
+  <data name="GroupSelectorEmptyList" xml:space="preserve">
+    <value>No groups in this list</value>
+  </data>
+  <data name="GroupSelectorNoResults" xml:space="preserve">
+    <value>No such group</value>
+  </data>
+  <data name="HideLink" xml:space="preserve">
+    <value>Hide</value>
+  </data>
+  <data name="ImportOf" xml:space="preserve">
+    <value>of</value>
+  </data>
+  <data name="IncorrectIPAddressFormatError" xml:space="preserve">
+    <value>Incorrect IP address format</value>
+  </data>
+  <data name="IncorrectMetadataFileType" xml:space="preserve">
+    <value>Incorrect metadata file type. An .xml file is required.</value>
+  </data>
+  <data name="InvalidCertificate" xml:space="preserve">
+    <value>Invalid certificate</value>
+  </data>
+  <data name="InvalidMetadataXmlFile" xml:space="preserve">
+    <value>Invalid metadata xml file</value>
+  </data>
+  <data name="InviteButton" xml:space="preserve">
+    <value>Invite</value>
+  </data>
+  <data name="IPRestrictionsSettingsSuccessfullyUpdated" xml:space="preserve">
+    <value>Settings have been successfully updated</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="LdapAttributeOrigin" xml:space="preserve">
+    <value>LDAP Attribute Name</value>
+  </data>
+  <data name="LdapSecurityPlaceholder" xml:space="preserve">
+    <value>LDAP Group Name Attribute</value>
+  </data>
+  <data name="LdapSettingsCertCnNoMatch" xml:space="preserve">
+    <value>Certificate name does not match hostname</value>
+  </data>
+  <data name="LdapSettingsCertExpired" xml:space="preserve">
+    <value>Certificate expired</value>
+  </data>
+  <data name="LdapSettingsCertIssuerChaining" xml:space="preserve">
+    <value>No certificate  issuer chain was provided</value>
+  </data>
+  <data name="LdapSettingsCertMalformed" xml:space="preserve">
+    <value>Malformed certificate</value>
+  </data>
+  <data name="LdapSettingsCertUnrecognizedError" xml:space="preserve">
+    <value>Unrecognized Error</value>
+  </data>
+  <data name="LdapSettingsCertUntrustedCa" xml:space="preserve">
+    <value>Certificate Authority who issued the certificate is not trusted</value>
+  </data>
+  <data name="LdapSettingsCertUntrustedRoot" xml:space="preserve">
+    <value>Root Certificate Authority who issued the certificate is not trusted</value>
+  </data>
+  <data name="LdapSettingsEmptyField" xml:space="preserve">
+    <value>Empty field</value>
+  </data>
+  <data name="LdapSettingsIncorrectPortNumber" xml:space="preserve">
+    <value>Incorrect port number</value>
+  </data>
+  <data name="LdapSettingsSuccess" xml:space="preserve">
+    <value>Saving has been successfully completed</value>
+  </data>
+  <data name="LicenseAgreementsError" xml:space="preserve">
+    <value>You need to read and agree with the License Agreement</value>
+  </data>
+  <data name="LicenseKeyError" xml:space="preserve">
+    <value>License is not correct</value>
+  </data>
+  <data name="LinkCopySuccess" xml:space="preserve">
+    <value>Link has been copied to the clipboard</value>
+  </data>
+  <data name="LoadingDescription" xml:space="preserve">
+    <value>Please wait...</value>
+  </data>
+  <data name="LoadingPleaseWait" xml:space="preserve">
+    <value>Loading, please wait.</value>
+  </data>
+  <data name="LoadingProcessing" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="MailIcsCalendarAllDayEventLabel" xml:space="preserve">
+    <value>all day</value>
+  </data>
+  <data name="MailIcsCancelDescription" xml:space="preserve">
+    <value>Event has been canceled.</value>
+  </data>
+  <data name="MailIcsCancelSubject" xml:space="preserve">
+    <value>Canceled: {0}</value>
+  </data>
+  <data name="MailIcsFinishDescription" xml:space="preserve">
+    <value>Event has been finished.</value>
+  </data>
+  <data name="MailIcsReplyMaybeDescription" xml:space="preserve">
+    <value>{0} tentatively accepted the invitation to</value>
+  </data>
+  <data name="MailIcsReplyNoDescription" xml:space="preserve">
+    <value>{0} declined the invitation to</value>
+  </data>
+  <data name="MailIcsReplySubject" xml:space="preserve">
+    <value>Reply: {0}</value>
+  </data>
+  <data name="MailIcsReplyYesDescription" xml:space="preserve">
+    <value>{0} accepted the invitation to</value>
+  </data>
+  <data name="MailIcsRequestDescription" xml:space="preserve">
+    <value>{0} invites you to</value>
+  </data>
+  <data name="MailIcsRequestSubject" xml:space="preserve">
+    <value>Invitation: {0}</value>
+  </data>
+  <data name="MailIcsRRuleAndLabel" xml:space="preserve">
+    <value>and</value>
+  </data>
+  <data name="MailIcsRRuleApproximateLabel" xml:space="preserve">
+    <value>approximate</value>
+  </data>
+  <data name="MailIcsRRuleAtLabel" xml:space="preserve">
+    <value>at</value>
+  </data>
+  <data name="MailIcsRRuleDayLabel" xml:space="preserve">
+    <value>day</value>
+  </data>
+  <data name="MailIcsRRuleDaysLabel" xml:space="preserve">
+    <value>days</value>
+  </data>
+  <data name="MailIcsRRuleEveryLabel" xml:space="preserve">
+    <value>every</value>
+  </data>
+  <data name="MailIcsRRuleForLabel" xml:space="preserve">
+    <value>for</value>
+  </data>
+  <data name="MailIcsRRuleHourLabel" xml:space="preserve">
+    <value>hour</value>
+  </data>
+  <data name="MailIcsRRuleHoursLabel" xml:space="preserve">
+    <value>hours</value>
+  </data>
+  <data name="MailIcsRRuleInLabel" xml:space="preserve">
+    <value>in</value>
+  </data>
+  <data name="MailIcsRRuleLastLabel" xml:space="preserve">
+    <value>last</value>
+  </data>
+  <data name="MailIcsRRuleMonthLabel" xml:space="preserve">
+    <value>month</value>
+  </data>
+  <data name="MailIcsRRuleMonthsLabel" xml:space="preserve">
+    <value>months</value>
+  </data>
+  <data name="MailIcsRRuleNdLabel" xml:space="preserve">
+    <value>nd</value>
+  </data>
+  <data name="MailIcsRRuleOnLabel" xml:space="preserve">
+    <value>on</value>
+  </data>
+  <data name="MailIcsRRuleOnTheLabel" xml:space="preserve">
+    <value>on the</value>
+  </data>
+  <data name="MailIcsRRuleOrLabel" xml:space="preserve">
+    <value>or</value>
+  </data>
+  <data name="MailIcsRRuleParseErrorLabel" xml:space="preserve">
+    <value>unknown format</value>
+  </data>
+  <data name="MailIcsRRuleRdLabel" xml:space="preserve">
+    <value>rd</value>
+  </data>
+  <data name="MailIcsRRuleStLabel" xml:space="preserve">
+    <value>st</value>
+  </data>
+  <data name="MailIcsRRuleTheLabel" xml:space="preserve">
+    <value>the</value>
+  </data>
+  <data name="MailIcsRRuleThLabel" xml:space="preserve">
+    <value>th</value>
+  </data>
+  <data name="MailIcsRRuleTimeLabel" xml:space="preserve">
+    <value>time</value>
+  </data>
+  <data name="MailIcsRRuleTimesLabel" xml:space="preserve">
+    <value>times</value>
+  </data>
+  <data name="MailIcsRRuleUntilLabel" xml:space="preserve">
+    <value>until</value>
+  </data>
+  <data name="MailIcsRRuleWeekdayLabel" xml:space="preserve">
+    <value>weekday</value>
+  </data>
+  <data name="MailIcsRRuleWeekdaysLabel" xml:space="preserve">
+    <value>weekdays</value>
+  </data>
+  <data name="MailIcsRRuleWeekLabel" xml:space="preserve">
+    <value>week</value>
+  </data>
+  <data name="MailIcsRRuleWeeksLabel" xml:space="preserve">
+    <value>weeks</value>
+  </data>
+  <data name="MailIcsRRuleYearLabel" xml:space="preserve">
+    <value>year</value>
+  </data>
+  <data name="MailIcsRRuleYearsLabel" xml:space="preserve">
+    <value>years</value>
+  </data>
+  <data name="MailIcsUpdateDescription" xml:space="preserve">
+    <value>Event has been changed.</value>
+  </data>
+  <data name="MailIcsUpdateSubject" xml:space="preserve">
+    <value>Update: {0}</value>
+  </data>
+  <data name="MailIcsYouReplyMaybeDescription" xml:space="preserve">
+    <value>You tentatively accepted the invitation to</value>
+  </data>
+  <data name="MailIcsYouReplyNoDescription" xml:space="preserve">
+    <value>You declined the invitation to</value>
+  </data>
+  <data name="MailIcsYouReplyYesDescription" xml:space="preserve">
+    <value>You accepted the invitation to</value>
+  </data>
+  <data name="MailIcsYouSentRequestDescription" xml:space="preserve">
+    <value>You sent the invitation to</value>
+  </data>
+  <data name="MailNoSubject" xml:space="preserve">
+    <value>no subject</value>
+  </data>
+  <data name="MailSendMessageError" xml:space="preserve">
+    <value>A problem has occurred while trying to send this message.</value>
+  </data>
+  <data name="MailSentIcalCancelText" xml:space="preserve">
+    <value>Event cancellation notification has been sent to attendees.</value>
+  </data>
+  <data name="MailSentIcalRequestText" xml:space="preserve">
+    <value>Your request has been sent to attendees.</value>
+  </data>
+  <data name="MailSentIcalResponseText" xml:space="preserve">
+    <value>Your response has been sent to the organizer.</value>
+  </data>
+  <data name="MailSentMessageText" xml:space="preserve">
+    <value>Message has been sent.</value>
+  </data>
+  <data name="MappingAdditionalMail" xml:space="preserve">
+    <value>Additional Mail</value>
+  </data>
+  <data name="MappingAdditionalMobilePhone" xml:space="preserve">
+    <value>Additional Mobile Phone</value>
+  </data>
+  <data name="MappingAdditionalPhone" xml:space="preserve">
+    <value>Additional Phone</value>
+  </data>
+  <data name="MappingAvatarAttribute" xml:space="preserve">
+    <value>Profile Photo</value>
+  </data>
+  <data name="MappingBirthDayAttribute" xml:space="preserve">
+    <value>Date of Birth</value>
+  </data>
+  <data name="MappingFirstNameAttribute" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="MappingGenderAttribute" xml:space="preserve">
+    <value>Sex</value>
+  </data>
+  <data name="MappingLocationAttribute" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="MappingMailAttribute" xml:space="preserve">
+    <value>Mail</value>
+  </data>
+  <data name="MappingMobilePhoneAttribute" xml:space="preserve">
+    <value>Primary Mobile Phone</value>
+  </data>
+  <data name="MappingSecondNameAttribute" xml:space="preserve">
+    <value>Second Name</value>
+  </data>
+  <data name="MappingSkype" xml:space="preserve">
+    <value>Skype</value>
+  </data>
+  <data name="MappingTitleAttribute" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="MeLabel" xml:space="preserve">
+    <value>Me</value>
+  </data>
+  <data name="MetadataFileNotTransferred" xml:space="preserve">
+    <value>Metadata file not transferred</value>
+  </data>
+  <data name="MilestoneSelectorNoItems" xml:space="preserve">
+    <value>No milestone in this project</value>
+  </data>
+  <data name="MilestoneSelectorNoResult" xml:space="preserve">
+    <value>No such milestone</value>
+  </data>
+  <data name="NeverShow" xml:space="preserve">
+    <value>Never Show</value>
+  </data>
+  <data name="NotAddedAnyTemplates" xml:space="preserve">
+    <value>You have not added any templates</value>
+  </data>
+  <data name="OfflineStatus" xml:space="preserve">
+    <value>Offline</value>
+  </data>
+  <data name="OnlineStatus" xml:space="preserve">
+    <value>Online</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="OpenTalk" xml:space="preserve">
+    <value>Open Talk</value>
+  </data>
+  <data name="OperationFailedError" xml:space="preserve">
+    <value>Error while performing operation</value>
+  </data>
+  <data name="OperationFailedMsg" xml:space="preserve">
+    <value>Error while executing the operation.</value>
+  </data>
+  <data name="OperationSuccededMsg" xml:space="preserve">
+    <value>Operation has been successfully completed.</value>
+  </data>
+  <data name="PortalRenameConfirmationPopup" xml:space="preserve">
+    <value>{0}You are about to rename your portal.{1}{0}Are you sure you want to continue?{1}</value>
+  </data>
+  <data name="PortalRenameConfirmationTitle" xml:space="preserve">
+    <value>Portal renaming confirmation</value>
+  </data>
+  <data name="ProjectSelectorAddText" xml:space="preserve">
+    <value>Create new project</value>
+  </data>
+  <data name="ProjectSelectorEmptyList" xml:space="preserve">
+    <value>No projects in this list</value>
+  </data>
+  <data name="ProjectSelectorEmptyManagerError" xml:space="preserve">
+    <value>Each project must have a manager</value>
+  </data>
+  <data name="ProjectSelectorEmptyTitleError" xml:space="preserve">
+    <value>Each project must have a title</value>
+  </data>
+  <data name="ProjectSelectorNoItems" xml:space="preserve">
+    <value>No projects in this group</value>
+  </data>
+  <data name="ProjectSelectorNoResult" xml:space="preserve">
+    <value>No such project</value>
+  </data>
+  <data name="ProjectSelectorNotPersonError" xml:space="preserve">
+    <value>No such person</value>
+  </data>
+  <data name="RestoreConsumerPath" xml:space="preserve">
+    <value>Path</value>
+  </data>
+  <data name="SaasTariffPaymentAccepted" xml:space="preserve">
+    <value>Payment accepted! Your plan will be updated in a few minutes</value>
+  </data>
+  <data name="SameIPRestrictionError" xml:space="preserve">
+    <value>Same restrictions</value>
+  </data>
+  <data name="SavedTitle" xml:space="preserve">
+    <value>The settings are successfully saved</value>
+  </data>
+  <data name="SecurityMappingCommunity" xml:space="preserve">
+    <value>Community</value>
+  </data>
+  <data name="SecurityMappingCrm" xml:space="preserve">
+    <value>CRM</value>
+  </data>
+  <data name="SecurityMappingDocuments" xml:space="preserve">
+    <value>Documents</value>
+  </data>
+  <data name="SecurityMappingFullAccess" xml:space="preserve">
+    <value>Full Access</value>
+  </data>
+  <data name="SecurityMappingMail" xml:space="preserve">
+    <value>Mail</value>
+  </data>
+  <data name="SecurityMappingPeople" xml:space="preserve">
+    <value>People</value>
+  </data>
+  <data name="SecurityMappingProjects" xml:space="preserve">
+    <value>Projects</value>
+  </data>
+  <data name="SelectFile" xml:space="preserve">
+    <value>Select file</value>
+  </data>
+  <data name="SelectFolder" xml:space="preserve">
+    <value>Select folder</value>
+  </data>
+  <data name="SelectorCompany" xml:space="preserve">
+    <value>Company</value>
+  </data>
+  <data name="SelectorCompanyName" xml:space="preserve">
+    <value>Company name</value>
+  </data>
+  <data name="SelectorContactType" xml:space="preserve">
+    <value>Contact type</value>
+  </data>
+  <data name="SelectorEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="SelectorFirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="SelectorGroup" xml:space="preserve">
+    <value>Group</value>
+  </data>
+  <data name="SelectorHead" xml:space="preserve">
+    <value>Head</value>
+  </data>
+  <data name="SelectorLastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="SelectorManager" xml:space="preserve">
+    <value>Manager</value>
+  </data>
+  <data name="SelectorPerson" xml:space="preserve">
+    <value>Person</value>
+  </data>
+  <data name="SelectorSelectedItems" xml:space="preserve">
+    <value>selected</value>
+  </data>
+  <data name="SelectorTitle" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="SelectorType" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="SelectorUser" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="SelectorVisitor" xml:space="preserve">
+    <value>Guest</value>
+  </data>
+  <data name="SendTariffRequest1" xml:space="preserve">
+    <value>Your request is successfully submitted. Our manager will contact you in the nearest time.</value>
+  </data>
+  <data name="ShareInviteLinkDscr" xml:space="preserve">
+    <value>I created my own web-office. Join me here: {0} #ONLYOFFICE #WebOffice</value>
+  </data>
+  <data name="ShowLink" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="ShowNext" xml:space="preserve">
+    <value>Show Next</value>
+  </data>
+  <data name="SsoCertificateActionTypeError" xml:space="preserve">
+    <value>Certificate with same action type already exist</value>
+  </data>
+  <data name="SsoCertificateMultipleVerificationError" xml:space="preserve">
+    <value>Multiple Idp verification certificates are not supported. Please leave only Primary certificate.</value>
+  </data>
+  <data name="SsoHideAdvancedSettings" xml:space="preserve">
+    <value>Hide advanced settings</value>
+  </data>
+  <data name="SsoMetadataFileTypeError" xml:space="preserve">
+    <value>Incorrect metadata file type. An .xml file is required.</value>
+  </data>
+  <data name="SsoSettingsSuccess" xml:space="preserve">
+    <value>Saving has been successfully completed</value>
+  </data>
+  <data name="SsoShowAdvancedSettings" xml:space="preserve">
+    <value>Show advanced settings</value>
+  </data>
+  <data name="StartFilter" xml:space="preserve">
+    <value>Start filter</value>
+  </data>
+  <data name="StorageButtonEnable" xml:space="preserve">
+    <value>Connect</value>
+  </data>
+  <data name="StorageButtonResetToDefault" xml:space="preserve">
+    <value>Reset to Default</value>
+  </data>
+  <data name="StorageCdnTitle" xml:space="preserve">
+    <value>CDN settings</value>
+  </data>
+  <data name="StorageStorageTitle" xml:space="preserve">
+    <value>Storage settings</value>
+  </data>
+  <data name="SuccessfullyImportCountUsers" xml:space="preserve">
+    <value>{0} user(s) were successfully added to the portal</value>
+  </data>
+  <data name="SuccessfullySaveSettingsMessage" xml:space="preserve">
+    <value>Settings have been successfully updated</value>
+  </data>
+  <data name="TemplateNotFound" xml:space="preserve">
+    <value>Template not found</value>
+  </data>
+  <data name="TipsAndTricksSubscribeBtn" xml:space="preserve">
+    <value>Subscribe to Tips&amp;Tricks</value>
+  </data>
+  <data name="TipsAndTricksUnsubscribeBtn" xml:space="preserve">
+    <value>Unsubscribe from Tips&amp;Tricks</value>
+  </data>
+  <data name="Today" xml:space="preserve">
+    <value>Today</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="UnsubscribeProductMessage" xml:space="preserve">
+    <value>You are about to unsubscribe from all notifications of the "{0}" module. Are you sure you want to continue?</value>
+  </data>
+  <data name="UploadVoipRingtoneEmptyFileErrorMsg" xml:space="preserve">
+    <value>Empty file</value>
+  </data>
+  <data name="UploadVoipRingtoneFileErrorMsg" xml:space="preserve">
+    <value>Error while uploading file</value>
+  </data>
+  <data name="UploadVoipRingtoneFileFormatErrorMsg" xml:space="preserve">
+    <value>Supported file format: mp3</value>
+  </data>
+  <data name="UploadVoipRingtoneFileSizeErrorMsg" xml:space="preserve">
+    <value>File size cannot exceed 5MB </value>
+  </data>
+  <data name="UserPending" xml:space="preserve">
+    <value>pending</value>
+  </data>
+  <data name="UserSelectorAddSuccess" xml:space="preserve">
+    <value>The profile for {0} was created successfully</value>
+  </data>
+  <data name="UserSelectorAddText" xml:space="preserve">
+    <value>Create new profile</value>
+  </data>
+  <data name="UserSelectorEmptyList" xml:space="preserve">
+    <value>No users in this list</value>
+  </data>
+  <data name="UserSelectorErrorLimitUsers" xml:space="preserve">
+    <value>Exceeds the number of maximum active users</value>
+  </data>
+  <data name="UserSelectorNoGroups" xml:space="preserve">
+    <value>No groups have been created at the portal so far. Go to the People module to group users.</value>
+  </data>
+  <data name="UserSelectorNoItems" xml:space="preserve">
+    <value>No users in this group</value>
+  </data>
+  <data name="UserSelectorNoResults" xml:space="preserve">
+    <value>No such user</value>
+  </data>
+  <data name="WarningMessageBeforeUnload" xml:space="preserve">
+    <value>If you leave now all the entered or unsaved data will be lost.</value>
+  </data>
+  <data name="WelcomeCollaboratorCan" xml:space="preserve">
+    <value>{0}This means that you can: {1}view portal content open for all portal users,{2}leave comments,{3}attach and download files.{4}</value>
+  </data>
+  <data name="WelcomeCollaboratorOtherActions" xml:space="preserve">
+    <value>In case you need some additional rights please contact your portal administrator.</value>
+  </data>
+  <data name="WelcomeCollaboratorPopupHeader" xml:space="preserve">
+    <value>Welcome to ONLYOFFICE</value>
+  </data>
+  <data name="WelcomeCollaboratorRole" xml:space="preserve">
+    <value>The portal administrator invited you as guest user to the portal.</value>
+  </data>
+  <data name="WelcomeCollaboratorStartWork" xml:space="preserve">
+    <value>Start work</value>
+  </data>
+  <data name="WelcomeToTeamlab" xml:space="preserve">
+    <value>Welcome to ONLYOFFICE!</value>
+  </data>
+  <data name="WizardCancelConfirmMessage" xml:space="preserve">
+    <value>You haven't set up any password. You will be able to do it later using the 'Forgot your password?' link at the portal login page. Are you sure you want to continue?</value>
+  </data>
+  <data name="SaveButton" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="UserSelectorAddWithAccessRights" xml:space="preserve">
+    <value>Add with access rights</value>
+  </data>
+  <data name="UserSelectorAll" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="UserSelectorCheckAllGroups" xml:space="preserve">
+    <value>Check all groups</value>
+  </data>
+  <data name="UserSelectorCheckAllUsers" xml:space="preserve">
+    <value>Check all users</value>
+  </data>
+  <data name="UserSelectorCheckCurrentUsers" xml:space="preserve">
+    <value>Check current users</value>
+  </data>
+  <data name="UserSelectorSearchPlaceholder" xml:space="preserve">
+    <value>User, Group, email</value>
+  </data>
+  <data name="UserSelectorSelectedCount" xml:space="preserve">
+    <value>{0} selected</value>
+  </data>
+  <data name="UserSelectorShowMore" xml:space="preserve">
+    <value>Show more</value>
+  </data>
+  <data name="UserSelectorUsersWithouthGroup" xml:space="preserve">
+    <value>Users withouth group</value>
+  </data>
+  <data name="Yesterday" xml:space="preserve">
+    <value>Yesterday</value>
+  </data>
+  <data name="MailSendReceiptError" xml:space="preserve">
+    <value>A problem has occurred while trying to send receipt.</value>
+  </data>
+  <data name="ReadingConfirmedLabel" xml:space="preserve">
+    <value>Reading confirmed</value>
+  </data>
+  <data name="ReceiptSubjectLabel" xml:space="preserve">
+    <value>Read receipt for «{0}»</value>
+  </data>
+  <data name="ReceiptUserLabel" xml:space="preserve">
+    <value>confirmed receiving «{0}» message.</value>
+  </data>
+  <data name="SentRequestInfoLabel" xml:space="preserve">
+    <value>You sent the message and requested a read receipt:</value>
+  </data>
+  <data name="ErrorDuplicateMailbox" xml:space="preserve">
+    <value>You want to create a mailbox with an already existing address.</value>
+  </data>
+  <data name="QuotaDisabled" xml:space="preserve">
+    <value>Memory quota has been successfully disabled.</value>
+  </data>
+  <data name="QuotaEnabled" xml:space="preserve">
+    <value>Memory quota has been successfully enabled.</value>
+  </data>
+  <data name="LblActive" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="LblOther" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="LblPending" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="Lifetime" xml:space="preserve">
+    <value>Lifetime</value>
+  </data>
+  <data name="PasswordProtection" xml:space="preserve">
+    <value>Password protection</value>
+  </data>
+  <data name="RemoveButton" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="ImpersonateLoginMessage" xml:space="preserve">
+    <value>Logged in as {0}</value>
+  </data>
+  <data name="ImpersonateUserConfirmationInfo" xml:space="preserve">
+    <value>You are going to log in to the portal on behalf of {0}</value>
+  </data>
+  <data name="ImpersonateUser" xml:space="preserve">
+    <value>Login as User</value>
+  </data>
+  <data name="OperationStartedMsg" xml:space="preserve">
+    <value>Operation has been successfully started.</value>
+  </data>
+</root>

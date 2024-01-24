@@ -1,0 +1,119 @@
+/*
+ *
+ * (c) Copyright Ascensio System Limited 2010-2023
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+*/
+
+
+h1
+{
+    color: #333333;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+
+h2
+{
+    color: #333333;
+	font-size: 16px;
+	font-weight: bold;	
+}
+
+h3
+{
+    color: #333333;
+	font-size: 14px;
+	font-weight: bold;	
+}
+
+h4
+{
+    color: #83888d;
+	font-size: 16px;
+	font-weight: normal;	
+}
+
+p
+{
+    font-size: 14px;
+    line-height: 18px;
+    margin-top: 20px;
+    word-wrap: break-word !important;
+}
+ol li, ul li {
+    font-size: 14px;
+    line-height: 18px;
+}
+
+a, p a
+{
+    color: #0078BD !important;
+    word-wrap: break-word !important;
+}
+
+strong
+{
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 5px;    
+}
+
+img {
+     max-width: 560px;
+     width: auto;
+     height: auto;
+     min-height: 1px;
+}
+
+.footer
+{
+    margin-top: 40px;
+    color: #a3a3a3;
+    font-size: 11px;
+}
+
+td
+{
+	padding: 6px;
+	margin: 0;
+}
+
+.edit_request
+{
+	border-collapse: collapse; 
+	width: 100%;
+}
+
+.edit_request_column
+{
+	color: rgb(130, 135, 141); 
+	font-size: 12px;
+	text-align: left;
+}
+
+.edit_request_title
+{
+	text-align: right; 
+	font-weight: bold;
+}
+
+.edit_request_data
+{
+	border: 1px solid #D1D1D1;
+}
+
+a:-webkit-any-link {
+    color: #0078BD;
+    word-wrap: break-word !important;
+}

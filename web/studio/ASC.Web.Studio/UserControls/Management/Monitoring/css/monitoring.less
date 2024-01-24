@@ -1,0 +1,75 @@
+/*
+ *
+ * (c) Copyright Ascensio System Limited 2010-2023
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+*/
+
+
+@import "../../../../skins/default/params.less";
+
+.monitoring-describe {
+    margin-bottom:30px;
+}
+
+.monitoring-table {
+    tr {
+        position: relative;
+
+        &.__close .monitoring-table_status {
+            color: #cc3300;
+        }
+
+        &.__open .monitoring-table_status {
+            color: #6b931f;
+        }
+
+        &.__pending .monitoring-table_status span{
+            position: relative;
+            color: transparent;
+
+            &:after {
+                content: "";
+                background: url("img/@{loader-managament-16}") 0 0 no-repeat transparent;
+                position: absolute;
+                top: 0px; 
+                right: 10px;
+                height: 16px;
+                width: 16px;
+            }
+
+        }
+    }
+
+    .monitoring-table_title {
+        padding: 0 10px;
+    }
+
+    .monitoring-table_status {
+        padding: 0 10px;
+        text-align: right;
+    }
+
+    .monitoring-table_btn {
+        padding: 0 10px;
+        text-align: right;
+        width: 37px;
+    }
+}
+
+.separate-date {
+    background-color: @textColor;
+    display:inline-block;    
+    height: 1px;
+    margin: 0 8px 4px;
+    width: 5px;
+}

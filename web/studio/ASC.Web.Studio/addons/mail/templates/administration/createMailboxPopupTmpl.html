@@ -1,0 +1,110 @@
+﻿<script id="createMailboxPopupTmpl" type="text/x-jquery-tmpl">
+    <div id="mail_server_create_mailbox_popup">
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="block-cnt-splitter">
+                            <span>${ASC.Mail.Resources.MailAdministrationResource.CreateMailboxPopupHeader}</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="mailboxSenderName" class="block-cnt-splitter">
+                            <div class="headerPanelSmall bold">${ASC.Mail.Resources.MailAdministrationResource.SenderNameLabel}</div>
+                            <input type="text" class="senderName textEdit" maxlength="255"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="mail_server_add_mailbox" class="block-cnt-splitter requiredField">
+                            <span class="requiredErrorText">${ASC.Mail.Resources.MailScriptResource.ErrorEmptyField}</span>
+                            <div class="headerPanelSmall bold">${ASC.Mail.Resources.MailAdministrationResource.MailboxAddressLabel}</div>
+                            <table>
+                                <tbody>
+                                <tr>
+                                    <td class="mailboxNameEdit">
+                                        <input type="text" class="mailboxName textEdit" maxlength="64" autofocus/>
+                                    </td>
+                                    <td>
+                                        <span class="domainName" title="${domain.name}">@${domain.name}</span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="mailboxUserContainer" class="requiredField">
+                            <span class="requiredErrorText">${ASC.Mail.Resources.MailScriptResource.ErrorNoUserSelectedField}</span>
+                            <div class="headerPanelSmall">${ASC.Mail.Resources.MailAdministrationResource.MailboxUserLabel}</div>
+                            <div id="mailboxUserSelector" data-id="" class="link dotline" >${ASC.Mail.Resources.MailScriptResource.Select}</div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="progressContainer" style="margin-top: -1px;">
+            <div class="loader" style="display: none;">${ASC.Mail.Resources.MailResource.LoadingLabel}</div>
+        </div>
+        <div class="buttons" style="margin-top: 0;">
+            <button class="button middle blue save" type="button">${ASC.Mail.Resources.MailResource.SaveBtnLabel}</button>
+            <button class="button middle gray cancel" type="button">${ASC.Mail.Resources.MailScriptResource.CancelBtnLabel}</button>
+        </div>
+    </div>
+</script>
+
+
+<script id="createMyMailboxPopupTmpl" type="text/x-jquery-tmpl">
+    <div id="mail_server_create_my_mailbox_popup">
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="block-cnt-splitter">
+                            <span>${ASC.Mail.Resources.MailScriptResource.CreateMyMailboxPopupBody_1}</span>
+                            <br/>
+                            <span>${ASC.Mail.Resources.MailScriptResource.CreateMyMailboxPopupBody_2}</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="mail_server_add_my_mailbox" class="block-cnt-splitter requiredField" style="margin-bottom: 0;">
+                            <span class="requiredErrorText">${ASC.Mail.Resources.MailScriptResource.ErrorEmptyField}</span>
+                            <div class="headerPanelSmall bold">${ASC.Mail.Resources.MailAdministrationResource.MailboxAddressLabel}</div>
+                            <input type="text" class="mailbox_name textEdit" maxlength="64" style="width: 180px;"/>
+                            <span>&nbsp;@${domain.name}</span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="progressContainer">
+            <div class="loader" style="display: none;">${ASC.Mail.Resources.MailResource.LoadingLabel}</div>
+            {{if ASC.Resources.Master.TenantIsPremium == "No" }}
+            <div class="toast-popup-container">
+                <div class="toast toast-error">
+                    <div class="toast-message">${MailApiErrorsResource.ErrorUnpaidAccessDenied}</div>
+                </div>
+            </div>
+            {{else}}
+            {{if !ASC.Mail.Constants.ENABLE_MAIL_SERVER}}
+            <div class="toast-popup-container">
+                <div class="toast toast-error">
+                    <div class="toast-message">${ASC.Mail.Resources.MailResource.ErrorNotAllowedOption}</div>
+                </div>
+            </div>
+            {{/if}}
+            {{/if}}
+        </div>
+        <div class="buttons" style="margin-top: 0;">
+            <button class="button middle blue save {{if ASC.Resources.Master.TenantIsPremium == "No" || !ASC.Mail.Constants.ENABLE_MAIL_SERVER}}disable{{/if}}" type="button">${ASC.Mail.Resources.MailScriptResource.CreateMailboxBtn}</button>
+            <button class="button middle gray cancel" type="button">${ASC.Mail.Resources.MailScriptResource.CancelBtnLabel}</button>
+        </div>
+    </div>
+</script>

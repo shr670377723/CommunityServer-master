@@ -1,0 +1,374 @@
+/*
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+*/
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../../../skins/default/opensansoffline/fonts/opensans-bold.eot');
+    src: local('Open Sans Bold'), local('OpenSans-Bold'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-bold.eot?#iefix') format('embedded-opentype'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-bold.woff2') format('woff2'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-bold.woff') format('woff'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-bold.ttf') format('truetype'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-bold.svg#open_sansbold') format('svg');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 800;
+    src: url('../../../skins/default/opensansoffline/fonts/opensans-extrabold.eot');
+    src: local('Open Sans Extrabold'), local('OpenSans-Extrabold'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-extrabold.eot?#iefix') format('embedded-opentype'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-extrabold.woff2') format('woff2'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-extrabold.woff') format('woff'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-extrabold.ttf') format('truetype'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-extrabold.svg#open_sansextrabold') format('svg');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 300;
+    src: url('../../../skins/default/opensansoffline/fonts/opensans-light.eot');
+    src: local('Open Sans Light'), local('OpenSans-Light'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-light.eot?#iefix') format('embedded-opentype'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-light.woff2') format('woff2'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-light.woff') format('woff'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-light.ttf') format('truetype'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-light.svg#open_sanslight') format('svg');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../../../skins/default/opensansoffline/fonts/opensans-regular.eot');
+    src: local('Open Sans'), local('OpenSans'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-regular.eot?#iefix') format('embedded-opentype'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-regular.woff2') format('woff2'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-regular.woff') format('woff'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-regular.ttf') format('truetype'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-regular.svg#open_sansregular') format('svg');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../../../skins/default/opensansoffline/fonts/opensans-regular.eot');
+    src: local('Open Sans'), local('OpenSans'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-regular.eot?#iefix') format('embedded-opentype'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-regular.woff2') format('woff2'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-regular.woff') format('woff'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-regular.ttf') format('truetype'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-regular.svg#open_sansregular') format('svg');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../../../skins/default/opensansoffline/fonts/opensans-semibold.eot');
+    src: local('Open Sans Semibold'), local('OpenSans-Semibold'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-semibold.eot?#iefix') format('embedded-opentype'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-semibold.woff2') format('woff2'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-semibold.woff') format('woff'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-semibold.ttf') format('truetype'),
+        url('../../../skins/default/opensansoffline/fonts/opensans-semibold.svg#open_sanssemibold') format('svg');
+}
+
+body
+{
+	/* Font */
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px;
+
+	/* Text color */
+	color: #333;
+
+	/* Remove the background color to make it transparent. */
+	background-color: #fff;
+	margin: 8px;
+}
+
+body.dark {
+	background-color: #292929;
+	color: #fff;
+}
+
+p {
+	margin: 0;
+}
+
+.cke_editable
+{
+	font-size: 12px;
+	line-height: normal;
+}
+
+blockquote
+{
+	font-style: italic;
+	padding: 2px 0;
+	border-style: solid;
+	border-color: #ccc;
+	border-width: 0;
+}
+
+.cke_contents_ltr blockquote
+{
+	padding-left: 20px;
+	padding-right: 8px;
+	border-left-width: 5px;
+}
+
+.cke_contents_rtl blockquote
+{
+	padding-left: 8px;
+	padding-right: 20px;
+	border-right-width: 5px;
+}
+
+a
+{
+	color: #0782C1;
+	cursor: pointer;
+}
+
+ol,ul,dl
+{
+	/* IE7: reset rtl list margin. (#7334) */
+	*margin-right: 0px;
+	/* Preserved spaces for list items with text direction different than the list. (#6249,#8049)*/
+	padding: 0 40px;
+}
+
+h1,h2,h3,h4,h5,h6
+{
+	line-height: normal;
+}
+
+hr
+{
+	border: 0px;
+	border-top: 1px solid #ccc;
+}
+
+img.right
+{
+	border: 1px solid #ccc;
+	float: right;
+	margin-left: 15px;
+	padding: 5px;
+}
+
+img.left
+{
+	border: 1px solid #ccc;
+	float: left;
+	margin-right: 15px;
+	padding: 5px;
+}
+
+pre
+{
+	white-space: pre-wrap; /* CSS 2.1 */
+	word-wrap: break-word; /* IE7 */
+	-moz-tab-size: 4;
+	tab-size: 4;
+}
+
+.marker
+{
+	background-color: Yellow;
+}
+
+span[lang]
+{
+	font-style: italic;
+}
+
+figure
+{
+	text-align: center;
+	border: solid 1px #ccc;
+	border-radius: 2px;
+	background: rgba(0,0,0,0.05);
+	padding: 10px;
+	margin: 10px 20px;
+	display: inline-block;
+}
+
+figure figcaption
+{
+	text-align: center;
+	display: block; /* For IE8 */
+}
+
+a > img {
+	padding: 1px;
+	margin: 1px;
+	border: none;
+}
+
+/* teamlab styles */
+.asccut
+{
+    background-color: #F3F3F3;
+    border: 1px dashed #B8B8B8;
+    display: block;
+}
+.mainQuote
+{
+	padding: 0 24px 0 0;
+}
+.mainQuote .quoteCaption
+{
+	padding: 0 0 12px;
+}
+.mainQuote .bold
+{
+	font-weight: bold;
+}
+.mainQuote .bord
+{
+	border: 1px solid #C7C7C7;
+	background: none repeat scroll 0 0 #FDFCE5;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.mainQuote .reducer
+{
+	padding: 14px 25px;
+}
+.tl-controll-blockquote {
+	width: 24px;
+	height: 18px;
+	line-height: 8px;
+	display: inline-block;
+	background-color: #F2F2F2;
+	border: 1px solid #D7D8DC;
+	cursor: pointer !important;
+	padding: 0 5px 6px 5px;
+	margin: 8px 0;
+	color: #666;
+	font-weight: bold;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	outline: none;
+}
+
+.tl-controll-blockquote:hover {
+	background-color: #D7D8DC;
+	border: 1px solid #666;
+}
+
+input::-moz-focus-inner
+{
+	border: 0;
+	padding: 0;
+}
+
+.mailmessage-filelink:hover {
+	background-color: #e5e5e5 !important;
+}
+
+.mailmessage-filelink:hover .mailmessage-filelink-link > * {
+	border-bottom: 1px solid black;
+}
+
+.mailmessage-filelink .delete-btn {
+	margin: 6px 5px 0 0;
+	float: right;
+	width: 16px;
+	height: 16px;
+	background-image: url(../../../skins/default/imagescss/remove_16.png);
+	background-position: -16px 0;
+	cursor: pointer;
+}
+
+.mailmessage-filelink:hover .delete-btn {
+	background-position: 0 -16px;
+}
+
+/* Widget Styles */
+.code-featured
+{
+	border: 5px solid red;
+}
+
+.math-featured
+{
+	padding: 20px;
+	box-shadow: 0 0 2px rgba(200, 0, 0, 1);
+	background-color: rgba(255, 0, 0, 0.05);
+	margin: 10px;
+}
+
+.image-clean
+{
+	border: 0;
+	background: none;
+	padding: 0;
+}
+
+.image-clean > figcaption
+{
+	font-size: .9em;
+	text-align: right;
+}
+
+.image-grayscale
+{
+	background-color: white;
+	color: #666;
+}
+
+.image-grayscale img, img.image-grayscale
+{
+	filter: grayscale(100%);
+}
+
+.embed-240p
+{
+	max-width: 426px;
+	max-height: 240px;
+	margin:0 auto;
+}
+
+.embed-360p
+{
+	max-width: 640px;
+	max-height: 360px;
+	margin:0 auto;
+}
+
+.embed-480p
+{
+	max-width: 854px;
+	max-height: 480px;
+	margin:0 auto;
+}
+
+.embed-720p
+{
+	max-width: 1280px;
+	max-height: 720px;
+	margin:0 auto;
+}
+
+.embed-1080p
+{
+	max-width: 1920px;
+	max-height: 1080px;
+	margin:0 auto;
+}

@@ -1,0 +1,165 @@
+/*
+ *
+ * (c) Copyright Ascensio System Limited 2010-2023
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+*/
+
+
+@import "../base.less";
+@import "params.less";
+
+.noContentBlock {
+    padding: 100px;
+    text-align: center;
+    font-size: 14px;
+    color: #373737;
+    font-weight: bold;
+    margin: 5px 0 11px 0;
+
+    a,
+    a:visited,
+    a:hover,
+    a:active {
+        font-size: 14px;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    &.emptyScrCtrl {
+        padding-top: 50px;
+        font-weight: normal;
+        margin: 0 auto;
+        width: 687px;
+    }
+}
+
+.emptyScrCtrl {
+    padding: 100px 0;
+    min-width: 200px;
+
+    .emptyScrImage {
+        background: no-repeat 0 0 transparent;
+        display: block;
+        height: 150px;
+        width: 150px;
+    }
+
+    .emptyScrTd {
+        text-align: left;
+        padding: 10px;
+    }
+
+    td {
+        vertical-align: top;
+    }
+
+    .emptyScrHeadDscr {
+        color: #666666;
+        font-size: 18px;
+        margin-top: 10px;
+    }
+
+    .emptyScrDscr {
+        font-size: 14px;
+        margin: 14px auto 0;
+        max-width: 600px;
+        color: #737373;
+    }
+
+    .emptyScrBttnPnl {
+        margin-top: 18px;
+
+        a, span {
+            font-weight: normal;
+        }
+
+        .clearFilterButton {
+            color: @textColor;
+            clear: both;
+            cursor: pointer;
+            margin-left: 18px;
+            position: relative;
+            vertical-align: middle;
+
+            &:before {
+                background-color: #83888D;
+                width: 13px;
+                height: 13px;
+                .borderRadius(13px);
+                cursor: pointer;
+                content: "";
+                display: block;
+                left: -18px;
+                margin-top: -6px;
+                position: absolute;
+                top: 50%;
+            }
+
+            &:after {
+                cursor: pointer;
+                content: "×";
+                color: @body-color;
+                display: block;
+                font-size: 15px;
+                font-weight: 600;
+                height: 16px;
+                left: -18px;
+                line-height: 16px;
+                margin-top: -8px;
+                position: absolute;
+                text-align: center;
+                top: 50%;
+                width: 13px;
+            }
+        }
+
+        .addFirstElement {
+            clear: both;
+            cursor: pointer;
+            margin-left: 18px;
+            position: relative;
+
+            &:after {
+                color: #83888d;
+                content: "+";
+                cursor: pointer;
+                display: block;
+                font-size: 22px;
+                font-weight: 800;
+                height: 20px;
+                line-height: 20px;
+                left: -17px;
+                margin-top: -11px;
+                position: absolute;
+                top: 50%;
+                width: 12px;
+            }
+        }
+    }
+}
+
+.popupContainerClass .emptyScrCtrl img.emptyScrImages {
+    margin-left: 30px;
+}
+
+div.hintDescriptionPanel {
+    display: none;
+    margin: 4px 0 0 0;
+    max-width: 310px;
+    padding: 8px 16px;
+    position: absolute;
+    z-index: 255;
+    word-wrap: break-word;
+    .borderRadius(4px);
+    .boxShadow(4px);
+}

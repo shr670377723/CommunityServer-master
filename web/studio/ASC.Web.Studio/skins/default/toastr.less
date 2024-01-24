@@ -1,0 +1,223 @@
+/*
+ *
+ * (c) Copyright Ascensio System Limited 2010-2023
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+*/
+
+
+@import "../base.less";
+@import "params.less";
+
+.toast-close-button {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    position: relative;
+    right: -2px;
+    top: -8px;
+    float: right;
+    color: @body-color;
+    text-shadow: 0 1px 0 @body-color;
+    opacity: .8;
+}
+
+.toast-title {
+    font-weight: bold;
+}
+
+.toast-message {
+    word-wrap: break-word;
+
+    label {
+        color: @bg-a-activate;
+    }
+
+    a {
+        color: @bg-a-activate;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.toast-top-full-width {
+    top: 0;
+    right: 0;
+    width: 100%;
+}
+.toast-bottom-full-width {
+    bottom: 0;
+    right: 0;
+    width: 100%;
+}
+.toast-top-left {
+    top: 12px;
+    left: 12px;
+}
+.toast-top-right {
+    right: 12px;
+    top: 60px;
+}
+.toast-bottom-right {
+    right: 12px;
+    bottom: 12px;
+}
+.toast-bottom-left {
+    bottom: 12px;
+    left: 12px;
+}
+
+.toast {
+    background-color: @toast-bg;
+    border: @toast-bg-bor;
+    color: @toast-bg-color;
+}
+.toast-success {
+    background-color: @toast-success;
+    border: @toast-success-bor;
+    color: @toast-success-color;
+}
+.toast-error {
+    background-color: @toast-error;
+    border: @toast-error-bor;
+    color: @toast-error-color;
+}
+.toast-info {
+    background-color: @toast-info;
+    border: @toast-info-bor;
+    color: @toast-info-color;
+}
+.toast-warning {
+    background-color: @toast-warning;
+    border: @toast-warning-bor;
+    color: @toast-warning-color;
+}
+
+#toast-container {
+    position: fixed;
+    z-index: 999999;
+
+    .toast-success:hover {
+        background-color: @toast-container-success-bg;
+        color: @toast-success-color-hover;
+        border: @toast-success-hover;
+    }
+
+    .toast-error:hover {
+        background-color: @toast-container-error-bg;
+        color: @toast-error-color-hover;
+        border: @toast-error-hover;
+    }
+
+    .toast-info:hover {
+        background-color: @toast-container-info-bg;
+        color: @toast-info-color-hover;
+        border: @toast-info-hover;
+    }
+
+    .toast-warning:hover {
+        background-color: @toast-container-warning-bg;
+        color: @toast-warning-color-hover;
+        border: @toast-warning-hover;
+    }
+
+    > :hover {
+        .shadowFullCustomizable(1px, 2px, 4px, @borderColor);
+        cursor: pointer;
+
+        .toast-close-button {
+            opacity: 1;
+        }
+    }
+}
+
+#toast-container, .toast-popup-container {
+    > div {
+        background-position: 15px center;
+        background-repeat: no-repeat;
+        .borderRadius(3px);
+        margin: 0 0 6px;
+        padding: 15px 15px 15px 50px;
+        width: 300px;
+    }
+
+    > .toast-info {
+        background-image: url("imagescss/toast_icon03.png");
+    }
+
+    > .toast-error,
+    > .toast-warning {
+        background-image: url("imagescss/toast_icon01.png");
+    }
+
+    > .toast-success {
+        background-image: url("imagescss/toast_icon02.png");
+    }
+}
+
+ 
+
+/*Popup Toasts*/
+
+    .toast-popup-container .toast {
+        width: auto;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        padding-left: 40px;
+        background-position: 8px center;
+        .borderRadius(0);
+        margin-top: 6px;
+
+        .toast-message {
+            color: @textColor;
+        }
+    }
+
+/*Responsive Design*/
+
+@media all and (max-width: 240px) {
+    #toast-container > div {
+        padding: 8px 8px 8px 50px;
+        width: 108px;
+    }
+}
+
+@media all and (min-width: 241px) and (max-width: 320px) {
+    #toast-container > div {
+        padding: 8px 8px 8px 50px;
+        width: 128px;
+    }
+}
+
+@media all and (min-width: 321px) and (max-width: 480px) {
+    #toast-container > div {
+        padding: 8px 8px 8px 50px;
+        width: 192px;
+    }
+}
+
+@media all and (min-width: 481px) and (max-width: 768px) {
+    #toast-container > div {
+        padding: 15px 15px 15px 50px;
+        width: 300px;
+    }
+}
+
+/* overrides */
+#toast-container.toast-top-full-width > div,
+#toast-container.toast-bottom-full-width > div {
+    width: 100%;
+    margin: 1px 0 1px 0;
+}

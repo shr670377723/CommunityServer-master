@@ -1,0 +1,2431 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{48EFB880-3D76-4B21-B31E-1007C0062B5C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ASC.Web.CRM</RootNamespace>
+    <AssemblyName>ASC.Web.CRM</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <OutputPath>..\..\bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>..\..\bin\ASC.Web.CRM.xml</DocumentationFile>
+    <NoWarn>CS1591</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Calls.aspx.cs">
+      <DependentUpon>Calls.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Calls.aspx.designer.cs">
+      <DependentUpon>Calls.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cases.aspx.cs">
+      <DependentUpon>Cases.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cases.aspx.designer.cs">
+      <DependentUpon>Cases.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\ContactPhotoManager.cs" />
+    <Compile Include="Classes\ImportFromCSVManager.cs" />
+    <Compile Include="Classes\InvoiceFormattedData.cs" />
+    <Compile Include="Classes\LocalizedEnumConverter.cs" />
+    <Compile Include="Classes\OrganisationLogoManager.cs" />
+    <Compile Include="Classes\RegisterClientScriptHelper.cs" />
+    <Compile Include="Classes\SignalRHelper.cs" />
+    <Compile Include="Classes\SocialMedia\TwitterApiHelper.cs" />
+    <Compile Include="Classes\SubscriptionManager.cs" />
+    <Compile Include="Classes\TwilioController.cs" />
+    <Compile Include="Classes\VoipEngine.cs" />
+    <Compile Include="Configuration\CRMsSpaceUsageStatManager.cs" />
+    <Compile Include="Configuration\VoipModule.cs" />
+    <Compile Include="Controls\Cases\CasesFullCardView.ascx.cs">
+      <DependentUpon>CasesFullCardView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Cases\CasesFullCardView.ascx.designer.cs">
+      <DependentUpon>CasesFullCardView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Common\ButtonsSidePanel.ascx.cs">
+      <DependentUpon>ButtonsSidePanel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Common\ButtonsSidePanel.ascx.designer.cs">
+      <DependentUpon>ButtonsSidePanel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Common\ListBaseView.ascx.cs">
+      <DependentUpon>ListBaseView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Common\ListBaseView.ascx.designer.cs">
+      <DependentUpon>ListBaseView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Common\NavigationSidePanel.ascx.cs">
+      <DependentUpon>NavigationSidePanel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Common\NavigationSidePanel.ascx.designer.cs">
+      <DependentUpon>NavigationSidePanel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Common\ResultsView.cs" />
+    <Compile Include="Controls\Invoices\InvoiceDetailsView.ascx.cs">
+      <DependentUpon>InvoiceDetailsView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Invoices\InvoiceDetailsView.ascx.designer.cs">
+      <DependentUpon>InvoiceDetailsView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Invoices\InvoiceActionView.ascx.cs">
+      <DependentUpon>InvoiceActionView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Invoices\InvoiceActionView.ascx.designer.cs">
+      <DependentUpon>InvoiceActionView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Invoices\ListInvoiceView.ascx.cs">
+      <DependentUpon>ListInvoiceView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Invoices\ListInvoiceView.ascx.designer.cs">
+      <DependentUpon>ListInvoiceView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Sender\SmtpSender.ascx.cs">
+      <DependentUpon>SmtpSender.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Sender\SmtpSender.ascx.designer.cs">
+      <DependentUpon>SmtpSender.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Contacts\ContactFullCardView.ascx.cs">
+      <DependentUpon>ContactFullCardView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Contacts\ContactFullCardView.ascx.designer.cs">
+      <DependentUpon>ContactFullCardView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Contacts\ListContactView.ascx.cs">
+      <DependentUpon>ListContactView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Contacts\ListContactView.ascx.designer.cs">
+      <DependentUpon>ListContactView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Common\ImportFromCSVView.ascx.cs">
+      <DependentUpon>ImportFromCSVView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Common\ImportFromCSVView.ascx.designer.cs">
+      <DependentUpon>ImportFromCSVView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Deals\DealFullCardView.ascx.cs">
+      <DependentUpon>DealFullCardView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Deals\DealFullCardView.ascx.designer.cs">
+      <DependentUpon>DealFullCardView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Deals\ListDealView.ascx.cs">
+      <DependentUpon>ListDealView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Deals\ListDealView.ascx.designer.cs">
+      <DependentUpon>ListDealView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Settings\SettingsHeaderView.ascx.cs">
+      <DependentUpon>SettingsHeaderView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Settings\SettingsHeaderView.ascx.designer.cs">
+      <DependentUpon>SettingsHeaderView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Settings\CurrencySettingsView.ascx.cs">
+      <DependentUpon>CurrencySettingsView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Settings\CurrencySettingsView.ascx.designer.cs">
+      <DependentUpon>CurrencySettingsView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Settings\DealMilestoneView.ascx.cs">
+      <DependentUpon>DealMilestoneView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Settings\DealMilestoneView.ascx.designer.cs">
+      <DependentUpon>DealMilestoneView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Settings\InvoiceSettings\OrganisationProfile.ascx.cs">
+      <DependentUpon>OrganisationProfile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Settings\InvoiceSettings\OrganisationProfile.ascx.designer.cs">
+      <DependentUpon>OrganisationProfile.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Settings\InvoiceSettings\InvoiceItemActionView.ascx.cs">
+      <DependentUpon>InvoiceItemActionView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Settings\InvoiceSettings\InvoiceItemActionView.ascx.designer.cs">
+      <DependentUpon>InvoiceItemActionView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Settings\InvoiceSettings\InvoiceItemsView.ascx.cs">
+      <DependentUpon>InvoiceItemsView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Settings\InvoiceSettings\InvoiceItemsView.ascx.designer.cs">
+      <DependentUpon>InvoiceItemsView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Settings\InvoiceSettings\InvoiceTaxesView.ascx.cs">
+      <DependentUpon>InvoiceTaxesView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Settings\InvoiceSettings\InvoiceTaxesView.ascx.designer.cs">
+      <DependentUpon>InvoiceTaxesView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Reports\ReportsNavigation.ascx.cs">
+      <DependentUpon>ReportsNavigation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Reports\ReportsNavigation.ascx.designer.cs">
+      <DependentUpon>ReportsNavigation.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Reports\ReportsView.ascx.cs">
+      <DependentUpon>ReportsView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Reports\ReportsView.ascx.designer.cs">
+      <DependentUpon>ReportsView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Settings\VoipSettings\VoipCommon.ascx.cs">
+      <DependentUpon>VoipCommon.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Settings\VoipSettings\VoipCommon.ascx.designer.cs">
+      <DependentUpon>VoipCommon.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Settings\VoipSettings\VoipNumbers.ascx.cs">
+      <DependentUpon>VoipNumbers.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Settings\VoipSettings\VoipNumbers.ascx.designer.cs">
+      <DependentUpon>VoipNumbers.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Settings\VoipSettings\VoipCalls.ascx.cs">
+      <DependentUpon>VoipCalls.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Settings\VoipSettings\VoipCalls.ascx.designer.cs">
+      <DependentUpon>VoipCalls.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Settings\VoipSettings\VoipQuick.ascx.cs">
+      <DependentUpon>VoipQuick.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Settings\VoipSettings\VoipQuick.ascx.designer.cs">
+      <DependentUpon>VoipQuick.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Settings\TagSettingsView.ascx.cs">
+      <DependentUpon>TagSettingsView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Settings\TagSettingsView.ascx.designer.cs">
+      <DependentUpon>TagSettingsView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Settings\TaskTemplateView.ascx.cs">
+      <DependentUpon>TaskTemplateView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Settings\TaskTemplateView.ascx.designer.cs">
+      <DependentUpon>TaskTemplateView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Tasks\ListTaskView.ascx.cs">
+      <DependentUpon>ListTaskView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Tasks\ListTaskView.ascx.designer.cs">
+      <DependentUpon>ListTaskView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Dao\ListItemHistoryDao.cs" />
+    <Compile Include="Core\DIHelper.cs" />
+    <Compile Include="Core\Entities\Filter.cs" />
+    <Compile Include="Core\Entities\ListItemHistory.cs" />
+    <Compile Include="Core\Enums\ProgressStatus.cs" />
+    <Compile Include="Core\Enums\ReportTimePeriodEnum.cs" />
+    <Compile Include="Core\Enums\ReportTypeEnum.cs" />
+    <Compile Include="Core\Search\BundleSearch.cs" />
+    <Compile Include="Core\Search\CasesWrapper.cs" />
+    <Compile Include="Core\Search\ContactsWrapper.cs" />
+    <Compile Include="Core\Search\DealsWrapper.cs" />
+    <Compile Include="Core\Search\EmailWrapper.cs" />
+    <Compile Include="Core\Search\EventsWrapper.cs" />
+    <Compile Include="Core\Search\FieldsWrapper.cs" />
+    <Compile Include="Core\Search\InfoWrapper.cs" />
+    <Compile Include="Core\Search\InvoicesWrapper.cs" />
+    <Compile Include="Core\Search\TasksWrapper.cs" />
+    <Compile Include="Reports.aspx.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports.aspx.designer.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Dao\CurrencyRateDao.cs" />
+    <Compile Include="Core\Dao\CurrencyInfoDao.cs" />
+    <Compile Include="Core\Entities\CurrencyRate.cs" />
+    <Compile Include="Core\Entities\CurrencyInfo.cs" />
+    <Compile Include="Core\Enums\ShareType.cs" />
+    <Compile Include="HttpHandlers\OrganisationLogoHandler.cs" />
+    <Compile Include="HttpHandlers\ContactPhotoHandler.cs" />
+    <Compile Include="HttpHandlers\ImportFileHandler.cs" />
+    <Compile Include="MailViewer.aspx.cs">
+      <DependentUpon>MailViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MailViewer.aspx.designer.cs">
+      <DependentUpon>MailViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Dao\ContactInfoDao.cs" />
+    <Compile Include="Core\Dao\DealMilestoneDao.cs" />
+    <Compile Include="Core\Dao\InvoiceDao.cs" />
+    <Compile Include="Core\Dao\InvoiceItemDao.cs" />
+    <Compile Include="Core\Dao\InvoiceLineDao.cs" />
+    <Compile Include="Core\Dao\InvoiceTaxDao.cs" />
+    <Compile Include="Core\Dao\TaskTemplateContainerDao.cs" />
+    <Compile Include="Core\Entities\ContactInfo.cs" />
+    <Compile Include="Core\Entities\Invoice.cs" />
+    <Compile Include="Core\Entities\InvoiceItem.cs" />
+    <Compile Include="Core\Entities\InvoiceLine.cs" />
+    <Compile Include="Core\Entities\InvoiceTax.cs" />
+    <Compile Include="Core\Entities\Report.cs" />
+    <Compile Include="Core\Entities\TaskTemplateContainer.cs" />
+    <Compile Include="Core\Enums\ContactInfoCategoryEnum.cs" />
+    <Compile Include="Core\Enums\ContactInfoTypeEnum.cs" />
+    <Compile Include="Core\Enums\ContactListViewTypeEnum.cs" />
+    <Compile Include="Core\Enums\ContactSelectorTypeEnum.cs" />
+    <Compile Include="Core\Enums\InvoiceStatus.cs" />
+    <Compile Include="Core\Enums\InvoiceTemplateTypeEnum.cs" />
+    <Compile Include="Core\Security\FileSecurityProvider.cs" />
+    <Compile Include="Help.aspx.cs">
+      <DependentUpon>Help.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Help.aspx.designer.cs">
+      <DependentUpon>Help.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HttpHandlers\FileHandler.ashx.cs">
+      <DependentUpon>filehandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="HttpHandlers\WebToLeadFromHandler.ashx.cs">
+      <DependentUpon>webtoleadfromhandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Invoices.aspx.cs">
+      <DependentUpon>Invoices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Invoices.aspx.designer.cs">
+      <DependentUpon>Invoices.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\ClientScripts\ClientLocalizationResources.cs" />
+    <Compile Include="Masters\ClientScripts\ClientTemplateResources.cs" />
+    <Compile Include="Masters\ClientScripts\ControlsResources.cs" />
+    <Compile Include="Masters\ClientScripts\CRMSettingsResources.cs" />
+    <Compile Include="Sender.aspx.cs">
+      <DependentUpon>Sender.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sender.aspx.designer.cs">
+      <DependentUpon>Sender.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\PdfQueueWorker.cs" />
+    <Compile Include="Utils\ReportHelper.cs" />
+    <Compile Include="Utils\CurrencyProvider.cs" />
+    <Compile Include="HttpHandlers\FileUploaderHandler.cs" />
+    <Compile Include="Classes\Global.cs" />
+    <Compile Include="Classes\SocialMedia\SocialMediaAccountNotFound.cs" />
+    <Compile Include="Classes\SocialMedia\SocialMediaImageDescription.cs" />
+    <Compile Include="Classes\SocialMedia\SocialMediaUI.cs" />
+    <Compile Include="Classes\CRMSettings.cs" />
+    <Compile Include="Classes\UrlConstant.cs" />
+    <Compile Include="Classes\UrlParameters.cs" />
+    <Compile Include="Controls\Settings\WebToLeadFormView.ascx.cs">
+      <DependentUpon>WebToLeadFormView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Settings\WebToLeadFormView.ascx.designer.cs">
+      <DependentUpon>WebToLeadFormView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\SearchHandler.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Cases\CasesActionView.ascx.cs">
+      <DependentUpon>CasesActionView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Cases\CasesActionView.ascx.designer.cs">
+      <DependentUpon>CasesActionView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Cases\CasesDetailsView.ascx.cs">
+      <DependentUpon>CasesDetailsView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Cases\CasesDetailsView.ascx.designer.cs">
+      <DependentUpon>CasesDetailsView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Cases\ListCasesView.ascx.cs">
+      <DependentUpon>ListCasesView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Cases\ListCasesView.ascx.designer.cs">
+      <DependentUpon>ListCasesView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Common\FileUploader.ascx.cs">
+      <DependentUpon>FileUploader.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Common\FileUploader.ascx.designer.cs">
+      <DependentUpon>FileUploader.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Common\PrivatePanel.ascx.cs">
+      <DependentUpon>PrivatePanel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Common\PrivatePanel.ascx.designer.cs">
+      <DependentUpon>PrivatePanel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Contacts\ContactActionView.ascx.cs">
+      <DependentUpon>ContactActionView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Contacts\ContactActionView.ascx.designer.cs">
+      <DependentUpon>ContactActionView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Contacts\ContactDetailsView.ascx.cs">
+      <DependentUpon>ContactDetailsView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Contacts\ContactDetailsView.ascx.designer.cs">
+      <DependentUpon>ContactDetailsView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Common\HistoryView.ascx.cs">
+      <DependentUpon>HistoryView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Common\HistoryView.ascx.designer.cs">
+      <DependentUpon>HistoryView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Deals\DealActionView.ascx.cs">
+      <DependentUpon>DealActionView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Deals\DealActionView.ascx.designer.cs">
+      <DependentUpon>DealActionView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Deals\DealDetailsView.ascx.cs">
+      <DependentUpon>DealDetailsView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Deals\DealDetailsView.ascx.designer.cs">
+      <DependentUpon>DealDetailsView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Settings\CommonSettingsView.ascx.cs">
+      <DependentUpon>CommonSettingsView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Settings\CommonSettingsView.ascx.designer.cs">
+      <DependentUpon>CommonSettingsView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Settings\CustomFieldsView.ascx.cs">
+      <DependentUpon>CustomFieldsView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Settings\CustomFieldsView.ascx.designer.cs">
+      <DependentUpon>CustomFieldsView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Settings\ListItemView.ascx.cs">
+      <DependentUpon>ListItemView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Settings\ListItemView.ascx.designer.cs">
+      <DependentUpon>ListItemView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Core\CRMConstants.cs" />
+    <Compile Include="Core\Dao\AbstractDao.cs" />
+    <Compile Include="Core\Dao\CasesDao.cs" />
+    <Compile Include="Core\Dao\FileDao.cs" />
+    <Compile Include="Core\Dao\ReportDao.cs" />
+    <Compile Include="Core\Dao\SearchDao.cs" />
+    <Compile Include="Core\Entities\Cases.cs" />
+    <Compile Include="Core\Entities\Comment.cs" />
+    <Compile Include="Core\Dao\ContactDao.cs" />
+    <Compile Include="Core\Dao\CustomFieldDao.cs" />
+    <Compile Include="Core\Dao\DaoFactory.cs" />
+    <Compile Include="Core\Dao\DealDao.cs" />
+    <Compile Include="Core\Dao\ListItemDao.cs" />
+    <Compile Include="Core\Dao\RelationshipEventDao.cs" />
+    <Compile Include="Core\Dao\TagDao.cs" />
+    <Compile Include="Core\Dao\TaskDao.cs" />
+    <Compile Include="Core\DomainObject.cs" />
+    <Compile Include="Core\Entities\Contact.cs" />
+    <Compile Include="Core\Entities\DealMilestone.cs" />
+    <Compile Include="Core\Entities\RelationshipEvent.cs" />
+    <Compile Include="Core\Entities\CustomField.cs" />
+    <Compile Include="Core\Entities\Deal.cs" />
+    <Compile Include="Core\Entities\ListItem.cs" />
+    <Compile Include="Core\Entities\OrderBy.cs" />
+    <Compile Include="Core\Entities\Task.cs" />
+    <Compile Include="Core\Enums\BidTypeEnum.cs" />
+    <Compile Include="Core\Enums\CustomFieldTypeEnum.cs" />
+    <Compile Include="Core\Enums\DealMilestoneStatus.cs" />
+    <Compile Include="Core\Enums\EntityTypeEnum.cs" />
+    <Compile Include="Core\Enums\ListTypeEnum.cs" />
+    <Compile Include="Core\Enums\SortedByTypeEnum.cs" />
+    <Compile Include="Core\Security\CRMSecurityObjectProvider.cs" />
+    <Compile Include="Core\Security\CRMSecutiry.cs" />
+    <Compile Include="Deals.aspx.cs">
+      <DependentUpon>Deals.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Deals.aspx.designer.cs">
+      <DependentUpon>Deals.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\BasicTemplate.Master.cs">
+      <DependentUpon>BasicTemplate.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\BasicTemplate.Master.designer.cs">
+      <DependentUpon>BasicTemplate.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Classes\BaseUserControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Classes\PathProvider.cs" />
+    <Compile Include="Configuration\ProductEntryPoint.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\NotifyService\NotifyClient.cs" />
+    <Compile Include="Services\NotifyService\NotifyConstants.cs" />
+    <Compile Include="Services\NotifyService\NotifySource.cs" />
+    <Compile Include="Settings.aspx.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Settings.aspx.designer.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tasks.aspx.cs">
+      <DependentUpon>Tasks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tasks.aspx.designer.cs">
+      <DependentUpon>Tasks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\ExportToCSV.cs" />
+    <Compile Include="Utils\FileHelper.cs" />
+    <Compile Include="Utils\Import\CSV\ImportBase.cs" />
+    <Compile Include="Utils\Import\CSV\ImportCases.cs" />
+    <Compile Include="Utils\Import\CSV\ImportContacts.cs" />
+    <Compile Include="Utils\Import\CSV\ImportCSVSettings.cs" />
+    <Compile Include="Utils\Import\CSV\ImportDataOperation.cs" />
+    <Compile Include="Utils\Import\CSV\ImportDeals.cs" />
+    <Compile Include="Utils\Import\CSV\ImportFromCSV.cs" />
+    <Compile Include="Utils\Import\CSV\ImportTasks.cs" />
+    <Compile Include="Utils\MailSender.cs" />
+    <Compile Include="Utils\PdfCreator.cs" />
+    <Compile Include="Warmup.aspx.cs">
+      <DependentUpon>Warmup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Warmup.aspx.designer.cs">
+      <DependentUpon>Warmup.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\default\css\reports.less" />
+    <Content Include="App_Themes\default\images\activity_widget.svg" />
+    <Content Include="App_Themes\default\images\cases_widget.svg" />
+    <Content Include="App_Themes\default\images\companies_widget.svg" />
+    <Content Include="App_Themes\default\images\contacts.svg" />
+    <Content Include="App_Themes\default\images\customize.svg" />
+    <Content Include="App_Themes\default\images\deal_widget.svg" />
+    <Content Include="App_Themes\default\images\drag.png" />
+    <Content Include="App_Themes\default\images\drug-n-drop_items.png" />
+    <Content Include="App_Themes\default\images\empty_company_logo_180_180.png" />
+    <Content Include="App_Themes\default\images\empty_company_logo_200_200.png" />
+    <Content Include="App_Themes\default\images\empty_people_logo_180_180.png" />
+    <Content Include="App_Themes\default\images\empty_people_logo_200_200.png" />
+    <Content Include="App_Themes\default\images\empty_screen_cases.svg" />
+    <Content Include="App_Themes\default\images\empty_screen_case_participants.svg" />
+    <Content Include="App_Themes\default\images\empty_screen_companies.svg" />
+    <Content Include="App_Themes\default\images\empty_screen_company_participants.svg" />
+    <Content Include="App_Themes\default\images\empty_screen_deals.svg" />
+    <Content Include="App_Themes\default\images\empty_screen_invoices.svg" />
+    <Content Include="App_Themes\default\images\empty_screen_opportunity_participants.svg" />
+    <Content Include="App_Themes\default\images\empty_screen_persons.svg" />
+    <Content Include="App_Themes\default\images\empty_screen_phones.svg" />
+    <Content Include="App_Themes\default\images\empty_screen_projects.svg" />
+    <Content Include="App_Themes\default\images\empty_screen_social.svg" />
+    <Content Include="App_Themes\default\images\empty_screen_tags.svg" />
+    <Content Include="App_Themes\default\images\empty_screen_tasks.svg" />
+    <Content Include="App_Themes\default\images\empty_screen_taxes.svg" />
+    <Content Include="App_Themes\default\images\empty_screen_twitter.svg" />
+    <Content Include="App_Themes\default\images\empty_screen_userfields.svg" />
+    <Content Include="App_Themes\default\images\empty_screen_voip_settings.svg" />
+    <Content Include="App_Themes\default\images\event_categories.png" />
+    <Content Include="App_Themes\default\images\export_data.svg" />
+    <Content Include="App_Themes\default\images\flags_all.png" />
+    <Content Include="App_Themes\default\images\icons.png" />
+    <Content Include="App_Themes\default\images\edit_small.png" />
+    <Content Include="App_Themes\default\images\import-cases.svg" />
+    <Content Include="App_Themes\default\images\import-opportunities.svg" />
+    <Content Include="App_Themes\default\images\import-tasks.svg" />
+    <Content Include="App_Themes\default\images\import.png" />
+    <Content Include="App_Themes\default\images\import_contacts.svg" />
+    <Content Include="App_Themes\default\images\integration.svg" />
+    <Content Include="App_Themes\default\images\invoice.svg" />
+    <Content Include="App_Themes\default\images\loader-dark-24.svg" />
+    <Content Include="App_Themes\default\images\loader_16_static.png" />
+    <Content Include="App_Themes\default\images\loader_24.gif" />
+    <Content Include="App_Themes\default\images\loader_24_static.png" />
+    <Content Include="App_Themes\default\images\mail_send.svg" />
+    <Content Include="App_Themes\default\images\people_widget.svg" />
+    <Content Include="App_Themes\default\images\sales.svg" />
+    <Content Include="App_Themes\default\images\tasks_widget.svg" />
+    <Content Include="App_Themes\default\images\twitter.png" />
+    <Content Include="App_Themes\default\images\voip_call_icons_sprite.png" />
+    <Content Include="App_Themes\default\images\mail_icons.png" />
+    <Content Include="App_Themes\default\images\org_logo_default.png" />
+    <Content Include="App_Themes\default\images\people_icon.png" />
+    <Content Include="App_Themes\default\images\product_logo.png" />
+    <Content Include="App_Themes\default\images\remove.png" />
+    <Content Include="App_Themes\default\images\remove_12.png" />
+    <Content Include="App_Themes\default\images\search_in_module.png" />
+    <Content Include="App_Themes\default\images\task_categories.png" />
+    <Content Include="App_Themes\default\images\voip_logo.png" />
+    <Content Include="App_Themes\default\images\web_to_leads.svg" />
+    <Content Include="Calls.aspx" />
+    <Content Include="Cases.aspx" />
+    <Content Include="Controls\Cases\CasesActionView.ascx" />
+    <Content Include="Controls\Cases\CasesDetailsView.ascx" />
+    <Content Include="Controls\Cases\ListCasesView.ascx" />
+    <Content Include="Controls\Common\ButtonsSidePanel.ascx" />
+    <Content Include="Controls\Common\ListBaseView.ascx" />
+    <Content Include="Controls\Invoices\InvoiceDetailsView.ascx" />
+    <Content Include="Controls\Invoices\InvoiceActionView.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Controls\Invoices\ListInvoiceView.ascx" />
+    <Content Include="Controls\Sender\SmtpSender.ascx" />
+    <Content Include="Controls\Contacts\ContactActionView.ascx" />
+    <Content Include="Controls\Contacts\ContactDetailsView.ascx" />
+    <Content Include="Controls\Common\HistoryView.ascx" />
+    <Content Include="Controls\Deals\DealActionView.ascx" />
+    <Content Include="Controls\Deals\DealDetailsView.ascx" />
+    <Content Include="Controls\Settings\SettingsHeaderView.ascx" />
+    <Content Include="Controls\Settings\CurrencySettingsView.ascx" />
+    <Content Include="Controls\Settings\CustomFieldsView.ascx" />
+    <Content Include="Controls\Settings\InvoiceSettings\OrganisationProfile.ascx" />
+    <Content Include="Controls\Settings\InvoiceSettings\InvoiceItemActionView.ascx" />
+    <Content Include="Controls\Settings\InvoiceSettings\InvoiceItemsView.ascx" />
+    <Content Include="Controls\Settings\InvoiceSettings\InvoiceTaxesView.ascx" />
+    <Content Include="Controls\Reports\ReportsNavigation.ascx" />
+    <Content Include="Controls\Reports\ReportsView.ascx" />
+    <Content Include="Controls\Settings\VoipSettings\VoipCommon.ascx" />
+    <Content Include="Controls\Settings\VoipSettings\VoipNumbers.ascx" />
+    <Content Include="Controls\Settings\VoipSettings\VoipCalls.ascx" />
+    <Content Include="Reports.aspx" />
+    <Content Include="js\voip.common.js" />
+    <Content Include="js\voip.numbers.js" />
+    <Content Include="js\fileuploader.js" />
+    <Content Include="js\voip.calls.js" />
+    <Content Include="js\voip.quick.js" />
+    <Content Include="Controls\Settings\VoipSettings\VoipQuick.ascx" />
+    <Content Include="Controls\Settings\ListItemView.ascx" />
+    <Content Include="js\navsidepanel.js" />
+    <Content Include="MailViewer.aspx" />
+    <Content Include="Deals.aspx" />
+    <Content Include="Invoices.aspx" />
+    <Content Include="js\invoices.js" />
+    <Content Include="js\sender.js" />
+    <Content Include="js\settings.invoices.js" />
+    <Content Include="Masters\BasicTemplate.Master" />
+    <Content Include="Templates\CasesTemplates.html" />
+    <Content Include="Templates\CommonCustomFieldsTemplates.html" />
+    <Content Include="Templates\CommonTemplates.html" />
+    <Content Include="Templates\ContactInfoCardTemplate.html" />
+    <Content Include="Templates\ContactSelectorTemplates.html" />
+    <Content Include="Templates\ContactsTemplates.html" />
+    <Content Include="Templates\DealsSelectorTemplates.html" />
+    <Content Include="Templates\DealsTemplates.html" />
+    <Content Include="Templates\InvoicesTemplates.html" />
+    <Content Include="Templates\SettingsTemplates.html" />
+    <Content Include="Templates\SimpleContactListTemplate.html" />
+    <Content Include="Templates\TasksTemplates.html" />
+    <Content Include="Templates\VoipTemplates.html" />
+    <EmbeddedResource Include="Services\NotifyService\patterns.xml" />
+    <Content Include="Sender.aspx" />
+    <Content Include="Settings.aspx" />
+    <Content Include="Tasks.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\CRMErrorsResource.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CRMErrorsResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Resources\CRMErrorsResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRMErrorsResource.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Resources\CRMVoipResource.bg.resx" Condition="$(Cultures.Contains('bg'))">
+      <DependentUpon>CRMVoipResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMVoipResource.cs.resx" Condition="$(Cultures.Contains('cs'))">
+      <DependentUpon>CRMVoipResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMVoipResource.de.resx" Condition="$(Cultures.Contains('de'))">
+      <DependentUpon>CRMVoipResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMVoipResource.el.resx" Condition="$(Cultures.Contains('el'))">
+      <DependentUpon>CRMVoipResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMVoipResource.es.resx" Condition="$(Cultures.Contains('es'))">
+      <DependentUpon>CRMVoipResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMVoipResource.fr.resx" Condition="$(Cultures.Contains('fr'))">
+      <DependentUpon>CRMVoipResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMVoipResource.it.resx" Condition="$(Cultures.Contains('it'))">
+      <DependentUpon>CRMVoipResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMVoipResource.ja.resx" Condition="$(Cultures.Contains('ja'))">
+      <DependentUpon>CRMVoipResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMVoipResource.lv.resx" Condition="$(Cultures.Contains('lv'))">
+      <DependentUpon>CRMVoipResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMVoipResource.nl.resx" Condition="$(Cultures.Contains('nl'))">
+      <DependentUpon>CRMVoipResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMVoipResource.pl.resx" Condition="$(Cultures.Contains('pl'))">
+      <DependentUpon>CRMVoipResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMVoipResource.pt-BR.resx" Condition="$(Cultures.Contains('pt-BR'))">
+      <DependentUpon>CRMVoipResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMVoipResource.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CRMVoipResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMVoipResource.ru.resx" Condition="$(Cultures.Contains('ru'))">
+      <DependentUpon>CRMVoipResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMVoipResource.sk.resx" Condition="$(Cultures.Contains('sk'))">
+      <DependentUpon>CRMVoipResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMVoipResource.tr.resx" Condition="$(Cultures.Contains('tr'))">
+      <DependentUpon>CRMVoipResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMVoipResource.uk.resx" Condition="$(Cultures.Contains('uk'))">
+      <DependentUpon>CRMVoipResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMVoipResource.vi.resx" Condition="$(Cultures.Contains('vi'))">
+      <DependentUpon>CRMVoipResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMVoipResource.zh-CN.resx" Condition="$(Cultures.Contains('zh-CN'))">
+      <DependentUpon>CRMVoipResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Resources\CRMVoipResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRMVoipResource.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Resources\CRMContactResource.az-Latn-AZ.resx" Condition="$(Cultures.Contains('az-Latn-AZ'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.bg.resx" Condition="$(Cultures.Contains('bg'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.cs.resx" Condition="$(Cultures.Contains('cs'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.de.resx" Condition="$(Cultures.Contains('de'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.el.resx" Condition="$(Cultures.Contains('el'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.es.resx" Condition="$(Cultures.Contains('es'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.fi.resx" Condition="$(Cultures.Contains('fi'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.fr.resx" Condition="$(Cultures.Contains('fr'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.it.resx" Condition="$(Cultures.Contains('it'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.ja.resx" Condition="$(Cultures.Contains('ja'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.ko.resx" Condition="$(Cultures.Contains('ko'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.lv.resx" Condition="$(Cultures.Contains('lv'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.nl.resx" Condition="$(Cultures.Contains('nl'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.pl.resx" Condition="$(Cultures.Contains('pl'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.pt-BR.resx" Condition="$(Cultures.Contains('pt-BR'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.pt.resx" Condition="$(Cultures.Contains('pt'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CRMContactResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.ru.resx" Condition="$(Cultures.Contains('ru'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.sk.resx" Condition="$(Cultures.Contains('sk'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.sl.resx" Condition="$(Cultures.Contains('sl'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.tr.resx" Condition="$(Cultures.Contains('tr'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.uk.resx" Condition="$(Cultures.Contains('uk'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.vi.resx" Condition="$(Cultures.Contains('vi'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.zh-CN.resx" Condition="$(Cultures.Contains('zh-CN'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Resources\CRMContactResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Resources\CRMCommonResource.az-Latn-AZ.resx" Condition="$(Cultures.Contains('az-Latn-AZ'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.bg.resx" Condition="$(Cultures.Contains('bg'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.cs.resx" Condition="$(Cultures.Contains('cs'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.de.resx" Condition="$(Cultures.Contains('de'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.el.resx" Condition="$(Cultures.Contains('el'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.es.resx" Condition="$(Cultures.Contains('es'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.fi.resx" Condition="$(Cultures.Contains('fi'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.fr.resx" Condition="$(Cultures.Contains('fr'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.it.resx" Condition="$(Cultures.Contains('it'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.ja.resx" Condition="$(Cultures.Contains('ja'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.ko.resx" Condition="$(Cultures.Contains('ko'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.lv.resx" Condition="$(Cultures.Contains('lv'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.nl.resx" Condition="$(Cultures.Contains('nl'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.pl.resx" Condition="$(Cultures.Contains('pl'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.pt-BR.resx" Condition="$(Cultures.Contains('pt-BR'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.pt.resx" Condition="$(Cultures.Contains('pt'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CRMCommonResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.ru.resx" Condition="$(Cultures.Contains('ru'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.sk.resx" Condition="$(Cultures.Contains('sk'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.sl.resx" Condition="$(Cultures.Contains('sl'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.tr.resx" Condition="$(Cultures.Contains('tr'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.uk.resx" Condition="$(Cultures.Contains('uk'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.vi.resx" Condition="$(Cultures.Contains('vi'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.zh-CN.resx" Condition="$(Cultures.Contains('zh-CN'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Resources\CRMCommonResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Resources\CRMJSResource.az-Latn-AZ.resx" Condition="$(Cultures.Contains('az-Latn-AZ'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.bg.resx" Condition="$(Cultures.Contains('bg'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.cs.resx" Condition="$(Cultures.Contains('cs'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.de.resx" Condition="$(Cultures.Contains('de'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.el.resx" Condition="$(Cultures.Contains('el'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.es.resx" Condition="$(Cultures.Contains('es'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.fi.resx" Condition="$(Cultures.Contains('fi'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.fr.resx" Condition="$(Cultures.Contains('fr'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.it.resx" Condition="$(Cultures.Contains('it'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.ja.resx" Condition="$(Cultures.Contains('ja'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.ko.resx" Condition="$(Cultures.Contains('ko'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.lv.resx" Condition="$(Cultures.Contains('lv'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.nl.resx" Condition="$(Cultures.Contains('nl'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.pl.resx" Condition="$(Cultures.Contains('pl'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.pt-BR.resx" Condition="$(Cultures.Contains('pt-BR'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.pt.resx" Condition="$(Cultures.Contains('pt'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CRMJSResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.ru.resx" Condition="$(Cultures.Contains('ru'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.sk.resx" Condition="$(Cultures.Contains('sk'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.sl.resx" Condition="$(Cultures.Contains('sl'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.tr.resx" Condition="$(Cultures.Contains('tr'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.uk.resx" Condition="$(Cultures.Contains('uk'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.vi.resx" Condition="$(Cultures.Contains('vi'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.zh-CN.resx" Condition="$(Cultures.Contains('zh-CN'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Resources\CRMJSResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Resources\CRMDealResource.az-Latn-AZ.resx" Condition="$(Cultures.Contains('az-Latn-AZ'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.bg.resx" Condition="$(Cultures.Contains('bg'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.cs.resx" Condition="$(Cultures.Contains('cs'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.de.resx" Condition="$(Cultures.Contains('de'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.el.resx" Condition="$(Cultures.Contains('el'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.es.resx" Condition="$(Cultures.Contains('es'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.fi.resx" Condition="$(Cultures.Contains('fi'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.fr.resx" Condition="$(Cultures.Contains('fr'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.it.resx" Condition="$(Cultures.Contains('it'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.ja.resx" Condition="$(Cultures.Contains('ja'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.ko.resx" Condition="$(Cultures.Contains('ko'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.lv.resx" Condition="$(Cultures.Contains('lv'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.nl.resx" Condition="$(Cultures.Contains('nl'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.pl.resx" Condition="$(Cultures.Contains('pl'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.pt-BR.resx" Condition="$(Cultures.Contains('pt-BR'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.pt.resx" Condition="$(Cultures.Contains('pt'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CRMDealResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.ru.resx" Condition="$(Cultures.Contains('ru'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.sk.resx" Condition="$(Cultures.Contains('sk'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.sl.resx" Condition="$(Cultures.Contains('sl'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.tr.resx" Condition="$(Cultures.Contains('tr'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.uk.resx" Condition="$(Cultures.Contains('uk'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.vi.resx" Condition="$(Cultures.Contains('vi'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.zh-CN.resx" Condition="$(Cultures.Contains('zh-CN'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Resources\CRMDealResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Resources\CRMReportResource.cs.resx" Condition="$(Cultures.Contains('cs'))">
+      <DependentUpon>CRMReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMReportResource.de.resx" Condition="$(Cultures.Contains('de'))">
+      <DependentUpon>CRMReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMReportResource.es.resx" Condition="$(Cultures.Contains('es'))">
+      <DependentUpon>CRMReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMReportResource.fi.resx" Condition="$(Cultures.Contains('fi'))">
+      <DependentUpon>CRMReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMReportResource.fr.resx" Condition="$(Cultures.Contains('fr'))">
+      <DependentUpon>CRMReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMReportResource.it.resx" Condition="$(Cultures.Contains('it'))">
+      <DependentUpon>CRMReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMReportResource.lv.resx" Condition="$(Cultures.Contains('lv'))">
+      <DependentUpon>CRMReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMReportResource.nl.resx" Condition="$(Cultures.Contains('nl'))">
+      <DependentUpon>CRMReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMReportResource.pl.resx" Condition="$(Cultures.Contains('pl'))">
+      <DependentUpon>CRMReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMReportResource.pt-BR.resx" Condition="$(Cultures.Contains('pt-BR'))">
+      <DependentUpon>CRMReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMReportResource.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CRMReportResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMReportResource.ru.resx" Condition="$(Cultures.Contains('ru'))">
+      <DependentUpon>CRMReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMReportResource.sk.resx" Condition="$(Cultures.Contains('sk'))">
+      <DependentUpon>CRMReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMReportResource.sl.resx" Condition="$(Cultures.Contains('sl'))">
+      <DependentUpon>CRMReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMReportResource.tr.resx" Condition="$(Cultures.Contains('tr'))">
+      <DependentUpon>CRMReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMReportResource.uk.resx" Condition="$(Cultures.Contains('uk'))">
+      <DependentUpon>CRMReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMReportResource.vi.resx" Condition="$(Cultures.Contains('vi'))">
+      <DependentUpon>CRMReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMReportResource.zh-CN.resx" Condition="$(Cultures.Contains('zh-CN'))">
+      <DependentUpon>CRMReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Resources\CRMReportResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRMReportResource.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Resources\CRMSettingResource.az-Latn-AZ.resx" Condition="$(Cultures.Contains('az-Latn-AZ'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.bg.resx" Condition="$(Cultures.Contains('bg'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.cs.resx" Condition="$(Cultures.Contains('cs'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.de.resx" Condition="$(Cultures.Contains('de'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.el.resx" Condition="$(Cultures.Contains('el'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.es.resx" Condition="$(Cultures.Contains('es'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.fi.resx" Condition="$(Cultures.Contains('fi'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.fr.resx" Condition="$(Cultures.Contains('fr'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.it.resx" Condition="$(Cultures.Contains('it'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.ja.resx" Condition="$(Cultures.Contains('ja'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.ko.resx" Condition="$(Cultures.Contains('ko'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.lv.resx" Condition="$(Cultures.Contains('lv'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.nl.resx" Condition="$(Cultures.Contains('nl'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.pl.resx" Condition="$(Cultures.Contains('pl'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.pt-BR.resx" Condition="$(Cultures.Contains('pt-BR'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.pt.resx" Condition="$(Cultures.Contains('pt'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CRMSettingResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.ru.resx" Condition="$(Cultures.Contains('ru'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.sk.resx" Condition="$(Cultures.Contains('sk'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.sl.resx" Condition="$(Cultures.Contains('sl'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.tr.resx" Condition="$(Cultures.Contains('tr'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.uk.resx" Condition="$(Cultures.Contains('uk'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.vi.resx" Condition="$(Cultures.Contains('vi'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.zh-CN.resx" Condition="$(Cultures.Contains('zh-CN'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Resources\CRMSettingResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.az-Latn-AZ.resx" Condition="$(Cultures.Contains('az-Latn-AZ'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.bg.resx" Condition="$(Cultures.Contains('bg'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.cs.resx" Condition="$(Cultures.Contains('cs'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.de.resx" Condition="$(Cultures.Contains('de'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.el.resx" Condition="$(Cultures.Contains('el'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.es.resx" Condition="$(Cultures.Contains('es'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.fi.resx" Condition="$(Cultures.Contains('fi'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.fr.resx" Condition="$(Cultures.Contains('fr'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.it.resx" Condition="$(Cultures.Contains('it'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.ja.resx" Condition="$(Cultures.Contains('ja'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.ko.resx" Condition="$(Cultures.Contains('ko'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.lv.resx" Condition="$(Cultures.Contains('lv'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.nl.resx" Condition="$(Cultures.Contains('nl'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.pl.resx" Condition="$(Cultures.Contains('pl'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.pt-BR.resx" Condition="$(Cultures.Contains('pt-BR'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.pt.resx" Condition="$(Cultures.Contains('pt'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CRMSocialMediaResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.ru.resx" Condition="$(Cultures.Contains('ru'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.sk.resx" Condition="$(Cultures.Contains('sk'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.sl.resx" Condition="$(Cultures.Contains('sl'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.tr.resx" Condition="$(Cultures.Contains('tr'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.uk.resx" Condition="$(Cultures.Contains('uk'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.vi.resx" Condition="$(Cultures.Contains('vi'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.zh-CN.resx" Condition="$(Cultures.Contains('zh-CN'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Resources\CRMSocialMediaResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Resources\CRMTaskResource.az-Latn-AZ.resx" Condition="$(Cultures.Contains('az-Latn-AZ'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.bg.resx" Condition="$(Cultures.Contains('bg'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.cs.resx" Condition="$(Cultures.Contains('cs'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.de.resx" Condition="$(Cultures.Contains('de'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.el.resx" Condition="$(Cultures.Contains('el'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.es.resx" Condition="$(Cultures.Contains('es'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.fi.resx" Condition="$(Cultures.Contains('fi'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.fr.resx" Condition="$(Cultures.Contains('fr'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.it.resx" Condition="$(Cultures.Contains('it'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.ja.resx" Condition="$(Cultures.Contains('ja'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.ko.resx" Condition="$(Cultures.Contains('ko'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.lv.resx" Condition="$(Cultures.Contains('lv'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.nl.resx" Condition="$(Cultures.Contains('nl'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.pl.resx" Condition="$(Cultures.Contains('pl'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.pt-BR.resx" Condition="$(Cultures.Contains('pt-BR'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.pt.resx" Condition="$(Cultures.Contains('pt'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CRMTaskResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.ru.resx" Condition="$(Cultures.Contains('ru'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.sk.resx" Condition="$(Cultures.Contains('sk'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.sl.resx" Condition="$(Cultures.Contains('sl'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.tr.resx" Condition="$(Cultures.Contains('tr'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.uk.resx" Condition="$(Cultures.Contains('uk'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.vi.resx" Condition="$(Cultures.Contains('vi'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.zh-CN.resx" Condition="$(Cultures.Contains('zh-CN'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Resources\CRMTaskResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.az-Latn-AZ.resx" Condition="$(Cultures.Contains('az-Latn-AZ'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.bg.resx" Condition="$(Cultures.Contains('bg'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.cs.resx" Condition="$(Cultures.Contains('cs'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.de.resx" Condition="$(Cultures.Contains('de'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.es.resx" Condition="$(Cultures.Contains('es'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.fi.resx" Condition="$(Cultures.Contains('fi'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.fr.resx" Condition="$(Cultures.Contains('fr'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.it.resx" Condition="$(Cultures.Contains('it'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.ja.resx" Condition="$(Cultures.Contains('ja'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.ko.resx" Condition="$(Cultures.Contains('ko'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.lv.resx" Condition="$(Cultures.Contains('lv'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.nl.resx" Condition="$(Cultures.Contains('nl'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.pl.resx" Condition="$(Cultures.Contains('pl'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.pt-BR.resx" Condition="$(Cultures.Contains('pt-BR'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.pt.resx" Condition="$(Cultures.Contains('pt'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CRMPatternResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.ru.resx" Condition="$(Cultures.Contains('ru'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.sk.resx" Condition="$(Cultures.Contains('sk'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.sl.resx" Condition="$(Cultures.Contains('sl'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.tr.resx" Condition="$(Cultures.Contains('tr'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.uk.resx" Condition="$(Cultures.Contains('uk'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.vi.resx" Condition="$(Cultures.Contains('vi'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.zh-CN.resx" Condition="$(Cultures.Contains('zh-CN'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Services\NotifyService\CRMPatternResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Resources\CRMInvoiceResource.bg.resx" Condition="$(Cultures.Contains('bg'))">
+      <DependentUpon>CRMInvoiceResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMInvoiceResource.cs.resx" Condition="$(Cultures.Contains('cs'))">
+      <DependentUpon>CRMInvoiceResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMInvoiceResource.de.resx" Condition="$(Cultures.Contains('de'))">
+      <DependentUpon>CRMInvoiceResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMInvoiceResource.el.resx" Condition="$(Cultures.Contains('el'))">
+      <DependentUpon>CRMInvoiceResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMInvoiceResource.es.resx" Condition="$(Cultures.Contains('es'))">
+      <DependentUpon>CRMInvoiceResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMInvoiceResource.fi.resx" Condition="$(Cultures.Contains('fi'))">
+      <DependentUpon>CRMInvoiceResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMInvoiceResource.fr.resx" Condition="$(Cultures.Contains('fr'))">
+      <DependentUpon>CRMInvoiceResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMInvoiceResource.it.resx" Condition="$(Cultures.Contains('it'))">
+      <DependentUpon>CRMInvoiceResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMInvoiceResource.lv.resx" Condition="$(Cultures.Contains('lv'))">
+      <DependentUpon>CRMInvoiceResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMInvoiceResource.nl.resx" Condition="$(Cultures.Contains('nl'))">
+      <DependentUpon>CRMInvoiceResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMInvoiceResource.pl.resx" Condition="$(Cultures.Contains('pl'))">
+      <DependentUpon>CRMInvoiceResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMInvoiceResource.pt-BR.resx" Condition="$(Cultures.Contains('pt-BR'))">
+      <DependentUpon>CRMInvoiceResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMInvoiceResource.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CRMInvoiceResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMInvoiceResource.ru.resx" Condition="$(Cultures.Contains('ru'))">
+      <DependentUpon>CRMInvoiceResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMInvoiceResource.sk.resx" Condition="$(Cultures.Contains('sk'))">
+      <DependentUpon>CRMInvoiceResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMInvoiceResource.sl.resx" Condition="$(Cultures.Contains('sl'))">
+      <DependentUpon>CRMInvoiceResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMInvoiceResource.tr.resx" Condition="$(Cultures.Contains('tr'))">
+      <DependentUpon>CRMInvoiceResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMInvoiceResource.uk.resx" Condition="$(Cultures.Contains('uk'))">
+      <DependentUpon>CRMInvoiceResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMInvoiceResource.vi.resx" Condition="$(Cultures.Contains('vi'))">
+      <DependentUpon>CRMInvoiceResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMInvoiceResource.zh-CN.resx" Condition="$(Cultures.Contains('zh-CN'))">
+      <DependentUpon>CRMInvoiceResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Resources\CRMInvoiceResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRMInvoiceResource.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Resources\CRMCommonResource.ar-AE.resx" Condition="$(Cultures.Contains('ar-AE'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.ar-TN.resx" Condition="$(Cultures.Contains('ar-TN'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.be.resx" Condition="$(Cultures.Contains('be'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.bs-BA.resx" Condition="$(Cultures.Contains('bs-BA'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.ca.resx" Condition="$(Cultures.Contains('ca'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.et.resx" Condition="$(Cultures.Contains('et'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.eu-ES.resx" Condition="$(Cultures.Contains('eu-ES'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.fa.resx" Condition="$(Cultures.Contains('fa'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.he.resx" Condition="$(Cultures.Contains('he'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.hi.resx" Condition="$(Cultures.Contains('hi'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.hr.resx" Condition="$(Cultures.Contains('hr'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.hu.resx" Condition="$(Cultures.Contains('hu'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.hy.resx" Condition="$(Cultures.Contains('hy'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.id.resx" Condition="$(Cultures.Contains('id'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.ka.resx" Condition="$(Cultures.Contains('ka'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.lt.resx" Condition="$(Cultures.Contains('lt'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.nb-NO.resx" Condition="$(Cultures.Contains('nb-NO'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.ro.resx" Condition="$(Cultures.Contains('ro'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.sr-Latn-CS.resx" Condition="$(Cultures.Contains('sr-Latn-CS'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.sv.resx" Condition="$(Cultures.Contains('sv'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCommonResource.zh-TW.resx" Condition="$(Cultures.Contains('zh-TW'))">
+      <DependentUpon>CRMCommonResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.ar-AE.resx" Condition="$(Cultures.Contains('ar-AE'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.bs-BA.resx" Condition="$(Cultures.Contains('bs-BA'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.ca.resx" Condition="$(Cultures.Contains('ca'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.fa.resx" Condition="$(Cultures.Contains('fa'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.hr.resx" Condition="$(Cultures.Contains('hr'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.hu.resx" Condition="$(Cultures.Contains('hu'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.id.resx" Condition="$(Cultures.Contains('id'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.ka.resx" Condition="$(Cultures.Contains('ka'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.lt.resx" Condition="$(Cultures.Contains('lt'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.nb-NO.resx" Condition="$(Cultures.Contains('nb-NO'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.ro.resx" Condition="$(Cultures.Contains('ro'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.sr-Latn-CS.resx" Condition="$(Cultures.Contains('sr-Latn-CS'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.sv.resx" Condition="$(Cultures.Contains('sv'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMTaskResource.zh-TW.resx" Condition="$(Cultures.Contains('zh-TW'))">
+      <DependentUpon>CRMTaskResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.ar-AE.resx" Condition="$(Cultures.Contains('ar-AE'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.bs-BA.resx" Condition="$(Cultures.Contains('bs-BA'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.ca.resx" Condition="$(Cultures.Contains('ca'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.fa.resx" Condition="$(Cultures.Contains('fa'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.id.resx" Condition="$(Cultures.Contains('id'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.ka.resx" Condition="$(Cultures.Contains('ka'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.lt.resx" Condition="$(Cultures.Contains('lt'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.ro.resx" Condition="$(Cultures.Contains('ro'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.sv.resx" Condition="$(Cultures.Contains('sv'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMDealResource.zh-TW.resx" Condition="$(Cultures.Contains('zh-TW'))">
+      <DependentUpon>CRMDealResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.ar-AE.resx" Condition="$(Cultures.Contains('ar-AE'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.bs-BA.resx" Condition="$(Cultures.Contains('bs-BA'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.ca.resx" Condition="$(Cultures.Contains('ca'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.da.resx" Condition="$(Cultures.Contains('da'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.et.resx" Condition="$(Cultures.Contains('et'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.fa.resx" Condition="$(Cultures.Contains('fa'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.hr.resx" Condition="$(Cultures.Contains('hr'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.hu.resx" Condition="$(Cultures.Contains('hu'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.id.resx" Condition="$(Cultures.Contains('id'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.ka.resx" Condition="$(Cultures.Contains('ka'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.lt.resx" Condition="$(Cultures.Contains('lt'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.ro.resx" Condition="$(Cultures.Contains('ro'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.sv.resx" Condition="$(Cultures.Contains('sv'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSocialMediaResource.zh-TW.resx" Condition="$(Cultures.Contains('zh-TW'))">
+      <DependentUpon>CRMSocialMediaResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.ar-AE.resx" Condition="$(Cultures.Contains('ar-AE'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.bs-BA.resx" Condition="$(Cultures.Contains('bs-BA'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.fa.resx" Condition="$(Cultures.Contains('fa'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.id.resx" Condition="$(Cultures.Contains('id'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.ka.resx" Condition="$(Cultures.Contains('ka'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.lt.resx" Condition="$(Cultures.Contains('lt'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.nb-NO.resx" Condition="$(Cultures.Contains('nb-NO'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.ro.resx" Condition="$(Cultures.Contains('ro'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.sr-Latn-CS.resx" Condition="$(Cultures.Contains('sr-Latn-CS'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.sv.resx" Condition="$(Cultures.Contains('sv'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMSettingResource.zh-TW.resx" Condition="$(Cultures.Contains('zh-TW'))">
+      <DependentUpon>CRMSettingResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.ar-AE.resx" Condition="$(Cultures.Contains('ar-AE'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.bs-BA.resx" Condition="$(Cultures.Contains('bs-BA'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.fa.resx" Condition="$(Cultures.Contains('fa'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.id.resx" Condition="$(Cultures.Contains('id'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.ka.resx" Condition="$(Cultures.Contains('ka'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.lt.resx" Condition="$(Cultures.Contains('lt'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.nb-NO.resx" Condition="$(Cultures.Contains('nb-NO'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.ro.resx" Condition="$(Cultures.Contains('ro'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.sv.resx" Condition="$(Cultures.Contains('sv'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMJSResource.zh-TW.resx" Condition="$(Cultures.Contains('zh-TW'))">
+      <DependentUpon>CRMJSResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.ar-AE.resx" Condition="$(Cultures.Contains('ar-AE'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.bs-BA.resx" Condition="$(Cultures.Contains('bs-BA'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.fa.resx" Condition="$(Cultures.Contains('fa'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.hu.resx" Condition="$(Cultures.Contains('hu'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.id.resx" Condition="$(Cultures.Contains('id'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.ka.resx" Condition="$(Cultures.Contains('ka'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.lt.resx" Condition="$(Cultures.Contains('lt'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.nb-NO.resx" Condition="$(Cultures.Contains('nb-NO'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.ro.resx" Condition="$(Cultures.Contains('ro'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.sr-Latn-CS.resx" Condition="$(Cultures.Contains('sr-Latn-CS'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.sv.resx" Condition="$(Cultures.Contains('sv'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMContactResource.zh-TW.resx" Condition="$(Cultures.Contains('zh-TW'))">
+      <DependentUpon>CRMContactResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.ar-AE.resx" Condition="$(Cultures.Contains('ar-AE'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.bs-BA.resx" Condition="$(Cultures.Contains('bs-BA'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.ca.resx" Condition="$(Cultures.Contains('ca'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.et.resx" Condition="$(Cultures.Contains('et'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.fa.resx" Condition="$(Cultures.Contains('fa'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.hr.resx" Condition="$(Cultures.Contains('hr'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.hu.resx" Condition="$(Cultures.Contains('hu'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.id.resx" Condition="$(Cultures.Contains('id'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.ka.resx" Condition="$(Cultures.Contains('ka'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.lt.resx" Condition="$(Cultures.Contains('lt'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.nb-NO.resx" Condition="$(Cultures.Contains('nb-NO'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.ro.resx" Condition="$(Cultures.Contains('ro'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.sv.resx" Condition="$(Cultures.Contains('sv'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\NotifyService\CRMPatternResource.zh-TW.resx" Condition="$(Cultures.Contains('zh-TW'))">
+      <DependentUpon>CRMPatternResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMReportResource.az-Latn-AZ.resx" Condition="$(Cultures.Contains('az-Latn-AZ'))">
+      <DependentUpon>CRMReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMReportResource.bg.resx" Condition="$(Cultures.Contains('bg'))">
+      <DependentUpon>CRMReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMReportResource.hu.resx" Condition="$(Cultures.Contains('hu'))">
+      <DependentUpon>CRMReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMReportResource.id.resx" Condition="$(Cultures.Contains('id'))">
+      <DependentUpon>CRMReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMReportResource.lt.resx" Condition="$(Cultures.Contains('lt'))">
+      <DependentUpon>CRMReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMReportResource.ro.resx" Condition="$(Cultures.Contains('ro'))">
+      <DependentUpon>CRMReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMReportResource.sv.resx" Condition="$(Cultures.Contains('sv'))">
+      <DependentUpon>CRMReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMReportResource.zh-TW.resx" Condition="$(Cultures.Contains('zh-TW'))">
+      <DependentUpon>CRMReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMInvoiceResource.az-Latn-AZ.resx" Condition="$(Cultures.Contains('az-Latn-AZ'))">
+      <DependentUpon>CRMInvoiceResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMInvoiceResource.bs-BA.resx" Condition="$(Cultures.Contains('bs-BA'))">
+      <DependentUpon>CRMInvoiceResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMInvoiceResource.hu.resx" Condition="$(Cultures.Contains('hu'))">
+      <DependentUpon>CRMInvoiceResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMInvoiceResource.id.resx" Condition="$(Cultures.Contains('id'))">
+      <DependentUpon>CRMInvoiceResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMInvoiceResource.lt.resx" Condition="$(Cultures.Contains('lt'))">
+      <DependentUpon>CRMInvoiceResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMInvoiceResource.ro.resx" Condition="$(Cultures.Contains('ro'))">
+      <DependentUpon>CRMInvoiceResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMInvoiceResource.sr-Latn-CS.resx" Condition="$(Cultures.Contains('sr-Latn-CS'))">
+      <DependentUpon>CRMInvoiceResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMInvoiceResource.sv.resx" Condition="$(Cultures.Contains('sv'))">
+      <DependentUpon>CRMInvoiceResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMInvoiceResource.zh-TW.resx" Condition="$(Cultures.Contains('zh-TW'))">
+      <DependentUpon>CRMInvoiceResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMVoipResource.az-Latn-AZ.resx" Condition="$(Cultures.Contains('az-Latn-AZ'))">
+      <DependentUpon>CRMVoipResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMVoipResource.hu.resx" Condition="$(Cultures.Contains('hu'))">
+      <DependentUpon>CRMVoipResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMVoipResource.lt.resx" Condition="$(Cultures.Contains('lt'))">
+      <DependentUpon>CRMVoipResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMVoipResource.ro.resx" Condition="$(Cultures.Contains('ro'))">
+      <DependentUpon>CRMVoipResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMVoipResource.sv.resx" Condition="$(Cultures.Contains('sv'))">
+      <DependentUpon>CRMVoipResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMVoipResource.zh-TW.resx" Condition="$(Cultures.Contains('zh-TW'))">
+      <DependentUpon>CRMVoipResource.resx</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\default\css\fg.css" />
+    <Content Include="App_Themes\default\images\fg.png" />
+    <Content Include="Default.aspx" />
+    <Content Include="Controls\Common\FileUploader.ascx" />
+    <Content Include="Controls\Common\PrivatePanel.ascx" />
+    <Content Include="Controls\Settings\CommonSettingsView.ascx" />
+    <Content Include="Controls\Settings\WebToLeadFormView.ascx" />
+    <EmbeddedResource Include="Resources\CRMCasesResource.az-Latn-AZ.resx" Condition="$(Cultures.Contains('az-Latn-AZ'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.bg.resx" Condition="$(Cultures.Contains('bg'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.cs.resx" Condition="$(Cultures.Contains('cs'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.de.resx" Condition="$(Cultures.Contains('de'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.es.resx" Condition="$(Cultures.Contains('es'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.fi.resx" Condition="$(Cultures.Contains('fi'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.fr.resx" Condition="$(Cultures.Contains('fr'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.it.resx" Condition="$(Cultures.Contains('it'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.ja.resx" Condition="$(Cultures.Contains('ja'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.ko.resx" Condition="$(Cultures.Contains('ko'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.lv.resx" Condition="$(Cultures.Contains('lv'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.nl.resx" Condition="$(Cultures.Contains('nl'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.pl.resx" Condition="$(Cultures.Contains('pl'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.pt-BR.resx" Condition="$(Cultures.Contains('pt-BR'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.pt.resx" Condition="$(Cultures.Contains('pt'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CRMCasesResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.ru.resx" Condition="$(Cultures.Contains('ru'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.sk.resx" Condition="$(Cultures.Contains('sk'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.sl.resx" Condition="$(Cultures.Contains('sl'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.tr.resx" Condition="$(Cultures.Contains('tr'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.uk.resx" Condition="$(Cultures.Contains('uk'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.vi.resx" Condition="$(Cultures.Contains('vi'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.zh-CN.resx" Condition="$(Cultures.Contains('zh-CN'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Resources\CRMCasesResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Resources\CRMEnumResource.az-Latn-AZ.resx" Condition="$(Cultures.Contains('az-Latn-AZ'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.bg.resx" Condition="$(Cultures.Contains('bg'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.cs.resx" Condition="$(Cultures.Contains('cs'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.de.resx" Condition="$(Cultures.Contains('de'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.el.resx" Condition="$(Cultures.Contains('el'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.es.resx" Condition="$(Cultures.Contains('es'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.fi.resx" Condition="$(Cultures.Contains('fi'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.fr.resx" Condition="$(Cultures.Contains('fr'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.it.resx" Condition="$(Cultures.Contains('it'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.ja.resx" Condition="$(Cultures.Contains('ja'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.ko.resx" Condition="$(Cultures.Contains('ko'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.lv.resx" Condition="$(Cultures.Contains('lv'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.nl.resx" Condition="$(Cultures.Contains('nl'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.pl.resx" Condition="$(Cultures.Contains('pl'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.pt-BR.resx" Condition="$(Cultures.Contains('pt-BR'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.pt.resx" Condition="$(Cultures.Contains('pt'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CRMEnumResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.ru.resx" Condition="$(Cultures.Contains('ru'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.sk.resx" Condition="$(Cultures.Contains('sk'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.sl.resx" Condition="$(Cultures.Contains('sl'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.tr.resx" Condition="$(Cultures.Contains('tr'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.uk.resx" Condition="$(Cultures.Contains('uk'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.vi.resx" Condition="$(Cultures.Contains('vi'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.zh-CN.resx" Condition="$(Cultures.Contains('zh-CN'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Resources\CRMEnumResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Resources\CRMEnumResource.ar-AE.resx" Condition="$(Cultures.Contains('ar-AE'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.be.resx" Condition="$(Cultures.Contains('be'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.bs-BA.resx" Condition="$(Cultures.Contains('bs-BA'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.ca.resx" Condition="$(Cultures.Contains('ca'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.et.resx" Condition="$(Cultures.Contains('et'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.eu-ES.resx" Condition="$(Cultures.Contains('eu-ES'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.fa.resx" Condition="$(Cultures.Contains('fa'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.he.resx" Condition="$(Cultures.Contains('he'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.hi.resx" Condition="$(Cultures.Contains('hi'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.hr.resx" Condition="$(Cultures.Contains('hr'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.hu.resx" Condition="$(Cultures.Contains('hu'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.id.resx" Condition="$(Cultures.Contains('id'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.ka.resx" Condition="$(Cultures.Contains('ka'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.lt.resx" Condition="$(Cultures.Contains('lt'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.nb-NO.resx" Condition="$(Cultures.Contains('nb-NO'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.ro.resx" Condition="$(Cultures.Contains('ro'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.sr-Latn-CS.resx" Condition="$(Cultures.Contains('sr-Latn-CS'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.sv.resx" Condition="$(Cultures.Contains('sv'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMEnumResource.zh-TW.resx" Condition="$(Cultures.Contains('zh-TW'))">
+      <DependentUpon>CRMEnumResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.ar-AE.resx" Condition="$(Cultures.Contains('ar-AE'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.bs-BA.resx" Condition="$(Cultures.Contains('bs-BA'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.da.resx" Condition="$(Cultures.Contains('da'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.fa.resx" Condition="$(Cultures.Contains('fa'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.hu.resx" Condition="$(Cultures.Contains('hu'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.hy.resx" Condition="$(Cultures.Contains('hy'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.id.resx" Condition="$(Cultures.Contains('id'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.ka.resx" Condition="$(Cultures.Contains('ka'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.lt.resx" Condition="$(Cultures.Contains('lt'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.nb-NO.resx" Condition="$(Cultures.Contains('nb-NO'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.sv.resx" Condition="$(Cultures.Contains('sv'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CRMCasesResource.zh-TW.resx" Condition="$(Cultures.Contains('zh-TW'))">
+      <DependentUpon>CRMCasesResource.resx</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\default\images\32-attach.png" />
+    <Content Include="App_Themes\default\images\event_category_attach_file.png" />
+    <Content Include="App_Themes\default\images\event_category_call.png" />
+    <Content Include="App_Themes\default\images\event_category_close.png" />
+    <Content Include="App_Themes\default\images\event_category_email.png" />
+    <Content Include="App_Themes\default\images\event_category_meeting.png" />
+    <Content Include="App_Themes\default\images\event_category_note.png" />
+    <Content Include="App_Themes\default\images\hover_32-attach.png" />
+    <Content Include="App_Themes\default\images\hover_event_category_attach_file.png" />
+    <Content Include="App_Themes\default\images\hover_event_category_call.png" />
+    <Content Include="App_Themes\default\images\hover_event_category_close.png" />
+    <Content Include="App_Themes\default\images\hover_event_category_email.png" />
+    <Content Include="App_Themes\default\images\hover_event_category_meeting.png" />
+    <Content Include="App_Themes\default\images\hover_event_category_note.png" />
+    <Content Include="App_Themes\default\images\hover_task_category_call.png" />
+    <Content Include="App_Themes\default\images\hover_task_category_deal.png" />
+    <Content Include="App_Themes\default\images\hover_task_category_demo.png" />
+    <Content Include="App_Themes\default\images\hover_task_category_email.png" />
+    <Content Include="App_Themes\default\images\hover_task_category_fax.png" />
+    <Content Include="App_Themes\default\images\hover_task_category_follow_up.png" />
+    <Content Include="App_Themes\default\images\hover_task_category_lunch.png" />
+    <Content Include="App_Themes\default\images\hover_task_category_meeting.png" />
+    <Content Include="App_Themes\default\images\hover_task_category_note.png" />
+    <Content Include="App_Themes\default\images\hover_task_category_ship.png" />
+    <Content Include="App_Themes\default\images\hover_task_category_social_networks.png" />
+    <Content Include="App_Themes\default\images\hover_task_category_thank_you.png" />
+    <Content Include="App_Themes\default\images\product_disabled_logo.png" />
+    <Content Include="App_Themes\default\images\back-progress-light-big.png" />
+    <Content Include="App_Themes\default\images\csv_16.png" />
+    <Content Include="App_Themes\default\images\empty_company_logo_145_145.png" />
+    <Content Include="App_Themes\default\images\empty_company_logo_40_40.png" />
+    <Content Include="App_Themes\default\images\empty_company_logo_82_82.png" />
+    <Content Include="App_Themes\default\images\empty_people_logo_145_145.png" />
+    <Content Include="App_Themes\default\images\empty_people_logo_40_40.png" />
+    <Content Include="App_Themes\default\images\empty_people_logo_82_82.png" />
+    <Content Include="App_Themes\default\images\task_category_call.png" />
+    <Content Include="App_Themes\default\images\task_category_deal.png" />
+    <Content Include="App_Themes\default\images\task_category_demo.png" />
+    <Content Include="App_Themes\default\images\task_category_email.png" />
+    <Content Include="App_Themes\default\images\task_category_fax.png" />
+    <Content Include="App_Themes\default\images\task_category_follow_up.png" />
+    <Content Include="App_Themes\default\images\task_category_lunch.png" />
+    <Content Include="App_Themes\default\images\task_category_meeting.png" />
+    <Content Include="App_Themes\default\images\task_category_note.png" />
+    <Content Include="App_Themes\default\images\task_category_ship.png" />
+    <Content Include="App_Themes\default\images\task_category_social_networks.png" />
+    <Content Include="App_Themes\default\images\task_category_thank_you.png" />
+    <Content Include="Controls\Cases\CasesFullCardView.ascx" />
+    <Content Include="Controls\Common\NavigationSidePanel.ascx" />
+    <Content Include="Controls\Contacts\ContactFullCardView.ascx" />
+    <Content Include="Controls\Contacts\ListContactView.ascx" />
+    <Content Include="Controls\Common\ImportFromCSVView.ascx" />
+    <Content Include="Controls\Deals\DealFullCardView.ascx" />
+    <Content Include="Controls\Deals\ListDealView.ascx" />
+    <Content Include="Controls\Settings\DealMilestoneView.ascx" />
+    <Content Include="Controls\Settings\TagSettingsView.ascx" />
+    <Content Include="Controls\Settings\TaskTemplateView.ascx" />
+    <Content Include="Controls\Tasks\ListTaskView.ascx" />
+    <Content Include="Help.aspx" />
+    <Content Include="HttpHandlers\webtoleadfromhandler.ashx" />
+    <Content Include="js\cases.js" />
+    <Content Include="js\common.js" />
+    <Content Include="js\contacts.js" />
+    <Content Include="js\deals.js" />
+    <Content Include="js\reports.js" />
+    <Content Include="js\settings.js" />
+    <Content Include="js\socialmedia.js" />
+    <Content Include="js\tasks.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="HttpHandlers\filehandler.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="InvoiceTemplates\template.docx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\default\css\common.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\default\css\base.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\default\css\tasks.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\default\css\cases.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\default\css\deals.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\default\css\contacts.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\default\css\socialmedia.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\default\css\settings.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\default\css\invoices.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\default\css\voip.quick.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\default\css\voip.calls.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\default\css\voip.numbers.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\default\css\voip.common.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\common\ASC.Common\ASC.Common.csproj">
+      <Project>{76de7717-3d4b-4a5b-b740-15b8913df0cb}</Project>
+      <Name>ASC.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\common\ASC.Core.Common\ASC.Core.Common.csproj">
+      <Project>{a51d0454-4afa-46de-89d4-b03d37e1816c}</Project>
+      <Name>ASC.Core.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\common\ASC.Data.Storage\ASC.Data.Storage.csproj">
+      <Project>{3f6b420f-abd3-4b5a-9f4c-5d61ffbb01de}</Project>
+      <Name>ASC.Data.Storage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\module\ASC.Api\ASC.Api\ASC.Api.Core.csproj">
+      <Project>{49f07fff-98a5-47d2-a9e9-a46b98c41245}</Project>
+      <Name>ASC.Api.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\module\ASC.ElasticSearch\ASC.ElasticSearch.csproj">
+      <Project>{ae1a0e06-6cd4-4e1d-8209-22bbbd6d5652}</Project>
+      <Name>ASC.ElasticSearch</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\module\ASC.MessagingSystem\ASC.MessagingSystem.csproj">
+      <Project>{bd8a18a5-60c5-4411-9719-0aa11b4be0e9}</Project>
+      <Name>ASC.MessagingSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\module\ASC.Thrdparty\ASC.FederatedLogin\ASC.FederatedLogin.csproj">
+      <Project>{481B0D9C-B2F8-4DE9-8597-BA8D24585099}</Project>
+      <Name>ASC.FederatedLogin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\module\ASC.Thrdparty\ASC.Thrdparty\ASC.Thrdparty.csproj">
+      <Project>{592eac85-6cfc-4ad7-b653-3eadaa18327e}</Project>
+      <Name>ASC.Thrdparty</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\module\ASC.VoipService\ASC.VoipService.csproj">
+      <Project>{988536c1-4b89-4649-8f77-5c16f55d95d1}</Project>
+      <Name>ASC.VoipService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\core\ASC.Web.Core\ASC.Web.Core.csproj">
+      <Project>{02c40a64-fe22-41d0-9037-69f0d6f787a9}</Project>
+      <Name>ASC.Web.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ASC.Web.Studio.csproj">
+      <Project>{e7be6ce8-f6b0-4b9b-831b-ba0c85c8d130}</Project>
+      <Name>ASC.Web.Studio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Files\ASC.Web.Files.csproj">
+      <Project>{8c534af7-5696-4e68-9ff4-ffc311893c10}</Project>
+      <Name>ASC.Web.Files</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ReportTemplates\SalesByManagers.docbuilder" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ReportTemplates\SalesForecast.docbuilder" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ReportTemplates\SalesFunnel.docbuilder" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ReportTemplates\WorkloadByDeals.docbuilder" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ReportTemplates\WorkloadByTasks.docbuilder" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ReportTemplates\WorkloadByInvoices.docbuilder" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ReportTemplates\WorkloadByContacts.docbuilder" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ReportTemplates\SummaryForThePeriod.docbuilder" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ReportTemplates\SummaryAtThisMoment.docbuilder" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ReportTemplates\WorkloadByVoip.docbuilder" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Warmup.aspx" />
+    <Content Include="web.config" />
+    <Content Include="App_Themes\dark\dark-common.less" />
+    <Content Include="App_Themes\dark\dark-contacts.less" />
+    <Content Include="App_Themes\dark\dark-crm.less" />
+    <Content Include="App_Themes\dark\dark-params.less" />
+    <Content Include="App_Themes\default\css\params.less" />
+    <Content Include="App_Themes\default\css\crm.less" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Target Name="AfterBuild">
+    <CreateItem Include="$(ProjectDir)**\*.css">
+      <Output TaskParameter="Include" ItemName="CssFiles" />
+    </CreateItem>
+    <CreateItem Include="$(ProjectDir)**\*.js">
+      <Output TaskParameter="Include" ItemName="JavaScriptFiles" />
+    </CreateItem>
+  </Target>
+  <ItemGroup>
+    <PackageReference Include="Autofac">
+      <Version>6.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="LumenWorksCsvReader">
+      <Version>4.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="MailKit">
+      <Version>2.15.0</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Twilio">
+      <Version>5.69.0</Version>
+    </PackageReference>
+    <PackageReference Include="Twilio.AspNet.Mvc">
+      <Version>5.68.3</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+</Project>

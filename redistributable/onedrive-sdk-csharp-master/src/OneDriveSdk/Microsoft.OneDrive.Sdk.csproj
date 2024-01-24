@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Integrate the OneDrive API into your .NET App!</Description>
+    <Copyright>Copyright 2016 Microsoft Corporation</Copyright>
+    <AssemblyTitle>OneDrive .NET SDK</AssemblyTitle>
+    <Authors>Microsoft</Authors>
+    <TargetFrameworks>net6.0;net4.8</TargetFrameworks>
+    <PreserveCompilationContext>false</PreserveCompilationContext>
+    <AssemblyName>Microsoft.OneDriveSDK</AssemblyName>
+    <PackageId>Microsoft.OneDriveSDK</PackageId>
+    <PackageTags>onedrive sharepoint files livesdk liveconnect cloud storage microsoftaccount windowsliveid microsoftid windowsphone windowsstore metro xaml html</PackageTags>
+    <PackageProjectUrl>https://github.com/OneDrive/onedrive-sdk-csharp</PackageProjectUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>2.1.0.0</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Graph.Core" Version="1.6.0" />
+  </ItemGroup>
+</Project>

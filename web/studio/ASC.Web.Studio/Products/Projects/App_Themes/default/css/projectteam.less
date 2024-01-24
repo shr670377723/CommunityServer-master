@@ -1,0 +1,241 @@
+/*
+ *
+ * (c) Copyright Ascensio System Limited 2010-2023
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+*/
+
+
+@import "params.less";
+
+#team_container .listContainer tr:first-child, #projectParticipantsContainer .listContainer tr:first-child {
+    border-top: 1px solid @border-color;
+}
+
+#projectParticipantsContainer tr:hover .reset-action {
+    display: block;
+    position:inherit;
+}
+
+.pm-projectTeam-projectLeaderCard {
+    padding: 8px;
+    width: 360px;
+    border: solid 1px @border-color;
+
+    .managerAvatar {
+        float: left;
+        width: 82px;
+        height:82px;
+    }
+
+    .manager-info {
+        float: left;
+        margin-left: 16px;
+        max-width: 262px;
+        overflow: hidden;
+
+        div {
+            margin-top: 8px;
+            text-overflow: ellipsis;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+
+.pm-projectTeam-modulePermissionOn,
+.no-access .pm-projectTeam-modulePermissionOn,
+.pm-projectTeam-participantContainer.disable .pm-projectTeam-modulePermissionOn {
+    background: url("../images/common-icons.png") no-repeat 0 -45px;
+    padding: 5px 0 5px 23px;
+    cursor: pointer;
+}
+
+.pm-projectTeam-participantContainer.disable .pm-projectTeam-modulePermissionOn {
+    cursor: default;
+}
+.pm-projectTeam-modulePermissionOn span {
+    border-bottom: 1px dotted @dark-text-color;
+    color: @dark-text-color;
+    margin-right: 8px;
+}
+.pm-projectTeam-modulePermissionOff {
+    background: url("../images/common-icons.png") no-repeat 0 -22px;
+    padding: 5px 0 5px 23px;
+    cursor: pointer;
+
+    span {
+        border-bottom: 1px dotted @text-color;
+        color: @text-color;
+        margin-right: 8px;
+    }
+
+    &.no-dotted {
+        cursor: default;
+
+        span {
+            border-color: transparent;
+        }
+    }
+}
+
+//TODO: remove no-access
+.no-access .pm-projectTeam-modulePermissionOn span,
+.pm-projectTeam-participantContainer.disable .pm-projectTeam-modulePermissionOn span {
+    color: @text-color;
+    margin-right: 8px;
+}
+.no-access .pm-projectTeam-modulePermissionOff,
+.pm-projectTeam-participantContainer.disable .pm-projectTeam-modulePermissionOff {
+    padding: 5px 0 5px 20px;
+    cursor: default;
+}
+.no-access .pm-projectTeam-modulePermissionOn span .pm-projectTeam-participantContainer.disable .pm-projectTeam-modulePermissionOff span {
+    color: @text-color;
+    margin-right: 8px;
+}
+.no-access .pm-projectTeam-modulePermissionOn,
+.no-access .pm-projectTeam-modulePermissionOff {
+    cursor: default;
+}
+    .no-access .pm-projectTeam-modulePermissionOn span,
+    .no-access .pm-projectTeam-modulePermissionOff span,
+    .pm-projectTeam-participantContainer.disable .pm-projectTeam-modulePermissionOff span,
+    .pm-projectTeam-participantContainer.disable .pm-projectTeam-modulePermissionOn span {
+        border: none;
+    }
+
+#team_container table, #projectParticipantsContainer table {
+    color: @text-color;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+
+.pm-projectTeam-participantContainer {
+    > td {
+        border-bottom: 1px solid @border-color;
+        vertical-align: middle;
+        overflow: hidden;
+        padding: 8px 0;
+    }
+
+    &.open {
+        background-color: @body-color-selected;
+
+        .entity-menu {
+            border-color: #3b72a7;
+
+            &:after {
+                border-top-color: #3b72a7;
+            }
+        }
+    }
+
+    &:hover {
+        background-color: @body-color-selected;
+
+        .user-info a.user-name {
+            text-decoration: underline;
+        }
+    }
+
+    .user-info {
+        overflow: hidden;
+        padding: 8px;
+
+        .user-name {
+            font-size: 14px;
+            font-weight: bold;
+            color: @text-color;
+            text-decoration: none;
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            &.without-title {
+                margin-top: 6px;
+            }
+        }
+
+        a.user-name:hover {
+            text-decoration: underline;
+        }
+
+        .pm-projectTeam-userPhotoContainer {
+            margin-right: 8px;
+            position: relative;
+
+            &.retina {
+                max-height: 32px;
+
+                img {
+                    max-height: 32px;
+                }
+            }
+        }
+
+        .status-blocked {
+            display: block;
+            height: 16px;
+            width: 16px;
+            left: 8px;
+            position: absolute;
+            top: 9px;
+            background: url("../images/common-icons.png") no-repeat -2px -74px;
+        }
+
+        .role {
+            left: -2px;
+            position: absolute;
+            bottom: -2px;
+        }
+
+        .pm-projectTeam-userPhotoContainer,
+        .user-info-container {
+            float: left;
+
+            span {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+        }
+
+        span {
+            display: block;
+        }
+    }
+
+    .right-settings {
+        text-align: center;
+
+        div {
+            margin: 0 auto;
+        }
+    }
+
+    .menupoint-container {
+        width: 30px;
+    }
+
+    .entity-menu {
+        margin: 0 8px;
+    }
+}
+
+body.media-width-0-1200 .pm-projectTeam-participantContainer .splitter {
+    display:none;
+}

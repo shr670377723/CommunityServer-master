@@ -1,0 +1,400 @@
+/*
+ *
+ * (c) Copyright Ascensio System Limited 2010-2023
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+*/
+
+
+@import "../../../../skins/default/params.less";
+@orangeMain: #FF6F3D;
+
+.border-radius(@value) {
+    border-radius: @value;
+    -moz-border-radius: @value;
+    -webkit-border-radius: @value;
+}
+
+.box-shadow-for-autofill(@type: inset, @byX: 0, @byY: 0, @blurRadius: 0, @radius: 56px, @color: #f9f9f9) {
+    -webkit-box-shadow: @type @byX @byY @blurRadius @radius @color;
+    -moz-box-shadow: @type @byX @byY @blurRadius @radius @color;
+    box-shadow: @type @byX @byY @blurRadius @radius @color;
+}
+
+.transition-duration(@time: 0.3s) {
+    -webkit-transition-duration: @time;
+    -o-transition-duration: @time;
+    transition-duration: @time;
+}
+
+.box-sizing {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.h2-mixin {
+    font-weight: bold;
+    line-height: 133%;
+    letter-spacing: -0.02em;
+    font-size: 32px;
+    margin: 0 auto;
+    text-align: center;
+
+    @media screen and (max-width: 1023px) {
+        font-size: 30px; letter-spacing: -0.01em;
+    }
+
+    @media screen and (max-width: 592px) {
+        font-size: 20px;
+    }
+}
+
+.eye-label {
+    position: absolute;
+    top: 13px;
+    right: 22px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.eye-label.hide-label {
+    background: url("../../../Users/UserProfile/css/images/access-deny.svg");
+}
+
+.eye-label.show-label {
+    background: url("../../../Users/UserProfile/css/images/read-only.svg");
+}
+
+
+.body-personal-confirm {
+    background-color: transparent;
+    background-image: url(images/first_screen_bg.svg);
+    background-position: center -508px;
+    background-repeat: no-repeat;
+    overflow-y: auto;
+
+    main {
+        height: auto;
+        padding: 0;
+    }
+
+    .paging-content {
+        padding: 0;
+    }
+
+    #studioPageContent {
+        min-width: auto;
+    }
+}
+
+.confirm-block-page:not(.confirm-personal) {
+
+    .confirm-block-text {
+        margin-bottom: 6px;
+    }
+
+    .confirm-block-field {
+        position: relative;
+        margin-bottom: 0px;
+    }
+
+    #studio_confirm_pwd {
+        margin-bottom: 12px;
+    }
+
+    #studio_confirm_pwd_match {
+        margin-bottom: 6px;
+    }
+
+    .red-border {
+        border-color: #DF1B1B;
+    }
+
+    .pwdLoginTextbox {
+        padding-right: 40px;
+    }
+
+    .confirm-block-password-text {
+        font-size: 12px;
+        margin-top: 0px;
+        display: none;
+        height: 16px;
+    }
+
+    #password-match-text {
+        color: #3A9900;
+    }
+
+    #password-do-not-match-text {
+        color: #D30000;
+    }
+}
+
+.confirm-block-page.confirm-personal {
+    .confirm-block-header {
+        display: none;
+    }
+
+    .confirm-block-cnt {
+        margin: 0 auto;
+        padding: 48px 0;
+        text-align: left;
+        width: 544px;
+    }
+
+    .confirm-block-text {
+        .h2-mixin();
+        padding-bottom: 32px;
+    }
+
+    .confirm-block-field {
+        background: @body-color;
+        border: 1px solid #AAAAAA;
+        border-radius: 3px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        height: 56px;
+        margin-bottom: 32px;
+        position: relative;
+        width: 100%;
+
+        .eye-label {
+            top: 20px;
+            right: 22px;
+        }
+
+        &.focus, &.error, &.valid {
+            &.input-hint-top {
+                .default-personal-popup_label {
+                    font-size: 12px;
+                }
+            }
+        }
+
+        &.error {
+            background: #fff7f7;
+            border-color: #CB0000;
+
+            input:-webkit-autofill {
+                .box-shadow-for-autofill(inset, 0, 0, 0, 28px, #fff7f7);
+            }
+
+            .default-personal-popup_label {
+                color: #D87373;
+            }
+        }
+
+        &.focus {
+            background: @body-color;
+            border-color: @textColorBlackDark;
+
+            input:-webkit-autofill {
+                .box-shadow-for-autofill(inset, 0, 0, 0, 28px, @body-color);
+            }
+
+            .default-personal-popup_label {
+                color: @textColor;
+            }
+        }
+
+        &.input-hint-top .default-personal-popup_label {
+            transform: translateX(2px) translateY(-12px);
+        }
+
+        &.valid {
+            background: #F9FEEF;
+            border-color: #8BB825;
+
+            input:-webkit-autofill {
+                .box-shadow-for-autofill(inset, 0, 0, 0, 28px, #F9FEEF);
+            }
+
+            .default-personal-popup_label {
+                color: @textColorBlackDark;
+            }
+        }
+
+        .pwdLoginTextbox {
+            background: transparent;
+            border: none;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            color: @textColor;
+            font-size: 16px;
+            height: auto;
+            line-height: 20px;
+            margin-top: 22px;
+            outline: none;
+            padding: 0 16px;
+            width: 100%;
+
+            &:-webkit-autofill {
+                .box-shadow-for-autofill(inset, 0, 0, 0, 28px, @body-color);
+                color: @textColor;
+                font-size: 16px;
+
+                & ~ .default-personal-popup_label {
+                    font-size: 12px;
+                    transform: translateX(2px) translateY(-12px);
+                }
+            }
+
+            &::-ms-input-placeholder {
+                color: transparent;
+            }
+
+            &::placeholder {
+                color: transparent;
+            }
+
+            &::-webkit-input-placeholder {
+                color: transparent;
+            }
+
+            &:-moz-placeholder {
+                color: transparent;
+            }
+            /* FF 4-18 */
+            &::-moz-placeholder {
+                color: transparent;
+            }
+            /* FF 19+ */
+            &:-ms-input-placeholder {
+                color: transparent;
+            }
+
+            &:focus {
+                border-color: #2d86ab;
+            }
+
+            &:focus {
+                border-color: #2d86ab;
+            }
+
+            &.with-error {
+                border-color: #c44747;
+            }
+        }
+
+        #studio_confirm_pwd, #studio_confirm_pwd_match {
+            width: 100%;
+            padding-right: 40px;
+        }
+    }
+
+    .default-personal-popup_label {
+        color: #CCCCCC;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 12px;
+        left: 14px;
+        padding: 0;
+        pointer-events: none;
+        top: 20px;
+        transition: transform 100ms ease;
+        transform: translateY(0);
+        position: absolute;
+    }
+
+    .confirm-block-password-text {
+        font-size: 12px;
+        margin-top: 0px;
+        display: none;
+        height: 16px;
+    }
+
+    #password-match-text {
+        color: #3A9900;
+    }
+
+    #password-do-not-match-text {
+        color: #D30000;
+    }
+
+    .button.blue {
+        background-color: @orangeMain;
+        border: none;
+        .border-radius(3px);
+        .box-sizing();
+        color: @body-color;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 16px;
+        margin: 0 auto;
+        padding: 20px;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        .transition-duration();
+        top: 0;
+        width: 100%;
+
+        &:hover, &:active {
+            background-color: #ff7a4b;
+        }
+
+        &.disabled {
+            background-color: #FFD4C5;
+            cursor: default;
+            pointer-events: none;
+        }
+    }
+}
+
+@media screen and (max-width: 592px) {
+    .confirm-block-page.confirm-personal {
+        .button.blue {
+            font-size: 13px;
+            padding: 16px;
+        }
+
+        .confirm-block-cnt {
+            padding: 96px 0;
+            width: 90vw;
+        }
+
+        .confirm-block-field {
+            height: 48px;
+            margin-bottom: 24px;
+
+            .eye-label {
+                top: 16px;
+            }
+
+            &.focus, &.error, &.valid {
+                &.input-hint-top {
+                    .default-personal-popup_label {
+                        font-size: 11px;
+                    }
+                }
+            }
+
+            .default-personal-popup_label {
+                font-size: 15px;
+                top: 16px;
+            }
+
+            .pwdLoginTextbox {
+                font-size: 13px;
+                margin-top: 20px;
+
+                &:-webkit-autofill {
+                    font-size: 13px;
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+[Unit]
+Description=ONLYOFFICE WebDav Service
+After=network.target syslog.target mysql.service
+Wants=mysql.service
+
+[Service]
+Type=simple
+WorkingDirectory=/var/www/onlyoffice/Services/ASC.WebDav/server
+ExecStartPre=/bin/bash -c 'rm -f /tmp/onlyofficeWebDav'
+ExecStart=/usr/bin/node /var/www/onlyoffice/Services/ASC.WebDav/server/webDavServer.js UNIX.SERVER
+User=onlyoffice
+Group=onlyoffice
+# Give up if ping don't get an answer
+TimeoutSec=600
+
+Restart=always
+PrivateTmp=false
+
+[Install]
+WantedBy=multi-user.target

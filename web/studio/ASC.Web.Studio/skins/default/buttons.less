@@ -1,0 +1,589 @@
+/*
+ *
+ * (c) Copyright Ascensio System Limited 2010-2023
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+*/
+
+
+/*******************************************************************************
+   Buttons Style
+*******************************************************************************/
+.button, .button:visited, .button:hover, .button:active {
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    font-family: @baseFont;
+    font-size: 12px;
+    line-height: 13px;
+    padding: 4px 13px;
+    margin: 0;
+    .textButtonsStyle(@defaultButtonTextColor);
+    .bg-button-action ();
+    .borderRadius();
+    .noneSelect();
+}
+.button:focus {
+    outline: none;
+}
+.button {
+    &.display-none {
+        display: none;
+    }
+
+    &.blue {
+        color: @defaultButtonTextColor;
+        .bg-button-action ();
+
+        &:hover {
+            color: @defaultButtonTextColor;
+        }
+    }
+
+    &.gray {
+        color: @grayButtonTextColor;
+        padding: 3px 12px;
+        .bg-button-default();
+        .border-button-default ();
+
+        &:hover {
+            color: @grayButtonTextColor;
+        }
+
+        &.disable {
+            color: @grayButtonTextColorDisable;
+        }
+
+        .plus {
+            padding-left: 15px;
+            position: relative;
+
+            &:after {
+                content: "+";
+                cursor: pointer;
+                display: block;
+                height: 12px;
+                line-height: 14px;
+                left: -2px;
+                position: absolute;
+                top: 50%;
+                margin-top: -8px;
+                width: 12px;
+                font-weight: 600;
+                font-size: 16px;
+                color: @plusOnGrayBtn;
+            }
+        }
+
+        .plus.disable {
+            padding-left: 15px;
+            position: relative;
+
+            &:after {
+                cursor: default;
+            }
+        }
+
+        &.plus {
+            padding-left: 15px;
+            position: relative;
+
+            &:after {
+                content: "+";
+                cursor: pointer;
+                display: block;
+                height: 12px;
+                left: 1px;
+                position: absolute;
+                top: 50%;
+                margin-top: -7px;
+                width: 12px;
+                font-weight: 700;
+                font-size: 17px;
+                color: @plusOnGrayBtn;
+            }
+        }
+
+        .arrow-down {
+            border-width: 4px 4px 0;
+            border-color: @grayButtonTextColor transparent transparent transparent;
+            border-style: solid solid outset solid;
+            display: inline-block;
+            height: 0;
+            margin: 0 0 2px 3px;
+            width: 0;
+        }
+    }
+
+    &.green {
+        color: @defaultButtonTextColor;
+        .bg-button-create-new();
+    }
+
+    &.red {
+        color: @defaultButtonTextColor;
+        .bg-button-danger();
+
+        &:hover {
+            color: @defaultButtonTextColor;
+        }
+
+        &:active {
+            color: @defaultButtonTextColor;
+        }
+    }
+
+    &.white {
+        background-color: @body-color;
+        color: @textColor;
+        .border-button-default ();
+
+        &:hover {
+            background-color: @body-color;
+            color: @textColor;
+        }
+    }
+
+    &.btn-icon {
+        position: relative;
+        height: 23px;
+        width: 38px;
+
+        &:after {
+            content: "";
+            height: 16px;
+            width: 16px;
+            position: absolute;
+            top: 3px;
+        }
+
+        &.__play:after {
+            background: url("@{img-change-url}btn_icons.png") no-repeat 0 0 transparent;
+            left: 9px;
+        }
+
+        &.__stop:after {
+            background: url("@{img-change-url}btn_icons.png") no-repeat 0 -16px transparent;
+            left: 10px;
+        }
+
+        &.__update:after {
+            background: url("@{img-change-url}btn_icons.png") no-repeat 0 -32px transparent;
+            left: 10px;
+        }
+
+        &.__upload:after {
+            background: url("@{img-change-url}btn_icons.png") no-repeat 0 -48px transparent;
+            left: 10px;
+        }
+    }
+
+    &.btn-action {
+        position: relative;
+        height: 16px;
+        width: 0;
+
+        &:after {
+            content: "";
+            height: 16px;
+            width: 16px;
+            position: absolute;
+            top: 3px;
+        }
+
+        &.__apply:after {
+            background: url("@{img-change-url}name_action.png") no-repeat 0px 0px transparent;
+            left: 4px;
+        }
+
+        &.__reset:after {
+            background: url("@{img-change-url}name_action.png") no-repeat -20px 0px transparent;
+            left: 5px;
+        }
+    }
+}
+    
+.button.huge, .button.huge:visited, .button.huge:hover, .button.huge:active {
+    font-size: 15px;
+    line-height: 15px;
+    padding: 12px 30px 13px;
+    &.gray {
+        padding: 11px 30px 12px;
+    }
+}
+.button.big, .button.big:visited, .button.big:hover, .button.big:active { 
+    font-size:15px;
+    line-height: 17px;
+    padding: 7px 30px 8px;
+    &.gray {
+        padding: 6px 30px 7px;
+    }
+}
+.button.middle, .button.middle:visited, .button.middle:hover, .button.middle:active {
+    font-size: 12px;
+    line-height: 13px;
+    padding: 5px 24px 6px;
+    &.gray {
+        padding: 4px 24px 5px;
+    }
+}
+
+.button.group {
+    span {
+        padding-right: 12px;
+        position: relative;
+
+        &:after {
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 4px solid #999999;
+            content: "";
+            height: 0;
+            right: 0;
+            margin-top: -1px;
+            position: absolute;
+            top: 50%;
+            width: 0;
+        }
+    }
+
+    &.disable span {
+        &:after {
+            border-top-color:#CCCCCC;
+        }
+    }
+}
+
+.on_off_button {
+    //background: url("@{img-change-url}btn-onoff.png") no-repeat top center transparent;
+    height: 16px;
+    width: 41px;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+
+    &.disable {
+        .opacityStyle();
+    }
+
+    &.on {
+        &:before {
+            content: "";
+            height: 16px;
+            left: 0;
+            position: absolute;
+            width: 41px;
+            color: @bodyColor2;
+            font-size: 10px;
+            border-radius: 3px;
+            line-height: 14px;
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            top: 0px;
+            content: "on";
+            background-color: @on-off-on-button-before-bg;
+            box-sizing: border-box;
+            padding: 0 7px;
+            text-align: left;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        &:after {
+            height: 16px;
+            width: 16px;
+            background-color: @on-off-on-button-after-bg;
+            border: 1px solid @on-off-on-button-after-bor;
+            border-radius: 3px;
+            content: "";
+            position: absolute;
+            left: 25px;
+            box-sizing: border-box;
+            top: 0px;
+        }
+    }
+
+    &.off {
+        &:before {
+            content: "";
+            height: 16px;
+            left: 0;
+            position: absolute;
+            width: 41px;
+            content: "off";
+            color: @on-off-off-button-before-color;
+            font-size: 10px;
+            border-radius: 3px;
+            background-color: @on-off-off-button-before-bg;
+            box-sizing: border-box;
+            padding: 0 7px;
+            text-align: right;
+            line-height: 14px;
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            top: 0px;
+            border: @on-off-off-button-before-bor;
+        }
+
+        &:after {
+            height: 16px;
+            width: 16px;
+            background-color: @on-off-on-button-after-bg;
+            border: 1px solid @on-off-on-button-after-bor;
+            border-radius: 3px;
+            content: "";
+            position: absolute;
+            left: 0px;
+            box-sizing: border-box;
+            top: 0px;
+        }
+    }
+}
+
+.on-off-checkbox {
+    left: -9999px;
+    position: absolute;
+}
+.on-off-checkbox + label {
+    cursor: pointer;
+    padding-left: 52px;
+    position: relative;
+
+    span {
+        margin-left: 52px;
+    }
+}
+    .on-off-checkbox + label:before {
+        //background: url("@{img-change-url}btn-onoff.png") no-repeat bottom center transparent;
+        content: "";
+        height: 16px;
+        left: 0;
+        position: absolute;
+        width: 41px;
+        content: "off";
+        color: @buttons-chackbox-off-color;
+        font-size: 10px;
+        border-radius: 3px;
+        background-color: @buttons-checkbox-off-bg;
+        box-sizing: border-box;
+        padding: 0 7px;
+        text-align: right;
+        line-height: 14px;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+        top:0px;
+        border:@buttons-checkbox-off-bor;
+    }
+
+    .on-off-checkbox + label:after {
+        height: 16px;
+        width: 16px;
+        background-color: @buttons-checkbox-on-off-bg;
+        border: 1px solid @buttons-checkbox-on-off-color;
+        border-radius: 3px;
+        content: "";
+        position: absolute;
+        left: 0px;
+        box-sizing: border-box;
+        top:0px;
+    }
+
+
+    .on-off-checkbox:checked + label:before {
+        content: "on";
+        background-color: @buttons-checkbox-on-bg;
+        box-sizing: border-box;
+        padding: 0 6px;
+        text-align: left;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        color:@buttons-checkbox-on-color;
+        border: none;
+    }
+    .on-off-checkbox:checked + label:after {
+        left: 25px;
+    }
+
+    .on-off-checkbox:disabled + label:before {
+        .opacityStyle();
+    }
+
+body.custom-mode {
+    .on-off-checkbox + label:before {
+        content: "";
+    }
+
+    .on-off-checkbox:checked + label:before {
+        content: "";
+    }
+
+    .on_off_button.on:before, .on_off_button.off:before {
+         content: "";
+    }
+}
+
+/*******************************************************************************
+   Button Containers
+*******************************************************************************/
+.small-button-container {
+    margin-top: 24px;
+    position: relative;
+}
+.middle-button-container {
+    margin-top: 32px;
+    position: relative;
+}
+.big-button-container {
+    margin-top: 40px;
+    position: relative;
+}
+
+/*******************************************************************************
+   Button in list/table with hover effect
+*******************************************************************************/
+.item-row {
+    .btn-row {
+        border: none;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 12px;
+        line-height: 16px;
+        padding: 4px 13px 4px 32px;
+        position: relative;
+        .borderButtons(transparent);
+        .textButtonsStyle(@textColorBlackLight);
+        .borderRadius();
+        .noneSelect();
+        background: transparent;
+
+        &:after {
+          //  background: url('@{imagesBaseUrl}btn_row_icons.png') no-repeat scroll 0 0 transparent;
+            content: "";
+            height: 15px;
+            left: 12px;
+            margin-top: -7px;
+            position: absolute;
+            top: 50%;
+            width: 15px;
+        }
+
+        &.__share:after {
+            background-image: url('images/svg/documents/feed.svg');
+        }
+
+        &.__lock:after {
+            background-image: url('images/svg/documents/security.svg');
+        }
+
+        &.__list:after {
+            background-image: url('images/svg/documents/documents.svg');
+        }
+    }
+
+    &.row-hover:hover .btn-row {
+
+        color: @grayButtonTextColor;
+        .borderButtons(@border-button-default);
+        background-color: @bg-button-default;
+
+        &:after {
+            //background-image: url('@{img-change-url}/btn_row_icons.png');
+        }
+
+        &:hover {
+            background-color: @bg-button-default-hover;
+            color: @itemRowButtonTextColor;
+            .borderButtons(@border-button-default-item-row);
+        }
+
+        &.__share:after {
+            background-image: url('images/svg/documents/feedblack.svg');
+        }
+
+        &.__lock:after {
+            background-image: url('images/svg/documents/securityblack.svg');
+        }
+
+        &.__list:after {
+            background-image: url('images/svg/documents/documentsblack.svg');
+        }
+    }
+
+    &.__active {
+        .btn-row {
+            &.__share:after {
+                background-image: url('images/svg/documents/feedblack.svg');
+            }
+
+            &.__lock:after {
+                background-image: url('images/svg/documents/securityblack.svg');
+            }
+
+            &.__list:after {
+                background-image: url('images/svg/documents/documentsblack.svg');
+            }
+        }
+    }
+}
+
+/*******************************************************************************
+   Toggle switch buttons
+*******************************************************************************/
+@border-color: @border-button-default;
+@active-color: @active-color-bg-button-group;
+@text-active-color: @body-color;
+@default-color: @bg-button-default;
+@text-default-color: @button-span-default-color;
+
+.buttonGroup {
+    position: relative;
+    display: inline-block;
+    background: @default-color;
+    border: 1px solid @border-color;
+    border-radius: 3px;
+
+    span {
+        float: left;
+        line-height: 21px;
+        padding: 0 10px;
+        cursor: pointer;
+        color: @text-default-color;
+        border: 1px solid @border-color;
+        border-width: 0 1px 0 0;
+
+        &:last-child {
+            border-width: 0;
+        }
+
+        &.active {
+            padding: 0 10px;
+            height: 21px;
+            margin: -1px;
+            background: @active-color;
+            color: @text-active-color;
+            border: 1px solid @active-color-button-group;
+
+            &:first-of-type {
+                border-radius: 3px 0 0 3px;
+                padding: 0 10.5px;
+            }
+
+            &:last-of-type {
+                border-radius: 0 3px 3px 0;
+            }
+        }
+
+        &.disabled {
+            opacity: .5;
+        }
+    }
+}

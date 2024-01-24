@@ -1,0 +1,225 @@
+/*
+ *
+ * (c) Copyright Ascensio System Limited 2010-2023
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+*/
+
+
+@import "params.less";
+
+#pageActionContainer {
+    .editFilterContentMenu {
+        margin-bottom: 16px;
+    }
+
+    .button {
+        margin-right: 4px;
+    }
+}
+
+#editFilterPage {
+    .simpleWrapper {
+        .contentMenuWrapper {
+            margin-bottom: 16px;
+        }
+
+        .startText {
+            vertical-align: text-bottom;
+            padding-right: 6px;
+            display: inline-block;
+        }
+
+        .tl-combobox {
+            vertical-align: text-bottom;
+        }
+
+        .field-condition {
+            height: 24px;
+            margin-bottom: 10px;
+            white-space: nowrap;
+
+            span.span-field {
+                display: table-cell;
+                width: 100%;
+            }
+
+            span {
+                display: table-cell;
+                width: 0;
+            }
+
+            .conditionInput,
+            .filterNameInput {
+                height: 16px;
+                padding: 3px 9px;
+                width: 100%;
+            }
+
+            .delete-field,
+            .clear-field {
+                margin-left: 35px;
+            }
+        }
+
+        .field-with-actions {
+            margin-bottom: 24px;
+            width: 570px;
+
+            .error {
+                color: #cc0000 !important;
+            }
+        }
+
+        .applyToMailboxes {
+            padding-left: 16px;
+        }
+
+        .applyToFolders {
+            padding-left: 16px;
+            padding-top: 4px;
+        }
+
+        .filterApplyToAttachmentsCnt {
+            .tl-combobox {
+                vertical-align: middle;
+                padding-left: 4px;
+            }
+        }
+
+        #applyMultiConditionsContainer {
+            display: inline-block;
+            float: right;
+            width: 275px;
+            margin-top: 1px;
+            text-align: right;
+            margin-right: 35px;
+        }
+
+        #actionsContainer {
+            .menu-list {
+                margin-top: 8px;
+
+                .checkbox {
+                    display: inline;
+                }
+
+                    .checkbox.disable span {
+                        color: @light-gray-text-color;
+                    }
+            }
+        }
+
+        .filterSelector {
+            display: inline-block;
+            margin-left: 6px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 300px;
+        }
+
+        #advancedContainer {
+            .startText {
+                width: 100%;
+                padding-bottom: 8px;
+            }
+        }
+
+        #filterNameContainer {
+            .field-condition {
+                margin-top: -4px;
+            }
+        }
+
+        #checkFilterResults {
+            border-top: 1px solid #d7d8dc;
+            margin-bottom: 8px;
+        }
+    }
+}
+
+#filtersContainer {
+    .filterList {
+        width: 100%;
+
+        .ui-state-default {
+            border: initial;
+            background: @body-color;
+            font-weight: initial;
+            color: initial;
+        }
+
+            .ui-state-default:hover {
+                background-color: @hovered-row_bg;
+            }
+
+        .row {
+            height: 33px;
+            border-bottom: 1px solid #d7d8dc;
+            cursor: pointer;
+
+            .filterEnableCbx {
+                width: 24px;
+                padding-left: 8px;
+                vertical-align: top;
+                padding-top: 10px;
+                position: relative;
+            }
+
+            .filterBody {
+                width: 100%;
+                padding-top: 8px;
+                padding-bottom: 8px;
+
+                .link,
+                .link:hover,
+                .link:active {
+                    text-decoration: none;
+                }
+            }
+
+            .menu_column {
+                padding-right: 8px;
+                vertical-align: top;
+                padding-top: 10px;
+            }
+        }
+
+            .row.disable {
+                cursor: pointer !important;
+
+                .filterBody {
+                    color: #83888d;
+
+                    .error {
+                        color: #cc0000; 
+                        font-weight: bold;
+                    }
+                }
+            }
+    }
+}
+
+#filtersContainer,
+#filterWnd {
+    .actionText,
+    .conditionText {
+        display: inline-block;
+        max-width: 95%;
+        word-break: break-all;
+
+        .actionValue,
+        .conditionValue {
+            word-wrap: break-word;
+        }
+    }
+}

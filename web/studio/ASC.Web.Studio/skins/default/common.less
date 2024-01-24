@@ -1,0 +1,667 @@
+/*
+ *
+ * (c) Copyright Ascensio System Limited 2010-2023
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+*/
+
+
+html
+{
+    height: 100%;
+    width: 100%;
+}
+
+.h_line {
+    background-color: @borderColor;
+    height: 1px;
+    line-height: 1px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+/*******************************************************************************
+   css inline style
+*******************************************************************************/
+.clear {
+    border: 0 !important;
+    display: block !important;
+    clear: both !important;
+    height: 1px !important;
+    line-height: 1px !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    width: 100% !important;
+}
+
+.display-none {
+    display: none;
+}
+.visibility-hidden {
+    visibility: hidden;
+}
+.float-left {
+    float: left;
+}
+.float-right {
+    float: right;
+}
+.user-select-none {
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    MozUserSelect: none;
+}
+.text-overflow {
+    .textOverflowEllipsis();
+}
+.border-style {
+    border:1px solid @borderColor;
+}
+
+/*******************************************************************************
+   base markup
+*******************************************************************************/
+body {
+    background-color: @body-color;
+    color: @textColor;
+    font: normal 12px @baseFont;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+}
+body.desktop {
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    MozUserSelect: none;
+}
+pre {
+    color: @textColor;
+    font-family: @baseFont;
+    font-size: 12px;
+    text-decoration: none;
+    margin: 0px;
+    padding: 0px;
+}
+div {
+    margin: 0px;
+    padding: 0px;
+}
+input,textarea, select {
+    font-family: @baseFont;
+    background-color: @back-ground-text;
+    color:@bg-a-activate;
+    accent-color: @checkbox-accent-color;
+    color-scheme: @checkbox-color-sheme;
+}
+.ui-datepicker {
+    font-family: @baseFont !important;
+}
+/*******************************************************************************
+  content layer
+*******************************************************************************/
+.main-content {
+    height: 100%;
+}
+#studioPageContent {
+    min-height: 100%;
+    position: relative;
+    min-width: 1024px;
+}
+.mainPageLayout {
+    margin: 0px auto;
+    min-width: 959px;
+    padding: 24px 24px 0;
+    position: static;
+    text-align: left;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+}
+
+#studio_sidePanel {
+    overflow: hidden;
+    .textOverflowEllipsis();
+    .noneSelect();
+    width: 240px;
+}
+
+.mainContainer {
+    overflow: hidden;
+}
+
+
+/*******************************************************************************
+    calendar
+*******************************************************************************/
+
+.ui-icon.ui-icon-circle-triangle-e { 
+    background-position: -32px 0; 
+}
+.ui-icon.ui-icon-circle-triangle-w {
+    background-position: -96px 0; 
+}
+
+.ui-datepicker-header.ui-widget-header.ui-helper-clearfix.ui-corner-all {
+    background-color: transparent;
+    border: none;
+
+    .ui-datepicker-next.ui-corner-all.ui-state-hover, .ui-datepicker-prev.ui-corner-all.ui-state-hover {
+        border-color: @datepick-ui-bg !important;
+        background-color: @datepick-ui-bg !important;
+    }
+}
+.ui-widget-header .ui-corner-all.ui-state-hover {
+    border-color: @datepick-ui-bg;
+    background-color: @datepick-ui-bg;
+}
+.ui-datepicker-title {
+    .ui-datepicker-month, .ui-datepicker-year {
+        border: 1px solid @body-color;
+        text-decoration: underline;
+        text-decoration-style: dotted;
+        font-weight: bold;
+        text-align: center;
+        cursor: pointer;
+        padding-bottom: 0.1em;
+        appearance: none;
+        background-color: @body-color;
+        width: auto;
+    }
+}
+.asc-datepicker .ui-datepicker .ui-datepicker-calendar td, .ui-datepicker .ui-datepicker-calendar td {
+    padding: 1px 1px 1px 3px;
+}
+
+
+.ui-datepicker.ui-corner-all {
+    width: 20em;
+    padding: 5px 10px;
+}
+
+.ui-datepicker.ui-corner-all th {
+    font-weight: normal;
+}
+
+.ui-datepicker a.ui-state-default {
+    border: 1px solid @body-color;
+    background: @body-color;
+    font-weight: normal;
+    color: @textColor;
+    text-align: center;
+    border-radius: 3px;
+    width: 16px;
+    height: 13px;
+    line-height: 13px;
+}
+
+.ui-datepicker-prev-hover.ui-corner-all {
+    border-color: @datepick-ui-bg !important;
+    background: @datepick-ui-bg !important;
+}
+
+.ui-datepicker-calendar a.ui-state-default {
+    &.ui-state-hover {
+        border: 1px solid @datepick-ui-bg !important;
+        background: @datepick-ui-bg !important;
+        font-weight: normal;
+        color: @textColor !important;
+    }
+}
+
+.ui-datepicker a.ui-state-default {
+    &.ui-state-hover, &.ui-state-active, &.ui-state-highlight.ui-state-active, &.ui-state-highlight.ui-state-hover {
+        border: 1px solid @datepick-ui-bg !important;
+        background: @datepick-ui-bg !important;
+        font-weight: normal;
+        color: @textColor !important;
+    }
+}
+
+.ui-datepicker a.ui-state-default {
+    &.ui-state-highlight {
+        border: 1px solid @ui-state-highlight !important;
+        background: @ui-state-highlight !important;
+        font-weight: normal;
+        color: @textColor !important;
+    }
+}
+
+.asc-datepicker {
+    .ui-datepicker-inline.ui-datepicker {
+
+        &.ui-datepicker.ui-widget.ui-widget-content {
+            width: 20em;
+        }
+
+        .ui-widget-header .ui-corner-all.ui-state-hover {
+            border-color: @datepick-ui-bg;
+            background: @datepick-ui-bg;
+        }
+
+        .ui-datepicker-title .ui-datepicker-month, .ui-datepicker-title .ui-datepicker-year {
+            font-size: 12px;
+        }
+
+        .ui-icon.ui-icon-circle-triangle-w {
+            background-position: -96px 0;
+        }
+
+        .ui-icon.ui-icon-circle-triangle-e {
+            background-position: -32px 0;
+        }
+
+        .ui-datepicker-calendar th span {
+            text-transform: none;
+            font-size: 11px;
+            font-weight: normal;
+        }
+
+        .ui-datepicker-calendar .ui-state-disabled span.ui-state-default {
+            border-radius: 3px;
+            width: 16px;
+            height: 13px;
+            line-height: 13px;
+            text-align: center;
+        }
+
+        .ui-datepicker-calendar td a {
+            text-align: center;
+            font-size: 11px;
+        }
+    }
+}
+
+/*******************************************************************************
+    clearfix
+*******************************************************************************/
+.clearFix:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+/* MSIE6- */
+* html .clearFix {
+    height: 1%;
+}
+
+/* MSIE7- */
+.clearFix {
+    zoom: 1;
+    display: block;
+}
+
+.textEdit {
+    border: solid 1px @borderColor2;
+    background-color: @back-ground-text;
+    color: @bg-a-activate;
+    font-size: 12px;
+    height: 16px;
+    .borderRadius(0);
+
+
+    &.with-error {
+        border-color: #cc3300;
+    }
+}
+
+.pwdLoginTextbox {
+    .borderRadius(3px);
+
+    background-color: @body-color;
+    border: solid 1px @borderColor2;
+    color: @pwdloginTextbox-col;
+    font-size: 18px;
+    padding: 8px 20px;
+    width: 358px;
+}
+
+textarea {
+    border: 1px solid @borderColor2;
+    background-color: @back-ground-text;
+    color: @bg-a-activate;
+    font-size: 12px;
+    resize: vertical;
+    scrollbar-width: thin;
+    scrollbar-color: #BFBFBF @bg-button-default-hover;
+
+    &::-webkit-resizer {
+        background-image: url("data:image/svg+xml,%3Csvg%20width%3D%229%22%20height%3D%229%22%20viewBox%3D%220%200%209%209%22%20fill%3D%22%23657077%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%222%22%20height%3D%2210.2007%22%20rx%3D%221%22%20transform%3D%22matrix(-0.707107%20-0.707107%20-0.707107%200.707107%208.6272%201.41418)%22%20fill%3D%22%23C4C4C4%22%2F%3E%0A%3Crect%20width%3D%222%22%20height%3D%223.13727%22%20rx%3D%221%22%20transform%3D%22matrix(-0.707107%20-0.707107%20-0.707107%200.707107%208.63062%206.41077)%22%20fill%3D%22%23C4C4C4%22%2F%3E%0A%3C%2Fsvg%3E");
+        background-position: right bottom;
+        background-repeat: no-repeat;
+    }
+
+    &:hover {
+        &::-webkit-resizer {
+            background-image: url("data:image/svg+xml,%3Csvg%20width%3D%229%22%20height%3D%229%22%20viewBox%3D%220%200%209%209%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%222%22%20height%3D%2210.2007%22%20rx%3D%221%22%20transform%3D%22matrix(-0.707107%20-0.707107%20-0.707107%200.707107%208.6272%201.41418)%22%20fill%3D%22%23657077%22%2F%3E%0A%3Crect%20width%3D%222%22%20height%3D%223.13727%22%20rx%3D%221%22%20transform%3D%22matrix(-0.707107%20-0.707107%20-0.707107%200.707107%208.63062%206.41077)%22%20fill%3D%22%23657077%22%2F%3E%0A%3C%2Fsvg%3E");
+        }
+    }
+}
+
+.comboBox {
+    border: solid 1px @borderColor2;
+    font-size: 12px;
+    background-color: @back-ground-text;
+    color: @bg-a-activate;
+}
+select.comboBox {
+     height: 23px;
+}
+select:focus {
+    outline: none;
+}
+.comboBoxHiddenBorder {
+    border-width: 0px;
+    margin: 1px;
+}
+.comboBoxHiddenBorder:hover, .comboBoxHiddenBorderFocused {
+    border: solid 1px @borderColor2;
+    margin: 0px;
+}
+
+:disabled,
+input.disabled,
+textarea.disabled,
+option.disabled,
+/* fix ie8 */
+input[disabled="disabled"] {
+    background-color: @disabled;
+    color: @input-disabled-col;
+}
+input:focus {
+    outline: none;
+}
+input[type="text"]:focus, textarea:focus {
+    outline: none;
+    border: solid 1px #3186af;
+}
+/* fix ie10 */
+input[type="checkbox"][disabled="disabled"] {
+    background-color: transparent;
+}
+/*******************************************************************************
+    popup box with error message
+*******************************************************************************/
+
+.errorText {
+    color: #cc3300;
+}
+.errorBox {
+    background: #FFECE3 url('imagescss/alert_16.png') 10px 10px no-repeat;
+    color: #666668 !important;
+    font-size: 13px;
+    font-weight: normal;
+    margin: 5px 0px;
+    padding: 10px 10px 10px 30px !important;
+    vertical-align: middle;
+}
+.warnBox {
+    background:#FBFAD5 url('imagescss/expl_16.png') 10px 10px no-repeat;
+    color: #666668 !important;
+    font-size: 13px;
+    font-weight: normal;
+    margin: 5px 0px;
+    padding: 10px 10px 10px 30px;
+    vertical-align: middle;
+}
+/*******************************************************************************
+    Success popup box
+*******************************************************************************/
+.okText {
+    color: #74af00;
+}
+.okBox {
+    background-color: @okBox-bg;
+    border: 1px solid @okBox-bor;
+    color: @okBox-col;
+    font-weight: bolder;
+    padding: 8px 11px;
+    margin: 5px 0px;
+}
+.operationInfoBox {
+    background: #EEF6FD url('imagescss/info_16.gif') 10px 10px no-repeat;
+    color: #666668 !important;
+    font-size: 13px;
+    font-weight: normal;
+    padding: 7px 36px 10px;
+    vertical-align: middle;
+}
+
+
+/*******************************************************************************
+    Links
+*******************************************************************************/
+
+/*all links*/
+a, a:visited, a:hover, a:active  {
+    font-weight: normal;
+    color: #116d9d;
+    text-decoration: underline;
+}
+a:hover {
+    text-decoration: none;
+}
+a:focus {
+    outline: none;
+}
+/*header link as common header*/
+a.linkHeader, a.linkHeader:visited, a.linkHeader:hover, a.linkHeader:active {
+    color: @textColor;
+    font-size: 16px;
+    font-weight: bolder;
+    text-decoration: none;
+}
+a.linkHeader:hover {
+    text-decoration: underline;
+}
+a.linkHeader:active {
+    text-decoration: none;
+}
+/*medium link font-size 12*/
+a.linkHeaderMedium, a.linkHeaderMedium:visited, a.linkHeaderMedium:active
+{
+    color: @textColor;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+a.linkMedium, a.linkMedium:visited, a.linkMedium:active
+{
+    color: @textColor;
+    font-size: 12px;
+    text-decoration: none;
+    cursor: pointer;
+}
+a.linkHeaderMedium:hover, a.linkMedium:hover
+{
+    text-decoration: underline;
+}
+
+/*---------gray profile and so on links----*/
+a.linkDescribe, a.linkDescribe:visited ,a.linkDescribe:active  {
+    color: @a-link-describe;
+    font-size: 11px;
+    text-decoration: underline;
+}
+a.linkDescribe:hover {
+    text-decoration: none;
+}
+
+a.linkText, a.linkText:visited, a.linkText:active {
+    font-size: 12px;
+    color: @textColor;
+    text-decoration: none;
+}
+a.linkText:hover {
+    text-decoration: underline;
+}
+
+.userLink {
+    padding: 0;
+    display: inline-block;
+    white-space:nowrap;
+}
+
+a.linkAction, a.linkAction:visited, a.linkAction:active {
+    color: @textColor;
+    font-size: 12px !important;
+    text-decoration: underline;
+}
+a.linkAction:hover {
+    text-decoration: none;
+}
+
+
+/*-------------------------Backgrounds--------------------------*/
+
+.tintLight {
+    background-color: @body-color;
+}
+.tintGray {
+    background-color: #f0f0f0;
+}
+.tintMedium {
+    background-color: @bg-tint-medium;
+}
+.tintDangerous {
+    background-color: #fff6df;
+}
+.moveBackground {
+    background-image: url('imagescss/move.png');
+    background-repeat: repeat;
+    cursor: move;
+}
+.moveHoverBackground {
+    background-image: url('imagescss/move.gif');
+    background-repeat: no-repeat;
+    background-color: #edf6fd;
+    background-position: center 2px;
+    cursor: move;
+}
+.moveDarkBackground {
+    background-image: url('imagescss/move2.png');
+    background-repeat: repeat;
+    cursor: move;
+}
+
+
+/*----------------Header Panels------------------------*/
+.headerPanel-splitter {
+    margin-bottom: 16px;
+}
+.headerPanelSmall-splitter {
+    margin-bottom: 8px;
+}
+
+.block-cnt-splitter {
+    margin-bottom: 20px;
+}
+.popupContainerClass .block-cnt-splitter {
+    margin-bottom: 16px;
+}
+
+/*----------------Borders and Corners------------------*/
+.borderBase
+{
+    border: solid 1px @bg-border-base;
+}
+
+.borderLight
+{
+    border: solid 1px #dbdfe2;
+}
+
+
+/*----------------loaders------------------*/
+.loader-text-block {
+    background: url("images/@{loader-gif-32}") no-repeat scroll left center transparent;
+    display:inline-block;
+    color: @textColorGrayDark;
+    font-size: 11px;    
+    padding:10px 0 10px 40px;
+    text-decoration:none;
+}
+.loading-link, .loading-link:hover {
+    background: url("images/@{loader-gif-16}") no-repeat scroll left center transparent;
+    color: @textColorGrayDark;
+    cursor: default;
+    font-weight: bold;
+    padding-left: 20px;
+    text-decoration: none;
+}
+/*----------------Style Placeholder------------------*/
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:   #b2b2b2;
+    font-family: @baseFont;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:   #b2b2b2;
+    font-family: @baseFont;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:   #b2b2b2;
+    font-family: @baseFont;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:   #b2b2b2;
+    font-family: @baseFont;
+}
+
+/*----------------Arrow------------------*/
+
+.with-arrow-right {
+    position: relative;
+
+    &:after {
+        .arrow-close(4px, #212121);
+        left: 0;
+        margin-top: -4px;
+    }
+}
+.with-arrow-down {
+    position: relative;
+
+    &:after {
+        .arrow-down(4px, #212121);
+        left: 0;
+        margin-top: -2px;
+    }
+}
+
+/*----------------Beta label------------------*/
+
+.beta {
+    padding: 2px 4px 2px 4px;
+    line-height: 14px;
+    color: @beta-text;
+    background-color: @beta-background;
+    text-align: center;
+    border: none;
+    font-size: 10px;
+    margin: 0 0 0 12px;
+    border-radius: 2px;
+    width: 22px;
+    height: 14px;
+
+    &:after {
+        content: "Beta";
+    }
+}

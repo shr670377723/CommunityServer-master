@@ -1,0 +1,535 @@
+/*
+ *
+ * (c) Copyright Ascensio System Limited 2010-2023
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+*/
+
+
+@import "../../../../skins/default/params.less";
+@border-color: @borderColor;
+@active-color: @textColorBlackLight;
+@default-color: #EBEBEB;
+
+.profile-photo-block {
+    border: 1px solid @addition-info;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    float: left;
+    margin-right: 17px;
+    width: 200px;
+
+    .profile-user-photo {
+        position: relative;
+        width: 200px;
+
+        .profile-action-usericon {
+            width: 200px;
+            height: 200px;
+
+            img {
+                border: none;
+                display: block;
+                margin: 0 auto;
+                max-height: 200px;
+                max-width: 200px;
+            }
+
+            &.preview {
+                overflow: hidden;
+
+                img {
+                    margin: 0;
+                    max-height: none;
+                    max-width: none;
+                }
+            }
+        }
+
+        .action-block {
+            border-top: 1px solid @addition-info;
+            cursor: pointer;
+            padding: 8px 0;
+            text-align: center;
+            vertical-align: middle;
+            width: 200px;
+
+            div {
+                color: @bg-a-activate;
+                display: inline-block;
+                font-weight: bold;
+                margin-top: 6px;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+@media (max-width: 1080px) {
+    .profile-photo-block {
+        float: none;
+        margin-bottom: 24px;
+    }
+}
+
+.profile-action-userdata 
+{
+    td {
+        padding: 3px 0;
+     }    
+     .HelpCenterSwitcher {
+        margin:0;
+        vertical-align: bottom;
+     }
+    .userdata-field {
+        .userdata-title {   
+            padding-top: 7px;
+            vertical-align: top;
+            white-space: nowrap;
+            }
+        .userdata-value {
+            padding-left: 20px;
+            padding-bottom: 10px;
+
+            &.user-type {
+                max-width: 275px;
+            }
+
+            .nochange {
+                cursor: default;
+                border-color: transparent;
+                }
+            .textEdit {
+                height: 16px;
+                padding: 3px 9px;
+                width: 275px;
+
+                &.portalEmail{
+                    width: 140px;
+                }
+            }
+            .textEditCalendar {
+                margin-right: 5px;
+            }
+            .requiredFieldError .textEditCalendar + .requiredErrorText {
+                display: inline-block;
+            }
+            .field-with-actions {    
+                margin: 3px 0px 5px;               
+                .inner-text {    
+                    max-width: 375px;
+                }    
+            }
+            .add-new-field {
+                margin-top:5px;
+            }
+            .field-value {
+                padding: 2px 0;
+            }
+        }
+    }
+}
+
+.delete-field {
+    float:right;
+    }
+
+.add-new-field {
+    display: inline-block;
+    margin-left: 3px;
+}
+#commentContainer textarea 
+{
+    height:80px;
+    min-width: 759px;
+    padding: 5px 9px;
+    resize: vertical;
+}      
+body.media-width-0-1200 {
+    .profile-action-userdata {
+        .userdata-field {
+            .userdata-value {
+                width: 292px;
+            }
+        }
+    }
+    #commentContainer textarea {
+        min-width: 660px;
+    }
+}
+.tabs-content {    
+    .field-with-actions {
+        height:23px;
+        margin: 0 0 9px;
+        width:570px;
+        
+        .combobox-title {
+            margin-top: 3px;
+
+/*--------Icons for title of contacts----------*/
+            &.mail,
+            &.extmail{
+                background-position: 0 -2px;
+            }
+            &.phone{
+                background-position: 0 -22px;
+            }
+            &.mobphone,
+            &.extmobphone{
+                background-position: 0 -42px;
+            }
+            &.gmail{
+                background-position: 0 -62px;
+            }
+            &.skype{
+                background-position: 0 -82px;
+            }
+            &.msn {
+                background-position: 0 -102px;
+            }
+            &.icq{
+                background-position: 0 -122px;
+            }
+            &.jabber{
+                background-position: 0 -142px;
+            }
+            &.aim{
+                background-position: 0 -162px;
+            }
+            &.facebook {
+                background-position: 0 -182px;
+            }
+            &.livejournal{
+                background-position: 0 -202px;
+            }
+            &.myspace{
+                background-position: 0 -222px;
+            }
+            &.twitter{
+                background-position: 0 -242px;
+            }
+            &.blogger{
+                background-position: 0 -262px;
+            }
+            &.yahoo{
+                background-position: 0 -282px;
+            }
+            &.telegram{
+                background-position: 0 -302px;
+            }
+        }
+         
+        input {
+            height: 16px;
+            float:right;
+            margin:0 10px;
+            padding: 3px 9px;
+            width:300px;
+        }
+    }
+    .delete-field {
+        margin-top:3px;
+        height: 16px;
+        }
+
+    .field-with-actions .combobox-title,
+    .tl-combobox .combobox-container .combobox-options .option-item {        
+        background-image: url("images/social-icons-grey.png");
+        background-repeat: no-repeat;
+        padding-left: 24px;
+    }
+
+    .field-with-actions .combobox-container .combobox-options {
+        max-height: 240px;
+    }
+
+/*--------Icons for list of contacts----------*/
+    .tl-combobox .combobox-container .combobox-options .option-item {
+        &.mail,
+        &.extmail{
+            background-position: 0 2px;
+        }
+        &.phone{
+            background-position: 0 -18px;
+        }
+        &.mobphone,
+        &.extmobphone{
+            background-position: 0 -38px;
+        }
+        &.gmail{
+            background-position: 0 -58px;
+        }
+        &.skype{
+            background-position: 0 -78px;
+        }
+        &.msn {
+            background-position: 0 -98px;
+        }
+        &.icq{
+            background-position: 0 -118px;
+        }
+        &.jabber{
+            background-position: 0 -138px;
+        }
+        &.aim{
+            background-position: 0 -158px;
+        }
+        &.facebook {
+            background-position: 0 -178px;
+        }
+        &.livejournal{
+            background-position: 0 -198px;
+        }
+        &.myspace{
+            background-position: 0 -218px;
+        }
+        &.twitter{
+            background-position: 0 -238px;
+        }
+        &.blogger{
+            background-position: 0 -258px;
+        }
+        &.yahoo{
+            background-position: 0 -278px;
+        }
+        &.telegram{
+            background-position: 0 -298px;
+        }
+    }
+}
+
+.field-with-actions.default {
+    display:none;
+} 
+
+#ui-datepicker-div {
+    z-index:10 !important;
+    }
+
+
+#chooseGroupsSelector {
+    display: inline-block;
+    margin-top: 3px;
+}
+
+.departments-list li {
+    &:first-child {
+        margin-top: 5px;
+    }
+}
+
+#AnswerForEmail {
+    p {
+        padding-top: 8px;
+
+        &:first-of-type {
+            padding-top: 0;
+        }
+    }
+}
+
+.moduleInfo {
+    width: 100%;
+    border-collapse: collapse;
+
+    td {
+        padding: 8px 0;
+    }
+
+    .tableHead {
+        border-bottom: 1px solid #83888d;
+    }
+
+    .moduleName {
+        width: 40%;
+    }
+
+    .userType {
+        width: 30%;
+    }
+
+    .access {
+        width: 16px;
+        margin-right: 8px;
+        display: inline-block;
+        background-color: #83888D;
+
+        &.read {
+            -webkit-mask-image: url(images/read-only.svg);
+            mask-image: url(images/read-only.svg);
+        }
+
+        &.check {
+            -webkit-mask-image: url(images/check_tick.svg);
+            mask-image: url(images/check_tick.svg);
+        }
+    }
+}
+
+.text-alignment {
+    padding-top: 4px;
+}
+
+#inputUserEmail,
+#inputPortalEmail,
+.validationField {
+    position: relative;
+
+    .emailInfo,
+    .validationText {
+        display: none;
+        position: absolute;
+        width: 300px;
+        top: 4px;
+        left: 306px;
+        color: #B40404;
+    }
+}
+
+#generatedPassword {
+    height: 44px;
+}
+
+.validationBlock {
+    display: none;
+    position: relative;
+    height: 44px;
+
+    #clip {
+        position: absolute;
+        left: -1000px;
+    }
+
+    #copyValues {
+        border-bottom: 1px dotted black;
+        cursor: pointer;
+
+        &.disabled {
+            pointer-events: none;
+            cursor: default;
+            text-decoration: none;
+            color: #aaa;
+        }
+    }
+
+    #password {
+        position: relative;
+        width: 139px;
+        padding-right: 30px;
+    }
+
+    #bubleBlock {
+        position: absolute;
+        left: 214px;
+        top: -4px;
+
+        #passwordInfo {
+            padding: 8px 12px 10px;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.5);
+            position: relative;
+            background: @bodyColor2;
+
+            :before,
+            :after {
+                content: '';
+                position: absolute;
+                background: @bodyColor2;
+                left: -5px;
+                top: 12px;
+                width: 10px;
+                height: 10px;
+                box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+                z-index: -1;
+                transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+            }
+
+            :before {
+                z-index: 1;
+                box-shadow: none;
+            }
+
+            .infoItem {
+                color: #A9ADB0;
+                padding-left: 6px;
+                white-space: nowrap;
+
+                &.red {
+                    color: #B40404;
+                }
+
+                &.green {
+                    color: #44BB00;
+                }
+            }
+        }
+    }
+
+    .validationProgress {
+        position: absolute;
+        width: 0px;
+        max-width: 180px;
+        height: 2px;
+        top: 23px;
+    }
+
+    .infoPanel {
+        display: none;
+        background: @bodyColor2;
+        width: 178px;
+        box-shadow: 0 1px 5px rgba(0,0,0,0.5);
+    }
+
+    .infoChecking {
+        margin-left: 4px;
+        display: inline-block;
+
+        &#passwordGen {
+            width: 16px;
+            background-color: #83888D;
+            -webkit-mask-image: url(images/rotate.svg);
+            mask-image: url(images/rotate.svg);
+        }
+    }
+
+    input[type="checkbox"] {
+        display: none;
+    }
+
+    #passwordShowLabel {
+        position: absolute;
+        top: 4px;
+        left: 156px;
+        width: 16px;
+        background-color: #83888D;
+
+        &.show {
+            -webkit-mask-image: url(images/access-deny.svg);
+            mask-image: url(images/access-deny.svg);
+        }
+
+        &.hide {
+            -webkit-mask-image: url(images/read-only.svg);
+            mask-image: url(images/read-only.svg);
+        }
+    }
+
+    #passwordShowLabel::before {
+        content: "\00a0";
+    }
+}
+
+.settings-help-block {
+    margin-bottom: 0px;
+    margin-left:20px
+}

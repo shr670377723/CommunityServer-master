@@ -1,0 +1,19 @@
+[Unit]
+Description=ONLYOFFICE SsoAuth Service
+After=network.target syslog.target
+
+[Service]
+Type=simple
+WorkingDirectory=/var/www/onlyoffice/Services/ASC.SsoAuth
+ExecStartPre=/bin/bash -c 'rm -f /tmp/onlyofficeSsoAuth'
+ExecStart=/usr/bin/node /var/www/onlyoffice/Services/ASC.SsoAuth/app.js UNIX.SERVER
+User=onlyoffice
+Group=onlyoffice
+# Give up if ping don't get an answer
+TimeoutSec=600
+
+Restart=always
+PrivateTmp=false
+
+[Install]
+WantedBy=multi-user.target

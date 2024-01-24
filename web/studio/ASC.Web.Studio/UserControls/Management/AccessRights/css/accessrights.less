@@ -1,0 +1,145 @@
+/*
+ *
+ * (c) Copyright Ascensio System Limited 2010-2023
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+*/
+
+
+@import "../../../../skins/default/params.less";
+
+.accessRights-ownerCard {
+    background-color: @body-color;
+    padding: 10px;
+    width: 330px;
+
+    table tr td div {
+        width: 264px;
+    }
+}
+
+.layout-bottom-spacer{
+    padding-bottom: 0px;
+}
+
+.header-base.owner {
+    margin-bottom: 15px;
+}
+.products-section .tabs-section .header-base img {
+    margin-right: 8px;
+}
+.accessRights-content {
+    padding: 0 20px;
+}
+.accessRights-content:last-child {
+    margin-bottom: 24px;
+}
+.accessRights-content input[type="radio"]
+{
+    margin: 2px 5px 0 0;
+    float: left;
+}
+#adminTable {
+    margin-bottom: 15px;
+}
+#adminTable td {
+    max-width: 128px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#adminTable td.cbxCell
+{
+    text-align: center;
+}
+#adminTable th.cbxHeader
+{
+    text-align: center;
+    white-space: nowrap;
+    width: 80px;
+    padding-bottom: 10px;
+    padding-top: 0;
+}
+.accessRights-selectorContent>div:first-child
+{
+    float:left;
+    margin-right: 25px;
+}
+
+.accessRights-selectedItem
+{
+    float: left;
+    padding: 0 10px 7px 0;
+    white-space: nowrap;
+}
+.accessRights-selectedItem img
+{
+    margin: 0px 4px -2px 0px;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+}
+.accessRights-selectedItem>img:first-child
+{
+    display: inline;
+}
+.accessRights-selectedItem>img:last-child
+{
+    display: none;
+}
+.accessRights-disabledText .header-base
+{
+    color: #83888d;
+}
+.adminItem {
+    height:44px;
+
+    .adminImg {
+        width: 32px;
+
+        img {
+            width: 32px;
+        }
+    }
+
+	.ldap-lock {
+		position: absolute;
+		margin: 2px;
+	}
+}
+.possibilitiesAdmin {
+    margin-left: 360px;
+    padding: 0 30px;
+}
+.changeOwnerText {
+    margin: 20px 0 10px;
+}
+.changeOwnerTextBlock {
+    float: left;
+}
+.accessRightsItems {
+    padding: 4px 0 3px;
+}
+.accessRightProductBlock {
+    margin-top: 10px;
+}
+.accessRightsEmptyUserList {
+    padding: 0 10px 7px 0;
+}
+
+#ownerSelectorContent #ownerSelector {
+    float: left;
+    margin: 0 25px 15px 0;
+}
+
+.disabled {
+    color: #9e9e9e;
+}

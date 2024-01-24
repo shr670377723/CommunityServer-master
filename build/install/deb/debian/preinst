@@ -1,0 +1,15 @@
+#!/bin/sh
+# preinst script for onlyoffice
+#
+# see: dh_installdeb(1)
+
+# for details, see http://www.debian.org/doc/debian-policy/ or
+# the debian-policy package
+
+. /usr/share/debconf/confmodule
+
+OS=`lsb_release -si`
+LIMG_VER=`uname -r`
+
+
+exit 0

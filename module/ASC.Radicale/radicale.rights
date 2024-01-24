@@ -1,0 +1,14 @@
+[admin]
+user: admin@radicale@.+
+collection: .*
+permissions: RWrw
+
+[allow-readonly]
+user: .+
+collection: %(user)s/.+-readonly$
+permissions: Rr
+
+[owner-write]
+user: .+
+collection: %(user)s.*$
+permissions: RWrw

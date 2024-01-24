@@ -1,0 +1,10 @@
+Source: {{package_sysname}}-communityserver
+Section: web
+Priority: optional
+Maintainer: {{package_section_maintainer}}
+Build-Depends: debhelper (>=9), dh-systemd
+
+Package: {{package_sysname}}-communityserver
+Architecture: all
+Depends: ${misc:Depends}, {{package_header_tag_requires}}
+Description: {{package_section_description}}

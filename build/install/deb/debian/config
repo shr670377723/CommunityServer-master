@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -e
+
+. /usr/share/debconf/confmodule
+
+db_input medium {{package_sysname}}-communityserver/db-host || true
+db_input medium {{package_sysname}}-communityserver/db-name || true
+db_input medium {{package_sysname}}-communityserver/db-user || true
+db_go
+
+db_input critical {{package_sysname}}-communityserver/db-pwd || true
+db_go
+
+exit 0

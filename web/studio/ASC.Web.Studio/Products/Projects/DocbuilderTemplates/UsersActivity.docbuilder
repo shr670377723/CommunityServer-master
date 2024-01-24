@@ -1,0 +1,167 @@
+﻿writeInterval();
+
+var notGrouped = [];
+var grouped1 = [];
+
+for (var i = 0; i < reportData.length; i++) {
+	if (reportData[i][1].length === 0) {
+		notGrouped.push(reportData[i]);
+	} else {
+		grouped1.push(reportData[i]);
+	}
+}
+
+function showGroups(grouped) {
+    var group = [];
+
+    for (var i = 0; i < grouped.length; i++) {
+        var found = false;
+        var groupItem = grouped[i];
+        for (var k = 0; k < group.length; k++) {
+            if (groupItem[0] === group[k].id) {
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            group.push({ id: groupItem[0], title: groupItem[1] });
+        }
+    }
+
+    for (var i = 0; i < group.length; i++) {
+        var groupItem = group[i];
+
+        writeText(groupItem.title,
+        {
+            size: chartHeaderFontSize,
+            bold: true
+        });
+
+        currentRow++;
+        var first = grouped[0];
+        var indexes = [1, 2, 3, 4, 5];
+        var alignRight = [1, 2, 3, 4];
+        if(first.length == 9)
+        {
+            var avgP = first[first.length-2];
+            var avgT = first[first.length-1];
+            if(avgP != -1)
+            {
+                indexes.push(6);
+                alignRight.push(alignRight.length + 1);
+            }
+            if(avgT != -1)
+            {
+                indexes.push(7);
+                alignRight.push(alignRight.length + 1);
+            }
+            printHeader(avgP, avgT);
+        }
+        else
+        {
+            var avg = first[first.length-1];
+            if(avg != -1)
+            {
+                indexes.push(6);
+                alignRight.push(alignRight.length + 1);
+            }
+            printHeaderForProjects(avg);
+        }
+        
+        var sum = [0, 0, 0, 0];
+
+        for (var j = 0; j < grouped.length; j++) {
+            var groupedItem = grouped[j];
+            if (groupItem.id === groupedItem[0]) {
+                groupedItem = groupedItem.slice(1);
+                if(groupedItem[groupedItem.length-1] == -2)
+                {
+                    groupedItem[groupedItem.length-1] = null;
+                }
+                if(groupedItem[groupedItem.length-2] == -2)
+                {
+                    groupedItem[groupedItem.length-2] = null;
+                }
+                writeRow(indexes,
+                    groupedItem,
+                    alignRight,
+                    {
+                        color: lightGrayBorderColor
+                    },
+                    {
+                        size: smallFontSize
+                    },
+                    true);
+
+                incrementSum(sum, groupedItem);
+            }
+        }
+
+        printSum(sum);
+    }
+}
+
+function printHeader(avgP, avgT) {
+    var indexes = [0, 1, 2, 3, 4];
+    var alignRight = [1, 2, 3, 4];
+    if(avgP != -1)
+    {
+        indexes.push(5);
+        var cell = alignRight.length + 1;
+        oWs.SetColumnWidth(cell + 1, 30);
+        alignRight.push(cell);
+    }
+    if(avgT != -1)
+    {
+        indexes.push(6);
+        var cell = alignRight.length + 1;
+        oWs.SetColumnWidth(cell + 1, 30);
+        alignRight.push(cell);
+    }
+    writeRow(indexes, reportColumns, alignRight, {
+		color: darkGrayBorderColor
+	}, {
+		size: smallFontSize,
+		color: grayFontColor
+	});
+}
+
+function printHeaderForProjects(avg) {
+    var indexes = [0, 1, 2, 3, 4];
+    var alignRight = [1, 2, 3, 4];
+    if(avg != -1)
+    {
+        indexes.push(6);
+        var cell = alignRight.length + 1;
+        oWs.SetColumnWidth(cell + 1, 30);
+        alignRight.push(cell);
+    }
+    writeRow(indexes, reportColumns, alignRight, {
+		color: darkGrayBorderColor
+	}, {
+		size: smallFontSize,
+		color: grayFontColor
+	});
+}
+
+function incrementSum(sum, item) {
+    for (var i = 0; i < sum.length; i++) {
+        sum[i] += item[i + 2];
+    }
+}
+
+function printSum(sum) {
+    var options = {
+        size: smallFontSize,
+        bold: true
+    };
+
+    writeText(reportColumns[4], options, false);
+	writeRow([0, 1, 2, 3], sum, [0, 1, 2, 3], null, options);
+
+	currentRow += 2;
+}
+
+showGroups(notGrouped);
+showGroups(grouped1);

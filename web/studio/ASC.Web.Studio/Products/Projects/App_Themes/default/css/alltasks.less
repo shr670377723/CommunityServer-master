@@ -1,0 +1,843 @@
+/*
+ *
+ * (c) Copyright Ascensio System Limited 2010-2023
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+*/
+
+
+@import "params.less";
+@actionListWidth:           64px;
+@divHeight:                 40px;
+
+/************* tasks **************/
+
+#CommonListContainer {
+    .taskProcess {
+        height: inherit;
+        width: 16px;
+        background-position: 0 10px;
+    }
+
+
+    .taskList {
+        .task {
+            border-bottom: @border-color 1px solid;
+            height: @divHeight;
+            clear: both;
+
+            .checkbox {
+                cursor: pointer;
+                margin-right: 4px;
+                padding: 10px 0 0 4px;
+                width: 20px;
+                height: 20px;
+                float: left;
+
+                input {
+                    margin: 4px;
+                    color-scheme: @checkbox-color-scheme;
+                    accent-color: @checkbox-accent-color;
+                }
+            }
+
+            .check {
+                float: left;
+                width: @actionListWidth;
+                height: @divHeight;
+
+
+                &.priority0 {
+                    background: #f4f4f4;
+                }
+
+                &.priority-1 {
+                    background: #c3c3c3;
+                }
+
+                &.priority1 {
+                    background: #E46850;
+                }
+
+                input {
+                    display: inline-block;
+                    margin: 8px auto;
+                }
+            }
+
+            .taskPlace {
+                float: left;
+                height: @divHeight;
+            }
+
+            .taskName {
+                float: left;
+                overflow: hidden;
+                white-space: nowrap;
+                height: @divHeight;
+                line-height: @divHeight;
+                text-overflow: ellipsis;
+                max-width: 840px;
+            }
+
+            .high_priority {
+                background: url("../../../../../skins/default/images/svg/projects/important.svg") no-repeat;
+                display: inline-block;
+                float: left;
+                height: 15px;
+                margin-right: 4px;
+                margin-top: 11px;
+                width: 14px;
+                background-position-x: 100%;
+                background-position-y: 1px;
+            }
+
+            span.timeLeft {
+                color: @text-color;
+                font-size: 12px;
+                line-height: @divHeight;
+                cursor: default;
+                float:right;
+                margin-right:12px;
+
+                &.red {
+                    color: #cc3300;
+                }
+            }
+
+            span.milestone {
+                width: 16px;
+                height:16px;
+                background: url("../../../../../skins/default/images/svg/projects/milstones.svg") no-repeat;
+                float:right;
+                margin-top:12px;
+                background-position: 50%;
+            }
+
+            .deadline {
+                overflow: hidden;
+                white-space: nowrap;
+                height: @divHeight;
+                text-align: center;
+                float: right;
+                display: block;
+                width: 118px;
+            }
+
+            .subtasksCount {
+                float: left;
+                width: 72px;
+                overflow: hidden;
+                white-space: nowrap;
+                height: @divHeight;
+                margin-left: 15px;
+
+                span.collaps,
+                span.add {
+                    color: @text-color;
+                    font-size: 11px;
+                    line-height: @divHeight;
+                    cursor: pointer;
+                    margin-top: 10px;
+                    text-align: center;
+                }
+
+                span.collaps {
+                    background: no-repeat scroll right center transparent;
+
+                    span {
+                        display: inline;
+                    }
+                }
+
+                span.add {
+                    padding: 0px;
+                    border-bottom: 1px dotted @text-color;
+                    display: none;
+                }
+            }
+
+            &:hover {
+                background-color: @body-color-hover-another;
+
+                .taskName a {
+                    text-decoration: underline;
+                }
+
+                .subtasksCount span.add {
+                    display: inline;
+                }
+
+                .user {
+                    span {
+                        border-bottom: 1px dotted @dark-text-color;
+
+                        &.not-action {
+                            border-bottom: 1px dotted transparent;
+                            cursor: default;
+                        }
+                    }
+                }
+            }
+
+            &.closed {
+                &:hover .subtasksCount span.add,
+                .subtasksCount span.collaps {
+                    display: none;
+                }
+
+                .user,
+                .user b {
+                    color: #83888d;
+                }
+
+                &:hover .user span {
+                    border-bottom-color: #83888d;
+                }
+
+                span.timeLeft {
+                    color: #83888d;
+                }
+            }
+
+            &.can-move {
+                background: @drag-and-drop;
+
+                &.move-dest {
+                    background: @drag-and-drop-hover;
+                }
+            }
+
+            .user {
+                white-space: nowrap;
+                float: right;
+                font-size: 12px;
+                color: @text-color;
+                width: 160px;
+                overflow: hidden;
+                line-height: @divHeight;
+                cursor: pointer;
+                display: inline-block;
+                margin-right: 15px;
+
+                span b {
+                    color: @grey-text;
+                }
+
+                span:hover {
+                    border-bottom: 1px dotted @dark-text-color;
+                }
+
+                span.not-action:hover {
+                    border-bottom: 1px dotted transparent;
+                    cursor: default;
+                }
+            }
+
+            .others {
+                display: none;
+            }
+
+            .entity-menu {
+                float: right;
+                line-height: @divHeight;
+                margin: 10px 8px 0 0;
+            }
+
+            &:first-child {
+                border-top: 1px solid @border-color;
+            }
+        }
+
+        .check .taskProcess {
+            margin-left: 20px;
+            margin-top: 2px;
+        }
+
+        .subtask .check .taskProcess {
+            margin-left: 1px;
+            margin-top: -3px;
+        }
+    }
+}
+
+#showNextTaskProcess {
+    display:none;
+}
+
+.deadline_late {
+    text-align: left;
+}
+
+#othersListPopup {
+    .user,
+    .user span {
+        width: 170px;
+    }
+}
+
+.studio-action-panel .dropdown-content .dropdown-item.user.not-action:hover,
+.studio-action-panel .dropdown-content .dropdown-item.user.not-action:hover span {
+    text-decoration: none;
+    cursor: default;
+}
+
+
+#moveTaskPanel .milestonesList {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 200px;
+    border-top: 1px solid @border-color;
+
+    .ms {
+        border-bottom: 1px solid @border-color;
+        padding: 5px;
+    }
+}
+
+.borderBase.ms {padding:20px 30px 30px 20px;margin-bottom:20px;}
+.taskTitls.ms {
+    padding: 4px 0px 12px 0px;
+    overflow-x: hidden;
+}
+.describe-text.ms {padding-bottom:10px;}
+
+.st_separater {
+  width:100%;
+  height:0px;
+}
+.filterSeparater {
+  width:100%;
+  height:10px;
+}
+
+*+html .tl-combobox .combobox-container {
+    position: relative;
+}
+*+html .tl-combobox .combobox-wrapper {
+    position: static;
+}
+
+.popupContainerClass .infoPanel {
+    margin: 0px;
+}
+.popupActionPanel {
+    background: @body-color;
+    border: 1px solid #8E908F;
+    display: none;
+    min-width: 140px;
+    padding: 7px 10px;
+    position: absolute;
+    z-index: 1000;
+}
+
+#projectSelector_switcher span {
+    max-width: 188px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+#emptyFilterScreen, #emptyTaskListScreen {
+    display: none;
+}
+
+
+/*---- status combobox ----*/
+
+.taskList {
+    .changeStatusCombobox {
+        width: 38px;
+        height: 22px;
+        margin:8px 0 8px 8px;
+        text-align: center;
+
+        &.canEdit {
+            border: 1px solid @border-color;
+            border-radius: 3px;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            cursor: pointer;
+
+            span.arrow {
+                background-image: none;
+                height: 7px;
+                width: 7px;
+                display: inline-block;
+                position: relative;
+                margin: 0 4px 4px 1px;
+                *inline: inline;
+                *zoom: 1;
+
+                &:after {
+                    display: block;
+                    border-left: 4px solid transparent;
+                    border-right: 4px solid transparent;
+                    border-top: 4px solid #B8B8B8;
+                    content: "";
+                    height: 0;
+                    position: absolute;
+                    right: -1px;
+                    top: 50%;
+                    margin-top: -2px;
+                    width: 0;
+                    text-align: center;
+                }
+            }
+        }
+
+        &.noEdit {
+            background-image: none;
+            background-color: transparent;
+            border: 1px solid transparent;
+            margin-left:0px;
+        }
+
+        span {
+            display: inline-block;
+            margin: 3px 0 0 2px;
+            width: 16px;
+            height: 16px;
+            *inline: inline;
+            *zoom: 1;
+        }
+
+        .open,
+        .overdue,
+        .closed {
+            background: url('../../../../../skins/default/images/svg/projects/inbox.svg') no-repeat;
+        }
+
+        .closed {
+            background: url('../../../../../skins/default/images/svg/projects/check_tick.svg') no-repeat;
+            background-position-x: -2px;
+        }
+    }
+
+
+        div.task:hover .changeStatusCombobox.canEdit,
+        .changeStatusCombobox.canEdit.selected {
+            background-color: @changeStatusCombobox;
+            border-color: #a8a8a8;
+
+            span.arrow:after {
+                border-top-color: #999999;
+            }
+        }
+}
+
+#remindAboutTask .containerBodyBlock {
+    text-align: center;
+}
+
+
+body.media-width-0-1650:not(.media-width-0-1500) #CommonListContainer .taskList .task .taskName {
+    max-width: 660px;
+}
+body.media-width-0-1500:not(.media-width-0-1400) #CommonListContainer .taskList .task .taskName {
+    max-width: 560px;
+}
+body.media-width-0-1400:not(.media-width-0-1300) #CommonListContainer .taskList .task .taskName {
+    max-width: 460px;
+}
+body.media-width-0-1300:not(.media-width-0-1200) #CommonListContainer .taskList .task .taskName {
+    max-width: 360px;
+}
+body.media-width-0-1200:not(.media-width-0-1100) #CommonListContainer .taskList .task .taskName {
+    max-width: 260px;
+}
+body.media-width-0-1100 #CommonListContainer .taskList .task .taskName {
+    max-width: 160px;
+}
+
+.taskProcess {
+  background: url("../../../../../skins/default/images/@{loader-gif-16}") no-repeat;
+}
+
+/*******************************************************************************
+   Subtasks
+*******************************************************************************/
+
+.subtask {
+    line-height: 30px;
+    clear: both;
+
+    &.with-entity-menu .entity-menu {
+        float: right;
+        margin: 4px 8px 0 14px;
+    }
+
+    .entity-menu.show,
+    &.menuopen .entity-menu,
+    &:hover .entity-menu.show {
+        border-color: #3b72a7;
+
+        &:after {
+            border-top-color: #3b72a7;
+        }
+    }
+
+    &:hover,
+    &.menuopen {
+        background: @body-color-selected;
+    }
+
+    &.last {
+        border-bottom: none;
+    }
+
+    .check {
+        float: left;
+        width: 13px;
+        height: 29px;
+        margin: 0 8px;
+
+        input {
+            margin-top: 5px;
+            margin-left: 0px;
+        }
+
+        input, #ie#fix {
+            margin-top: 8px;
+        }
+    }
+
+    .taskName {
+        float: left;
+        width: 66.5%;
+        margin-left: 10px;
+        line-height: 29px;
+        overflow: hidden;
+        padding-bottom: 7px;
+        word-break: break-all;
+
+        span {
+            display: block;
+            margin-top: 7px;
+            line-height: 16px;
+        }
+    }
+
+    .user {
+        white-space: nowrap;
+        float: right;
+        overflow: hidden;
+        line-height: 29px;
+        width: 160px;
+        display: inline-block;
+
+        b {
+            color: @grey-text;
+        }
+    }
+
+    &.closed {
+        .taskName {
+            color: #83888d;
+            text-decoration: line-through;
+        }
+
+        .user {
+            color: #83888d;
+            font-size: 12px;
+        }
+    }
+
+    &.edited {
+        display: none;
+    }
+}
+
+.quickAddSubTaskLink {
+    margin: 8px 0 6px 8px;
+    border: @body-color 1px solid;
+}
+
+.subtask-loader {
+    margin-top: 10px;
+    height: 12px;
+    width: 12px;
+    background: url("../../../../../skins/default/images/@{loader-gif-12}") no-repeat 0 0;
+}
+
+/*---subtasks---*/
+.add-subtask-field-wrapper {
+    clear: both;
+    background-color: @body-color;
+    clear: both;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+
+    td {
+        padding: 4px 2px;
+    }
+
+    .subtask-loader {
+        position: absolute;
+        top: -2px;
+        left: 7px;
+    }
+
+    .subtask-name {
+        border-right: none;
+        padding-left: 36px;
+        padding-right: 8px;
+        position: relative;
+    }
+
+    input.subtask-name-input,
+    input.subtask-name-input:focus {
+        border: none;
+        outline: 0;
+        width: 100%;
+    }
+
+    .subtask-responsible {
+        width: 150px;
+        border-left: none;
+        white-space: nowrap;
+        overflow: hidden;
+
+        .subtask-responsible-selector {
+            position: relative;
+        }
+    }
+
+    .subtask-add-button {
+        width: 40px;
+        padding-left: 8px;
+    }
+}
+
+.subtask-responsible .tl-combobox .combobox-container{
+    max-width: 256px;
+}
+
+body.media-width-0-1200 .subtask-responsible-selector
+{
+    max-width: 136px;
+    float: left;
+}
+
+.nomenupoint {
+	width:16px;
+	height:16px;
+	float:right;
+    margin-left:13px;	
+}
+
+.subtasks { 
+  padding:8px 0;
+}
+
+.taskList .subtasks { /*---for list tasks---*/
+    display: none;
+    padding-left: @actionListWidth;
+}
+*:first-child+html .subtask .check input {
+    margin-top:5px;
+}
+
+
+body.media-width-0-1200 .subtask .taskName {
+    width:60.5%;
+}
+
+.title-and-responsible-wrapper {
+    padding: 2px;
+}
+.subtask-name-input, .subtask-name-input:focus {
+    border-color: transparent;
+    outline: none;
+    width: 60%;
+}
+
+/*******************************************************************************
+   TaskDescriptionView
+*******************************************************************************/
+#taskTitleContainer {
+    margin-bottom: 4px;
+
+    .headerTaskTitle {
+        color: #111;
+        font-size: 24px;
+        float: left;
+        line-height: 30px;
+        max-width: 95%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+.deadlineLate
+{
+	color: #CC3300;
+}
+.studio-action-panel .date  /*--fix color--*/
+{
+    color: @text-color;
+}
+
+/*------common info-----*/
+
+.colorPriority
+{
+	height: 16px;
+	width: 16px;
+    background: url('../images/projects_entity_statuses.png') no-repeat 0 -115px;
+    span{
+        margin-left:18px;
+    }
+}
+
+/*-------Comments & subtasks------*/
+
+#commentContainer #commentsTitle{
+	display: none !important;
+}
+#commentsListWrapper{
+    margin-top: 15px
+}
+
+/*-----Related tasks-----*/
+
+.linked-tasks-buttons {
+    .baseLinkAction,
+    .icon-link a {
+        color: @text-color;
+    }
+
+        .baseLinkAction.disabled {
+            color: #83888D;
+            cursor: default;
+        }
+
+    .icon-link {
+        margin-right: 24px;
+    }
+}
+
+.task-links {
+    margin-bottom: 8px;
+    border-collapse: collapse;
+    color: @text-color;
+    font-size: 12px;
+    table-layout: fixed;
+    width: 100%;
+
+    .title {
+        .task-name {
+            color: @text-color;
+            max-width: 98%;
+            line-height: 14px;
+            text-decoration: none;
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .invalid-link .title .task-name {
+        max-width: 87%;
+        margin-top: 2px;
+    }
+
+    .linked-task td {
+        border-top: 1px solid @border-color;
+        height: 32px;
+        vertical-align: middle;
+        padding: 0px 8px;
+    }
+
+    .start-date, .task-links .end-date,
+    .duration, .task-links .link-type {
+        width: 100px;
+        text-align: center;
+    }
+
+    .actions {
+        width: 24px;
+    }
+
+    .edit-link-container .link-type {
+        width: 251px;
+    }
+}
+
+.gray-text .title a {
+    color: #83888D;
+}
+#relatedTasks {
+    border-bottom: 1px solid @border-color;
+
+    .linked-task {
+        &:hover {
+            background-color: @body-color-selected;
+        }
+
+        &.invalid-link,
+        &.invalid-link:hover {
+            background-color: #F7E1D9;
+        }
+    }
+}
+
+.attantion {
+    display: inline-block;
+    line-height: 16px;
+    width: 16px;
+    margin: 2px 4px 0 0;
+    background: url("../images/small-icons.png") no-repeat 0 -104px transparent;
+}
+
+/*---edit task link container --*/
+#linkedTasksContainer {
+    position:relative;
+}
+#editTable {
+    background-color: @body-color;
+
+    &.border-top .linked-task td {
+        border-top: 1px solid @border-color;
+    }
+
+    &.border-bottom .linked-task td {
+        border-bottom: 1px solid @border-color;
+    }
+
+    .actions {
+        width: @actionListWidth;
+        text-align: right;
+    }
+}
+
+#taskSelector,
+#taskSelector option {
+    width: 100%;
+    max-width: 500px;
+}
+#linkTypeSelector, #linkTypeSelector option{
+    width: 150px;
+    max-width: 150px;
+}
+/*------*/
+
+
+#subtaskContainer, #filesContainer, #commentContainer {
+    margin-bottom: 20px;
+    clear: both;
+}
+.tabContent { display: none;}

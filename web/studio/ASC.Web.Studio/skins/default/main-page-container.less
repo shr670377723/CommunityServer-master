@@ -1,0 +1,186 @@
+/*
+ *
+ * (c) Copyright Ascensio System Limited 2010-2023
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+*/
+
+
+@import "../base.less";
+
+/*---------------- container for main page ------------------------*/
+.auth-form-page {
+    text-align:center;
+}
+
+div#GreetingBlock {
+    margin: 0 auto;
+    width: 900px;
+
+    &.greating-block {
+        width: 1000px;
+    }
+
+    &.five-column-block {
+        width: 820px;
+    }
+
+    &.authForm {
+        display: inline-block;
+        margin-top: 70px;
+        padding-bottom: 61px;
+        width: auto;
+
+        &.help-block-none {
+            width: 400px;
+        }
+
+        div.header {
+            margin-bottom: 10px;
+            min-height: 76px;
+
+            img.logo {
+                display: block;
+                max-width: 216px;
+                max-height: 35px;
+            }
+
+            .header-base {
+                word-wrap: break-word;
+                text-align: left;
+            }
+        }
+    }
+
+    div.header {
+        img.logo {
+            clear: right;
+        }
+
+        .header-base {
+            margin: 8px 0;
+        }
+    }
+
+    div.addition {
+        margin: 0 0 30px;
+        padding: 5px;
+        border-width: 1px 0 0;
+
+        div.item {
+            display: inline-block;
+            background: none left center no-repeat;
+            line-height: 30px;
+
+            img {
+                width: auto;
+                float: left;
+                border: 0;
+                margin: 0 0 0 5px;
+            }
+
+            a {
+                display: inline-block;
+                clear: right;
+                margin: 0 0 0 15px;
+            }
+        }
+    }
+
+    .help-block-signin {
+        float: left;
+        text-align: left;
+
+        div.signUpBlock {
+            font-size: 12px;
+            margin-bottom: 32px;
+            width: 280px;
+
+            .login-hint-block {
+                margin-left: 20px;
+            }
+
+            a.signUp {
+                border-bottom: 1px dotted;
+                font-size: 12px;
+                margin-left: 20px;
+                text-decoration: none;
+            }
+
+            a.opened {
+                color: #787878 !important;
+            }
+
+            div.desc {
+                color: #787878;
+                margin-bottom: 10px;
+            }
+
+            div.overview {
+                position: relative;
+                font-weight: bold;
+                padding-left: 20px;
+
+                &:after {
+                    background-color: #83888d;
+                    .borderRadius(12px);
+                    color: #ffffff;
+                    content: "?";
+                    font-family: "Open Sans",sans-serif;
+                    display: inline-block;
+                    font-size: 11px;
+                    font-weight: 900;
+                    height: 12px;
+                    left: 3px;
+                    position: absolute;
+                    text-align: center;
+                    top: 3px;
+                    width: 12px;
+                    line-height: 11px;
+                    padding: 0;
+                    margin: 0;
+                    border: 0 none;
+                    letter-spacing: -2px;
+                }
+            }
+
+            div.label {
+                margin-bottom: 5px;
+            }
+
+            .textEdit {
+                .borderRadius(3px);
+                font-size: 14px;
+                height: 28px;
+            }
+
+            #studio_admMessDialog,
+            #studio_invJoinDialog {
+                margin-top: 10px;
+            }
+
+            span.description {
+                display: block;
+                margin: 10px 0 0;
+            }
+        }
+    }
+}
+
+.footerAuth {
+    border-top: 1px solid #e0e0e0;
+    height: 47px;
+    margin-top: -61px;
+    min-width: 959px; 
+    padding: 13px 24px 0;
+    position: relative;    
+}

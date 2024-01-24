@@ -1,0 +1,277 @@
+/*
+ *
+ * (c) Copyright Ascensio System Limited 2010-2023
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+*/
+
+
+@import "../base.less";
+@import "../default/params.less";
+
+.popup_helper {
+    display: none;
+    background-color: @popup-bg-color;
+    width: 280px;
+    padding: 15px;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    z-index: 255;
+    white-space: normal;
+    border: 1px solid @popup-helper-bor;
+    .borderRadius(8px);
+    color: @popup-helper-col;
+    text-align: left;
+    font-size: 12px;
+    font-weight: normal;
+    .shadowFullCustomizable(0, 3px, 6px, rgba(0, 0, 0, 0.5));
+
+    &.sets {
+        width: 200px;
+    }
+
+    ul {
+        padding-left: 20px;
+        margin: 0;
+
+        li {
+            padding: 5px 0;
+        }
+    }
+
+    h4 {
+        margin: 0 0 10px 0;
+    }
+
+    p {
+        margin: 0 !important;
+    }
+
+    a {
+        color: #116D9D;
+    }
+
+    .buttons {
+        margin-top: 10px;
+
+        .nextHelp,
+        .close-tour {
+            float: right;
+            margin-right: 8px;
+        }
+
+        .neverShow {
+            border-bottom: 1px dotted gray;
+            color: gray;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 3px;
+            text-decoration: none;
+        }
+    }
+}
+
+
+.closeBlock {
+    width:16px;
+    height:16px;
+    background-image:url('images/close.png');
+    background-repeat:no-repeat;
+    border: 0 none;
+    cursor: pointer;
+    display: block;
+    float: right;
+    font-size: 0;
+    line-height: 0;
+    position: relative;
+    text-decoration: none;
+    top: -5px;
+    right:-10px;
+}
+.cornerHelpBlock {
+    position: absolute;
+    z-index: 261;
+    width: 0;
+    height: 0;
+    margin: 0;
+
+    &.pos_bottom {
+        top: -16px;
+        left: 36px;
+
+        &:before {
+              border-color: transparent transparent transparent @corner-help-block-before;
+              border-style: solid;
+              border-width: 16px 0 0 24px;
+              content: "";
+              height: 0;
+              left: -1px;
+              position: absolute;
+              top: -1px;
+              width: 0;
+        }
+
+        &:after {
+            border-color: transparent transparent transparent @corner-help-block;
+            border-style: solid;
+            border-width: 16px 0 0 24px;
+            content: "";
+            height: 0;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 0;
+        }
+    }
+
+    &.pos_bottom_left {
+        top: -16px;
+        right: 55px;
+
+        &:before {
+              border-color: transparent transparent @corner-help-block-before transparent;
+              border-style: solid;
+              border-width: 0 0 16px 24px;
+              content: "";
+              height: 0;
+              left: 1px;
+              position: absolute;
+              top: -1px;
+              width: 0;
+        }
+
+        &:after {
+            border-color: transparent transparent @corner-help-block transparent;
+            border-style: solid;
+            border-width: 0 0 16px 24px;
+            content: "";
+            height: 0;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 0;
+        }
+    }
+
+    &.pos_top {
+        bottom: 0;
+        left: 36px;
+
+         &:before {
+              border-color: transparent transparent transparent @corner-help-block-before-2;
+              border-style: solid;
+              border-width: 0 0 16px 24px;
+              content: "";
+              height: 0;
+              left: -1px;
+              position: absolute;
+              top: 2px;
+              width: 0;
+        }
+
+        &:after {
+            border-color: transparent transparent transparent @corner-help-block;
+            border-style: solid;
+            border-width: 0 0 16px 24px;
+            content: "";
+            height: 0;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 0;
+        }
+    }
+
+    &.pos_top_left {
+        bottom: 0;
+        right: 56px;
+
+         &:before {
+              border-color: transparent @corner-help-block-before-2 transparent transparent;
+              border-style: solid;
+              border-width: 0 24px 16px 0;
+              content: "";
+              height: 0;
+              left: 1px;
+              position: absolute;
+              top: 2px;
+              width: 0;
+        }
+
+        &:after {
+            border-color: transparent @corner-help-block transparent transparent;
+            border-style: solid;
+            border-width: 0 24px 16px 0;
+            content: "";
+            height: 0;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 0;
+        }
+    }
+}
+
+
+.HelpCenterSwitcher {
+    cursor: pointer;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    margin: 0px 0px -4px;
+    float: none;
+    padding: 0;
+    position: relative;
+
+     &:after {
+        background-color: @menu-item-svg;
+        .borderRadius(12px);
+        color: @body-color;
+        content: "?";
+        font-family: "Open Sans",sans-serif;
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 900;
+        height: 12px;
+        left: 2px;
+        position: absolute;
+        text-align: center;
+        top: 2px;
+        width: 12px;
+        line-height: 12px;
+        padding: 0;
+        margin: 0;
+        border: 0 none;
+    }
+
+
+    &.expl {
+        background: url("imagescss/expl_16.png") no-repeat center 1px;
+
+        &:after {
+            content: "";
+            display: none;
+            height: 0;
+            width: 0;
+        }
+    }
+
+    &.title {
+        margin-top: 7px;
+        margin-left: 5px;
+        float: left;
+
+        &.big {
+            margin-top: 10px;
+        }
+    }
+}

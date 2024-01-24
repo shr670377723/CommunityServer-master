@@ -1,0 +1,345 @@
+/*
+ *
+ * (c) Copyright Ascensio System Limited 2010-2023
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+*/
+
+
+@import "params.less";
+
+/*---table---*/
+
+.pm-tablebase {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+
+    thead td,
+    thead th {
+        text-align: left;
+        color: #82878D;
+        font-size: 12px;
+    }
+
+    tbody td {
+        text-align: left;
+        border-left: none;
+        border-right: none;
+        vertical-align: middle;
+    }
+}
+
+/*----total time-----*/
+.total-time-forFilter {
+    font-size: 12px;
+    visibility: hidden;
+    margin-top: -8px;
+    margin-bottom: 8px;
+
+    &.float-none {
+        float: none;
+    }
+
+    .total-count,
+    .billed-count {
+        margin-left: 24px;
+    }
+
+    .hours,
+    .minutes {
+        margin: 0 4px;
+    }
+}
+
+#deselectAllTimers {
+    margin-left:10px;
+}
+#timeTrakingGroupActionMenu
+{
+    clear:left;
+}
+/*//////////////////////////////////////*/
+/*-------temporary for test-------*/
+/*//////////////////////////////////////*/
+.pm-ts-statusColumn {
+    padding: 0 0 0 4px;
+    width: 45px;
+}
+
+.pm-ts-statusCheckboxColumn {}
+
+.timeSpendRecord {
+    .checkbox {
+        width: 20px;
+        padding: 0 0 0 4px;
+        color-scheme: @checkbox-color-scheme;
+        accent-color: @checkbox-accent-color;
+    }
+
+    .changeStatusCombobox {
+        display: block;
+        width: 35px;
+        border: 1px solid transparent;
+
+        &.canEdit {
+            border: 1px solid @border-color;
+            border-radius: 3px;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            cursor: pointer;
+
+            span.arrow {
+                background-image: none;
+                height: 7px;
+                width: 7px;
+                display: inline-block;
+                position: relative;
+                margin: 0 4px 4px 1px;
+                *inline: inline;
+                *zoom: 1;
+
+                &:after {
+                    display: block;
+                    border-left: 4px solid transparent;
+                    border-right: 4px solid transparent;
+                    border-top: 4px solid #B8B8B8;
+                    content: "";
+                    height: 0;
+                    position: absolute;
+                    right: -1px;
+                    top: 50%;
+                    margin-top: -2px;
+                    width: 0;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    .check {
+        float: left;
+        width: 38px;
+        height: 30px;
+        margin-left: 8px;
+    }
+
+    .changeStatusCombobox {
+        width: 38px;
+        height: 22px;
+        margin-top: 3px;
+        text-align: center;
+
+        span {
+            display: inline-block;
+            margin: 3px 0 0 2px;
+            width: 16px;
+            height: 16px;
+            *inline: inline;
+            *zoom: 1;
+        }
+
+        .not-chargeable {
+            background: url('../../../../../skins/default/images/svg/projects/forbidden.svg') no-repeat;
+            background-position-x: -1px;
+        }
+
+        .not-billed {
+            background: url('../../../../../skins/default/images/svg/projects/circle-empty.svg') no-repeat;
+            background-position-x: -1px;
+        }
+
+        .billed {
+            background: url('../../../../../skins/default/images/svg/projects/payment-small.svg') no-repeat;
+            background-position-x: -1px;
+        }
+
+        &.noEdit {
+            background-image: none;
+            background-color: transparent;
+            border: 1px solid transparent;
+        }
+    }
+}
+
+.timeSpendRecord:hover .changeStatusCombobox.canEdit,
+.timeSpendRecord .changeStatusCombobox.canEdit.selected
+{
+    background-color: #eaeaea;
+    border-color: #a8a8a8;
+}
+.timeSpendRecord:hover .changeStatusCombobox.canEdit span.arrow:after,
+.timeSpendRecord .changeStatusCombobox.canEdit.selected  span.arrow:after {
+    border-top-color: #999999;
+}
+
+
+/*//////////////////////////////////////*/
+
+#timeSpendsList {
+    .entity-menu {
+        margin: 0;
+    }
+
+        .entity-menu.show,
+        .timeSpendRecord:hover .entity-menu.show,
+        .timeSpendRecord .entity-menu.show:hover {
+            border-color: #3b72a7;
+        }
+
+            .entity-menu.show:after,
+            .timeSpendRecord:hover .entity-menu.show:after,
+            .timeSpendRecord .entity-menu.show:hover:after {
+                border-top-color: #3b72a7;
+            }
+
+    thead td {
+        color: #82878D;
+        padding-bottom: 5px;
+    }
+
+    tbody {
+        border-top: 1px solid @border-color;
+
+        td {
+            color: @text-color;
+            height: 40px;
+        }
+    }
+
+    .timeSpendRecord:hover,
+    .timeSpendRecord.checked-row:hover,
+    .timeSpendRecord.menuopen {
+        background: @body-color-hover-another;
+    }
+
+    .timeSpendRecord.checked-row {
+        background: @body-color-selected;
+    }
+
+    .pm-ts-noteColumn span {
+        color: #83888d;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+    }
+
+    .pm-ts-hoursColumn,
+    .pm-ts-dateColumn {
+        padding: 0 10px;
+        width: 75px;
+    }
+
+    .pm-ts-personColumn {
+        width: 170px;
+    }
+
+    .pm-ts-noteColumn a {
+        color: @text-color;
+        display: block;
+        font-weight: bold;
+        overflow: hidden;
+        text-decoration: none;
+        text-overflow: ellipsis;
+        width: 93%;
+    }
+
+        .timeSpendRecord:hover .pm-ts-noteColumn a,
+        .pm-ts-noteColumn a:hover {
+            text-decoration: underline;
+        }
+
+    .pm-ts-personColumn span {
+        max-width: 160px;
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        b {
+            color: @grey-text;
+        }
+    }
+
+    &.forProject {
+        .pm-ts-personColumn {
+            span {
+                cursor: pointer;
+                border-bottom: 1px dotted transparent;
+
+                &:hover {
+                    border-bottom: 1px dotted @text-color;
+                }
+
+                &.not-action,
+                &.not-action:hover {
+                    border: none;
+                    cursor: default;
+                }
+            }
+        }
+
+        .timeSpendRecord:hover {
+            .pm-ts-personColumn span {
+                border-bottom: 1px dotted @text-color;
+
+                &.not-action {
+                    border: none;
+                    cursor: default;
+                }
+            }
+        }
+    }
+
+    .pm-ts-actionsColumn {
+        width: 32px;
+    }
+}
+
+#emptyScreenForTimers {
+	display: none;
+}
+
+/*-----popup edit timer------*/
+
+#timeTrakingPopup {
+    .header-base {
+        width: 500px;
+        overflow: hidden;
+    }
+
+    .block-cnt-splitter {
+        .textEdit {
+            width: 30px;
+        }
+
+        #timeTrakingErrorPanel {
+            padding: 1px 0;
+            position: absolute;
+        }
+    }
+
+    .headerPanelSmall {
+        margin-top: 1px;
+    }
+
+    .addLogPanel-infoPanel {
+        padding: 7px 0 8px 24px;
+        margin-bottom: 16px;
+        background: url("../images/timer-icons.png") no-repeat 0 -95px;
+    }
+
+    #timeDescription {
+        width: 99%;
+        min-height: 70px;
+        resize: none;
+    }
+}

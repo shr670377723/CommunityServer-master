@@ -1,0 +1,180 @@
+/*
+ *
+ * (c) Copyright Ascensio System Limited 2010-2023
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+*/
+
+
+@import "../../../../skins/default/params.less";
+
+.personal-footer {
+    background-color: @bg-button-default-disable;
+    font-size: 12px;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    a {
+        color: @bg-a-activate;
+        text-decoration: none;
+    }
+}
+.personal-footer_w {
+    width: 955px;
+    margin: 0 auto;
+    padding: 25px 0 18px;
+    background: @bg-button-default-disable;
+}
+.personal-footer_rights {
+    float: right;
+}
+.personal-languages {
+    float: left;
+    margin-right: 40px;
+}
+.personal-languages_select {
+    background: url("images/flags.svg") no-repeat left 2px transparent;
+    cursor: pointer;
+    line-height: 16px;
+    padding-left: 24px;
+    padding-top: 8px;
+    position: relative;
+
+    span {
+        border-bottom: 1px dotted @textColorBlackDark;
+    }
+
+    &:after {
+        content: "";
+        border-top: 4px solid @textColorBlackDark;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        position: absolute;
+        top: 8px;
+        right: -15px;
+    }
+}
+#AuthFormLanguagesPanel.studio-action-panel {
+    padding: 16px 0px;
+
+    .dropdown-content {
+        width: 740px;
+        column-count: 3;
+
+        .dropdown-item {
+            padding: 0;
+            margin: 8px 21px;
+            width: 204px;
+            display: inline-block;
+
+            &:hover {
+                background-color: transparent;
+            }
+
+            a {
+                background-image: url(images/flags.svg);
+                background-repeat: no-repeat;
+                padding: 0 0 0 28px;
+
+                &:hover {
+                    background-color: transparent;
+                }
+            }
+
+            &.az-Latn-AZ a { background-position: left 0; }
+            &.bg-BG a { background-position: left -28px; }
+            &.zh-CN a { background-position: left -56px; }
+            &.cs-CZ a { background-position: left -84px; }
+            &.nl-NL a { background-position: left -112px; }
+            &.en-GB a { background-position: left -140px; }
+            &.en-US a { background-position: left -168px; }
+            &.fi-FI a { background-position: left -196px; }
+            &.fr-FR a { background-position: left -224px; }
+            &.de-DE a { background-position: left -252px; }
+            &.de-CH a { background-position: left -280px; }
+            &.el-GR a { background-position: left -308px; }
+            &.it-IT a { background-position: left -336px; }
+            &.ja-JP a { background-position: left -364px; }
+            &.ko-KR a { background-position: left -392px; }
+            &.lv-LV a { background-position: left -420px; }
+            &.pl-PL a { background-position: left -448px; }
+            &.pt-BR a { background-position: left -476px; }
+            &.pt-PT a { background-position: left -504px; }
+            &.ru-RU a { background-position: left -532px; }
+            &.sk-SK a { background-position: left -560px; }
+            &.sl-SI a { background-position: left -588px; }
+            &.es-MX a { background-position: left -616px; }
+            &.es-ES a { background-position: left -644px; }
+            &.tr-TR a { background-position: left -672px; }
+            &.uk-UA a { background-position: left -700px; }
+            &.vi-VN a { background-position: left -728px; }
+        }
+    }
+}
+
+.personal-languages_select {
+    &.az-Latn-AZ { background-position: left 0; }
+    &.bg-BG { background-position: left -28px; }
+    &.zh-CN { background-position: left -56px; }
+    &.cs-CZ { background-position: left -84px; }
+    &.nl-NL { background-position: left -112px; }
+    &.en-GB { background-position: left -140px; }
+    &.en-US { background-position: left -168px; }
+    &.fi-FI { background-position: left -196px; }
+    &.fr-FR { background-position: left -224px; }
+    &.de-DE { background-position: left -252px; }
+    &.de-CH { background-position: left -280px; }
+    &.el-GR { background-position: left -308px; }
+    &.it-IT { background-position: left -336px; }
+    &.ja-JP { background-position: left -364px; }
+    &.ko-KR { background-position: left -392px; }
+    &.lv-LV { background-position: left -420px; }
+    &.pl-PL { background-position: left -448px; }
+    &.pt-BR { background-position: left -476px; }
+    &.pt-PT { background-position: left -504px; }
+    &.ru-RU { background-position: left -532px; }
+    &.sk-SK { background-position: left -560px; }
+    &.sl-SI { background-position: left -588px; }
+    &.es-MX { background-position: left -616px; }
+    &.es-ES { background-position: left -644px; }
+    &.tr-TR { background-position: left -672px; }
+    &.uk-UA { background-position: left -700px; }
+    &.vi-VN { background-position: left -728px; }
+}
+
+.personal-footer-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        float: left;
+        margin: 0 25px 2px 0;
+
+        a:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #AuthFormLanguagesPanel.studio-action-panel .dropdown-content {
+        width: 320px;
+        column-count: auto;
+
+        .dropdown-item {
+            margin: 8px 20px 0 20px;
+        }
+    }
+}

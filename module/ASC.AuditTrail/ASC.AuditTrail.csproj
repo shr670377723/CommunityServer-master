@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2C111161-B7C5-4869-9F52-EA725E64BA40}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ASC.AuditTrail</RootNamespace>
+    <AssemblyName>ASC.AuditTrail</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <OutputPath>..\..\web\studio\ASC.Web.Studio\bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\web\studio\ASC.Web.Studio\bin\ASC.AuditTrail.xml</DocumentationFile>
+    <NoWarn>CS1591</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AuditEvent.cs" />
+    <Compile Include="LoginEvent.cs" />
+    <Compile Include="Mappers\AuditActionMapper.cs" />
+    <Compile Include="AuditEventsRepository.cs" />
+    <Compile Include="Mappers\IModuleActionMapper.cs" />
+    <Compile Include="Mappers\IProductActionMapper.cs" />
+    <Compile Include="Mappers\OthersActionMapper.cs" />
+    <Compile Include="Mappers\SettingsActionMapper.cs" />
+    <Compile Include="Mappers\DocumentsActionMapper.cs" />
+    <Compile Include="Mappers\PeopleActionMapper.cs" />
+    <Compile Include="Mappers\CrmActionMapper.cs" />
+    <Compile Include="Mappers\ProjectsActionMapper.cs" />
+    <Compile Include="Mappers\LoginActionMapper.cs" />
+    <Compile Include="LoginEventsRepository.cs" />
+    <Compile Include="Mappers\MessageMaps.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Types\ActionType.cs" />
+    <Compile Include="Types\EntryType.cs" />
+    <Compile Include="Types\ModuleType.cs" />
+    <Compile Include="Types\ProductType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AuditReportResource.az-Latn-AZ.resx" Condition="$(Cultures.Contains('az-Latn-AZ'))">
+      <DependentUpon>AuditReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditReportResource.bg.resx" Condition="$(Cultures.Contains('bg'))">
+      <DependentUpon>AuditReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditReportResource.cs.resx" Condition="$(Cultures.Contains('cs'))">
+      <DependentUpon>AuditReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditReportResource.de.resx" Condition="$(Cultures.Contains('de'))">
+      <DependentUpon>AuditReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditReportResource.el.resx" Condition="$(Cultures.Contains('el'))">
+      <DependentUpon>AuditReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditReportResource.es.resx" Condition="$(Cultures.Contains('es'))">
+      <DependentUpon>AuditReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditReportResource.fi.resx" Condition="$(Cultures.Contains('fi'))">
+      <DependentUpon>AuditReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditReportResource.fr.resx" Condition="$(Cultures.Contains('fr'))">
+      <DependentUpon>AuditReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditReportResource.it.resx" Condition="$(Cultures.Contains('it'))">
+      <DependentUpon>AuditReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditReportResource.ja.resx" Condition="$(Cultures.Contains('ja'))">
+      <DependentUpon>AuditReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditReportResource.lv.resx" Condition="$(Cultures.Contains('lv'))">
+      <DependentUpon>AuditReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditReportResource.nl.resx" Condition="$(Cultures.Contains('nl'))">
+      <DependentUpon>AuditReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditReportResource.pl.resx" Condition="$(Cultures.Contains('pl'))">
+      <DependentUpon>AuditReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditReportResource.pt-BR.resx" Condition="$(Cultures.Contains('pt-BR'))">
+      <DependentUpon>AuditReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditReportResource.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AuditReportResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditReportResource.ru.resx" Condition="$(Cultures.Contains('ru'))">
+      <DependentUpon>AuditReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditReportResource.sk.resx" Condition="$(Cultures.Contains('sk'))">
+      <DependentUpon>AuditReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditReportResource.sl.resx" Condition="$(Cultures.Contains('sl'))">
+      <DependentUpon>AuditReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditReportResource.tr.resx" Condition="$(Cultures.Contains('tr'))">
+      <DependentUpon>AuditReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditReportResource.uk.resx" Condition="$(Cultures.Contains('uk'))">
+      <DependentUpon>AuditReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditReportResource.vi.resx" Condition="$(Cultures.Contains('vi'))">
+      <DependentUpon>AuditReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditReportResource.zh-CN.resx" Condition="$(Cultures.Contains('zh-CN'))">
+      <DependentUpon>AuditReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="AuditReportResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AuditReportResource.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AuditReportResource.ga.resx" Condition="$(Cultures.Contains('ga'))">
+      <DependentUpon>AuditReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditReportResource.hu.resx" Condition="$(Cultures.Contains('hu'))">
+      <DependentUpon>AuditReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditReportResource.id.resx" Condition="$(Cultures.Contains('id'))">
+      <DependentUpon>AuditReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditReportResource.sv.resx" Condition="$(Cultures.Contains('sv'))">
+      <DependentUpon>AuditReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditReportResource.zh-TW.resx" Condition="$(Cultures.Contains('zh-TW'))">
+      <DependentUpon>AuditReportResource.resx</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\common\ASC.Common\ASC.Common.csproj">
+      <Project>{76de7717-3d4b-4a5b-b740-15b8913df0cb}</Project>
+      <Name>ASC.Common</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\common\ASC.Core.Common\ASC.Core.Common.csproj">
+      <Project>{a51d0454-4afa-46de-89d4-b03d37e1816c}</Project>
+      <Name>ASC.Core.Common</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\web\core\ASC.Web.Core\ASC.Web.Core.csproj">
+      <Project>{02C40A64-FE22-41D0-9037-69F0D6F787A9}</Project>
+      <Name>ASC.Web.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ASC.MessagingSystem\ASC.MessagingSystem.csproj">
+      <Project>{bd8a18a5-60c5-4411-9719-0aa11b4be0e9}</Project>
+      <Name>ASC.MessagingSystem</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CsvHelper">
+      <Version>27.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

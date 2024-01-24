@@ -1,0 +1,391 @@
+/*
+ *
+ * (c) Copyright Ascensio System Limited 2010-2023
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+*/
+
+
+@body-color: #fff;
+@border-color: #d1d1d1;
+
+#studio_sharingSettingsDialog {
+    display: none;
+}
+
+#sharingSettingsDialogBody {
+
+    #sharingSettingsItems {
+        border-top: 1px solid @border-color;
+        height: 318px;
+        min-height: 318px;
+        overflow: auto;
+
+        &.with-share-link {
+            height: 274px;
+            min-height: 274px;
+
+            &.with-message-panel {
+                height: 232px;
+                min-height: 232px;
+
+                &.with-formfilling-panel {
+                    height: 190px;
+                    min-height: 190px;
+                }
+            }
+
+            &.with-formfilling-panel {
+                height: 232px;
+                min-height: 232px;
+            }
+        }
+
+        &.with-message-panel {
+            height: 276px;
+            min-height: 276px;
+
+            &.with-formfilling-panel {
+                height: 234px;
+                min-height: 234px;
+            }
+        }
+
+        &.with-formfilling-panel {
+            height: 276px;
+            min-height: 276px;
+        }
+    }
+
+    .sharing-empty {
+        float: left;
+        margin-top: -150px;
+        text-align: center;
+        width: 100%;
+    }
+
+    &.with-message {
+        #sharingSettingsItems.with-message-panel {
+            height: 216px;
+            min-height: 216px;
+
+            &.with-share-link {
+                height: 172px;
+                min-height: 172px;
+
+                &.with-formfilling-panel {
+                    height: 130px;
+                    min-height: 130px;
+                }
+            }
+
+            &.with-formfilling-panel {
+                height: 174px;
+                min-height: 174px;
+            }
+        }
+
+        .sharing-empty {
+            margin-top: -90px;
+        }
+    }
+}
+
+body.mobile #sharingSettingsItems {
+    height: auto !important;
+    overflow: visible !important;
+}
+
+#studio_sharingSettingsDialog .sharingItem {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    padding: 10px 8px 7px;
+}
+#studio_sharingSettingsDialog .sharingItem .name {
+    float: left;
+    max-width: 346px;
+    overflow: hidden;
+}
+#studio_sharingSettingsDialog .sharingItem .action {
+    float: right;
+    text-align: right;
+    width: 140px;
+}
+.action-clean {
+    padding-right: 24px;
+}
+#studio_sharingSettingsDialog .sharingItem .remove {
+    float: right;
+    width: 16px;
+    margin-left: 4px;
+}
+.sharing-group {
+    background: url("images/group.png") no-repeat 0 0 transparent;
+    display: inline-block;
+    height: 16px;
+    margin: -1px 0 -2px 5px;
+    width: 16px;
+}
+.add-to-sharing-links {
+    display: block;
+    margin-bottom: 13px;
+
+    .addUserLink {
+        border-top-right-radius: 0;
+        -moz-border-radius-topright: 0;
+        -webkit-border-top-right-radius: 0;
+        -khtml-border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        -moz-border-radius-bottomright: 0;
+        -webkit-border-bottom-right-radius: 0;
+        -khtml-border-bottom-right-radius: 0;
+
+        &.button,
+        &.button:hover {
+            padding-right: 8px;
+        }
+
+        &::after {
+            left: 8px;
+        }
+    }
+
+    .share-default-action {
+        margin-left: -5px;
+        position: relative;
+        width: 0;
+        border-top-left-radius: 0;
+        -moz-border-radius-topleft: 0;
+        -webkit-border-top-left-radius: 0;
+        -khtml-border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        -moz-border-radius-bottomleft: 0;
+        -webkit-border-bottom-left-radius: 0;
+        -khtml-border-bottom-left-radius: 0;
+
+        span {
+            background: @shareDefaultActionImage no-repeat 0 20px transparent;
+            margin-left: -14px;
+            padding: 0 0 0 24px;
+            background-position-y: 50%;
+            background-size: 16px;
+            background-repeat: no-repeat
+        }
+
+        &::after {
+            border-color: @shareDefaultActionAfterColor transparent transparent;
+            border-style: solid solid outset;
+            border-width: 4px 4px 0;
+            content: "";
+            height: 0;
+            margin-top: -2px;
+            position: absolute;
+            right: 5px;
+            top: 50%;
+        }
+
+        &.share-def-action-read span {
+            background-image: @viewsIcon
+        }
+
+        &.share-def-action-comment span {
+            background-image: @accessForCommentIcon
+        }
+
+        &.share-def-action-review span {
+            background-image: @reviewIcon
+        }
+
+        &.share-def-action-customfilterEditing span {
+            background-image: @customfilterEditing
+        }
+
+        &.share-def-action-restrictedEditing span {
+            background-image: @fillFormIcon
+        }
+
+        &.share-def-action-full span {
+            background-image: @pencilIcon
+        }
+
+        &.share-def-action-restrict span {
+            background-image: @accessDenyIcon
+        }
+    }
+
+    .share-def-action .dropdown-item {
+        padding-left: 32px;
+
+        span {
+            background: url("images/default-action.png") no-repeat 0 20px transparent;
+            margin-left: -26px;
+            padding-left: 26px;
+            background-size: 16px;
+            background-repeat: no-repeat;
+            background-position-y: 50%;
+        }
+
+        &.share-def-action-read {
+            span {
+                background-image: url("images/views.svg");
+            }
+
+            &.active span {
+                background-image: url("images/views-blue.svg");
+            }
+        }
+
+        &.share-def-action-comment {
+            span {
+                background-image: url("images/access-for-comment.svg");
+            }
+
+            &.active span {
+                background-image: url("images/access-for-comment-blue.svg");
+            }
+        }
+
+        &.share-def-action-customfilterEditing {
+            span {
+                background-image: url("images/customfilter.svg");
+            }
+
+            &.active span {
+                background-image: url("images/customfilter-blue.svg");
+            }
+        }
+
+        &.share-def-action-restrictedEditing {
+            span {
+                background-image: url("images/fill-form.svg");
+            }
+
+            &.active span {
+                background-image: url("images/fill-form-blue.svg");
+            }
+        }
+
+        &.share-def-action-review {
+            span {
+                background-image: url("images/review.svg");
+            }
+
+            &.active span {
+                background-image: url("images/review-blue.svg");
+            }
+        }
+
+        &.share-def-action-full {
+            span {
+                background-image: url("images/pencil.svg");
+            }
+
+            &.active span {
+                background-image: url("images/pencilblue.svg");
+            }
+        }
+
+        &.share-def-action-restrict {
+            span {
+                background-image: url("images/access-deny.svg");
+            }
+
+            &.active span {
+                background-image: url("images/access-deny-blue.svg");
+            }
+        }
+    }
+}
+
+/*----------------custom select------------------------*/
+#studio_sharingSettingsDialog div.action div.title {
+    border-bottom: 1px dotted;
+    color: #1A6DB3;
+    cursor: pointer;
+    float: right;
+    overflow: hidden;
+    white-space: nowrap;
+}
+#studio_sharingSettingsDialog div.action ul.options {
+    background: @body-color;
+    border: 1px solid @border-color;
+    list-style: none;
+    margin: -7px -5px;
+    padding: 0;
+    right: -2px;
+    width: auto !important;
+}
+#studio_sharingSettingsDialog div.action li.option {
+    height: 20px;
+    margin: 2px;
+    overflow: hidden;
+    padding: 3px 4px 0;
+    white-space: nowrap;
+}
+#studio_sharingSettingsDialog div.action li.option:hover {
+    background-color: #E8E9E9 !important;
+}
+#studio_sharingSettingsDialog div.action li.option.selected {
+    font-weight: bold;
+}
+#sharingSettingsItems .tl-combobox .combobox-container {
+    max-width: 220px;
+    min-width: 120px;
+    width: auto;
+}
+
+/****************************************\
+    Share Message
+\****************************************/
+#shareMessagePanel {
+    padding: 24px 0 0;
+}
+#shareAddMessage,
+#shareRemoveMessage {
+    margin-left: 7px;
+}
+#shareMessage {
+    display: none;
+    height: 50px;
+    margin: 8px 0 0;
+    max-width: 548px;
+    min-height: 50px;
+    min-width: 548px;
+    padding: 0;
+    resize: none;
+}
+#sharingSettingsDialogBody.with-message #shareMessage {
+    display: inline;
+}
+#shareGetLink {
+    float: right;
+    padding-left: 17px;
+    padding-right: 17px;
+    position: relative;
+    width: 0;
+}
+#shareGetLink:after{
+    background: @shareGetLinkImage no-repeat 0 0 transparent;
+    content: " ";
+    display: block;
+    height: 24px;
+    left: 5px;
+    position: absolute;
+    top: -1px;
+    width: 24px;
+    background-size: 16px;
+    background-position: 50%;
+}
+/****************************************\
+    Share Message
+\****************************************/

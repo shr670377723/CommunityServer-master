@@ -1,0 +1,199 @@
+/*
+ *
+ * (c) Copyright Ascensio System Limited 2010-2023
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+*/
+
+
+/*******************************************************************************
+    Links
+*******************************************************************************/
+a {
+    .linkStyle(@linkColor);
+    text-decoration: underline;
+}
+.link,
+.link:active,
+.link:hover,
+.link:visited {
+    .linkStyle(@textColor);
+
+    &.underline {
+        text-decoration: underline;
+    }
+
+    &.dotline {
+        .textDotted();
+    }
+
+    &.blue {
+        border-color: @linkColor;
+        color: @linkColor;
+    }
+
+    &.gray {
+        border-color: @textColorGrayDark;
+        color: @textColorGrayDark;
+    }
+
+    &.bold {
+        .bold();
+    }
+
+    &.small {
+        font-size: 11px;
+    }
+
+    &.medium {
+        font-size: 14px;
+    }
+
+    &.middle {
+        font-size: 16px;
+    }
+
+    &.header {
+        font-size: 18px;
+    }
+
+    &.plus {
+        display: inline-block;
+        margin-left: 18px;
+        padding: 0;
+        position: relative;
+        text-align: center;
+        vertical-align: middle;
+
+        &:after {
+            color: @link-plus-after;
+            content: "+";
+            cursor: pointer;
+            display: block;
+            font-size: 22px;
+            font-weight: 800;
+            height: 20px;
+            line-height: 20px;
+            left: -17px;
+            margin-top: -11px;
+            position: absolute;
+            top: 50%;
+            width: 12px;
+        }
+    }
+
+    &.edit {
+        display: inline-block;
+        margin-left: 19px;
+        padding: 0;
+        position: relative;
+        text-align: center;
+        vertical-align: middle;
+
+        &:after {
+            background: url('@{imagesBaseUrl}btn-edit.png') center top no-repeat transparent;
+            content: " ";
+            cursor: pointer;
+            display: block; /* reduce the damage in FF3.0 */
+            height: 14px;
+            left: -17px;
+            margin-top: -7px;
+            position: absolute;
+            top: 50%;
+            width: 12px;
+        }
+    }
+
+    &.up {
+        display: inline-block;
+        margin-left: 19px;
+        padding: 0;
+        position: relative;
+        text-align: center;
+        vertical-align: middle;
+
+        &:after {
+            background-image: url('images/svg/documents/up.svg');
+            content: " ";
+            cursor: pointer;
+            display: block; /* reduce the damage in FF3.0 */
+            height: 16px;
+            left: -19px;
+            margin-top: -8px;
+            position: absolute;
+            top: 50%;
+            width: 16px;
+        }
+    }
+
+    &.arrow-down {
+        margin-right: 13px;
+        padding: 0;
+        position: relative;
+        text-align: center;
+        vertical-align: middle;
+
+        &:after {
+            .arrow-down(4px, @textColor);
+            margin-top: -2px;
+            right: -13px;
+        }
+
+        &.gray:after {
+            .arrow-down(4px, @textColorGrayDark);
+            margin-top: -2px;
+            right: -13px;
+        }
+    }
+}
+.link:hover {   
+    text-decoration: underline;
+}
+
+.link.dotline,
+.link.dotted {
+    &:hover{
+        .textDotted();
+    }
+}
+
+.icon-link {
+    padding-left: 18px;
+    
+    &.plus {
+        display: inline-block;
+        position: relative;
+
+        &:after {
+            color: #83888d;
+            content: "+";
+            cursor: pointer;
+            display: block;
+            font-size: 22px;
+            font-weight: 800;
+            height: 20px;
+            line-height: 20px;
+            left: 0;
+            margin-top: -11px;
+            position: absolute;
+            top: 50%;
+            width: 12px;
+        }
+    }
+
+    &.chart{
+        background: url("@{imagesBaseUrl}gantt_12.png") left center no-repeat transparent;
+    }
+    &.trash{
+        background: url("@{imagesBaseUrl}trash_16.png") left center no-repeat transparent;
+    }
+}

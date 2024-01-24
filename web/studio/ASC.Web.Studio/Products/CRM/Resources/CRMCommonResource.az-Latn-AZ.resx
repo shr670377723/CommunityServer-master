@@ -1,0 +1,979 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccessRightsForReading" xml:space="preserve">
+    <value>oxumaq üçün</value>
+  </data>
+  <data name="AccessRightsForReadWriting" xml:space="preserve">
+    <value>oxumaq/yazmaq üçün</value>
+  </data>
+  <data name="AccessRightsLimit" xml:space="preserve">
+    <value>Giriş haqları yalnız Sizin tərəfinizdən yaradılan kontaktlar üçün ayarlanır.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>əyləmlər</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Əlavə et</value>
+  </data>
+  <data name="AddGroup" xml:space="preserve">
+    <value>{!group} əlavə edin</value>
+  </data>
+  <data name="AdditionalInformation" xml:space="preserve">
+    <value>Əlavə məlumat</value>
+  </data>
+  <data name="AddMailAccount" xml:space="preserve">
+    <value>Poçt hesabı əlavəedin</value>
+  </data>
+  <data name="AddNewTag" xml:space="preserve">
+    <value>Etiket əlavə edin</value>
+  </data>
+  <data name="AddParticipant" xml:space="preserve">
+    <value>İştirakçı əlavə et</value>
+  </data>
+  <data name="AddThisNote" xml:space="preserve">
+    <value>Bu olayı əlavə et</value>
+  </data>
+  <data name="AddThisNoteProggress" xml:space="preserve">
+    <value>Qeyd əlavə et...</value>
+  </data>
+  <data name="AddUser" xml:space="preserve">
+    <value>{!user} əlavə et</value>
+  </data>
+  <data name="AdvansedFilterInfoText" xml:space="preserve">
+    <value>Çoxlu simvol axtarmaq üçün {0}?{1} simvolunu istifadə edin. Örnək olaraq, {0} ilə {1} başlayan bütün sözləri axtarmaq üçün {0} o * {1} sorğusunu iistifadə edin.</value>
+  </data>
+  <data name="Alert" xml:space="preserve">
+    <value>Xəbərdarlıq</value>
+  </data>
+  <data name="AssignedField" xml:space="preserve">
+    <value>ONLYOFFICE™ CRM sahəsinə cavab verən</value>
+  </data>
+  <data name="Attachments" xml:space="preserve">
+    <value>Əkləmələr</value>
+  </data>
+  <data name="AttachThisNoteToContact" xml:space="preserve">
+    <value>Kontakt ilə bağlantı qur</value>
+  </data>
+  <data name="Author" xml:space="preserve">
+    <value>Müəllif</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Geriyə</value>
+  </data>
+  <data name="ButtonLearnMore" xml:space="preserve">
+    <value>Daha çox öyrənin...</value>
+  </data>
+  <data name="ByCategory" xml:space="preserve">
+    <value>Kateqoriya</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Ləğv</value>
+  </data>
+  <data name="CasesModuleName" xml:space="preserve">
+    <value>Tədbirlər</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Kateqoriya</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>Dəyişdir</value>
+  </data>
+  <data name="Choose" xml:space="preserve">
+    <value>Seç</value>
+  </data>
+  <data name="ClearFilter" xml:space="preserve">
+    <value>Filtri sıfırla</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Bağla</value>
+  </data>
+  <data name="CloseThisWindow" xml:space="preserve">
+    <value>Bu pəncərəni qapat</value>
+  </data>
+  <data name="CloseWindow" xml:space="preserve">
+    <value>Pəncərəni qapat</value>
+  </data>
+  <data name="Colon" xml:space="preserve">
+    <value>İki nöqtə</value>
+  </data>
+  <data name="Column" xml:space="preserve">
+    <value>Fayl sütunu</value>
+  </data>
+  <data name="Comma" xml:space="preserve">
+    <value>Vergül</value>
+  </data>
+  <data name="ComposeMailDescription" xml:space="preserve">
+    <value>Kontakt listində seçilən bütün klientlərə göndərmək üçün bir məktub yaradın. 'Kimə' sahəsində seçilmiş klient kontrolu, ortaq 'Mövzu' daxil edin və 'Şəxsi etiketlər' istifadə edərək, məktub üçün gərəkli olan bütün bilgiləri daxil edə bilərsiniz. Bu ONLYOFFICE™ CRM'in yeni özəllikləri sınamaq istəyənlərə açıq olan beta versiyadır.</value>
+  </data>
+  <data name="Confirmation" xml:space="preserve">
+    <value>Təsdiq</value>
+  </data>
+  <data name="ConfirmationAccessRightsPanelHeader" xml:space="preserve">
+    <value>Dəyişikliklərin təsdiqlənməsi</value>
+  </data>
+  <data name="ConfirmationAccessRightsPanelText1" xml:space="preserve">
+    <value>Siz özünüzü kontakt menecerləri siyahısından çıxardınız.</value>
+  </data>
+  <data name="ConfirmationAccessRightsPanelText2" xml:space="preserve">
+    <value>Müvafiq hüquqlar bütün CRM istifadəçilərinə təklif edilmədikdə, oxumaq və yazmaq üçün kontaktlara girişi itirəcəksiniz</value>
+  </data>
+  <data name="ConfirmationDeleteText" xml:space="preserve">
+    <value>Bu elementləri silmək istədiyinizə əminsinizmi?</value>
+  </data>
+  <data name="ContactCategoriesHelpInfo" xml:space="preserve">
+    <value>Kontakt temperatur səviyyələrinin siyahısını dəyişmək üçün CRM {0}Parametrlərinə{1} baxın</value>
+  </data>
+  <data name="ContactSettings" xml:space="preserve">
+    <value>Kontakt parametrləri</value>
+  </data>
+  <data name="Content" xml:space="preserve">
+    <value>Kontent</value>
+  </data>
+  <data name="ConversionDate" xml:space="preserve">
+    <value>Tarix</value>
+  </data>
+  <data name="ConversionRate" xml:space="preserve">
+    <value>Kurs</value>
+  </data>
+  <data name="ConversionRates" xml:space="preserve">
+    <value>Pul çevirən</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Yarat</value>
+  </data>
+  <data name="CreateDate" xml:space="preserve">
+    <value>Yaradılma tarixi</value>
+  </data>
+  <data name="CreateNew" xml:space="preserve">
+    <value>Yaradın</value>
+  </data>
+  <data name="CreateNewContact" xml:space="preserve">
+    <value>Yeni kontakt yaradın</value>
+  </data>
+  <data name="CreateNewProject" xml:space="preserve">
+    <value>Yeni layihə yaradın</value>
+  </data>
+  <data name="CreateNewTag" xml:space="preserve">
+    <value>Yeni etiket əlavə et</value>
+  </data>
+  <data name="CreationDate" xml:space="preserve">
+    <value>Yaradılma tarixi</value>
+  </data>
+  <data name="CRMProductIsDisabled" xml:space="preserve">
+    <value>CRM modulu aktiv deyil</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Pul</value>
+  </data>
+  <data name="Currency_AlgerianDinar" xml:space="preserve">
+    <value>Əlcəzair Dinarı</value>
+  </data>
+  <data name="Currency_ArgentinianPeso" xml:space="preserve">
+    <value>Argentina Pesosu</value>
+  </data>
+  <data name="Currency_ArmenianDram" xml:space="preserve">
+    <value>Erməni Dramı</value>
+  </data>
+  <data name="Currency_AustralianDollar" xml:space="preserve">
+    <value>Avstraliya Dolları</value>
+  </data>
+  <data name="Currency_AzerbaijaniManat" xml:space="preserve">
+    <value>Azərbaycan Manatı</value>
+  </data>
+  <data name="Currency_BangladeshiTaka" xml:space="preserve">
+    <value>Banqladeş Takası</value>
+  </data>
+  <data name="Currency_Basic" xml:space="preserve">
+    <value>Əsas valyutalar</value>
+  </data>
+  <data name="Currency_BelarusianRuble" xml:space="preserve">
+    <value>Belarus Rublu</value>
+  </data>
+  <data name="Currency_BrazilianReal" xml:space="preserve">
+    <value>Braziliya realı</value>
+  </data>
+  <data name="Currency_BulgarianLev" xml:space="preserve">
+    <value>Bolqar Levi</value>
+  </data>
+  <data name="Currency_CanadianDollar" xml:space="preserve">
+    <value>Kanada Dolları</value>
+  </data>
+  <data name="Currency_CentralAfricanFranc" xml:space="preserve">
+    <value>Mərkəzi Afrika Frankı</value>
+  </data>
+  <data name="Currency_ChileanPeso" xml:space="preserve">
+    <value>Çili Pesosu</value>
+  </data>
+  <data name="Currency_ChineseYuan" xml:space="preserve">
+    <value>Çin Yuanı</value>
+  </data>
+  <data name="Currency_ColombianPeso" xml:space="preserve">
+    <value>Kolumbiya Pesosu</value>
+  </data>
+  <data name="Currency_CostaRicanColon" xml:space="preserve">
+    <value>Kosta Rika Kolonu</value>
+  </data>
+  <data name="Currency_CroatianKuna" xml:space="preserve">
+    <value>Xorvat Kunası</value>
+  </data>
+  <data name="Currency_CubanPeso" xml:space="preserve">
+    <value>Kuba Pesosu</value>
+  </data>
+  <data name="Currency_CzechKoruna" xml:space="preserve">
+    <value>Çex Korunası</value>
+  </data>
+  <data name="Currency_DanishKrone" xml:space="preserve">
+    <value>Danimarka Kronu</value>
+  </data>
+  <data name="Currency_DominicanPeso" xml:space="preserve">
+    <value>Dominikan Pesosu</value>
+  </data>
+  <data name="Currency_EthiopianBirr" xml:space="preserve">
+    <value>Efiopiya Birri</value>
+  </data>
+  <data name="Currency_Euro" xml:space="preserve">
+    <value>Avro</value>
+  </data>
+  <data name="Currency_GeorgianLari" xml:space="preserve">
+    <value>Gürcü Larisi</value>
+  </data>
+  <data name="Currency_HongKongDollar" xml:space="preserve">
+    <value>Honq Konq Dolları</value>
+  </data>
+  <data name="Currency_HungarianForint" xml:space="preserve">
+    <value>Macarıstan Forinti</value>
+  </data>
+  <data name="Currency_IndianRupee" xml:space="preserve">
+    <value>Hindistan Rupisi</value>
+  </data>
+  <data name="Currency_IndonesianRupiah" xml:space="preserve">
+    <value>İndoneziya Rupisi</value>
+  </data>
+  <data name="Currency_IsraeliSheqel" xml:space="preserve">
+    <value>İsrail Şekeli</value>
+  </data>
+  <data name="Currency_JapaneseYen" xml:space="preserve">
+    <value>Yapon Yeni</value>
+  </data>
+  <data name="Currency_KazakhstaniTenge" xml:space="preserve">
+    <value>Qazaxıstan Tengesi</value>
+  </data>
+  <data name="Currency_KenyanShilling" xml:space="preserve">
+    <value>Keniya Şillinqi</value>
+  </data>
+  <data name="Currency_KuwaitiDinar" xml:space="preserve">
+    <value>Küveyt Dinarı</value>
+  </data>
+  <data name="Currency_LatvianLats" xml:space="preserve">
+    <value>Latviya latı</value>
+  </data>
+  <data name="Currency_LithuanianLitas" xml:space="preserve">
+    <value>Litva Litası</value>
+  </data>
+  <data name="Currency_MalagasyAriary" xml:space="preserve">
+    <value>Malaqasi Ariary</value>
+  </data>
+  <data name="Currency_MalaysianRinggit" xml:space="preserve">
+    <value>Malayziya Rinqiti</value>
+  </data>
+  <data name="Currency_MauritianRupee" xml:space="preserve">
+    <value>Mavritaniya Rupisi</value>
+  </data>
+  <data name="Currency_MexicanPeso" xml:space="preserve">
+    <value>Meksika Pesosu</value>
+  </data>
+  <data name="Currency_MoldovanLeu" xml:space="preserve">
+    <value>Moldova Leyi</value>
+  </data>
+  <data name="Currency_MongolianTugrik" xml:space="preserve">
+    <value>Monqol Tuqriki</value>
+  </data>
+  <data name="Currency_MoroccanDirham" xml:space="preserve">
+    <value>Mərakeş Dirhəmi</value>
+  </data>
+  <data name="Currency_NewBelarusianRuble" xml:space="preserve">
+    <value>Yeni Belarus Rublı</value>
+  </data>
+  <data name="Currency_NewZealandDollar" xml:space="preserve">
+    <value>Yeni Zelandiya dolları</value>
+  </data>
+  <data name="Currency_NigerianNaira" xml:space="preserve">
+    <value>Nigeriya Nairası</value>
+  </data>
+  <data name="Currency_NorwegianKrone" xml:space="preserve">
+    <value>Norveç Kronu</value>
+  </data>
+  <data name="Currency_OmaniRial" xml:space="preserve">
+    <value>Oman Rialı</value>
+  </data>
+  <data name="Currency_Other" xml:space="preserve">
+    <value>Digər valyutalar</value>
+  </data>
+  <data name="Currency_PacificFranc" xml:space="preserve">
+    <value>Sakit okean frankı</value>
+  </data>
+  <data name="Currency_PakistaniRupee" xml:space="preserve">
+    <value>Pakistan Rupisi</value>
+  </data>
+  <data name="Currency_PhilippinePeso" xml:space="preserve">
+    <value>Fillipin Pesosu</value>
+  </data>
+  <data name="Currency_PolishZloty" xml:space="preserve">
+    <value>Polşa Zlotisi</value>
+  </data>
+  <data name="Currency_PoundSterling" xml:space="preserve">
+    <value>Funt Sterlinq</value>
+  </data>
+  <data name="Currency_QatariRiyal" xml:space="preserve">
+    <value>Qətər Riyalı</value>
+  </data>
+  <data name="Currency_RomanianLeu" xml:space="preserve">
+    <value>Rumıniya Leyi</value>
+  </data>
+  <data name="Currency_Rouble" xml:space="preserve">
+    <value>Rubl</value>
+  </data>
+  <data name="Currency_SaudiRiyal" xml:space="preserve">
+    <value>Səudiyyə Riyalı</value>
+  </data>
+  <data name="Currency_SerbianDinar" xml:space="preserve">
+    <value>Serb Dinarı</value>
+  </data>
+  <data name="Currency_SingaporeDollar" xml:space="preserve">
+    <value>Sinqapur dolları</value>
+  </data>
+  <data name="Currency_SouthAfricanRand" xml:space="preserve">
+    <value>Cənubi Afrika Randı</value>
+  </data>
+  <data name="Currency_SouthKoreanWon" xml:space="preserve">
+    <value>Cənubi Koreya Vonu</value>
+  </data>
+  <data name="Currency_SwedishKrona" xml:space="preserve">
+    <value>İsveç Kronu</value>
+  </data>
+  <data name="Currency_SwissFranc" xml:space="preserve">
+    <value>İsveçrə Frankı</value>
+  </data>
+  <data name="Currency_ThaiBaht" xml:space="preserve">
+    <value>Tay bahtı</value>
+  </data>
+  <data name="Currency_TrinidadAndTobagoDollar" xml:space="preserve">
+    <value>Trinidad və Tobaqo Dolları</value>
+  </data>
+  <data name="Currency_TunisianDinar" xml:space="preserve">
+    <value>Tunis Dinarı</value>
+  </data>
+  <data name="Currency_TurkishNewLira" xml:space="preserve">
+    <value>Yeni Türk Lirası</value>
+  </data>
+  <data name="Currency_UkraineHryvnia" xml:space="preserve">
+    <value>Ukrayna Qrivnası</value>
+  </data>
+  <data name="Currency_UnitedArabEmiratesDirham" xml:space="preserve">
+    <value>Birləşmiş Ərəb Əmirlikləri Dirhəmi</value>
+  </data>
+  <data name="Currency_UnitedStatesDollar" xml:space="preserve">
+    <value>ABŞ Dolları</value>
+  </data>
+  <data name="Currency_UzbekistaniSom" xml:space="preserve">
+    <value>Özbəkistan Somu</value>
+  </data>
+  <data name="Currency_VenezuelanBolivar" xml:space="preserve">
+    <value>Venesuela Bolivarı</value>
+  </data>
+  <data name="Currency_VietnameseDong" xml:space="preserve">
+    <value>Vyetnam Dongu</value>
+  </data>
+  <data name="Currency_WestAfricanFranc" xml:space="preserve">
+    <value>Qərbi Afrika Frankı</value>
+  </data>
+  <data name="CurrentUser" xml:space="preserve">
+    <value>İndiki {!user}</value>
+  </data>
+  <data name="Custom" xml:space="preserve">
+    <value>İstifadəçi seçimləri</value>
+  </data>
+  <data name="CustomDateFilter" xml:space="preserve">
+    <value>İstifadəçi periodu</value>
+  </data>
+  <data name="CustomResponsibleFilter" xml:space="preserve">
+    <value>Digər istifadəçilər</value>
+  </data>
+  <data name="DashboardCommunicateWithClients" xml:space="preserve">
+    <value>Müştərilərlə əlaqə saxlayın</value>
+  </data>
+  <data name="DashboardCommunicateWithClientsFirstLine" xml:space="preserve">
+    <value>Müştərilərinizə fakturalar göndərin.</value>
+  </data>
+  <data name="DashboardCommunicateWithClientsSecondLine" xml:space="preserve">
+    <value>Twilio ilə inteqrasiya sayəsində VoIP vasitəsilə zəng edin.</value>
+  </data>
+  <data name="DashboardCommunicateWithClientsThirdLine" xml:space="preserve">
+    <value>Toplu e-poçtlar və görüşlər təşkil edin.</value>
+  </data>
+  <data name="DashboardCreateClientsDatabase" xml:space="preserve">
+    <value>Müştəri verilənlər bazası yaradın</value>
+  </data>
+  <data name="DashboardCreateClientsDatabaseFirstLine" xml:space="preserve">
+    <value>Kontaktları əl ilə əlavə edin, onları saytdakı formadan əldə edin və ya csv / poçtdan idxal edin.</value>
+  </data>
+  <data name="DashboardCreateClientsDatabaseSecondLine" xml:space="preserve">
+    <value>Əlaqə məlumatlarını doldurun, müştəriləri şirkətlər və onların sosial şəbəkələri ilə əlaqələndirin.</value>
+  </data>
+  <data name="DashboardCreateClientsDatabaseThirdLine" xml:space="preserve">
+    <value>Növlərdən / etiketlərdən istifadə edərək əlaqələri strukturlaşdırın, axtarış statuslarını fərdiləşdirin.</value>
+  </data>
+  <data name="DashboardCustomizeYourCrm" xml:space="preserve">
+    <value>CRM-inizi fərdiləşdirin</value>
+  </data>
+  <data name="DashboardCustomizeYourCrmFirstLine" xml:space="preserve">
+    <value>CRM parametrlərini fərdiləşdirin, giriş icazələri verin, valyuta / məzənnəni təyin edin.</value>
+  </data>
+  <data name="DashboardCustomizeYourCrmSecondLine" xml:space="preserve">
+    <value>Yeni növ kontaktlar / istifadəçi sahələri əlavə edin, fərdi veb formalar yaradın.</value>
+  </data>
+  <data name="DashboardCustomizeYourCrmThirdLine" xml:space="preserve">
+    <value>Perspektivlərinizə və müştərilərinizə müxtəlif statuslar təyin edərək fəaliyyətlərinizi təsvir edin.</value>
+  </data>
+  <data name="DashboardTrackSales" xml:space="preserve">
+    <value>Satışları izləyin</value>
+  </data>
+  <data name="DashboardTrackSalesFirstLine" xml:space="preserve">
+    <value>Menecerlərə tapşırıqlar təyin edin, onları kontaktlarla əlaqələndirin.</value>
+  </data>
+  <data name="DashboardTrackSalesSecondLine" xml:space="preserve">
+    <value>Perspektivlər əlavə edin, büdcəni təyin edin, hər hansı bir sövdələşmənin uğurunu qiymətləndirin.</value>
+  </data>
+  <data name="DashboardTrackSalesThirdLine" xml:space="preserve">
+    <value>Son tarix/tapşırıq xatırlatmaları təyin edin, hesabatlar hazırlayın.</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Tarix</value>
+  </data>
+  <data name="DateDueInDays" xml:space="preserve">
+    <value>{0} günə vaxtı bitəcək</value>
+  </data>
+  <data name="DateOverueByDays" xml:space="preserve">
+    <value>{0} gün gecikib</value>
+  </data>
+  <data name="DealModuleName" xml:space="preserve">
+    <value>Sazişlər</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Sil</value>
+  </data>
+  <data name="DeleteHistoryEvent" xml:space="preserve">
+    <value>Olayı sil</value>
+  </data>
+  <data name="DeleteParticipant" xml:space="preserve">
+    <value>İştirakçını sil</value>
+  </data>
+  <data name="DeleteTag" xml:space="preserve">
+    <value>Etiketi sil</value>
+  </data>
+  <data name="DeleteUser" xml:space="preserve">
+    <value>İstifadəçini sil</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Təsvir</value>
+  </data>
+  <data name="DeselectAll" xml:space="preserve">
+    <value>Hamısının seçimini yığışdır</value>
+  </data>
+  <data name="Documents" xml:space="preserve">
+    <value>Sənədlər</value>
+  </data>
+  <data name="DontAskAnymore" xml:space="preserve">
+    <value>Bütün gələcək hadisələr üçün eyni şeyi edin</value>
+  </data>
+  <data name="DoubleQuote" xml:space="preserve">
+    <value>Cüt dırnaq</value>
+  </data>
+  <data name="DuplicateRecords" xml:space="preserve">
+    <value>Qeydlərin dublikatı</value>
+  </data>
+  <data name="EmptyFileErrorMsg" xml:space="preserve">
+    <value>Boş fayl</value>
+  </data>
+  <data name="EmptyHistoryDescription" xml:space="preserve">
+    <value>Bu bölmədə filtrə uyğun gələn qeyd görünə bilmir. Lütfən digər filtr seçənəklərini seçin və ya bu bölmədəki bütün qeydləri görüntülü etmək üçün filtri təmizləyin. Siz həmçinin digər kontaktların tarixində gərəkli qeydləri axtara bilərsiniz.</value>
+  </data>
+  <data name="EmptyHistoryHeader" xml:space="preserve">
+    <value>Bu filtr üçün burada qeyd tapılmadı</value>
+  </data>
+  <data name="EnterAmount" xml:space="preserve">
+    <value>Miqdarı yazın</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Xəta</value>
+  </data>
+  <data name="ErrorMessage_UploadFileSize" xml:space="preserve">
+    <value>Fayl {1}{0}{2} ölçüsünü keçir</value>
+  </data>
+  <data name="ExportCurrentListToCsvFile" xml:space="preserve">
+    <value>Siyahını CSV fayla eksport edin</value>
+  </data>
+  <data name="ExportData" xml:space="preserve">
+    <value>Datanı ixrac edin</value>
+  </data>
+  <data name="ExportDataInfo" xml:space="preserve">
+    <value>Siz hər zaman bütün ixrac edilmiş fayllara {0} Sənədlər / Sənədlərim {1} bölməsində baxa, endirə, redaktə edə və ya silə bilərsiniz.</value>
+  </data>
+  <data name="ExportDataProgress" xml:space="preserve">
+    <value>Data ixrac edilir ({0}% tamamlanıb)</value>
+  </data>
+  <data name="FileSizeErrorMsg" xml:space="preserve">
+    <value>Maksimum fayl ölçüsü keçilib</value>
+  </data>
+  <data name="FilterByCreationDate" xml:space="preserve">
+    <value>Yaradılma tarixi</value>
+  </data>
+  <data name="FilterByDate" xml:space="preserve">
+    <value>qurtarma tarixi</value>
+  </data>
+  <data name="FilterByResponsible" xml:space="preserve">
+    <value>Cavabdeh</value>
+  </data>
+  <data name="FilterWithTag" xml:space="preserve">
+    <value>Etiket ilə</value>
+  </data>
+  <data name="FindContactByName" xml:space="preserve">
+    <value>Şirkəti və ya şəxsi adına görə tap...</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>Kimdən</value>
+  </data>
+  <data name="Hide" xml:space="preserve">
+    <value>Gizlət</value>
+  </data>
+  <data name="HideAttachPanel" xml:space="preserve">
+    <value>Fayl yapışdırma panelini gizlət</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>Tarix</value>
+  </data>
+  <data name="HistoryCategoriesHelpInfo" xml:space="preserve">
+    <value>Keçmiş tədbirlərin kateqoriyaları üçün siyahını {0} buradan {1} dəyişə bilərsiniz</value>
+  </data>
+  <data name="HistoryCategory_Call" xml:space="preserve">
+    <value>Telefon zəngi</value>
+  </data>
+  <data name="HistoryCategory_Email" xml:space="preserve">
+    <value>Elektron poçt</value>
+  </data>
+  <data name="HistoryCategory_Meeting" xml:space="preserve">
+    <value>Görüş</value>
+  </data>
+  <data name="HistoryCategory_Note" xml:space="preserve">
+    <value>Qeyd</value>
+  </data>
+  <data name="HistoryEventInboxMail" xml:space="preserve">
+    <value>alınıb</value>
+  </data>
+  <data name="HistoryEventOutboxMail" xml:space="preserve">
+    <value>göndərilib</value>
+  </data>
+  <data name="HistoryLongDataMsg" xml:space="preserve">
+    <value>Maksimum simvol sayı keçildi: {0}</value>
+  </data>
+  <data name="IgnoreFirstRow" xml:space="preserve">
+    <value>İmport zamanı ilk səhifəni iqnor et</value>
+  </data>
+  <data name="ImportFromCSV_DublicateBehavior_Clone" xml:space="preserve">
+    <value>İkiləşdir</value>
+  </data>
+  <data name="ImportFromCSV_DublicateBehavior_CloneDescription" xml:space="preserve">
+    <value>Üst-üstə düşən kontaktların dublikatlarını çıxararaq, kontaktları import etmək üçün bu seçənəyi istifadə edin. Örnək olaraq, ONLYOFFICE™ CRM - 'A' və 'B' - iki qeyd vardır. 'B' və 'C' qeydləri import etmək istədiyini halda 'Dublikatını çıxar' seçənəyini seçsəniz, 'B' 'nin bir nüsxəsi yaradılacaq.</value>
+  </data>
+  <data name="ImportFromCSV_DublicateBehavior_Description" xml:space="preserve">
+    <value>Dublikatların yoxlanılmadı elektron poçt ünvanı sahəsinə görə həyata keçiriləcək.</value>
+  </data>
+  <data name="ImportFromCSV_DublicateBehavior_Overwrite" xml:space="preserve">
+    <value>Üzərinə yaz</value>
+  </data>
+  <data name="ImportFromCSV_DublicateBehavior_OverwriteDescription" xml:space="preserve">
+    <value>Mövcud olan kontaktların üstünə kontakt yazmaqla import etmək üçün bu seçənəyi istifadə edin. Örnək olaraq, ONLYOFFICE™ CRM - 'A' və 'B' - iki qeyd vardır. 'B' və 'C' qeydlərini import etmək istədiyiniz halda 'Üstünə yaz' seçənəyini istifadə ediirsiniz, varo lan 'B' import edilmə zamanı yenidən yazılır.</value>
+  </data>
+  <data name="ImportFromCSV_DublicateBehavior_Skip" xml:space="preserve">
+    <value>Burax</value>
+  </data>
+  <data name="ImportFromCSV_DublicateBehavior_SkipDescription" xml:space="preserve">
+    <value>Mövcud olan kontaktları  saxlamaqla, kontaktları import etmək üçün bu seçənəkdən istifadə edin. Örnək olaraq, ONLYOFFICE™ CRM - 'A' və 'B' - iki qeyd vardır. 'B' və 'C' qeydlərini import etmək istəyirsiniz. 'Burax' seçənəyini seçdiyiniz halda, var olan 'B' import edilərkən qorunur.</value>
+  </data>
+  <data name="ImportFromCSV_ReadFileSettings_DelimiterCharacter" xml:space="preserve">
+    <value>Ayırıcı</value>
+  </data>
+  <data name="ImportFromCSV_ReadFileSettings_Encoding" xml:space="preserve">
+    <value>Kodlaşdırma</value>
+  </data>
+  <data name="ImportFromCSV_ReadFileSettings_Header" xml:space="preserve">
+    <value>CSV fayl ayarları</value>
+  </data>
+  <data name="ImportFromCSV_ReadFileSettings_QuoteCharacter" xml:space="preserve">
+    <value>Mətn ayracı</value>
+  </data>
+  <data name="ImportFromCSVStepOneProgressLable" xml:space="preserve">
+    <value>Fayl skan edilir...</value>
+  </data>
+  <data name="ImportFromCSVStepTwoProgressLable" xml:space="preserve">
+    <value>Verilənləri import etməyə başla</value>
+  </data>
+  <data name="InformationProvidedBy" xml:space="preserve">
+    <value>İnformasiya təqdim olundu</value>
+  </data>
+  <data name="InvoiceModuleName" xml:space="preserve">
+    <value>Fakturalar</value>
+  </data>
+  <data name="InvoiceSettings" xml:space="preserve">
+    <value>Faktura parametrləri</value>
+  </data>
+  <data name="InvoiceTaxes" xml:space="preserve">
+    <value>Vergilər</value>
+  </data>
+  <data name="LastMonth" xml:space="preserve">
+    <value>keçən ay</value>
+  </data>
+  <data name="LearnMore" xml:space="preserve">
+    <value>Ətraflı məlumat...</value>
+  </data>
+  <data name="LetterBody" xml:space="preserve">
+    <value>Məktub mətni</value>
+  </data>
+  <data name="LinkTo" xml:space="preserve">
+    <value>Bağlantı qur</value>
+  </data>
+  <data name="LoadingWait" xml:space="preserve">
+    <value>Lütfən, gözləyin...</value>
+  </data>
+  <data name="MailBody" xml:space="preserve">
+    <value>Elektron poçt mətni</value>
+  </data>
+  <data name="MailCopyTo" xml:space="preserve">
+    <value>Kopyala</value>
+  </data>
+  <data name="MailFrom" xml:space="preserve">
+    <value>Kimdən</value>
+  </data>
+  <data name="MailHistoryEventTemplate" xml:space="preserve">
+    <value>ONLYOFFICE™ kütləvi göndəriş siyahısı: "{0}"</value>
+  </data>
+  <data name="MailSender_FailedDeliverException" xml:space="preserve">
+    <value>{0} istifadəçiyə mesajın çatdırılması alınmadı</value>
+  </data>
+  <data name="MailSender_InvalidEmail" xml:space="preserve">
+    <value>Etibarsız elektron poçt ünvanı: {0}</value>
+  </data>
+  <data name="MailSender_MailboxBusyException" xml:space="preserve">
+    <value>Çatdırma alınmadı-{0} saniyədən sonra yenidən sınanılacaq.</value>
+  </data>
+  <data name="MailSubject" xml:space="preserve">
+    <value>Elektron poçt mövzusu</value>
+  </data>
+  <data name="MailTo" xml:space="preserve">
+    <value>Kimə</value>
+  </data>
+  <data name="MoneyCalculator" xml:space="preserve">
+    <value>Kalkulyator</value>
+  </data>
+  <data name="My" xml:space="preserve">
+    <value>Mənim</value>
+  </data>
+  <data name="MyEventsFilter" xml:space="preserve">
+    <value>Mənim olaylarım</value>
+  </data>
+  <data name="NextSample" xml:space="preserve">
+    <value>Sonrakı qeyd</value>
+  </data>
+  <data name="NoLoadedMessages" xml:space="preserve">
+    <value>Qeyd yoxdur</value>
+  </data>
+  <data name="NoMailAccountsAvailableError" xml:space="preserve">
+    <value>Poçt hesabı mövcud deyil</value>
+  </data>
+  <data name="NoMatches" xml:space="preserve">
+    <value>Üst-üstə düşmə yoxdur</value>
+  </data>
+  <data name="NoSet" xml:space="preserve">
+    <value>Dəqiqləşdirilməyib</value>
+  </data>
+  <data name="Notify" xml:space="preserve">
+    <value>Bildir</value>
+  </data>
+  <data name="NotSpecified" xml:space="preserve">
+    <value>Göstərilməyib</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="OnTop" xml:space="preserve">
+    <value>Yuxarıya</value>
+  </data>
+  <data name="OrganisationProfile" xml:space="preserve">
+    <value>Təşkilat Profili</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Digər</value>
+  </data>
+  <data name="OtherSettings" xml:space="preserve">
+    <value>Digər parametrləri</value>
+  </data>
+  <data name="PreviewMailDescription" xml:space="preserve">
+    <value>Burada yazdığınız məktubu görə bilərsiniz. Nəticəsni bəyəndiyiniz halda "Göndər" düyməsinə, bəzi dəyişikliklər etmək üçün "Geriyə" düyməsinə basın.</value>
+  </data>
+  <data name="PrevSample" xml:space="preserve">
+    <value>Öncəki qeyd</value>
+  </data>
+  <data name="PrevStep" xml:space="preserve">
+    <value>Öncəki addım</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>şəxsi</value>
+  </data>
+  <data name="PrivatePanelAccessListLable" xml:space="preserve">
+    <value>{!users} istifadə edə bilər</value>
+  </data>
+  <data name="PrivatePanelCheckBoxLabel" xml:space="preserve">
+    <value>Girişi məhdudlaşdır</value>
+  </data>
+  <data name="PrivatePanelDescription" xml:space="preserve">
+    <value>Giriş izni bütün portalda {!users} varsayılan olaraq açıqdır. Girişi məhdudlaşdırmaq üçün aşağıdaki qutunu işarələyin.</value>
+  </data>
+  <data name="PrivatePanelHeader" xml:space="preserve">
+    <value>Giriş hüququ</value>
+  </data>
+  <data name="ProductAdminOpportunities" xml:space="preserve">
+    <value>CRM istifadəçisinin etdiyini edin|Verilənləri import, ekspot edin|Məktubların CRM kontaktlara göndərilməsi|Ayarların idarə edilməsi|İstənilən kontaktın, tapşırığın, tədbirin, sazişin idarə edilməsi</value>
+  </data>
+  <data name="ProductDescription" xml:space="preserve">
+    <value>Müştəri əlaqələrinizi idarə edin, prioritet kontaktları təyin edin, ünsiyyət tarixini və satış effektivliyini izləyin.</value>
+  </data>
+  <data name="ProductDescriptionEx" xml:space="preserve">
+    <value>Müştəri əlaqələrinizi idarə edin, prioritet kontaktları təyin edin, ünsiyyət tarixini və satış effektivliyini izləyin.</value>
+  </data>
+  <data name="ProductName" xml:space="preserve">
+    <value>CRM</value>
+  </data>
+  <data name="ProductsAndServices" xml:space="preserve">
+    <value>Məhsul və Xidmətlər</value>
+  </data>
+  <data name="ProductUserOpportunities" xml:space="preserve">
+    <value>Onlara girişi əngəlləmək mümkünlüyü ilə kontakt, tapşırıq, tədbir, saziş yaradın|Giriş icazəsi olanlarla kontakt, tapşırıq, tədbir, saziş redaktə edin.</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="Projects" xml:space="preserve">
+    <value>Layihələr</value>
+  </data>
+  <data name="RelativeTo" xml:space="preserve">
+    <value>İlə bağlantılı</value>
+  </data>
+  <data name="ReportsModuleName" xml:space="preserve">
+    <value>Hesabatlar</value>
+  </data>
+  <data name="Responsible" xml:space="preserve">
+    <value>Cavabdeh</value>
+  </data>
+  <data name="SampleValues" xml:space="preserve">
+    <value>Dəyər</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Qeyd et</value>
+  </data>
+  <data name="SaveChanges" xml:space="preserve">
+    <value>Dəyişiklikləri qeyd et</value>
+  </data>
+  <data name="SaveChangesProggress" xml:space="preserve">
+    <value>Dəyişikliklər qeyd edilir...</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Seç</value>
+  </data>
+  <data name="SelectAll" xml:space="preserve">
+    <value>Hamısını seç</value>
+  </data>
+  <data name="SelectUsersToNotify" xml:space="preserve">
+    <value>İstifadəçilərə bildir</value>
+  </data>
+  <data name="Semicolon" xml:space="preserve">
+    <value>Nöqtəli vergül</value>
+  </data>
+  <data name="SendEmail" xml:space="preserve">
+    <value>E-poçt göndər</value>
+  </data>
+  <data name="SetPermissions" xml:space="preserve">
+    <value>İznləri ayarla</value>
+  </data>
+  <data name="SettingModuleName" xml:space="preserve">
+    <value>Ayarlar</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Göstər</value>
+  </data>
+  <data name="ShowAttachPanel" xml:space="preserve">
+    <value>Faylların yapışdırılması panelini göstər</value>
+  </data>
+  <data name="ShowInformation" xml:space="preserve">
+    <value>Məlumatları göstər</value>
+  </data>
+  <data name="ShowOnPage" xml:space="preserve">
+    <value>Səhifədə göstər</value>
+  </data>
+  <data name="SingleQuote" xml:space="preserve">
+    <value>Tək dırnaq</value>
+  </data>
+  <data name="Space" xml:space="preserve">
+    <value>Boşluq</value>
+  </data>
+  <data name="StoreThisLetterInHistory" xml:space="preserve">
+    <value>Bu məktubu tarixdə saxla</value>
+  </data>
+  <data name="Subject" xml:space="preserve">
+    <value>Mövzu</value>
+  </data>
+  <data name="SubscriptionType_AddRelationshipEvent" xml:space="preserve">
+    <value>Yeni olaylar</value>
+  </data>
+  <data name="SubscriptionType_CreateNewContact" xml:space="preserve">
+    <value>Yeni kontaktlar</value>
+  </data>
+  <data name="SubscriptionType_ExportCompleted" xml:space="preserve">
+    <value>Eksport tamamlandı</value>
+  </data>
+  <data name="SubscriptionType_ImportCompleted" xml:space="preserve">
+    <value>İdxal tamamlandı</value>
+  </data>
+  <data name="SubscriptionType_ResponsibleForOpportunity" xml:space="preserve">
+    <value>Fürsətlər üçün cavabdeh</value>
+  </data>
+  <data name="SubscriptionType_ResponsibleForTask" xml:space="preserve">
+    <value>Tapşırıq Sizə ayrılıb</value>
+  </data>
+  <data name="SubscriptionType_SetAccess" xml:space="preserve">
+    <value>Giriş icazəsi verildi</value>
+  </data>
+  <data name="SummaryTable" xml:space="preserve">
+    <value>İcmal cədvəli</value>
+  </data>
+  <data name="Tabulation" xml:space="preserve">
+    <value>Tabulyasiya</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Etiketlər</value>
+  </data>
+  <data name="TaskModuleName" xml:space="preserve">
+    <value>tapşırıqlar</value>
+  </data>
+  <data name="TheEmail" xml:space="preserve">
+    <value>E-məktub</value>
+  </data>
+  <data name="ThisMonth" xml:space="preserve">
+    <value>Bu ay</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Başlıq</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>qədər</value>
+  </data>
+  <data name="Today" xml:space="preserve">
+    <value>Bu gün</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Toplam</value>
+  </data>
+  <data name="TypeCompanyOrPerson" xml:space="preserve">
+    <value>Şirkət/Şəxs</value>
+  </data>
+  <data name="UnlinkContact" xml:space="preserve">
+    <value>Kontaktın keçidini yığışdır</value>
+  </data>
+  <data name="Up" xml:space="preserve">
+    <value>Yuxarıya</value>
+  </data>
+  <data name="UploadFile" xml:space="preserve">
+    <value>Fayl yapışdır</value>
+  </data>
+  <data name="ViewFiles" xml:space="preserve">
+    <value>Faylları göstər</value>
+  </data>
+  <data name="ViewMailingHistoryWithParticipant" xml:space="preserve">
+    <value>Bu iştirakçı ilə poçt tarixçəsinə baxın</value>
+  </data>
+  <data name="VoIPCallsSettings" xml:space="preserve">
+    <value>Zənglər</value>
+  </data>
+  <data name="VoIPCommonSettings" xml:space="preserve">
+    <value>Ümumi</value>
+  </data>
+  <data name="VoIPNumbersSettings" xml:space="preserve">
+    <value>Nömrələr</value>
+  </data>
+  <data name="VoIPSettings" xml:space="preserve">
+    <value>VoIP Parametrləri</value>
+  </data>
+  <data name="WholeCRMModule" xml:space="preserve">
+    <value>Bütün CRM modulu</value>
+  </data>
+  <data name="Yesterday" xml:space="preserve">
+    <value>Dünən</value>
+  </data>
+</root>

@@ -1,0 +1,121 @@
+/*
+ *
+ * (c) Copyright Ascensio System Limited 2010-2023
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+*/
+
+
+@imagepathlink:'/UserControls/Users/UserProfile/css/images/';
+
+.account-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.disable {
+    color: #787878;
+}
+#social {
+    font-size: 14px;
+    line-height: 30px;
+    margin-top: 16px;
+    text-align: left;
+
+    .account-links li {
+        margin-right: 7px;
+
+        a {
+            border-radius: 2px;
+            box-shadow: 0 0.5px 1.5px #cdcdcd;
+            display: inline-block;
+            height: 31px;
+            padding: 0px 8px 0 8px;
+            text-decoration: none;
+
+            &.disabled {
+                opacity: 0.5;
+                cursor: default;
+            }
+        }
+
+        .icon {
+            background-color: transparent;
+            background-repeat: no-repeat;
+            background-size: contain;
+            display: block;
+            height: 18px;
+            margin: 8px 2px 0px 2px;
+            width: 18px;
+        }
+
+        .google {
+            border-radius: 0;
+            box-shadow: none;
+            padding: 0;
+
+            .icon {
+                /*background-image: url("images/google.svg");*/
+                background-image: url("../../../../skins/default/images/svg/people/google.svg");
+                background-size: auto;
+                height: 34px;
+                margin: 0;
+                width: 105px;
+            }
+        }
+
+        .facebook .icon {
+            background-image: url("images/facebook.svg");
+        }
+
+        .linkedin .icon {
+            background-image: url("images/linkenin.svg");
+        }
+
+        .twitter .icon {
+            background-image: url("images/twitter.svg");
+        }
+
+        .mailru .icon {
+            background-image: url("images/mailru.svg");
+            width: 80px;
+        }
+
+        .yandex {
+            .icon {
+                background-image: url("images/yandex.svg");
+            }
+
+            &.ru .icon {
+                background-image: url("images/yandex_ru.svg");
+            }
+        }
+
+        .vk .icon {
+            background-image: url("images/vk.svg");
+        }
+
+        .gosuslugi .icon {
+            background-image: url("images/gosuslugi.svg");
+            width: 80px;
+        }
+
+        .appleid .icon {
+            background-image: url("images/appleid.svg");
+        }
+
+        .microsoft .icon {
+            background-image: url("images/microsoft.svg");
+        }
+    }
+}

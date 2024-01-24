@@ -1,0 +1,184 @@
+/*
+ *
+ * (c) Copyright Ascensio System Limited 2010-2023
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+*/
+
+
+@import "params.less";
+
+#milestonesListContainer
+{
+	height: auto;
+	margin-top: 50px;
+}
+
+#milestonesList {
+    a {
+        text-decoration: none;
+        cursor:default;
+    }
+
+    td {
+        &.checkbox {
+             width:20px;
+             padding: 0 4px 0 4px;
+        }
+        &.title {
+            white-space:nowrap;
+            overflow:hidden;
+            max-width:1px;
+
+            div {
+                width: 99%;
+            }
+
+            .key {
+                background: url("../../../../../skins/default/images/svg/projects/key-alt.svg") no-repeat;
+                float: left;
+                margin-right: 5px;
+                display: block;
+                width: 16px;
+                height: 16px;
+                background-position:50%;
+            }
+        }
+
+        &.activeTasksCount {
+            width: 32px;
+            padding-right: 5px;
+            padding-left: 5px;
+            text-align: right;
+
+            a {
+                color: @text-color;
+            }
+        }
+
+        &.closedTasksCount {
+            width: 32px;
+            padding-right: 5px;
+            padding-left: 5px;
+            text-align: left;
+
+            a {
+                color: #83888D;
+            }
+        }
+
+        &.slash {
+            width: 6px;
+            text-align: center;
+        }
+
+        &.responsible {
+            width: 160px;
+            padding-left: 20px;
+            padding-right: 15px;
+
+            div {
+                width: 160px;
+            }
+
+            span {
+                display: inline-block;
+                max-width: 160px;
+                overflow: hidden;
+                white-space: nowrap;
+                height: 16px;
+                border-bottom: 1px dotted transparent;
+            }
+        }
+
+        &.deadline {
+            width: 80px;
+            text-align: center;
+
+            .overdue {
+                color: #cc3300;
+            }
+        }
+
+        &.actions {
+            width: 20px;
+
+            .entity-menu {
+                margin: 0 8px 0 0;
+            }
+        }
+
+        &.process {
+            height: 37px;
+            background: url("../../../../../skins/default/images/@{loader-gif-16}") no-repeat 18px 11px;
+        }
+    }
+
+    tr.closed {
+        color: #83888D;
+    }
+
+    tr:hover td.responsible span, td.responsible span:hover {
+        border-bottom: 1px dotted @dark-text-color;
+        cursor: pointer;
+    }
+
+    tr:hover td.responsible span.not-action, td.responsible span.not-action:hover {
+        border-bottom: 1px dotted transparent;
+        cursor: default;
+    }
+}
+   
+
+/*------description panel-----*/
+
+#descriptionPanel {
+    font-size: 12px;
+    color: @text-color;
+    min-width: 150px;
+    max-width: 420px;
+    line-height: 20px;
+    z-index: 10;
+
+    value {
+        .project {
+            height: 20px;
+
+            a {
+                border-bottom: 1px dotted @text-color;
+                color: @text-color;
+                cursor: pointer;
+                max-width: 170px;
+                overflow: hidden;
+                text-decoration: none;
+                white-space: nowrap;
+                display: inline;
+            }
+        }
+
+        .createdby {
+            text-decoration: none;
+            margin-right: 15px;
+            white-space: nowrap;
+        }
+
+        .date {
+            height: 20px;
+        }
+    }
+}
+
+.noContentBlock,
+#EmptyListForFilter,
+#EmptyListMilestone {
+    display: none;
+}

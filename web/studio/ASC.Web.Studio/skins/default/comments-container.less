@@ -1,0 +1,120 @@
+/*
+ *
+ * (c) Copyright Ascensio System Limited 2010-2023
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+*/
+
+
+div.comments-item-container {
+    padding: 8px 5px 8px 15px;
+
+    > table {
+        width: 100%;
+        table-layout: fixed;
+        border: 0 none;
+
+        td {
+            vertical-align: top;
+
+            &:first-child {
+                width: 90px;
+            }
+        }
+    }
+
+    .comments-item-data {
+        min-height: 55px;
+    }
+
+    .comments-item-actions {
+        margin: 10px 0px 0px 10px;
+        height: 19px;
+    }
+
+    a.link.dotline {
+        border-bottom: 1px dotted #83888d;
+        display: none;
+        font-size: 12px;
+        text-decoration: none;
+    }
+
+    &:hover {
+        a.link.dotline {
+            display: inline-block;
+            zoom: 1;
+        }
+
+        a.link.bold {
+            text-decoration: underline;
+        }
+    }
+
+    .splitter {
+        display: inline-block;
+    }
+}
+
+#add_comment_btn,
+#cancel_comment_btn,
+#add_comment_btn:hover,
+#cancel_comment_btn:hover {
+    border-bottom: 1px dotted #83888d;
+    display: inline-block;
+    color: #83888d;
+    cursor: pointer;
+    float: left;
+    font-size: 12px;
+    margin-left: 5px;
+    margin-bottom: 9px;
+    text-decoration: none;
+}
+
+#add_comment_btn.display-none,
+#cancel_comment_btn {
+    display: none;
+}
+
+#noComments {
+    color: #83888d;
+    font-size: 12px;
+    margin-left: 5px;
+}
+#commentsTitle {
+    font-weight: normal;
+    margin-left: 5px;
+}
+
+.comment-main-container {
+    width: 100%;
+    margin-top: 5px;
+    word-wrap: break-word;
+}
+.comment-inactive {
+    padding: 10px;
+}
+.comment-main-actions-container {
+    margin-top: 5px;
+    display:none;
+}
+.comment-preview-container {
+    display: none;
+    margin-top: 20px;
+
+    .headerPanel {
+        margin-top: 0px;
+    }
+
+    .middle-button-container > .button.blue {
+        margin-right: 8px;
+    }
+}

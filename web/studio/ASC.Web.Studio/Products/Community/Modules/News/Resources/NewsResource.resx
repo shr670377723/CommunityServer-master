@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Action_Add_Name" xml:space="preserve">
+    <value>Add News</value>
+  </data>
+  <data name="Action_Comment_Name" xml:space="preserve">
+    <value>News Comment</value>
+  </data>
+  <data name="Action_Edit_Name" xml:space="preserve">
+    <value>Edit news</value>
+  </data>
+  <data name="AddonDescriptionResourceKey" xml:space="preserve">
+    <value>The latest corporate news, announcements and polls</value>
+  </data>
+  <data name="AddonName" xml:space="preserve">
+    <value>Events</value>
+  </data>
+  <data name="CancelButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ConfirmRemoveMessage" xml:space="preserve">
+    <value>Are you sure you want to delete this event?</value>
+  </data>
+  <data name="DeleteButton" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="EditButton" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="EmptyScreenAdvertLink" xml:space="preserve">
+    <value>Create the first announcement</value>
+  </data>
+  <data name="EmptyScreenAdvertsCaption" xml:space="preserve">
+    <value>No announcements have been added yet</value>
+  </data>
+  <data name="EmptyScreenEventLink" xml:space="preserve">
+    <value>Create the first event</value>
+  </data>
+  <data name="EmptyScreenEventsCaption" xml:space="preserve">
+    <value>No events have been added yet</value>
+  </data>
+  <data name="EmptyScreenNewsCaption" xml:space="preserve">
+    <value>No news have been added yet</value>
+  </data>
+  <data name="EmptyScreenNewsLink" xml:space="preserve">
+    <value>Create the first news</value>
+  </data>
+  <data name="EmptyScreenOrderLink" xml:space="preserve">
+    <value>Create the first order</value>
+  </data>
+  <data name="EmptyScreenOrdersCaption" xml:space="preserve">
+    <value>No orders have been added yet</value>
+  </data>
+  <data name="EmptyScreenPollLink" xml:space="preserve">
+    <value>Create the first poll</value>
+  </data>
+  <data name="EmptyScreenPollsCaption" xml:space="preserve">
+    <value>No polls have been added yet</value>
+  </data>
+  <data name="EmptyScreenText" xml:space="preserve">
+    <value>Create your own events, post important announcements, share the latest news and add polls to collect your colleagues' opinions directly on your portal.</value>
+  </data>
+  <data name="EmptyScreenTextVisitor" xml:space="preserve">
+    <value>View events, important announcements, the latest news and polls and learn your colleagues' opinions directly on your portal.</value>
+  </data>
+  <data name="ErrorAccessDenied" xml:space="preserve">
+    <value>Access denied</value>
+  </data>
+  <data name="ErrorEmptyQuestion" xml:space="preserve">
+    <value>Enter your poll question</value>
+  </data>
+  <data name="ErrorPollVariantCount" xml:space="preserve">
+    <value>Enter at least two poll choices</value>
+  </data>
+  <data name="FeedDeleted" xml:space="preserve">
+    <value>The event has been deleted</value>
+  </data>
+  <data name="FeedPrevCaption" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="FeedTypeNews" xml:space="preserve">
+    <value>News</value>
+  </data>
+  <data name="FeedTypePoll" xml:space="preserve">
+    <value>Polls</value>
+  </data>
+  <data name="HideButton" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="NewsAddBreadCrumbsNews" xml:space="preserve">
+    <value>Create new event</value>
+  </data>
+  <data name="NewsAddBreadCrumbsPoll" xml:space="preserve">
+    <value>Create new poll</value>
+  </data>
+  <data name="NewsAnnouncementsTypeName" xml:space="preserve">
+    <value>Announcements</value>
+  </data>
+  <data name="NewsBody" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="NewsBreadCrumbs" xml:space="preserve">
+    <value>All Events</value>
+  </data>
+  <data name="NewsCaption" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="NewsEditBreadCrumbsNews" xml:space="preserve">
+    <value>Edit Event</value>
+  </data>
+  <data name="NewsEditBreadCrumbsPoll" xml:space="preserve">
+    <value>Edit Poll</value>
+  </data>
+  <data name="NewsOrdersTypeName" xml:space="preserve">
+    <value>Orders</value>
+  </data>
+  <data name="NewsType" xml:space="preserve">
+    <value>Event Type</value>
+  </data>
+  <data name="NotificationOnNewComments" xml:space="preserve">
+    <value>Event comments</value>
+  </data>
+  <data name="NotifyOnNewFeed" xml:space="preserve">
+    <value>New events</value>
+  </data>
+  <data name="PostButton" xml:space="preserve">
+    <value>Publish</value>
+  </data>
+  <data name="PostedBy" xml:space="preserve">
+    <value>Author</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="RequaredFieldValidatorCaption" xml:space="preserve">
+    <value>The Title field is obligatory</value>
+  </data>
+  <data name="SaveButton" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SearchDefaultString" xml:space="preserve">
+    <value>Events Search</value>
+  </data>
+  <data name="ShowOnPage" xml:space="preserve">
+    <value>Show on page</value>
+  </data>
+  <data name="SubscribeOnNewComments" xml:space="preserve">
+    <value>Subscribe to comments</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="UnsubscribeFromNewComments" xml:space="preserve">
+    <value>Unsubscribe from comments</value>
+  </data>
+</root>
